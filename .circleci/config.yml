@@ -16,16 +16,16 @@ jobs:
       - run:
           name: Install Dependencies
           command: npm install
-      - save_cache:
-          key: v1-npm-deps-{{ checksum "package-lock.json" }}
-          paths:
-            - ./node_modules
       - run:
           name: Gatsby Build
           command: npm run build
       - run:
           name: Jest | Unit Test
           command: npm test
+      - save_cache:
+          key: v1-npm-deps-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules
       - persist_to_workspace:
           # Must be an absolute path, or relative path from working_directory. This is a directory on the container which is
           # taken to be the root directory of the workspace.
@@ -36,12 +36,13 @@ jobs:
   deploy:
     docker:
       - image: circleci/node:10
+    working_directory: ~/ecommerce_otop_frontend
     steps:
-      - checkout
+      # - checkout
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
           at: ~/ecommerce_otop_frontend
-      - run: npm install
+      # - run: npm install
       - run:
           name: Firebase Deploy
           command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
