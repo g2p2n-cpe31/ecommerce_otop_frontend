@@ -36,26 +36,14 @@ jobs:
   deploy:
     docker:
       - image: circleci/node:10
-    # working_directory: ~/ecommerce_otop_frontend
     steps:
-      # - checkout
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
           at: ~/ecommerce_otop_frontend
-      # - checkout
-      # - restore_cache:
-      #   keys:
-      #     # Find a cache corresponding to this specific package-lock.json
-      #     - v1-npm-deps-{{ checksum "package-lock.json" }}
-      #     # Fallback cache to be used
-      #     - v1-npm-deps-
+      - run: npm install
       - run:
           name: Firebase Deployjest
           command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
-      - save_cache:
-          key: v1-npm-deps-{{ checksum "package-lock.json" }}
-          paths:
-            - ./node_modules
 
 workflows:
   version: 2
