@@ -4,15 +4,15 @@ import { Link } from 'gatsby'
 import Layout from '../components/utility/layout'
 import Image from '../components/common/image'
 import SEO from '../components/utility/seo'
-import styled from 'styled-components'
+// import styled from 'styled-components'
 
-const Container = styled.div`
-  display: flex;
-`
+// const Container = styled.div`
+//   display: flex;
+// `
 
 const IndexPage = () => (
   <Layout>
-    <Container></Container>
+    {/* <Container></Container> */}
 
     <SEO title="Home" />
     <h1>Hi Poon</h1>

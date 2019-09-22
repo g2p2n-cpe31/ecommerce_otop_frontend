@@ -25,13 +25,16 @@
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^4.1.0",
+    "@testing-library/react": "^9.1.4",
     "babel-jest": "^24.9.0",
     "babel-preset-gatsby": "^0.2.14",
     "firebase-tools": "^7.3.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
     "prettier": "^1.18.2",
-    "react-test-renderer": "^16.9.0"
+    "react-test-renderer": "^16.9.0",
+    "ts-jest": "^24.1.0"
   },
   "keywords": [
     "gatsby"
@@ -43,7 +46,7 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "npm test -- --watch"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
