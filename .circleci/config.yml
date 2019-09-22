@@ -1,7 +1,7 @@
 version: 2
 
 jobs:
-  build:
+  build_test:
     docker:
       - image: circleci/node:10
     working_directory: ~/ecommerce_otop_frontend
@@ -23,16 +23,19 @@ jobs:
       - run:
           name: Gatsby Build
           command: npm run build
-
-  test:
-    docker:
-      - image: circleci/node:10
-    working_directory: ~/ecommerce_otop_frontend
-    steps:
-      - checkout
       - run:
           name: Jest | Unit Test
           command: npm test
+
+  # test:
+  #   docker:
+  #     - image: circleci/node:10
+  #   working_directory: ~/ecommerce_otop_frontend
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: Jest | Unit Test
+  #         command: npm test
 
   deploy:
     docker:
@@ -48,19 +51,19 @@ workflows:
   version: 2
   build-test-deploy:
     jobs:
-      - build:
+      - build_test:
           filters:
             branches:
               only: master
-      - test:
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
+      # - test:
+      #     requires:
+      #       - build
+      #     filters:
+      #       branches:
+      #         only: master
       - deploy:
           requires:
-            - test
+            - build_test
           filters:
             branches:
               only: master
