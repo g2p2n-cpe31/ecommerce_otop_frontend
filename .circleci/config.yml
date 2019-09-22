@@ -1,4 +1,5 @@
 version: 2
+
 jobs:
   build:
     docker:
@@ -22,10 +23,27 @@ jobs:
       - run:
           name: Gatsby Build
           command: npm run build
+
+    test:
       - run:
           name: Jest | Unit Test
           command: npm test
+
+    deploy:
       - run:
           name: Firebase Deployjest
-
           command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
+      - test
+      - deploy:
+          requires:
+            - test
+            - build
+          filters:
+            branches:
+              only: master
