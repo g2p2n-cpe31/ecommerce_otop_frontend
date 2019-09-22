@@ -41,7 +41,7 @@ jobs:
     steps:
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
-          at: ~/ecommerce_otop_frontend/node_modules
+          at: ~/ecommerce_otop_frontend/
       - checkout
       - run:
           name: Firebase Deployjest
