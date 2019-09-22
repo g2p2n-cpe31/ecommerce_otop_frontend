@@ -23,6 +23,9 @@ jobs:
           name: Gatsby Build
           command: npm run build
       - run:
+          name: Jest | Unit Test
+          command: npm test
+      - run:
           name: Firebase Deployjest
 
           command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
