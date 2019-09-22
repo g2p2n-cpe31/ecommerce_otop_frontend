@@ -1,12 +1,19 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import Layout from '../components/layout'
-import Image from '../components/image'
-import SEO from '../components/seo'
+import Layout from '../components/utility/layout'
+import Image from '../components/common/image'
+import SEO from '../components/utility/seo'
+import styled from 'styled-components'
+
+const Container = styled.div`
+  display: flex;
+`
 
 const IndexPage = () => (
   <Layout>
+    <Container></Container>
+
     <SEO title="Home" />
     <h1>Hi Poon</h1>
     <p>Welcome to your new Gatsby site.</p>
