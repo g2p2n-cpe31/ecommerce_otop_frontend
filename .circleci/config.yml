@@ -53,15 +53,12 @@ workflows:
             branches:
               only: master
       - test:
-          requires:
-            - build
           filters:
             branches:
               only: master
       - deploy:
           requires:
             - test
-            - build
           filters:
             branches:
               only: master
