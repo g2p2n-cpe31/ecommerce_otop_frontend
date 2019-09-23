@@ -54,7 +54,9 @@ workflows:
       - build_and_test:
           filters:
             branches:
-              only: master
+              only:
+                - develop
+                - master
       - deploy:
           requires:
             - build_and_test
