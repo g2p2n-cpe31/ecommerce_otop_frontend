@@ -8,9 +8,33 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
+import Header from './header'
+// import './layout.css'
+import styled, { createGlobalStyle } from 'styled-components'
+import Navbar from './Navbar'
 
-import Header from '../common/header'
-import './layout.css'
+const GlobalStyle = createGlobalStyle`
+
+  /* @font-face{
+    font-family: 'Roboto-Regular';
+    src: url('../fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+  }
+  */
+
+  html {
+    font-size: 62.5%;
+  }
+
+  body{
+    margin: 0;
+    font-size: 1.6rem; /* 16px */
+    background: linear-gradient(to top, #44275d, #3c5b78) no-repeat;
+    height: 100%;
+  }
+`
+const ContainerDesktop = styled.div`
+  margin: 0;
+`
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,6 +49,8 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <GlobalStyle />
+      <Navbar />
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{
@@ -34,7 +60,7 @@ const Layout = ({ children }) => {
           paddingTop: 0,
         }}
       >
-        <main>{children}</main>
+        <ContainerDesktop>{children}</ContainerDesktop>
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}

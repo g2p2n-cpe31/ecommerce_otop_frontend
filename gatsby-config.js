@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Otop ecommerce `,
+    title: `Otop ecommerce`,
     description: `Software Engineering Project`,
     author: `@g2p2n`,
   },
