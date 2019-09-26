@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import TextField from '@material-ui/core/TextField'
 import SearchIcon from '@material-ui/icons/Search'
-// import IconButton from '@material-ui/core/IconButton'
 import Button from '@material-ui/core/Button'
 
 const ContainerNavbar = styled.div`
@@ -89,11 +88,14 @@ const LogoCart = styled.img`
 
 const SearchTextBox = styled(TextField)`
   && {
+    margin: auto 4rem;
+
     input {
+      font-family: Kanit;
       font-size: 1.6rem;
       padding: 0 1.4rem;
       width: 62.5rem;
-      min-width: 280px;
+      /* min-width: 280px; */
       height: 44px;
     }
 
@@ -140,6 +142,8 @@ const DropdownButton = styled(Button)`
 `
 
 const Navbar = () => {
+  const [valueSearch, setValueSearch] = useState('')
+  const handleChangeSearch = event => setValueSearch(event.target.value)
   return (
     <ContainerNavbar>
       <ContainerListMenus>
@@ -162,9 +166,8 @@ const Navbar = () => {
         <SearchTextBox
           variant="outlined"
           margin="normal"
-          // label="With Select"
-          // value={values.weightRange}
-          // onChange={handleChange('weightRange')}
+          value={valueSearch}
+          onChange={event => handleChangeSearch(event)}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
