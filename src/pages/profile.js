@@ -10,6 +10,7 @@ const ContainerSection = styled.div`
     rgba(232, 156, 107, 0.4) 0%,
     rgba(247, 227, 127, 0.4) 100%
   );
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,6 +37,8 @@ const ContainerItems = styled.div`
 const Profile = () => {
   return (
     <Layout>
+      <ContainerSection>123</ContainerSection>
+      <ContainerSection></ContainerSection>
       <ContainerSection></ContainerSection>
       {/* <ContainerSection>
         <ContainerText>

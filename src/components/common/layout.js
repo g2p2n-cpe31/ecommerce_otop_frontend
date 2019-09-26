@@ -36,19 +36,19 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.6rem; /* 16px */
     /* background: linear-gradient(to top, #44275d, #3c5b78) no-repeat; */
     width: 100vw;
-    overflow: hidden;
+    z-index: -1;
+    
     
   }
 `
 const ContainerDesktop = styled.div`
   margin: 0 auto;
   width: 82%;
-  /* padding: 0 30rem; */
-  /* width: 100vw;
-  overflow: hidden; */
+  z-index: 2;
+  padding-top: 11.7rem;
 `
 
-const Layout = ({ children }) => {
+const Layout = props => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -72,7 +72,7 @@ const Layout = ({ children }) => {
           paddingTop: 0,
         }}
       > */}
-      <ContainerDesktop>{children}</ContainerDesktop>
+      <ContainerDesktop>{props.children}</ContainerDesktop>
       {/* <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
