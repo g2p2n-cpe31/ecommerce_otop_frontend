@@ -1,14 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
-
-import Layout from '../components/utility/layout'
+import Layout from '../components/common/Layout'
 import Image from '../components/common/image'
 import SEO from '../components/utility/seo'
-// import styled from 'styled-components'
-
-// const Container = styled.div`
-//   display: flex;
-// `
 
 const IndexPage = () => (
   <Layout>
