@@ -111,15 +111,6 @@ const SearchTextBox = styled(TextField)`
   }
 `
 
-// const SearchIconCustom = styled(SearchIcon)`
-//   && {
-//     svg {
-//       width: 15.3px;
-//       height: 16px;
-//       color: #fff;
-//     }
-//   }
-// `
 
 const SearchButton = styled(Button)`
   && {
