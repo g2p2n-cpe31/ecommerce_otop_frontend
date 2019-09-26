@@ -6,6 +6,7 @@
   "author": "@g2p2n",
   "dependencies": {
     "@material-ui/core": "^4.4.2",
+    "@material-ui/icons": "^4.4.3",
     "@material-ui/styles": "^4.4.1",
     "babel-plugin-styled-components": "^1.10.6",
     "gatsby": "^2.15.16",
