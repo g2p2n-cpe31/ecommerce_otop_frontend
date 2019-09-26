@@ -34,8 +34,8 @@ const ContainerTools = styled.div`
   /* background: black; */
 `
 
-const ContainerMenu = styled.span`
-  display: inline-flex;
+const ContainerMenu = styled.div`
+  display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 1.7rem;
@@ -62,7 +62,7 @@ const IconMenu = styled.img`
   width: 1.1rem;
   height: 11px;
   background: #f2f2f2;
-  margin-right: 0.5rem;
+  margin: auto 0.5rem;
 `
 
 const Line = styled.div`
