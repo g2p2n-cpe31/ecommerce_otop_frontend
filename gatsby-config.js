@@ -44,7 +44,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/typography./src/components/utility/Typography`,
+        pathToConfigModule: `./src/components/utility/typography`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
