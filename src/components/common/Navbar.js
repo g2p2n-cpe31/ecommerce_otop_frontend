@@ -76,14 +76,14 @@ const LogoOrg = styled.img`
   width: 17.5rem;
   height: 66px;
   background: rgba(224, 224, 224, 0.15);
-  margin-left: 9.4rem;
+  margin: auto 9.4rem;
 `
 
 const LogoCart = styled.img`
   width: 3.9rem;
   height: 39px;
   background-color: #f2f2f2;
-  margin-right: 12.6rem;
+  margin: auto 12.6rem;
 `
 
 const SearchTextBox = styled(TextField)`
