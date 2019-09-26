@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import TextField from '@material-ui/core/TextField'
-import SearchIcon from '@material-ui/icons/Search'
+// import SearchIcon from '@material-ui/icons/Search'
 import Button from '@material-ui/core/Button'
 
 const ContainerNavbar = styled.div`
@@ -111,15 +111,15 @@ const SearchTextBox = styled(TextField)`
   }
 `
 
-const SearchIconCustom = styled(SearchIcon)`
-  && {
-    svg {
-      width: 15.3px;
-      height: 16px;
-      color: #fff;
-    }
-  }
-`
+// const SearchIconCustom = styled(SearchIcon)`
+//   && {
+//     svg {
+//       width: 15.3px;
+//       height: 16px;
+//       color: #fff;
+//     }
+//   }
+// `
 
 const SearchButton = styled(Button)`
   && {
@@ -171,8 +171,12 @@ const Navbar = () => {
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                <SearchButton></SearchButton>
-                <DropdownButton></DropdownButton>
+                <SearchButton>
+                  <IconMenu />
+                </SearchButton>
+                <DropdownButton>
+                  <IconMenu />
+                </DropdownButton>
               </InputAdornment>
             ),
           }}

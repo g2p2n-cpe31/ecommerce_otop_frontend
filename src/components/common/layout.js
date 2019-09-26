@@ -7,7 +7,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useStaticQuery, graphql } from 'gatsby'
+// import { useStaticQuery, graphql } from 'gatsby'
 // import Header from './header'
 // import './layout.css'
 import styled, { createGlobalStyle } from 'styled-components'
@@ -15,7 +15,7 @@ import Navbar from './Navbar'
 
 const GlobalStyle = createGlobalStyle`
 
-  @font-face{
+  /* @font-face{
     font-family: 'Kanit-Regular';
     src: url('../../fonts/Kanit/Kanit-Regular.ttf') format('truetype');
   }
@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Kanit-Light';
     src: url('../../fonts/Kanit/Kanit-Light.ttf') format('truetype');
   }
- 
+  */
 
   html {
     font-size: 62.5%;
@@ -34,7 +34,6 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: Kanit-Regular;
     font-size: 1.6rem; /* 16px */
-    /* background: linear-gradient(to top, #44275d, #3c5b78) no-repeat; */
     width: 100vw;
     z-index: -1;
     
@@ -49,15 +48,15 @@ const ContainerDesktop = styled.div`
 `
 
 const Layout = props => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+  // const data = useStaticQuery(graphql`
+  //   query SiteTitleQuery {
+  //     site {
+  //       siteMetadata {
+  //         title
+  //       }
+  //     }
+  //   }
+  // `)
 
   return (
     <>

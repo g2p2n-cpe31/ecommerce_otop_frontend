@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Layout from '../components/common/layout'
+import Layout from '../components/common/Layout'
 
 const ContainerSection = styled.div`
   width: 100%;
@@ -16,23 +16,23 @@ const ContainerSection = styled.div`
   align-items: center;
 `
 
-const ContainerText = styled.div`
-  display: flex;
-  width: 80%;
-  /* width: 119.4rem; */
-`
+// const ContainerText = styled.div`
+//   display: flex;
+//   width: 80%;
+//   /* width: 119.4rem; */
+// `
 
-const TextSession = styled.p`
-  font-family: Kanit;
-  font-size: 1.6rem;
-  line-height: 43px;
-`
+// const TextSession = styled.p`
+//   font-family: Kanit;
+//   font-size: 1.6rem;
+//   line-height: 43px;
+// `
 
-const ContainerItems = styled.div`
-  background: rgba(255, 255, 255, 0.4);
-  width: 80%;
-  height: 359px;
-`
+// const ContainerItems = styled.div`
+//   background: rgba(255, 255, 255, 0.4);
+//   width: 80%;
+//   height: 359px;
+// `
 
 const Profile = () => {
   return (
