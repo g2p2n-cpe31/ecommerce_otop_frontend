@@ -1,10 +1,11 @@
-import React from 'react'
+import React,{ useState }  from 'react'
 import styled from 'styled-components'
 import Pineapple from '../../images/pineapple.jpg'
 import Cart from '../../images/cart.png'
 import TextField from '@material-ui/core/TextField'
-import { Container } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
+import star from '../../images/star_rate.png'
+import PlusandMinus from './plusandminus'
 
 const ContainerSection1 = styled.div`
     padding: 181px 277px 0px 277px;
@@ -45,7 +46,20 @@ const ProductName = styled.p`
 const ContainerDetial = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: flex-strat;
+    justify-content: flex-start;
+`
+
+const  ContainerStar = styled.div`
+    display: flex;
+    flex-direction: row;
+    margin-right: 20px;
+`
+
+
+const  Star_Rate = styled.img`
+    margin-right: 5px;
+    height: 16.6px;
+    width: 16px;
 `
 
 
@@ -70,35 +84,16 @@ const Price = styled.p`
 
 `
 
-// const Container_PlusandMinus = styled.div`
-//     display: flex;
-//     flex-direction: row;
-//     margin-right: 50px;
-// `
-
-// const MinusProduct = styled(Button)`
-//     display: flex;
-//     font-family: Kanit;
-//     background:  #E0E0E0;
-//     width: 10px;
-//     height: 23.8px;
-//     justify-content: center;
-//     align-items: center;
-// `
-
-// const InputNumberofProduct = styled(TextField)`
-//     height: 23.8px;
-
-// `
-
-const PlusProduct = styled(Button)`
+const Container_PlusandMinus = styled.div`
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Kanit;
-    background:  #E0E0E0;
+    flex-direction: row;
+    margin-right: 100px;
+`
+
+
+const InputNumberofProduct = styled(TextField)`
     height: 23.8px;
-    aling-items: center;
+
 `
 
 const ConntainerAdd_Buy = styled.div`
@@ -154,6 +149,16 @@ const Section1 = () => {
                     <RightItem>
                         <ProductName>สัปะรดกับมะพร้าว</ProductName>
                         <ContainerDetial>
+                            <ContainerStar>
+                                <Star_Rate src={star} alt="main-image"></Star_Rate>
+                                <Star_Rate src={star} alt="main-image"></Star_Rate>
+                                <Star_Rate src={star} alt="main-image"></Star_Rate>
+                                <Star_Rate src={star} alt="main-image"></Star_Rate>
+                                <Star_Rate src={star} alt="main-image"></Star_Rate>
+                            </ContainerStar>
+                            <Subtitle>ขายแล้ว 125 ชิ้น</Subtitle>
+                        </ContainerDetial>
+                        <ContainerDetial>
                             <Title>ชื่อร้านค้า</Title>
                             <Subtitle>Noon</Subtitle>
                         </ContainerDetial>
@@ -168,11 +173,9 @@ const Section1 = () => {
                         </ContainerDetial>
                         <ContainerDetial>
                             <Title>จำนวน</Title>
-                           {/* <Container_PlusandMinus>
-                               <PlusProduct>-</PlusProduct>
-                               <InputNumberofProduct></InputNumberofProduct>
-                               <MinusProduct>+</MinusProduct>
-                            </Container_PlusandMinus> */}
+                           <Container_PlusandMinus>
+                               <PlusandMinus></PlusandMinus>
+                            </Container_PlusandMinus>
                             <Subtitle>มีสินค้าทั้งหมด 12 ชิ้น</Subtitle>
                         </ContainerDetial>
                         <ConntainerAdd_Buy>
