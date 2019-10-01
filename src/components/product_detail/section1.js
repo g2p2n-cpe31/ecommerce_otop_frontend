@@ -147,7 +147,7 @@ const Section1 = () => {
                         <MainImage src={Pineapple} alt="main-image" />
                     </LeftItem>
                     <RightItem>
-                        <ProductName>สัปะรดกับมะพร้าว</ProductName>
+                        <ProductName>สัปปะรดกับมะพร้าว</ProductName>
                         <ContainerDetial>
                             <ContainerStar>
                                 <Star_Rate src={star} alt="main-image"></Star_Rate>

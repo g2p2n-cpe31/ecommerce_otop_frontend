@@ -1,18 +1,18 @@
 import React , {useState} from 'react'
 import  styled  from 'styled-components'
-import { TextField } from '@material-ui/core';
+import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
 const ContainerButton = styled.div`
     display: flex;
     flex-direction: row;
-    height: 28px;
-    width: 23.8px;
+    // height: 28px;
+    // width: 23.8px;
 
 `
 
 // const Styled_Button = styled(Button)`
-//     psdding: 20px;
+//     padding: 20px;
 //     border-radius: 1px;
 //     background-color: #e0e0e0;
 //     justify-content: center;
@@ -31,14 +31,13 @@ const Text_Field = styled(TextField)`
 
 
 
-
 const PlusandMinus = () => {
     const [count,setCount] = useState(0)
     return(
         <>
             <ContainerButton>
                 <button onClick={() => setCount(count-1)}>-</button>
-                <Text_Field inputProps={count}></Text_Field>
+                <Text_Field type="input"  InputProps={count} value={count}></Text_Field>
                 <button onClick={() => setCount(count+1)}>+</button>
             </ContainerButton>
         </>
