@@ -1,40 +1,44 @@
 import React from 'react'
-import styled from 'styled-components'
+import Modal from '../components/containers/Signup/Modal.js'
+import SEO from '../components/utility/seo'
+import { createGlobalStyle } from 'styled-components'
+import { TypographyStyle } from 'react-typography'
+import typography from '../components/utility/typography'
+// const GlobalStyle = createGlobalStyle`
+//   @font-face{
+//     font-family: 'Kanit-Regular';
+//     src: url('../static/fonts/Kanit/Kanit-Regular.ttf') format('truetype');
+//   }
 
-const ContainerSection = styled.div`
-    width: 100%;
-    height: 464px;
-    background: linear-gradient(
-        326.77deg, 
-        rgba(232, 156, 107, 0.4) 0%,
-        rgba(247, 227, 127, 0.4) 100%
-    );
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`
+//   @font-face{
+//     font-family: 'Kanit-Light';
+//     src: url('../static/fonts/Kanit/Kanit-Light.ttf') format('truetype');
+//   }
+  
 
-const ContainerText = styled.div`
-    display: flex;
-    width: 80%;
-`
+//   html {
+//     font-size: 62.5%;
+//   }
 
-const TextSession = styled.p`
-    font-family: Kanit;
-    font-size: 1.6rem;
-    line-height: 43px;
-`
-
+//   body{
+//     margin: 0;
+//     font-family: 'Kanit-Regular';
+//     font-size: 1.6rem; /* 16px */
+//     width: 100vw;
+//     z-index: -1;
+    
+    
+//   }
+// `
 const SignUp = () => {
     return (
-        <ContainerSection>
-            <ContainerText>
-                <TextSession>
-                    สินค้าแนะนำ
-                </TextSession>
-            </ContainerText>
-        </ContainerSection>
+        <div>
+            {/* <GlobalStyle /> */}
+            <TypographyStyle typography={typography} />
+            <SEO title="Sign Up" />
+            <Modal />
+        </div>
     )
 }
-
+  
 export default SignUp
