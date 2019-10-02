@@ -1,5 +1,6 @@
 import  React from 'react'
 import styled from 'styled-components'
+import Layout from '../components/common/layout'
 import Navbar from '../components/common/Navbar'
 import Section1 from '../components/product_detail/section1'
 import Section2 from '../components/product_detail/section2'
@@ -78,16 +79,19 @@ const  Detial = styled(Button)`
 
 const Product_detail = () => {
     return(
-        <>
+        // <Layout>
             <Container>
-                <Navbar></Navbar>
+                <Layout>
+                
                 {/* <Detial>รายละเอียดสินค้า</Detial> */}
                 {/* <ModalContainer> */}
                     <Section1></Section1>
                     <Section2></Section2>
                 {/* </ModalContainer> */}
+                </Layout>
             </Container>
-        </>
+            
+        
     )
 }
 export default Product_detail

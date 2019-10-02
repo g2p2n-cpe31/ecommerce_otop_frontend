@@ -1,4 +1,4 @@
-import React , {useState} from 'react'
+import React , {useState, useEffect} from 'react'
 import  styled  from 'styled-components'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
@@ -18,27 +18,63 @@ const ContainerButton = styled.div`
 //     justify-content: center;
 // `
 
-const Text_Field = styled(TextField)`
-    font-family: Kanit;
-    font-size: 1.6rem;
-    padding : 10px 30px;
-    background: #ffffff;
-    border-radius: 1px;
-    border: solid 1px #bdbdbd;
-    margin-right: 1px;
-    margin-left: 1px;
-`
+const TextFieldCustom = styled(TextField)`
+    && {
+        margin: 0 2px;
+        height: 23.8px;
+        & input {
+            padding: 0;
+            width: 57px;
+            height: 23.8px;
 
+            
+            
+            
+        }
+        & fieldset {
+            border-radius: 1px;
+          }
+        
+    }
+    
+`
+const ButtonCustom = styled(Button)`
+    &&{
+        width: 28px;
+        min-width: 28px;
+        height: 23.8px;
+        border-radius: 1px;
+        background-color: #e0e0e0;
+    }
+`
 
 
 const PlusandMinus = () => {
     const [count,setCount] = useState(0)
+    
+    useEffect(()=>{
+        console.log(count)
+        if(count < 0 ) setCount(0)
+        if(count === 'NaN') setCount(0)
+    },[count])
+
     return(
         <>
             <ContainerButton>
-                <button onClick={() => setCount(count-1)}>-</button>
-                <Text_Field type="input"  InputProps={count} value={count}></Text_Field>
-                <button onClick={() => setCount(count+1)}>+</button>
+                <ButtonCustom onClick={() => setCount(parseInt(count)-1)}>-</ButtonCustom>
+                {/* <Text_Field type="input"  InputProps={count} value={count}></Text_Field> */}
+                <TextFieldCustom
+                    id="outlined-bare"
+                    // type="number"
+                    defaultValue={count}
+                    margin="normal"
+                    variant="outlined"
+                    // inputProps={{ 'aria-label': 'bare' }}
+                    value={count}
+                    onChange={(e) => e.target.value !== null?setCount(e.target.value):setCount(0)}
+                    // setCount(parseInt(e.target.value))
+                />
+                <ButtonCustom onClick={() => setCount(parseInt(count)+1)}>+</ButtonCustom>
             </ContainerButton>
         </>
     )
