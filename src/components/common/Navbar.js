@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField'
 // import SearchIcon from '@material-ui/icons/Search'
 import Button from '@material-ui/core/Button'
 import { createGlobalStyle } from 'styled-components'
+import ic_cancel_white from '../../images/Navbar/ic_cancel_white.svg'
 import ImgCart from '../../images/Navbar/cart.svg'
 import ImgSell from '../../images/Navbar/sell.svg'
 import ImgNoti from '../../images/Navbar/noti.svg'
@@ -29,6 +30,7 @@ const GlobalStyle = createGlobalStyle`
 `
 const ContainerNavbar = styled.div`
   position: fixed;
+  z-index: 900;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,8 +38,13 @@ const ContainerNavbar = styled.div`
   left: 0;
   right: 0;
   background: linear-gradient(to top, #44275d, #3c5b78) no-repeat;
-  height: 13rem;
-  z-index: 900;
+  transition: all 0.5s ease;
+  height: ${props => (props.showCart ? '100%' : '13rem')};
+
+  &:hover {
+    cursor: ${props =>
+      props.showCart ? `url(${ic_cancel_white}) 205 205, auto` : 'normal'};
+  }
 `
 
 const ContainerLayout = styled.div`
@@ -114,12 +121,6 @@ const LogoOrg = styled.img`
   margin: auto 0;
 `
 
-const LogoCart = styled.img`
-  width: 4rem;
-  height: 39px;
-  margin: auto;
-`
-
 const SearchTextBox = styled(TextField)`
   && {
     margin: auto 0;
@@ -174,11 +175,27 @@ const BoxGrid = styled.div`
   padding-left: 1.8rem;
 `
 
+const LogoCart = styled.img`
+  width: 4rem;
+  height: 39px;
+  margin: auto;
+  cursor: pointer;
+`
+
 const Navbar = () => {
   const [valueSearch, setValueSearch] = useState('')
+  const [showCart, setShowCart] = useState(false)
   const handleChangeSearch = event => setValueSearch(event.target.value)
+  const handleCartFeature = () => {
+    setShowCart(!showCart)
+    console.log(showCart)
+  }
+
   return (
-    <ContainerNavbar>
+    <ContainerNavbar
+      onClick={() => (showCart ? handleCartFeature() : null)}
+      showCart={showCart}
+    >
       <ContainerLayout>
         <GlobalStyle />
         <ContainerListMenus>
@@ -222,7 +239,7 @@ const Navbar = () => {
           </MenuItem>
         ))} */}
           <BoxGrid>
-            <LogoCart src={ImgCart} />
+            <LogoCart src={ImgCart} onClick={() => handleCartFeature()} />
           </BoxGrid>
         </ContainerTools>
       </ContainerLayout>

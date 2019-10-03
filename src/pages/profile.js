@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Layout from '../components/common/Layout'
-import Navbar from '../components/common/Navbar'
+// import Navbar from '../components/common/Navbar'
 const ContainerSection = styled.div`
   width: 100%;
   height: 464px;
