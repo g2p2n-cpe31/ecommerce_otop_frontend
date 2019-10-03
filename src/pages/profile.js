@@ -36,22 +36,22 @@ const ContainerSection = styled.div`
 
 const Profile = () => {
   return (
-    <>
-      <Navbar />
-      <ContainerSection>123</ContainerSection>
-      <ContainerSection></ContainerSection>
-      <ContainerSection></ContainerSection>
-    </>
-    // <Layout>
+    // <>
+    //   <Navbar />
     //   <ContainerSection>123</ContainerSection>
     //   <ContainerSection></ContainerSection>
     //   <ContainerSection></ContainerSection>
-    //   {/* <ContainerSection>
-    //     <ContainerText>
-    //       <TextSession>สินค้าแนะนำ</TextSession>
-    //     </ContainerText>
-    //   </ContainerSection> */}
-    // </Layout>
+    // </>
+    <Layout>
+      <ContainerSection>123</ContainerSection>
+      <ContainerSection></ContainerSection>
+      <ContainerSection></ContainerSection>
+      {/* <ContainerSection>
+        <ContainerText>
+          <TextSession>สินค้าแนะนำ</TextSession>
+        </ContainerText>
+      </ContainerSection> */}
+    </Layout>
   )
 }
 
