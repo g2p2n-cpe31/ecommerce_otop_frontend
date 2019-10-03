@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import TextField from '@material-ui/core/TextField'
-// import SearchIcon from '@material-ui/icons/Search'
 import Button from '@material-ui/core/Button'
-import { createGlobalStyle } from 'styled-components'
+import GlobalStyle from '../utility/GlobalStyle'
 import ic_cancel_white from '../../images/Navbar/ic_cancel_white.svg'
 import ImgCart from '../../images/Navbar/cart.svg'
 import ImgSell from '../../images/Navbar/sell.svg'
@@ -12,22 +11,6 @@ import ImgNoti from '../../images/Navbar/noti.svg'
 import ImgDropdown from '../../images/Navbar/dropdown.svg'
 import ImgSearch from '../../images/Navbar/search.svg'
 
-const GlobalStyle = createGlobalStyle`
-
-  html {
-    font-size: 62.5%;
-  }
-
-  body{
-    margin: 0;
-    font-family: Kanit-Regular;
-    font-size: 1.6rem; /* 16px */
-    width: 100vw;
-    z-index: -1;
-    
-    
-  }
-`
 const ContainerNavbar = styled.div`
   position: fixed;
   z-index: 900;
