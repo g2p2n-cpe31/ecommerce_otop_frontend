@@ -8,11 +8,23 @@ import 'typeface-kanit'
 import Box from '@material-ui/core/Box';
 import { borderRadius } from '@material-ui/system';
 import InputAdornment from '@material-ui/core/InputAdornment'
+import { withStyles } from '@material-ui/core/styles';
+import CloseIcon from '@material-ui/icons/Close';
+import IconButton from '@material-ui/core/IconButton';
 
 const ButtonShow = styled.button`
   font-family: 'Kanit';
   font-size: 14px;
   line-height: 43px;
+`
+
+const CloseIconButton = styled(IconButton)`
+  &&{
+      position: absolute;
+      padding: 3px;
+      top: 28px;
+      right: 28px;
+  }
 `
 
 const ConfirmButton = styled(Button)`
@@ -83,7 +95,6 @@ const ModalContainer = styled(Modal)`
 
 const SearchTextBox = styled(TextField)`
   && {
-
     input {
       padding: 5px;
       text-indent: 5px;
@@ -184,98 +195,99 @@ export default function SimpleModal() {
   };
 
   return (
-      <div>
-        <ButtonShow type="button" onClick={handleOpen}>
-          สมัครสมาชิก
-        </ButtonShow>
-        <ModalContainer
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
-          open={open}
-          onClose={handleClose}
-        >
-
+    <div>
+      <ButtonShow type="button" onClick={handleOpen}>
+        สมัครสมาชิก
+      </ButtonShow>
+      <ModalContainer
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+        open={open}
+        onClose={handleClose}
+      >
         <Box style={modalStyle} className={classes.paper}>
+          <CloseIconButton className={classes.button} aria-label="close">
+            <CloseIcon />
+          </CloseIconButton>          
           <ModalTitle id="simple-modal-title">สมัครสมาชิก</ModalTitle>
+            <div>
+              <FieldFont
+                placeholder="ชื่อ"
+                className={classes.textField2}
+                margin="normal"
+              /> 
+              <FieldFont
+                placeholder="นามสกุล"
+                className={classes.textField2}
+                margin="normal"
+              />
+            </div>
 
-          <div>
+            <div>
+              <SearchTextBox
+                type="tel"
+                placeholder="เบอร์โทรศัพท์"
+                className={classes.textField2}
+                margin="normal"
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <ConfirmButton>
+                        <ConfirmText>ยืนยัน</ConfirmText>
+                      </ConfirmButton>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+
+              <FieldFont
+                type="tel"
+                placeholder="รหัส OTP (รหัสยืนยันจากโทรศัพท์)"
+                className={classes.textField2}
+                margin="normal"
+              />    
+            </div>
+            
             <FieldFont
-              placeholder="ชื่อ"
-              className={classes.textField2}
-              margin="normal"
-            /> 
+                type="email"
+                placeholder="อีเมล"
+                className={classes.textField1}
+                margin="normal"
+              />    
             <FieldFont
-              placeholder="นามสกุล"
-              className={classes.textField2}
-              margin="normal"
-            />
-          </div>
+                type="tel"
+                placeholder="ชื่อบัญชีผู้ใช้"
+                className={classes.textField1}
+                margin="normal"
+              />     
 
-          <div>
-            <SearchTextBox
-              type="tel"
-              placeholder="เบอร์โทรศัพท์"
-              className={classes.textField2}
-              margin="normal"
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <ConfirmButton>
-                      <ConfirmText>ยืนยัน</ConfirmText>
-                    </ConfirmButton>
-                  </InputAdornment>
-                ),
-              }}
-            />
+            <div>
+              <FieldFont
+                placeholder="รหัสผ่าน"
+                className={classes.textField2}
+                type="password"
+                autoComplete="current-password"
+                margin="normal"
+              />      
+              <FieldFont
+                placeholder="ยืนยันรหัสผ่าน"
+                className={classes.textField2}
+                type="password"
+                autoComplete="current-password"
+                margin="normal"
+              />  
+            </div>
 
-            <FieldFont
-              type="tel"
-              placeholder="รหัส OTP (รหัสยืนยันจากโทรศัพท์)"
-              className={classes.textField2}
-              margin="normal"
-            />    
-          </div>
-          
-          <FieldFont
-              type="email"
-              placeholder="อีเมล"
-              className={classes.textField1}
-              margin="normal"
-            />    
-          <FieldFont
-              type="tel"
-              placeholder="ชื่อบัญชีผู้ใช้"
-              className={classes.textField1}
-              margin="normal"
-            />     
+          <Box display="flex" justifyContent="flex-end" alignItems="center" p={5}>
+              <TextEnd>เป็นสมาชิกอยู่แล้ว ?</TextEnd>
+              <SignInButton href="#text-buttons" className={classes.button}>
+                เข้าสู่ระบบ
+              </SignInButton>
 
-          <div>
-            <FieldFont
-              placeholder="รหัสผ่าน"
-              className={classes.textField2}
-              type="password"
-              autoComplete="current-password"
-              margin="normal"
-            />      
-            <FieldFont
-              placeholder="ยืนยันรหัสผ่าน"
-              className={classes.textField2}
-              type="password"
-              autoComplete="current-password"
-              margin="normal"
-            />  
-          </div>
-
-        <Box display="flex" justifyContent="flex-end" alignItems="center" p={5}>
-            <TextEnd>เป็นสมาชิกอยู่แล้ว ?</TextEnd>
-            <SignInButton href="#text-buttons" className={classes.button}>
-              เข้าสู่ระบบ
-            </SignInButton>
-
-            <SignUpButton variant="extended" color="primary" aria-label="add" className={classes.margin}>
-              สมัครสมาชิก
-            </SignUpButton>
-        </Box>
+              <SignUpButton variant="extended" color="primary" aria-label="add" className={classes.margin}>
+                สมัครสมาชิก
+              </SignUpButton>
+          </Box>
 
         </Box>
       </ModalContainer>
