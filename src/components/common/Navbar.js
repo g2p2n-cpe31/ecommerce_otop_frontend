@@ -20,7 +20,7 @@ const ContainerNavbar = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, #44275d, #3c5b78) no-repeat;
+  background: linear-gradient(352.56deg, #44275d 0%, #3c5b78 100%) no-repeat;
   transition: all 0.5s ease;
   height: ${props => (props.showCart ? '100%' : '13rem')};
 
@@ -169,14 +169,14 @@ const Navbar = () => {
   const [valueSearch, setValueSearch] = useState('')
   const [showCart, setShowCart] = useState(false)
   const handleChangeSearch = event => setValueSearch(event.target.value)
-  const handleCartFeature = () => {
-    setShowCart(!showCart)
-    console.log(showCart)
+  const handleCartFeature = e => {
+    e.preventDefault()
+    if (e.target === e.currentTarget) setShowCart(!showCart)
   }
 
   return (
     <ContainerNavbar
-      onClick={() => (showCart ? handleCartFeature() : null)}
+      onClick={e => (showCart ? handleCartFeature(e) : null)}
       showCart={showCart}
     >
       <ContainerLayout>
@@ -222,7 +222,7 @@ const Navbar = () => {
           </MenuItem>
         ))} */}
           <BoxGrid>
-            <LogoCart src={ImgCart} onClick={() => handleCartFeature()} />
+            <LogoCart src={ImgCart} onClick={e => handleCartFeature(e)} />
           </BoxGrid>
         </ContainerTools>
       </ContainerLayout>

@@ -1,16 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import Layout from '../components/common/Layout'
-
+import Carousel from '../components/common/CarouselPR'
 import ContainerPR from '../components/common/ContainerPR'
 
-const MockCarousel = styled.div`
+const ContainerCarousel = styled.div`
   width: 100%;
   height: 359px;
-  background: #f8f8f8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin: 4rem auto 1rem;
 `
 
@@ -37,9 +33,9 @@ const TextTopic = styled.p`
 const Home = () => {
   return (
     <Layout>
-      <MockCarousel>
-        <p>CAROUSEL</p>
-      </MockCarousel>
+      <ContainerCarousel>
+        <Carousel />
+      </ContainerCarousel>
       <ContainerSection>
         <TextTopic>สินค้าขายดี</TextTopic>
         <ContainerPR />
