@@ -89,6 +89,7 @@ const ModalTitle = styled.div`
   color: #444444;
   padding: 10px;
   margin-top: 9px;
+  margin-bottom: 5px;
 `
 
 const ModalContainer = styled(Modal)`
@@ -219,7 +220,7 @@ export default function SimpleModal() {
                 }}
             />
             <FieldFont
-                type="tel"
+                type="password"
                 placeholder="รหัสยืนยัน"
                 className={classes.textField2}
                 margin="normal"
