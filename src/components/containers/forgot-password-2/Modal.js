@@ -66,6 +66,14 @@ const FieldFont = styled(TextField)`
         line-height: 43px;
         letter-spacing: 0.5px;
     }
+    
+     & .accept{
+      margin: normal;
+      border-bottom-color : green;
+      border-color: green;
+      
+    }
+    
   }
 `
 
@@ -113,10 +121,10 @@ const EditButton = styled(Button)`
 
 const SearchTextBox = styled(TextField)`
   && {
-      width:337px;
-      padding: 0px;
-      margin-top: 30px;
-      margin-bottom: 0px;
+    width:337px;
+    padding: 0px;
+    margin-top: 30px;
+    margin-bottom: 0px;
     input {
       padding: 10px;
       text-indent: 5px;
@@ -213,24 +221,21 @@ export default function SimpleModal() {
                 }}
             />
             <FieldFont
-                disabled
                 type="tel"
                 placeholder="รหัสยืนยัน"
-                className={classes.textField2}
-                margin="normal"
-                borderBottomColor="green"
+                className= "accept"
             />
 
             <FieldFont
                 type="tel"
                 placeholder="รหัสผ่านใหม่"
-                className={classes.textField2}
+                className={classes.textField1}
                 margin="normal"
             />
             <FieldFont
                 type="tel"
                 placeholder="ยืนยันรหัสผ่านใหม่"
-                className={classes.textField2}
+                className={classes.textField1}
                 margin="normal"
             />
 
