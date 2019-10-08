@@ -35,7 +35,7 @@ const SignUp = () => {
         <div>
             {/* <GlobalStyle /> */}
             <TypographyStyle typography={typography} />
-            <SEO title="Sign Up" />
+            <SEO title="สมัครสมาชิก" />
             <Modal />
         </div>
     )
