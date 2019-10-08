@@ -176,6 +176,12 @@ const SignUpButton = styled(Button)`
   }
 `
 
+const ImageSideLeft = styled.img`
+  width: 271px;
+  height: 474px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+`
 
 const UserField = styled(TextField)`
   &&  {
@@ -262,12 +268,7 @@ export default function SimpleModal() {
             </CloseIconButton>  
 
             <Box_1 style={modalStyle} >
-                <img src={picture} 
-                    width="271px"
-                    height="474px"
-                    margin-bottom="0px"
-                    // border-radius="10px"
-                />
+                <ImageSideLeft src={picture}  />
             </Box_1>
 
             <Box_2 style={modalStyle}>
