@@ -10,6 +10,7 @@ import ImgSell from '../../images/Navbar/sell.svg'
 import ImgNoti from '../../images/Navbar/noti.svg'
 import ImgDropdown from '../../images/Navbar/dropdown.svg'
 import ImgSearch from '../../images/Navbar/search.svg'
+import Logo from '../../images/logo.png'
 
 const ContainerNavbar = styled.div`
   position: fixed;
@@ -197,7 +198,7 @@ const Navbar = () => {
           </ContainerUserMenu>
         </ContainerListMenus>
         <ContainerTools>
-          <LogoOrg />
+          <LogoOrg src={Logo} />
           <SearchTextBox
             variant="outlined"
             margin="normal"
