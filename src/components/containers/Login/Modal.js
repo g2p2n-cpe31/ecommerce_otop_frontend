@@ -17,15 +17,18 @@ const BigBox = styled(Box)`
 `
 
 const Box_1 = styled(Box)`
-    width: 258px;
+    width: 272px;
     height: 474px;
     border-radius: 10px;
+    /* margin: 0 0 0 0; */
 `
 
 const Box_2 = styled(Box)`
-    width: 472px;
+    width: 458px;
     height: 474px;
-    border-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    /* border-radius: 10px; */
 `
 
 const SmallBox = styled(Box)`
@@ -68,6 +71,8 @@ const CloseIconButton = styled(IconButton)`
       padding: 3px;
       top: 28px;
       right: 28px;
+      background: rgba(255, 255, 255, 0.5);
+      color: grey;
   }
 `
 
@@ -86,6 +91,14 @@ const ForgotPassword = styled(Button)`
     color: linear-gradient(316.04deg, #44275D 0%, #3C5B78 100%);
     opacity: 0.7;
   }
+`
+
+const ImageSideLeft = styled.img`
+  width: 272px;
+  height: 474px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  margin: 0 0 0 0;
 `
 
 const NotMember = styled.div`
@@ -176,13 +189,6 @@ const SignUpButton = styled(Button)`
   }
 `
 
-const ImageSideLeft = styled.img`
-  width: 271px;
-  height: 474px;
-  border-bottom-left-radius: 10px;
-  border-top-left-radius: 10px;
-`
-
 const UserField = styled(TextField)`
   &&  {
     display: flex;
@@ -211,8 +217,8 @@ const useStyles = makeStyles(theme => ({
     top: '50%',
     marginTop: '-263px',
     marginLeft: '-409px',
-    width: '732px',
-    height: '476px',    
+    width: '730px',
+    height: '474px',    
     backgroundColor: theme.palette.background.paper,
     border: '0.5px solid #000',
     // boxShadow: theme.shadows[1],
@@ -268,7 +274,7 @@ export default function SimpleModal() {
             </CloseIconButton>  
 
             <Box_1 style={modalStyle} >
-                <ImageSideLeft src={picture}  />
+                <ImageSideLeft src={picture}/>
             </Box_1>
 
             <Box_2 style={modalStyle}>
@@ -284,7 +290,7 @@ export default function SimpleModal() {
                     className={classes.textField2}
                     type="password"
                     autoComplete="current-password"
-                      margin="normal"
+                    margin="normal"
                 />
                 <ForgotPassword href="#text-buttons" className={classes.button} flexbox="flex-end">
                   ลืมรหัสผ่าน
