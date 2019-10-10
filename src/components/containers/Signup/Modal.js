@@ -206,7 +206,11 @@ export default function SimpleModal() {
         onClose={handleClose}
       >
         <Box style={modalStyle} className={classes.paper}>
-          <CloseIconButton className={classes.button} aria-label="close">
+          <CloseIconButton 
+            className={classes.button} 
+            aria-label="close"
+            onClick={handleClose}
+          >
             <CloseIcon />
           </CloseIconButton>          
           <ModalTitle id="simple-modal-title">สมัครสมาชิก</ModalTitle>
