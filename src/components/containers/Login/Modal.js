@@ -269,7 +269,11 @@ export default function SimpleModal() {
       >
         <BigBox style={modalStyle} className={classes.paper}>
 
-            <CloseIconButton className={classes.button} aria-label="close">
+            <CloseIconButton 
+              className={classes.button} 
+              aria-label="close"
+              onClick={handleClose}
+            >
                 <CloseIcon />
             </CloseIconButton>  
 
