@@ -11,6 +11,7 @@ import ImgNoti from '../../images/Navbar/noti.svg'
 import ImgDropdown from '../../images/Navbar/dropdown.svg'
 import ImgSearch from '../../images/Navbar/search.svg'
 import Logo from '../../images/logo.png'
+import ButtonFlat from './ButtonFlat'
 
 const ContainerNavbar = styled.div`
   position: fixed;
@@ -131,26 +132,6 @@ const SearchTextBox = styled(TextField)`
   }
 `
 
-const SearchButton = styled(Button)`
-  && {
-    width: 6.45rem;
-    height: 39px;
-    border-radius: 0.2rem;
-    background-color: #e89c6b;
-    margin-right: 0.28rem;
-  }
-`
-
-const DropdownButton = styled(Button)`
-  && {
-    min-width: 3.37rem;
-    height: 39px;
-    border-radius: 0.2rem;
-    background-color: #828282;
-    margin-right: 0.28rem;
-  }
-`
-
 const BoxGrid = styled.div`
   width: 139px;
   display: flex;
@@ -207,12 +188,16 @@ const Navbar = () => {
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  <SearchButton>
+                  <ButtonFlat margin="0 .28rem 0 0">
                     <IconSearch src={ImgSearch} />
-                  </SearchButton>
-                  <DropdownButton>
+                  </ButtonFlat>
+                  <ButtonFlat
+                    background="#828282"
+                    width="3.37rem"
+                    margin="0 .28rem 0 0"
+                  >
                     <IconDropdown src={ImgDropdown} />
-                  </DropdownButton>
+                  </ButtonFlat>
                 </InputAdornment>
               ),
             }}
