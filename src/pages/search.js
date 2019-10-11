@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import FilterSide from '../components/containers/Search/FilterSide'
 import Navbar from '../components/common/Navbar'
 import ContainerProduction from '../components/common/ContainerProduct'
+import Pagination from '../components/common/Pagination'
 
 const Contaienr = styled.div`
   display: flex;
@@ -39,6 +40,7 @@ const SearchPage = () => {
             ค้นหา <span>" ผลไม้สด "</span>
           </WordSearching>
           <ContainerProduction />
+          <Pagination />
         </WrapProduct>
       </Contaienr>
     </>
