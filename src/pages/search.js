@@ -1,28 +1,29 @@
 import React from 'react'
-import Layout from '../components/common/Layout'
 import styled from 'styled-components'
 import FilterSide from '../components/containers/Search/FilterSide'
-
+import Navbar from '../components/common/Navbar'
 const Contaienr = styled.div`
   display: flex;
   width: 100%;
   height: 100vh;
+  padding-top: 13rem;
 `
 
 const ContainerProduct = styled.div`
   display: flex;
-  width: 100%;
+  width: 65%;
   height: 100%;
 `
 
 const SearchPage = () => {
   return (
-    <Layout>
+    <>
+      <Navbar />
       <Contaienr>
         <FilterSide />
         <ContainerProduct />
       </Contaienr>
-    </Layout>
+    </>
   )
 }
 

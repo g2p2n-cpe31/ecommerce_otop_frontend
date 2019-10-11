@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
 import FormControl from '@material-ui/core/FormControl'
-import dropdown_filter from '../../images/SearchPage/dropdown_filter.png'
+import dropdown_filter from '../../images/SearchPage/dropdown_filter.svg'
 
 const FormCustom = styled(FormControl)`
-  width: 100%;
+  && {
+    width: ${props => props.width};
+    margin: ${props => props.margin_form};
+  }
 `
 
 const SelectCustom = styled(Select)`
@@ -14,13 +17,23 @@ const SelectCustom = styled(Select)`
     display: flex;
     align-items: center;
     width: 100%;
+    height: 40px;
     font-family: Kanit;
-    background: #fff;
+    font-size: 17px;
+    font-weight: 300;
+    color: #828282;
 
     fieldset {
-      border-width: 0;
-      background: #f2f2f2;
+      border-width: 0 !important;
       border-radius: 2px;
+      background: #fff;
+    }
+    .MuiOutlinedInput-input {
+      padding: auto 1.9rem;
+    }
+
+    .MuiInputBase-input {
+      z-index: 2;
     }
   }
 `
@@ -28,31 +41,39 @@ const SelectCustom = styled(Select)`
 const IconDropDown = styled.img`
   width: 20px;
   height: 10px;
-  z-index: 1;
   margin: auto 2.5rem;
   position: absolute;
   right: 0;
+  cursor: pointer;
+  z-index: 1;
 `
 
-const SelectFlat = props => {
+const SelectFlat = ({
+  displayEmpty = true,
+  placeholder = '',
+  margin_form = '0',
+  width = '100%',
+}) => {
+  const [option, setOption] = useState('')
+
+  const handleChange = event => {
+    setOption(event.target.value)
+  }
+
   return (
-    <FormCustom variant="outlined">
-      {/* <InputLabel htmlFor="filled-age-simple">Age</InputLabel> */}
+    <FormCustom variant="outlined" margin_form={margin_form} width={width}>
       <SelectCustom
         IconComponent={() => <IconDropDown src={dropdown_filter} />}
-        //   value={values.age}
-        //   onChange={handleChange}
-        //   inputProps={{
-        //     name: 'age',
-        //     id: 'filled-age-simple',
-        //   }}
+        value={option}
+        onChange={handleChange}
+        displayEmpty={displayEmpty}
       >
-        <MenuItem value="">
-          <em>None</em>
+        <MenuItem value="" disabled>
+          {placeholder}
         </MenuItem>
-        <MenuItem value={10}>Ten</MenuItem>
-        <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem>
+        <MenuItem value={10}>1</MenuItem>
+        <MenuItem value={20}>2</MenuItem>
+        <MenuItem value={30}>3</MenuItem>
       </SelectCustom>
     </FormCustom>
   )

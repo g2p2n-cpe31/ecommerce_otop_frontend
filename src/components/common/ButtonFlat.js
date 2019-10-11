@@ -8,10 +8,17 @@ const ButtonFlat = ({
   background = ' #e89c6b',
   border_radius = '0.2rem',
   margin = '0',
+  color = '#000',
+  font_size = '1.4rem',
+  font_weight = '400',
   ...props
 }) => {
   const ButtonCustomFlat = styled(Button)`
     && {
+      font-family: Kanit;
+      font-size: ${font_size};
+      font-weight: ${font_weight};
+      color: ${color};
       min-width: 0;
       width: ${width};
       height: ${height};
