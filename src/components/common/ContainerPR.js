@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Item from './ItemPR'
+import ItemProduct from './ItemProduct'
 
 const ContainerItems = styled.div`
   background: ${props => props.background || 'rgba(138, 138, 138, 0.4)'};
@@ -20,13 +20,14 @@ const ContainerPR = props => {
   return (
     <>
       <ContainerItems background={props.background}>
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
+        <ItemProduct margin="auto 1rem" height="339px" />
+        <ItemProduct margin="auto 1rem" height="339px" />
+        <ItemProduct margin="auto 1rem" height="339px" />
+        <ItemProduct margin="auto 1rem" height="339px" />
+        <ItemProduct margin="auto 1rem" height="339px" />
+        <ItemProduct margin="auto 1rem" height="339px" />
+        <ItemProduct margin="auto 1rem" height="339px" />
+        <ItemProduct margin="auto 1rem" height="339px" />
       </ContainerItems>
     </>
   )

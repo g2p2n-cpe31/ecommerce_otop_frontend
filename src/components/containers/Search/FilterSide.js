@@ -7,7 +7,7 @@ const ContainerFilter = styled.div`
   max-width: 67.5rem;
   min-width: 28rem;
   width: 35%;
-  height: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   background: #e0e0e0;
