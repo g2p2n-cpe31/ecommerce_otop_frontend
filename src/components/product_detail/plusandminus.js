@@ -6,37 +6,23 @@ import Button from '@material-ui/core/Button'
 const ContainerButton = styled.div`
     display: flex;
     flex-direction: row;
-    // height: 28px;
-    // width: 23.8px;
-
 `
-
-// const Styled_Button = styled(Button)`
-//     padding: 20px;
-//     border-radius: 1px;
-//     background-color: #e0e0e0;
-//     justify-content: center;
-// `
 
 const TextFieldCustom = styled(TextField)`
     && {
         margin: 0 2px;
         height: 23.8px;
         & input {
+            text-indent: 45%;
+            text-align: left;
             padding: 0;
             width: 57px;
             height: 23.8px;
-
-            
-            
-            
         }
         & fieldset {
             border-radius: 1px;
           }
-        
     }
-    
 `
 const ButtonCustom = styled(Button)`
     &&{
@@ -51,7 +37,7 @@ const ButtonCustom = styled(Button)`
 
 const PlusandMinus = () => {
     const [count,setCount] = useState(0)
-    
+
     useEffect(()=>{
         console.log(count)
         if(count < 0 ) setCount(0)
@@ -62,17 +48,11 @@ const PlusandMinus = () => {
         <>
             <ContainerButton>
                 <ButtonCustom onClick={() => setCount(parseInt(count)-1)}>-</ButtonCustom>
-                {/* <Text_Field type="input"  InputProps={count} value={count}></Text_Field> */}
                 <TextFieldCustom
-                    id="outlined-bare"
-                    // type="number"
-                    defaultValue={count}
                     margin="normal"
                     variant="outlined"
-                    // inputProps={{ 'aria-label': 'bare' }}
                     value={count}
-                    onChange={(e) => e.target.value !== null?setCount(e.target.value):setCount(0)}
-                    // setCount(parseInt(e.target.value))
+                    onChange={(e) =>  e.target.value !== null?setCount(e.target.value):setCount(0)}
                 />
                 <ButtonCustom onClick={() => setCount(parseInt(count)+1)}>+</ButtonCustom>
             </ContainerButton>
