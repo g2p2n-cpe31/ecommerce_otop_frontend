@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles'
 import Tooltip from '@material-ui/core/Tooltip'
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
-import ImageStar from '../../../ecommerce_otop_ui_export/Icon/star.svg'
+import ImageStar from '../../images/ProductDetail/star.svg'
 import EmptyStar from '../../images/ProductDetail/star_opacity.png'
 
 const labels = {
