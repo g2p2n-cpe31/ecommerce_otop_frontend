@@ -12,7 +12,8 @@ const ImageContainer = styled.div`
 const ContainerDetail = styled.div`
   width: 100%;
   display: flex;
-  padding: 0.6rem 1.2rem;
+  /* padding: 0.6rem 1.2rem; */
+  padding: 1.2rem;
   flex-direction: column;
 
   p {
@@ -21,7 +22,7 @@ const ContainerDetail = styled.div`
 `
 const NameProduct = styled.p`
   font-family: Kanit;
-  font-weight: 300;
+  font-weight: 350;
   font-size: 12px;
   letter-spacing: 0.5px;
   color: #4f4f4f;
