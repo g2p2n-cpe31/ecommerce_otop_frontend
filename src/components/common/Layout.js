@@ -10,41 +10,16 @@ import PropTypes from 'prop-types'
 // import { useStaticQuery, graphql } from 'gatsby'
 // import Header from './header'
 // import './layout.css'
-import styled, { createGlobalStyle } from 'styled-components'
+import styled from 'styled-components'
+import GlobalStyle from '../utility/GlobalStyle'
 import Navbar from './Navbar'
 
-const GlobalStyle = createGlobalStyle`
-
-  /* @font-face{
-    font-family: 'Kanit-Regular';
-    src: url('../../fonts/Kanit/Kanit-Regular.ttf') format('truetype');
-  }
-
-  @font-face{
-    font-family: 'Kanit-Light';
-    src: url('../../fonts/Kanit/Kanit-Light.ttf') format('truetype');
-  }
-  */
-
-  html {
-    font-size: 62.5%;
-  }
-
-  body{
-    margin: 0;
-    font-family: Kanit-Regular;
-    font-size: 1.6rem; /* 16px */
-    width: 100vw;
-    z-index: -1;
-    
-    
-  }
-`
 const ContainerDesktop = styled.div`
   margin: 0 auto;
   width: 82%;
+  max-width: 1366px;
   z-index: 2;
-  padding-top: 11.7rem;
+  padding-top: 13rem;
 `
 
 const Layout = props => {

@@ -2,27 +2,47 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import TextField from '@material-ui/core/TextField'
-// import SearchIcon from '@material-ui/icons/Search'
-import Button from '@material-ui/core/Button'
+import GlobalStyle from '../utility/GlobalStyle'
+import ic_cancel_white from '../../images/Navbar/ic_cancel_white.svg'
+import ImgCart from '../../images/Navbar/cart.svg'
+import ImgSell from '../../images/Navbar/sell.svg'
+import ImgNoti from '../../images/Navbar/noti.svg'
+import ImgDropdown from '../../images/Navbar/dropdown.svg'
+import ImgSearch from '../../images/Navbar/search.svg'
+import Logo from '../../images/logo.png'
+import ButtonFlat from './ButtonFlat'
 
 const ContainerNavbar = styled.div`
   position: fixed;
+  z-index: 900;
   display: flex;
   flex-direction: column;
   align-items: center;
   top: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, #44275d, #3c5b78) no-repeat;
-  height: 11.7rem;
-  z-index: 900;
+  background: linear-gradient(352.56deg, #44275d 0%, #3c5b78 100%) no-repeat;
+  transition: all 0.5s ease;
+  height: ${props => (props.showCart ? '100%' : '13rem')};
+
+  &:hover {
+    cursor: ${props =>
+      props.showCart ? `url(${ic_cancel_white}) 205 205, auto` : 'normal'};
+  }
+`
+
+const ContainerLayout = styled.div`
+  width: 136.6rem;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 const ContainerListMenus = styled.div`
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  height: 38px;
 `
 
 const ContainerTools = styled.div`
@@ -31,23 +51,21 @@ const ContainerTools = styled.div`
   align-items: center;
   width: 100%;
   height: 66px;
-  /* background: black; */
 `
 
 const ContainerMenu = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 1.7rem;
+  margin-left: 1.7rem;
 `
 
 const ContainerUserMenu = styled.div`
-  width: 13.8rem;
+  width: 139px;
   white-space: nowrap;
   display: flex;
   justify-content: center;
-  margin-left: 2.9rem;
-  margin-right: 8.4rem;
+  margin-left: 41.5px;
 `
 
 const TextMenu = styled.p`
@@ -61,7 +79,16 @@ const TextMenu = styled.p`
 const IconMenu = styled.img`
   width: 1.1rem;
   height: 11px;
-  background: #f2f2f2;
+  margin: auto 0.5rem;
+`
+const IconSearch = styled.img`
+  width: 1.527rem;
+  height: 15.55px;
+  margin: auto 0.5rem;
+`
+const IconDropdown = styled.img`
+  width: 1.331rem;
+  height: 6.82px;
   margin: auto 0.5rem;
 `
 
@@ -75,27 +102,19 @@ const Line = styled.div`
 const LogoOrg = styled.img`
   width: 17.5rem;
   height: 66px;
-  background: rgba(224, 224, 224, 0.15);
-  margin: auto 9.4rem;
-`
-
-const LogoCart = styled.img`
-  width: 3.9rem;
-  height: 39px;
-  background-color: #f2f2f2;
-  margin: auto 12.6rem;
+  margin: auto 0;
 `
 
 const SearchTextBox = styled(TextField)`
   && {
-    margin: auto 4rem;
+    margin: auto 0;
+    width: 96.9rem;
 
     input {
       font-family: Kanit;
       font-size: 1.6rem;
       padding: 0 1.4rem;
-      width: 62.5rem;
-      /* min-width: 280px; */
+      width: 100%;
       height: 44px;
     }
 
@@ -103,6 +122,7 @@ const SearchTextBox = styled(TextField)`
       z-index: -1;
       background-color: rgba(242, 242, 242, 0.9);
       border-width: 0 !important;
+      width: 100%;
     }
 
     & .MuiOutlinedInput-adornedEnd {
@@ -111,74 +131,86 @@ const SearchTextBox = styled(TextField)`
   }
 `
 
-
-const SearchButton = styled(Button)`
-  && {
-    width: 6.45rem;
-    height: 39px;
-    border-radius: 0.2rem;
-    background-color: #e89c6b;
-    margin-right: 0.28rem;
-  }
+const BoxGrid = styled.div`
+  width: 139px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1.8rem;
 `
 
-const DropdownButton = styled(Button)`
-  && {
-    min-width: 3.37rem;
-    height: 39px;
-    border-radius: 0.2rem;
-    background-color: #828282;
-    margin-right: 0.28rem;
-  }
+const LogoCart = styled.img`
+  width: 4rem;
+  height: 39px;
+  margin: auto;
+  cursor: pointer;
 `
 
 const Navbar = () => {
   const [valueSearch, setValueSearch] = useState('')
+  const [showCart, setShowCart] = useState(false)
   const handleChangeSearch = event => setValueSearch(event.target.value)
+  const handleCartFeature = e => {
+    e.preventDefault()
+    if (e.target === e.currentTarget) setShowCart(!showCart)
+  }
+
   return (
-    <ContainerNavbar>
-      <ContainerListMenus>
-        <ContainerMenu>
-          <IconMenu />
-          <TextMenu>ขาย</TextMenu>
-        </ContainerMenu>
-        <ContainerMenu>
-          <IconMenu />
-          <TextMenu>การแจ้งเตือน</TextMenu>
-        </ContainerMenu>
-        <ContainerUserMenu>
-          <TextMenu>สมัครสมาชิก</TextMenu>
-          <Line />
-          <TextMenu>เข้าสู่ระบบ</TextMenu>
-        </ContainerUserMenu>
-      </ContainerListMenus>
-      <ContainerTools>
-        <LogoOrg />
-        <SearchTextBox
-          variant="outlined"
-          margin="normal"
-          value={valueSearch}
-          onChange={event => handleChangeSearch(event)}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <SearchButton>
-                  <IconMenu />
-                </SearchButton>
-                <DropdownButton>
-                  <IconMenu />
-                </DropdownButton>
-              </InputAdornment>
-            ),
-          }}
-        />
-        {/* {ranges.map(option => (
+    <ContainerNavbar
+      onClick={e => (showCart ? handleCartFeature(e) : null)}
+      showCart={showCart}
+    >
+      <ContainerLayout>
+        <GlobalStyle />
+        <ContainerListMenus>
+          <ContainerMenu>
+            <IconMenu src={ImgSell} />
+            <TextMenu>ขาย</TextMenu>
+          </ContainerMenu>
+          <ContainerMenu>
+            <IconMenu src={ImgNoti} />
+            <TextMenu>การแจ้งเตือน</TextMenu>
+          </ContainerMenu>
+          <ContainerUserMenu>
+            <TextMenu>สมัครสมาชิก</TextMenu>
+            <Line />
+            <TextMenu>เข้าสู่ระบบ</TextMenu>
+          </ContainerUserMenu>
+        </ContainerListMenus>
+        <ContainerTools>
+          <LogoOrg src={Logo} />
+          <SearchTextBox
+            variant="outlined"
+            margin="normal"
+            value={valueSearch}
+            onChange={event => handleChangeSearch(event)}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <ButtonFlat margin="0 .28rem 0 0">
+                    <IconSearch src={ImgSearch} />
+                  </ButtonFlat>
+                  <ButtonFlat
+                    background="#828282"
+                    width="3.37rem"
+                    margin="0 .28rem 0 0"
+                  >
+                    <IconDropdown src={ImgDropdown} />
+                  </ButtonFlat>
+                </InputAdornment>
+              ),
+            }}
+          />
+          {/* {ranges.map(option => (
           <MenuItem key={option.value} value={option.value}>
             {option.label}
           </MenuItem>
         ))} */}
-        <LogoCart />
-      </ContainerTools>
+          <BoxGrid>
+            <LogoCart src={ImgCart} onClick={e => handleCartFeature(e)} />
+          </BoxGrid>
+        </ContainerTools>
+      </ContainerLayout>
     </ContainerNavbar>
   )
 }
