@@ -2,21 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import ImgStarVote from '../../images/Navbar/star_vote.svg'
 
-const Card = styled.div`
-  width: 229px;
-  height: 339px;
-  background: #f2f2f2;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  margin: auto 1rem;
-`
-
 const ImageContainer = styled.div`
   width: 229px;
-  height: 234px;
-  /* background: url(humphrey-muleba-mIzTRbaqDGM-unsplash.jpg); */
+  height: 454px;
   background: rgb(224, 209, 214);
   border-radius: 5px 5px 0px 0px;
 `
@@ -24,7 +12,8 @@ const ImageContainer = styled.div`
 const ContainerDetail = styled.div`
   width: 100%;
   display: flex;
-  padding: 0.6rem 1.2rem;
+  /* padding: 0.6rem 1.2rem; */
+  padding: 1.2rem;
   flex-direction: column;
 
   p {
@@ -33,7 +22,7 @@ const ContainerDetail = styled.div`
 `
 const NameProduct = styled.p`
   font-family: Kanit;
-  font-weight: 300;
+  font-weight: 350;
   font-size: 12px;
   letter-spacing: 0.5px;
   color: #4f4f4f;
@@ -90,9 +79,24 @@ const TextSold = styled.p`
   color: #828282;
 `
 
-const ItemPR = () => {
+const Card = styled.div`
+  width: 229px;
+  /* height: 339px;
+  height: 562px; */
+  height: ${props => props.height};
+  background: #f2f2f2;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  /* margin: auto 1rem;
+  margin: 2.9rem 1rem; */
+  margin: ${props => props.margin};
+`
+
+const ItemProduct = ({ margin = ' 2.9rem 1rem', height = '562px' }) => {
   return (
-    <Card>
+    <Card margin={margin} height={height}>
       <ImageContainer></ImageContainer>
       <ContainerDetail>
         <NameProduct>กระหรี่ปัป</NameProduct>
@@ -110,4 +114,4 @@ const ItemPR = () => {
   )
 }
 
-export default ItemPR
+export default ItemProduct
