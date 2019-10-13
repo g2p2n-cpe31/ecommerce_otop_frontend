@@ -19,7 +19,7 @@ const Detail = styled.p`
 
 
 
-const Section2 = () => {
+const SectionTwo = () => {
     return (
         <>
             <Content>
@@ -28,4 +28,4 @@ const Section2 = () => {
         </>
     )
 }
-export default Section2
+export default SectionTwo

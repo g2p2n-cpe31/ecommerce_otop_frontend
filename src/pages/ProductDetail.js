@@ -1,8 +1,8 @@
 import  React from 'react'
 import styled from 'styled-components'
 import Layout from '../components/common/Layout'
-import Section1 from '../components/product_detail/Section1'
-import Section2 from '../components/product_detail/Section2'
+import SectionOne from '../components/product_detail/SectionOne'
+import SectionTwo from '../components/product_detail/SectionTwo'
 
 
 const Container = styled.div`
@@ -14,8 +14,8 @@ const Product_detail = () => {
     return(
             <Container>
                 <Layout>
-                    <Section1></Section1>
-                    <Section2></Section2>
+                    <SectionOne/>
+                    <SectionTwo/>
                 </Layout>
             </Container>
     )

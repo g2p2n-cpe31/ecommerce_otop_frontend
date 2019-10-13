@@ -2,7 +2,6 @@ import React from 'react'
 import Rating from '@material-ui/lab/Rating'
 import  styled  from 'styled-components'
 import Box from '@material-ui/core/Box'
-import { withStyles } from '@material-ui/core/styles'
 import Tooltip from '@material-ui/core/Tooltip'
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
@@ -88,8 +87,8 @@ export default function HoverRating() {
                         onChange={(event, newValue) => {
                           setValue(newValue);
                         }}
-                        icon={<img src={ImageStar} fontSize="inherit" />}
-                        emptyIcon={<img src={EmptyStar} fontSize="inherit" />}
+                        icon={<img src={ImageStar}/>}
+                        emptyIcon={<img src={EmptyStar}/>}
                     />
                      <ContainerRating ml={2}>{labels[hover !== -1 ? hover : value]}</ContainerRating>
             </StyleStar>

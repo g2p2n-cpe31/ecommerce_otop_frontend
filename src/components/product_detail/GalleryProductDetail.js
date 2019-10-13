@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import MockImage1 from '../../images/ProductDetail/pineapple.jpg'
-import MockImage2 from '../../images/ProductDetail/pineapple1.jpg'
+import MockImageOne from '../../images/ProductDetail/pineapple.jpg'
+import MockImageTwo from '../../images/ProductDetail/pineapple1.jpg'
 
 
 const ImageShowing = styled.img`
@@ -31,17 +31,17 @@ const ItemImage = styled.img`
 
 
 const GalleryProductDetail = () => {
-  const [path, setPath] = useState(MockImage1)
+  const [path, setPath] = useState(MockImageOne)
 
   return (
       <>
         <ImageShowing src={path} />
         <ContainerImages>
-          <ItemImage src={MockImage1} onClick={(e) => setPath(e.target.src)} />
-          <ItemImage src={MockImage2} onClick={(e) => setPath(e.target.src)}  />
-          <ItemImage src={MockImage1} onClick={(e) => setPath(e.target.src)} />
-          <ItemImage src={MockImage2} onClick={(e) => setPath(e.target.src)} />
-          <ItemImage src={MockImage1} onClick={(e) => setPath(e.target.src)} />
+          <ItemImage src={MockImageOne} onClick={(e) => setPath(e.target.src)} />
+          <ItemImage src={MockImageTwo} onClick={(e) => setPath(e.target.src)}  />
+          <ItemImage src={MockImageOne} onClick={(e) => setPath(e.target.src)} />
+          <ItemImage src={MockImageTwo} onClick={(e) => setPath(e.target.src)} />
+          <ItemImage src={MockImageOne} onClick={(e) => setPath(e.target.src)} />
         </ContainerImages>
       </>
   )
