@@ -56,7 +56,7 @@ const  ContainerStar = styled.div`
     align-items: flex-start;
     height: 40px;
     padding: 3px 0 0 0;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
 `
 
 

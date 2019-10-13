@@ -7,6 +7,7 @@ import Tooltip from '@material-ui/core/Tooltip'
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import ImageStar from '../../../ecommerce_otop_ui_export/Icon/star.svg'
+import EmptyStar from '../../images/ProductDetail/star_opacity.png'
 
 const labels = {
     0.5: '0.5',
@@ -51,21 +52,10 @@ const ContainerRating = styled.p`
   margin-bottom: 0;
 `
 
-const StyledRating = withStyles({
-    iconFilled: {
-      color: '#E89C6B',
-    },
-    iconHover: {
-      color: '#E89C6B',
-    },
-    iconEmpty:{
-      color: 'rgba(232, 156, 107, 0.4)',
-    }
-  })(Rating);
-
-
 const  StyleStar = styled(Box)`
     &&{
+       display: flex;
+       align-items: flex-start;
        width: 140px;
         & span:last-child{
             margin-right: 8px;
@@ -74,25 +64,32 @@ const  StyleStar = styled(Box)`
             width: 20px;
             height: 20px;
         }
+        & span{
+          margin-right: 5px;
+        }
     }
 `
 
 export default function HoverRating() {
-    const value = 2;
-    const [hover, setHover] = React.useState(-1);
+    const [value, setValue] = React.useState(2);
+    const [hover, setHover] = React.useState(2);
     const classes = useStyles();
     return (
         <>
             <StyleStar className={classes.rating1}>
-                    <StyledRating
+                    <Rating
                         max={5}
                         name="simple-controlled"
                         value={value}
-                        precision={0.5}
-                        onChangeActive={(e, newHover) => {
+                        precision={1}
+                        onChangeActive={(event, newHover) => {
                           setHover(newHover);
                         }}
-                        // icon={<ImageStar fontSize="inherit" />}
+                        onChange={(event, newValue) => {
+                          setValue(newValue);
+                        }}
+                        icon={<img src={ImageStar} fontSize="inherit" />}
+                        emptyIcon={<img src={EmptyStar} fontSize="inherit" />}
                     />
                      <ContainerRating ml={2}>{labels[hover !== -1 ? hover : value]}</ContainerRating>
             </StyleStar>
