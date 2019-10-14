@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import TextField from '@material-ui/core/TextField'
@@ -21,14 +21,28 @@ const ContainerNavbar = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(352.56deg, #44275d 0%, #3c5b78 100%) no-repeat;
-  transition: all 0.5s ease;
   height: ${props => (props.showCart ? '100%' : '13rem')};
 
   &:hover {
     cursor: ${props =>
       props.showCart ? `url(${ic_cancel_white}) 205 205, auto` : 'normal'};
   }
+
+  &:after {
+    content: '';
+    z-index: -1;
+    height: ${props => (props.showCart ? '100%' : '13rem')};
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(352.56deg, #44275d 0%, #3c5b78 100%) no-repeat;
+    opacity: ${props =>
+      props.isFixedColor || props.showCart ? 1 : props.isDown ? 1 : 0};
+    transition: all 0.5s ease;
+  }
+
+  transition: all 0.5s ease;
 `
 
 const ContainerLayout = styled.div`
@@ -146,19 +160,37 @@ const LogoCart = styled.img`
   cursor: pointer;
 `
 
-const Navbar = () => {
+const Navbar = props => {
   const [valueSearch, setValueSearch] = useState('')
   const [showCart, setShowCart] = useState(false)
+  const [isDown, setIsDown] = useState(false)
+
+  useEffect(() => {
+    if (!props.isFixedColor) {
+      // console.log(window.scollY.)
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 45 && !isDown) {
+          setIsDown(true)
+        } else if (window.scrollY <= 45 && isDown) {
+          setIsDown(false)
+        }
+      })
+    }
+  })
+
   const handleChangeSearch = event => setValueSearch(event.target.value)
   const handleCartFeature = e => {
     e.preventDefault()
-    if (e.target === e.currentTarget) setShowCart(!showCart)
+    // if (e.target === e.currentTarget) setShowCart(!showCart) // This condition for click able foebackground
+    setShowCart(!showCart)
   }
 
   return (
     <ContainerNavbar
       onClick={e => (showCart ? handleCartFeature(e) : null)}
       showCart={showCart}
+      isDown={isDown}
+      isFixedColor={props.isFixedColor}
     >
       <ContainerLayout>
         <GlobalStyle />
