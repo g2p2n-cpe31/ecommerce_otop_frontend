@@ -1,8 +1,8 @@
 import  React from 'react'
 import styled from 'styled-components'
 import Layout from '../components/common/Layout'
-import SectionOne from '../components/product_detail/SectionOne'
-import SectionTwo from '../components/product_detail/SectionTwo'
+import SectionOne from '../components/ProductDetail/SectionOne'
+import SectionTwo from '../components/ProductDetail/SectionTwo'
 
 
 const Container = styled.div`
