@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import MockImageOne from '../../images/ProductDetail/pineapple.jpg'
-import MockImageTwo from '../../images/ProductDetail/pineapple1.jpg'
+import MockImageOne from '../../../images/ProductDetail/pineapple.jpg'
+import MockImageTwo from '../../../images/ProductDetail/pineappleone.jpg'
 
 
 const ImageShowing = styled.img`

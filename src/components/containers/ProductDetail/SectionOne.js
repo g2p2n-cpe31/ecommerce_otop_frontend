@@ -1,12 +1,12 @@
 import React  from 'react'
 import styled from 'styled-components'
-import Cart from '../../images/ProductDetail/cart.png'
+import Cart from '../../../images/ProductDetail/cart.png'
 import Button from '@material-ui/core/Button'
-import PlusandMinus from './PlusAndMinus'
-import StarRate from './StarRate'
-import Image from './GalleryProductDetail'
-import Pipeapple from '../../images/ProductDetail/pineapple.jpg'
-import X from '../../images/ProductDetail/cross.svg'
+import PlusandMinus from '../ProductDetail/PlusAndMinus'
+import StarRate from '../ProductDetail/StarRate'
+import Image from '../ProductDetail/GalleryProductDetail'
+import Pipeapple from '../../../images/ProductDetail/pineapple.jpg'
+import X from '../../../images/ProductDetail/cross.svg'
 
 
 const Content = styled.div `

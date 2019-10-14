@@ -5,8 +5,8 @@ import Box from '@material-ui/core/Box'
 import Tooltip from '@material-ui/core/Tooltip'
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
-import ImageStar from '../../images/ProductDetail/star.svg'
-import EmptyStar from '../../images/ProductDetail/star_opacity.png'
+import ImageStar from '../../../images/ProductDetail/star.svg'
+import EmptyStar from '../../../images/ProductDetail/star_opacity.png'
 
 const labels = {
     0.5: '0.5',
