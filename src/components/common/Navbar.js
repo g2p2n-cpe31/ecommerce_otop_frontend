@@ -46,7 +46,8 @@ const ContainerNavbar = styled.div`
 `
 
 const ContainerLayout = styled.div`
-  width: 136.6rem;
+  max-width: 136.6rem;
+  width: 82%;
   position: fixed;
   display: flex;
   flex-direction: column;
