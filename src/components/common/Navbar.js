@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
+import Img from 'gatsby-image'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import TextField from '@material-ui/core/TextField'
 import GlobalStyle from '../utility/GlobalStyle'
@@ -94,17 +96,17 @@ const TextMenu = styled.p`
   margin: 0;
 `
 
-const IconMenu = styled.img`
+const IconMenu = styled(Img)`
   width: 1.1rem;
   height: 1.1rem;
   margin: auto 0.5rem;
 `
-const IconSearch = styled.img`
+const IconSearch = styled(Img)`
   width: 1.527rem;
   height: 1.555rem;
   margin: auto 0.5rem;
 `
-const IconDropdown = styled.img`
+const IconDropdown = styled(Img)`
   width: 1.331rem;
   height: 0.682rem;
   margin: auto 0.5rem;
@@ -115,12 +117,6 @@ const Line = styled.div`
   opacity: 0.5;
   margin: auto 1rem;
   height: 1.2rem;
-`
-
-const LogoOrg = styled.img`
-  width: 17.5rem;
-  height: 6.6rem;
-  margin: auto auto auto 0;
 `
 
 const SearchTextBox = styled(TextField)`
@@ -166,7 +162,25 @@ const LogoCart = styled.img`
   cursor: pointer;
 `
 
+const LogoOrg = styled(Img)`
+  /* width: 17.5rem;
+  height: 6.6rem; */
+  margin: auto auto auto 0;
+`
+
 const Navbar = props => {
+  const data = useStaticQuery(graphql`
+    query {
+      logo: file(relativePath: { eq: "logo.png" }) {
+        childImageSharp {
+          fixed(width: 175, height: 66) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  `)
+
   const [valueSearch, setValueSearch] = useState('')
   const [showCart, setShowCart] = useState(false)
   const [isDown, setIsDown] = useState(false)
@@ -202,11 +216,11 @@ const Navbar = props => {
         <GlobalStyle />
         <ContainerListMenus>
           <ContainerMenu>
-            <IconMenu src={ImgSell} />
+            <IconMenu fixed={ImgSell} />
             <TextMenu>ขาย</TextMenu>
           </ContainerMenu>
           <ContainerMenu>
-            <IconMenu src={ImgNoti} />
+            <IconMenu fixed={ImgNoti} />
             <TextMenu>การแจ้งเตือน</TextMenu>
           </ContainerMenu>
           <ContainerUserMenu>
@@ -216,7 +230,7 @@ const Navbar = props => {
           </ContainerUserMenu>
         </ContainerListMenus>
         <ContainerTools>
-          <LogoOrg src={Logo} />
+          <LogoOrg fixed={data.logo.childImageSharp.fixed} alt="" />
           <SearchTextBox
             variant="outlined"
             margin="normal"
@@ -226,14 +240,14 @@ const Navbar = props => {
               endAdornment: (
                 <InputAdornment position="end">
                   <ButtonFlat margin="0 .28rem 0 0">
-                    <IconSearch src={ImgSearch} />
+                    <IconSearch fixed={ImgSearch} />
                   </ButtonFlat>
                   <ButtonFlat
                     background="#828282"
                     width="3.37rem"
                     margin="0 .28rem 0 0"
                   >
-                    <IconDropdown src={ImgDropdown} />
+                    <IconDropdown fixed={ImgDropdown} />
                   </ButtonFlat>
                 </InputAdornment>
               ),

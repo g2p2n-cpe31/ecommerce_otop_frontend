@@ -87,14 +87,16 @@ const Card = styled.div`
   background: #f2f2f2;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   /* margin: auto 1rem;
   margin: 2.9rem 1rem; */
   margin: ${props => props.margin};
+  &:last-child {
+  }
 `
 
-const ItemProduct = ({ margin = ' 2.9rem 1rem', height = '562px' }) => {
+const ItemProduct = ({ margin = ' 2.9rem .5rem', height = '562px' }) => {
   return (
     <Card margin={margin} height={height}>
       <ImageContainer></ImageContainer>

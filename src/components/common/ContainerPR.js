@@ -7,27 +7,38 @@ const ContainerItems = styled.div`
   border-radius: 5px;
   width: 80%;
   height: 359px;
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  overflow-x: scroll;
+  overflow-x: auto;
+
   ::-webkit-scrollbar {
     display: none;
   }
+`
+
+const WrapContent = styled.div`
+  /* This Wrap builded for layer scollable padding at end */
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  min-width: 100%;
+  height: 359px;
+  padding: 0.5rem;
+  float: left;
 `
 
 const ContainerPR = props => {
   return (
     <>
       <ContainerItems background={props.background}>
-        <ItemProduct margin="auto 1rem" height="339px" />
-        <ItemProduct margin="auto 1rem" height="339px" />
-        <ItemProduct margin="auto 1rem" height="339px" />
-        <ItemProduct margin="auto 1rem" height="339px" />
-        <ItemProduct margin="auto 1rem" height="339px" />
-        <ItemProduct margin="auto 1rem" height="339px" />
-        <ItemProduct margin="auto 1rem" height="339px" />
-        <ItemProduct margin="auto 1rem" height="339px" />
+        <WrapContent>
+          <ItemProduct margin="auto .5rem" height="339px" />
+          <ItemProduct margin="auto .5rem" height="339px" />
+          <ItemProduct margin="auto .5rem" height="339px" />
+          <ItemProduct margin="auto .5rem" height="339px" />
+          <ItemProduct margin="auto .5rem" height="339px" />
+          <ItemProduct margin="auto .5rem" height="339px" />
+          <ItemProduct margin="auto .5rem" height="339px" />
+          <ItemProduct margin="auto .5rem" height="339px" />
+        </WrapContent>
       </ContainerItems>
     </>
   )
