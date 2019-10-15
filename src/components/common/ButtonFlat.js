@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button'
 
 const ButtonFlat = ({
   width = '6.45rem',
-  height = '39px',
+  height = '3.9rem',
   background = ' #e89c6b',
   border_radius = '0.2rem',
   margin = '0',

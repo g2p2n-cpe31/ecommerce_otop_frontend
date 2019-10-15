@@ -18,6 +18,7 @@ const ContainerNavbar = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
   top: 0;
   left: 0;
   right: 0;
@@ -62,25 +63,27 @@ const ContainerListMenus = styled.div`
 
 const ContainerTools = styled.div`
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  justify-content: flex-end;
   align-items: center;
   width: 100%;
-  height: 66px;
+  height: 6.6rem;
 `
 
 const ContainerMenu = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
+  align-items: flex-end;
   margin-left: 1.7rem;
 `
 
 const ContainerUserMenu = styled.div`
-  width: 139px;
+  width: 13.9rem;
   white-space: nowrap;
   display: flex;
   justify-content: center;
-  margin-left: 41.5px;
+  margin-left: 4.15rem;
 `
 
 const TextMenu = styled.p`
@@ -93,22 +96,22 @@ const TextMenu = styled.p`
 
 const IconMenu = styled.img`
   width: 1.1rem;
-  height: 11px;
+  height: 1.1rem;
   margin: auto 0.5rem;
 `
 const IconSearch = styled.img`
   width: 1.527rem;
-  height: 15.55px;
+  height: 1.555rem;
   margin: auto 0.5rem;
 `
 const IconDropdown = styled.img`
   width: 1.331rem;
-  height: 6.82px;
+  height: 0.682rem;
   margin: auto 0.5rem;
 `
 
 const Line = styled.div`
-  border: 1px solid #f2f2f2;
+  border: 0.1rem solid #f2f2f2;
   opacity: 0.5;
   margin: auto 1rem;
   height: 1.2rem;
@@ -116,21 +119,22 @@ const Line = styled.div`
 
 const LogoOrg = styled.img`
   width: 17.5rem;
-  height: 66px;
-  margin: auto 0;
+  height: 6.6rem;
+  margin: auto auto auto 0;
 `
 
 const SearchTextBox = styled(TextField)`
   && {
     margin: auto 0;
-    width: 96.9rem;
+    width: 70%;
+    max-width: 96.9rem;
 
     input {
       font-family: Kanit;
       font-size: 1.6rem;
       padding: 0 1.4rem;
       width: 100%;
-      height: 44px;
+      height: 4.4rem;
     }
 
     fieldset {
@@ -147,16 +151,17 @@ const SearchTextBox = styled(TextField)`
 `
 
 const BoxGrid = styled.div`
-  width: 139px;
+  width: 13.9rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 1.8rem;
+  margin-left: 4.15rem;
+  /* padding-left: 1.8rem; */
 `
 
 const LogoCart = styled.img`
   width: 4rem;
-  height: 39px;
+  height: 3.9rem;
   margin: auto;
   cursor: pointer;
 `

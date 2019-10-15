@@ -17,7 +17,7 @@ import Navbar from './Navbar'
 const ContainerHaveSpace = styled.div`
   margin: 0 auto;
   width: 82%;
-  max-width: 1366px;
+  max-width: 136.6rem;
   z-index: 2;
   padding-top: 13rem;
 `
