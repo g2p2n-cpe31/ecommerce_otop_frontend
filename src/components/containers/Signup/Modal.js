@@ -10,6 +10,59 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 
+const BoxBottom = styled(Box)`
+  width: 799px;
+  height: 93px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+`
+
+const BoxMiddle = styled(Box)`
+  width: 799px;
+  height: 347px;
+  border-radius: 10px;
+  padding: 20px 45px 0 55px;
+`
+
+const BoxTop = styled(Box)`
+  width: 799px;
+  height: 93px;
+  border-radius: 10px;
+  padding: 30px 0 0 45px;
+`
+
+const BottomLeft = styled(Box)`
+  width: 404px;
+  height: 93px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 10px;
+`
+
+const BottomMiddle = styled(Box)`
+  width: 81px;
+  height: 93px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  margin-top: -8px;
+  padding-left: 5px;
+`
+
+const BottomRight = styled(Box)`
+  width: 314px;
+  height: 93px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: -15px;
+  padding-left: 20px;
+`
+
 const ButtonShow = styled.button`
   font-family: 'Kanit';
   font-size: 14px;
@@ -113,9 +166,11 @@ const SignInButton = styled(Button)`
     font-family: 'Kanit';
     font-size: 13px;
     line-height: 43px;
+    max-height: 38px;
     color: rgba(91, 60, 120, 0.5);
   }
 `
+
 const SignUpButton = styled(Button)`
   &&  {
     width: 234px;
@@ -148,7 +203,7 @@ const Underline = () => (
           display: 'flex',
           position: "absolute",
           left: 419,
-          top: 467,
+          top: 461,
       }}
   />
 );
@@ -168,21 +223,18 @@ const useStyles = makeStyles(theme => ({
     boxShadow: theme.shadows[1],
     fontFamily: 'Kanit',
     borderRadius: '10px',
-    padding: '44px 36px',
     outline: 0,
   },
   textField1: {
     lineHeight:'43px',
-    marginLeft: theme.spacing(4),
-    // marginRight: theme.spacing(2),
-    width: 670,
+    marginLeft: '19px',
+    width: 665,
     padding: '2px',
   },
   textField2: {
     lineHeight:'43px',
-    marginLeft: theme.spacing(4),
-    // marginRight: theme.spacing(3),
-    width: 320,
+    marginLeft: '19px',
+    width: 323,
     padding: '2px',
   },
 }));
@@ -224,9 +276,13 @@ export default function SimpleModal() {
             onClick={handleClose}
           >
             <CloseIcon />
-          </CloseIconButton>          
-          <ModalTitle id="simple-modal-title">สมัครสมาชิก</ModalTitle>
-            <div>
+          </CloseIconButton> 
+
+          <BoxTop>        
+            <ModalTitle id="simple-modal-title">สมัครสมาชิก</ModalTitle>
+          </BoxTop>
+
+          <BoxMiddle>
               <FieldFont
                 placeholder="ชื่อ"
                 className={classes.textField2}
@@ -237,9 +293,7 @@ export default function SimpleModal() {
                 className={classes.textField2}
                 margin="normal"
               />
-            </div>
 
-            <div>
               <SearchTextBox
                 type="tel"
                 placeholder="เบอร์โทรศัพท์"
@@ -262,7 +316,6 @@ export default function SimpleModal() {
                 className={classes.textField2}
                 margin="normal"
               />    
-            </div>
             
             <FieldFont
                 type="email"
@@ -277,7 +330,6 @@ export default function SimpleModal() {
                 margin="normal"
               />     
 
-            <div>
               <FieldFont
                 placeholder="รหัสผ่าน"
                 className={classes.textField2}
@@ -292,23 +344,34 @@ export default function SimpleModal() {
                 autoComplete="current-password"
                 margin="normal"
               />  
-            </div>
 
-          <Box display="flex" justifyContent="flex-end" alignItems="center" p={5}>
+          </BoxMiddle>
+
+          <BoxBottom>
+
+            <BottomLeft>
               <TextEnd>เป็นสมาชิกอยู่แล้ว ?</TextEnd>
+            </BottomLeft>
+
+            <BottomMiddle>
               <SignInButton href="#text-buttons" className={classes.button}>
                 เข้าสู่ระบบ
               </SignInButton>
+            </BottomMiddle>
 
+            <BottomRight>
               <SignUpButton variant="extended" color="primary" aria-label="add" className={classes.margin}>
                 สมัครสมาชิก
               </SignUpButton>
-          </Box>
+            </BottomRight>
+
+          </BoxBottom>
 
           <Underline />
 
-        </Box>
-      </ModalContainer>
-    </div>
+      </Box>
+    </ModalContainer>
+  </div>
+    
   );
 }
