@@ -241,6 +241,7 @@ const useStyles = makeStyles(theme => ({
     fontFamily: 'Kanit',
     borderRadius: '10px',
     padding:0,
+    outline: 0,
   },
   textField2: {
     lineHeight:'43px',
