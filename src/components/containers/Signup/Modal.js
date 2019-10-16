@@ -3,12 +3,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import styled from 'styled-components'
-import 'typeface-kanit'
+import styled from 'styled-components';
+import 'typeface-kanit';
 import Box from '@material-ui/core/Box';
-import { borderRadius } from '@material-ui/system';
-import InputAdornment from '@material-ui/core/InputAdornment'
-import { withStyles } from '@material-ui/core/styles';
+import InputAdornment from '@material-ui/core/InputAdornment';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 
@@ -140,6 +138,22 @@ const TextEnd = styled.div`
   opacity: 0.5;
 `
 
+const Underline = () => (
+  <hr
+      style={{
+          color: 'rgba(91, 60, 120, 0.5)',
+          backgroundColor: 'rgba(91, 60, 120, 0.5)',
+          width: 51,
+          height: 2,
+          display: 'flex',
+          position: "absolute",
+          left: 419,
+          top: 467,
+      }}
+  />
+);
+
+
 const useStyles = makeStyles(theme => ({
   paper: {
     position: 'absolute',
@@ -152,10 +166,10 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
     border: '0.5px solid #000',
     boxShadow: theme.shadows[1],
-    padding: theme.spacing(2, 4, 3),
     fontFamily: 'Kanit',
     borderRadius: '10px',
     padding: '44px 36px',
+    outline: 0,
   },
   textField1: {
     lineHeight:'43px',
@@ -174,8 +188,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function getModalStyle() {
-  const top = 20 ;
-  const left = 52 ;
   return {
     background: '#fff'
   };
@@ -292,6 +304,8 @@ export default function SimpleModal() {
                 สมัครสมาชิก
               </SignUpButton>
           </Box>
+
+          <Underline />
 
         </Box>
       </ModalContainer>
