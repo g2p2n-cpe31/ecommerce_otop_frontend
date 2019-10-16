@@ -6,9 +6,7 @@ import Button from '@material-ui/core/Button';
 import styled from 'styled-components'
 import 'typeface-kanit'
 import Box from '@material-ui/core/Box';
-import { borderRadius } from '@material-ui/system';
 import InputAdornment from '@material-ui/core/InputAdornment'
-import { withStyles } from '@material-ui/core/styles';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
     
@@ -152,7 +150,6 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
     border: '0.5px solid #000',
     boxShadow: theme.shadows[1],
-    padding: theme.spacing(2, 4, 3),
     fontFamily: 'Kanit',
     borderRadius: '10px',
     padding: '44px 36px',
@@ -160,15 +157,12 @@ const useStyles = makeStyles(theme => ({
   textField1: {
     lineHeight:'43px',
     marginLeft: theme.spacing(4),
-    // marginRight: theme.spacing(2),
     width: 337,
     padding: '2px',
   },
 }));
 
 function getModalStyle() {
-  const top = 20 ;
-  const left = 52 ;
   return {
     background: '#fff'
   };

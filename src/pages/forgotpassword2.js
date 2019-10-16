@@ -1,7 +1,6 @@
 import React from 'react'
-import Modal from '../components/containers/forgot-password-2/Modal.js'
+import Modal from '../components/containers/ForgotPassword2/Modal.js'
 import SEO from '../components/utility/seo'
-import { createGlobalStyle } from 'styled-components'
 import { TypographyStyle } from 'react-typography'
 import typography from '../components/utility/typography'
 
