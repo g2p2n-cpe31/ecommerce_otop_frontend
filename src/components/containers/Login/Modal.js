@@ -16,14 +16,14 @@ const BigBox = styled(Box)`
     border-radius: 10px;
 `
 
-const Box_1 = styled(Box)`
+const BoxOne = styled(Box)`
     width: 272px;
     height: 474px;
     border-radius: 10px;
     /* margin: 0 0 0 0; */
 `
 
-const Box_2 = styled(Box)`
+const BoxTwo = styled(Box)`
     width: 458px;
     height: 474px;
     border-bottom-right-radius: 10px;
@@ -36,7 +36,7 @@ const SmallBox = styled(Box)`
     flex-direction: row;
 `
 
-const Box_3 = styled(Box)`
+const BoxThree = styled(Box)`
     width: 235px;
     height: 43px;
     display: flex;
@@ -47,7 +47,7 @@ const Box_3 = styled(Box)`
     margin-right: 5px;
 `
 
-const Box_4 = styled(Box)`
+const BoxFour = styled(Box)`
     width: 205px;
     height: 43px;
     display: flex;
@@ -189,6 +189,21 @@ const SignUpButton = styled(Button)`
   }
 `
 
+const Underline = () => (
+  <hr
+      style={{
+          color: 'rgba(91, 60, 120, 0.5)',
+          backgroundColor: 'rgba(91, 60, 120, 0.5)',
+          width: 67,
+          height: 2,
+          display: 'flex',
+          position: "absolute",
+          left: 534,
+          top: 417,
+      }}
+  />
+);
+
 const UserField = styled(TextField)`
   &&  {
     display: flex;
@@ -222,7 +237,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
     border: '0.5px solid #000',
     // boxShadow: theme.shadows[1],
-    padding: theme.spacing(2, 4, 3),
+    // padding: theme.spacing(2, 4, 3),
     fontFamily: 'Kanit',
     borderRadius: '10px',
     padding:0,
@@ -236,8 +251,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function getModalStyle() {
-  const top = 20 ;
-  const left = 52 ;
+  // const top = 20 ;
+  // const left = 52 ;
   return {
     background: '#fff'
   };
@@ -277,11 +292,11 @@ export default function SimpleModal() {
                 <CloseIcon />
             </CloseIconButton>  
 
-            <Box_1 style={modalStyle} >
+            <BoxOne style={modalStyle} >
                 <ImageSideLeft src={picture}/>
-            </Box_1>
+            </BoxOne>
 
-            <Box_2 style={modalStyle}>
+            <BoxTwo style={modalStyle}>
                 <ModalTitle id="simple-modal-title"> เข้าสู่ระบบ </ModalTitle>
                 <UserField
                     type="email"
@@ -302,15 +317,18 @@ export default function SimpleModal() {
                 <SignInButton>เข้าสู่ระบบ</SignInButton>
 
                 <SmallBox>
-                  <Box_3>
+                  <BoxThree>
                     <NotMember>ยังไม่เป็นสมาชิก ?</NotMember>     
-                  </Box_3>
+                  </BoxThree>
 
-                  <Box_4>
+                  <BoxFour>
                     <SignUpButton>สมัครสมาชิก</SignUpButton>
-                  </Box_4>
+                  </BoxFour>
+
                 </SmallBox>
-            </Box_2>
+                <Underline/>
+
+            </BoxTwo>
 
         </BigBox>
 

@@ -1,11 +1,11 @@
 import React from 'react'
-import Modal from '../components/containers/Login/Modal.js'
+import Modal from '../components/containers/LogIn/Modal.js'
 import SEO from '../components/utility/seo'
-import { createGlobalStyle } from 'styled-components'
+// import { createGlobalStyle } from 'styled-components'
 import { TypographyStyle } from 'react-typography'
 import typography from '../components/utility/typography'
 
-const LogIn = () => {
+const Login = () => {
     return (
         <div>
             <TypographyStyle typography={typography} />
@@ -15,4 +15,4 @@ const LogIn = () => {
     )
 }
   
-export default LogIn
+export default Login
