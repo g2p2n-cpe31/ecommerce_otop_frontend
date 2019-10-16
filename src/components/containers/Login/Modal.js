@@ -236,8 +236,6 @@ const useStyles = makeStyles(theme => ({
     height: '474px',    
     backgroundColor: theme.palette.background.paper,
     border: '0.5px solid #000',
-    // boxShadow: theme.shadows[1],
-    // padding: theme.spacing(2, 4, 3),
     fontFamily: 'Kanit',
     borderRadius: '10px',
     padding:0,
