@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
 import TextField from '@material-ui/core/TextField'
@@ -232,8 +232,8 @@ const useStyles = makeStyles(theme => ({
     position: 'absolute',
     left: '50%',
     top: '50%',
-    marginTop: '-263px',
-    marginLeft: '-409px',
+    marginTop: '-237px',
+    marginLeft: '-365px',
     width: '730px',
     height: '474px',
     backgroundColor: theme.palette.background.paper,
@@ -272,8 +272,8 @@ export default function SimpleModal() {
     }
   `)
   const classes = useStyles()
-  const [modalStyle] = React.useState(getModalStyle)
-  const [open, setOpen] = React.useState(false)
+  const [modalStyle] = useState(getModalStyle)
+  const [open, setOpen] = useState(false)
 
   const handleOpen = () => {
     setOpen(true)
@@ -288,12 +288,7 @@ export default function SimpleModal() {
       <ButtonShow type="button" onClick={handleOpen}>
         เข้าสู่ระบบ
       </ButtonShow>
-      <ModalContainer
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
-        open={open}
-        onClose={handleClose}
-      >
+      <ModalContainer open={open} onClose={handleClose}>
         <BigBox style={modalStyle} className={classes.paper}>
           <CloseIconButton
             className={classes.button}
