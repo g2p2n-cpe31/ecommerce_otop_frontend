@@ -135,7 +135,7 @@ const ModalTitle = styled.div`
 const ModalContainer = styled(Modal)`
   && {
     background: linear-gradient(316.04deg, #44275d 0%, #3c5b78 100%);
-    opacity: 0.9;
+    /* opacity: 0.9; */
   }
 `
 
@@ -213,6 +213,7 @@ const UserField = styled(TextField)`
     margin: auto;
     top: 10px;
     margin-bottom: 15px;
+
     & input {
       width: 290px;
       padding: 10px;
