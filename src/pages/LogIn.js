@@ -1,5 +1,5 @@
 import React from 'react'
-import Modal from '../components/containers/LogIn/Modal.js'
+import Modal from '../components/containers/Login/Modal.js'
 import SEO from '../components/utility/seo'
 // import { createGlobalStyle } from 'styled-components'
 

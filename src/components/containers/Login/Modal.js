@@ -9,7 +9,6 @@ import CloseIcon from '@material-ui/icons/Close'
 import IconButton from '@material-ui/core/IconButton'
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
-// import picture from './login-pict.jpg'
 
 const BigBox = styled(Box)`
   display: flex;
@@ -134,8 +133,17 @@ const ModalTitle = styled.div`
 
 const ModalContainer = styled(Modal)`
   && {
-    background: linear-gradient(316.04deg, #44275d 0%, #3c5b78 100%);
-    opacity: 0.9;
+    /* background: linear-gradient(316.04deg, #44275d 0%, #3c5b78 100%); */
+    /* opacity: 0.9; */
+    &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: linear-gradient(316.04deg, #44275d 0%, #3c5b78 100%);
+      opacity: 0.9;
+    }
   }
 `
 
@@ -284,7 +292,7 @@ export default function SimpleModal() {
   }
 
   return (
-    <div>
+    <form>
       <ButtonShow type="button" onClick={handleOpen}>
         เข้าสู่ระบบ
       </ButtonShow>
@@ -339,6 +347,6 @@ export default function SimpleModal() {
           </BoxTwo>
         </BigBox>
       </ModalContainer>
-    </div>
+    </form>
   )
 }
