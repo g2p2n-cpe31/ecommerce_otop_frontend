@@ -196,17 +196,27 @@ const SignUpButton = styled(Button)`
   }
 `
 
+const WrapContentBtn = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+const TextRegister = styled.p`
+  margin: 0 auto;
+`
+
 const Underline = () => (
   <hr
     style={{
       color: 'rgba(91, 60, 120, 0.5)',
       backgroundColor: 'rgba(91, 60, 120, 0.5)',
       width: 67,
-      height: 2,
-      display: 'flex',
-      position: 'absolute',
-      left: 534,
-      top: 417,
+      height: 2.5,
+      border: 0,
+      margin: '0',
     }}
   />
 )
@@ -325,10 +335,14 @@ const ModalLogin = props => {
               </BoxThree>
 
               <BoxFour>
-                <SignUpButton>สมัครสมาชิก</SignUpButton>
+                <SignUpButton>
+                  <WrapContentBtn>
+                    <TextRegister>สมัครสมาชิก</TextRegister>
+                    <Underline />
+                  </WrapContentBtn>
+                </SignUpButton>
               </BoxFour>
             </SmallBox>
-            <Underline />
           </BoxTwo>
         </BigBox>
       </ModalContainer>
