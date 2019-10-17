@@ -12,6 +12,7 @@ import ImgNoti from '../../images/Navbar/noti.svg'
 import ImgDropdown from '../../images/Navbar/dropdown.svg'
 import ImgSearch from '../../images/Navbar/search.svg'
 import ButtonFlat from './ButtonFlat'
+import LoginModal from '../containers/Login/Modal'
 
 const ContainerNavbar = styled.div`
   position: fixed;
@@ -93,6 +94,7 @@ const TextMenu = styled.p`
   line-height: 3.28;
   color: #f2f2f2;
   margin: 0;
+  cursor: pointer;
 `
 
 const IconMenu = styled(Img)`
@@ -100,12 +102,12 @@ const IconMenu = styled(Img)`
   height: 1.1rem;
   margin: auto 0.5rem;
 `
-const IconSearch = styled(Img)`
+const IconSearch = styled.img`
   width: 1.527rem;
   height: 1.555rem;
   margin: auto 0.5rem;
 `
-const IconDropdown = styled(Img)`
+const IconDropdown = styled.img`
   width: 1.331rem;
   height: 0.682rem;
   margin: auto 0.5rem;
@@ -183,7 +185,7 @@ const Navbar = props => {
   const [valueSearch, setValueSearch] = useState('')
   const [showCart, setShowCart] = useState(false)
   const [isDown, setIsDown] = useState(false)
-
+  const [showLogin, setShowLogin] = useState(false)
   useEffect(() => {
     if (!props.isFixedColor) {
       // console.log(window.scollY.)
@@ -205,64 +207,69 @@ const Navbar = props => {
   }
 
   return (
-    <ContainerNavbar
-      onClick={e => (showCart ? handleCartFeature(e) : null)}
-      showCart={showCart}
-      isDown={isDown}
-      isFixedColor={props.isFixedColor}
-    >
-      <ContainerLayout>
-        <GlobalStyle />
-        <ContainerListMenus>
-          <ContainerMenu>
-            <IconMenu fixed={ImgSell} />
-            <TextMenu>ขาย</TextMenu>
-          </ContainerMenu>
-          <ContainerMenu>
-            <IconMenu fixed={ImgNoti} />
-            <TextMenu>การแจ้งเตือน</TextMenu>
-          </ContainerMenu>
-          <ContainerUserMenu>
-            <TextMenu>สมัครสมาชิก</TextMenu>
-            <Line />
-            <TextMenu>เข้าสู่ระบบ</TextMenu>
-          </ContainerUserMenu>
-        </ContainerListMenus>
-        <ContainerTools>
-          <LogoOrg fixed={data.logo.childImageSharp.fixed} alt="" />
-          <SearchTextBox
-            variant="outlined"
-            margin="normal"
-            value={valueSearch}
-            onChange={event => handleChangeSearch(event)}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <ButtonFlat margin="0 .28rem 0 0">
-                    <IconSearch fixed={ImgSearch} />
-                  </ButtonFlat>
-                  <ButtonFlat
-                    background="#828282"
-                    width="3.37rem"
-                    margin="0 .28rem 0 0"
-                  >
-                    <IconDropdown fixed={ImgDropdown} />
-                  </ButtonFlat>
-                </InputAdornment>
-              ),
-            }}
-          />
-          {/* {ranges.map(option => (
+    <>
+      <LoginModal open={showLogin} handleClose={() => setShowLogin(false)} />
+      <ContainerNavbar
+        onClick={e => (showCart ? handleCartFeature(e) : null)}
+        showCart={showCart}
+        isDown={isDown}
+        isFixedColor={props.isFixedColor}
+      >
+        <ContainerLayout>
+          <GlobalStyle />
+          <ContainerListMenus>
+            <ContainerMenu>
+              <IconMenu fixed={ImgSell} />
+              <TextMenu>ขาย</TextMenu>
+            </ContainerMenu>
+            <ContainerMenu>
+              <IconMenu fixed={ImgNoti} />
+              <TextMenu>การแจ้งเตือน</TextMenu>
+            </ContainerMenu>
+            <ContainerUserMenu>
+              <TextMenu>สมัครสมาชิก</TextMenu>
+              <Line />
+              <TextMenu onClick={() => setShowLogin(true)}>
+                เข้าสู่ระบบ
+              </TextMenu>
+            </ContainerUserMenu>
+          </ContainerListMenus>
+          <ContainerTools>
+            <LogoOrg fixed={data.logo.childImageSharp.fixed} alt="" />
+            <SearchTextBox
+              variant="outlined"
+              margin="normal"
+              value={valueSearch}
+              onChange={event => handleChangeSearch(event)}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <ButtonFlat margin="0 .28rem 0 0">
+                      <IconSearch src={ImgSearch} />
+                    </ButtonFlat>
+                    <ButtonFlat
+                      background="#828282"
+                      width="3.37rem"
+                      margin="0 .28rem 0 0"
+                    >
+                      <IconDropdown src={ImgDropdown} />
+                    </ButtonFlat>
+                  </InputAdornment>
+                ),
+              }}
+            />
+            {/* {ranges.map(option => (
           <MenuItem key={option.value} value={option.value}>
             {option.label}
           </MenuItem>
         ))} */}
-          <BoxGrid>
-            <LogoCart src={ImgCart} onClick={e => handleCartFeature(e)} />
-          </BoxGrid>
-        </ContainerTools>
-      </ContainerLayout>
-    </ContainerNavbar>
+            <BoxGrid>
+              <LogoCart src={ImgCart} onClick={e => handleCartFeature(e)} />
+            </BoxGrid>
+          </ContainerTools>
+        </ContainerLayout>
+      </ContainerNavbar>
+    </>
   )
 }
 

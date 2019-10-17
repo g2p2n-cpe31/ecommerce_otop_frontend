@@ -59,12 +59,6 @@ const BoxFour = styled(Box)`
   margin-left: 0px;
 `
 
-const ButtonShow = styled.button`
-  font-family: 'Kanit';
-  font-size: 14px;
-  line-height: 43px;
-`
-
 const CloseIconButton = styled(IconButton)`
   && {
     position: absolute;
@@ -176,6 +170,7 @@ const SignInButton = styled(Button)`
     &&   {
     width: 234px;
     height: 48px;
+    font-size: 1.4rem;
     font-family: 'Kanit';
     border-radius: 25px;
     background-color: #5b3c78;
@@ -269,7 +264,7 @@ function getModalStyle() {
   }
 }
 
-export default function SimpleModal() {
+const ModalLogin = props => {
   const data = useStaticQuery(graphql`
     query {
       pictImage: file(relativePath: { eq: "Login/login-pict.jpg" }) {
@@ -283,29 +278,17 @@ export default function SimpleModal() {
   `)
   const classes = useStyles()
   const [modalStyle] = useState(getModalStyle)
-  const [open, setOpen] = useState(false)
-
-  const handleOpen = () => {
-    setOpen(true)
-  }
-
-  const handleClose = () => {
-    setOpen(false)
-  }
 
   return (
     <form>
-      <ButtonShow type="button" onClick={handleOpen}>
-        เข้าสู่ระบบ
-      </ButtonShow>
-      <ModalContainer open={open} onClose={handleClose}>
+      <ModalContainer open={props.open} onClose={() => props.handleClose()}>
         <BigBox style={modalStyle} className={classes.paper}>
           <CloseIconButton
             className={classes.button}
             aria-label="close"
-            onClick={handleClose}
+            onClick={props.handleClose}
           >
-            <CloseIcon />
+            <CloseIcon fontSize="large" />
           </CloseIconButton>
 
           <BoxOne style={modalStyle}>
@@ -352,3 +335,4 @@ export default function SimpleModal() {
     </form>
   )
 }
+export default ModalLogin
