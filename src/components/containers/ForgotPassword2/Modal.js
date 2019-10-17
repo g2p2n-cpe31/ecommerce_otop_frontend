@@ -9,11 +9,21 @@ import Box from '@material-ui/core/Box';
 import InputAdornment from '@material-ui/core/InputAdornment'
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
+import CheckSharpIcon from '@material-ui/icons/CheckSharp';
     
 const ButtonShow = styled.button`
   font-family: 'Kanit';
   font-size: 14px;
   line-height: 43px;
+`
+
+const CheckIcon = styled(CheckSharpIcon)`
+  width: 42px;
+  height: 30px;
+  color: #27AE60;
+  position: absolute;
+  margin-left: 328px;
+  margin-top: -32px;
 `
 
 const CloseIconButton = styled(IconButton)`
@@ -48,6 +58,29 @@ const ConfirmText = styled.div`
   color: #F2F2F2;
 `
 
+const EditButton = styled(Button)`
+    margin-top: 68px;
+    margin-left: 224px;
+    padding-top: 3px;
+    border-color: #27AE60;
+    &&  {
+        width: 177px;
+        height: 48px;
+        font-family: 'Kanit';
+        border-radius: 25px;
+        background-color: #5B3C78;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 43px;
+        letter-spacing: 0.5px;
+        text-align: center;    
+        color: #FFFFFF;
+        & span{
+          color: white;
+        }
+    }
+`
+
 const FieldFont = styled(TextField)`
   &&  {
     width: 337px;
@@ -55,6 +88,7 @@ const FieldFont = styled(TextField)`
     margin-top: 30px;
     display: flex;
     justify-content: center;
+    border-color: green;
     & input{
         width: 337px;
         padding: 5px;
@@ -69,9 +103,7 @@ const FieldFont = styled(TextField)`
       margin: normal;
       border-bottom-color : green;
       border-color: green;
-      
     }
-    
   }
 `
 
@@ -94,27 +126,6 @@ const ModalContainer = styled(Modal)`
     opacity: 0.9;
     border-radius: 10px;
   }
-`
-
-const EditButton = styled(Button)`
-    margin-top: 55px;
-    margin-left: 215px;
-    &&  {
-        width: 177px;
-        height: 48px;
-        font-family: 'Kanit';
-        border-radius: 25px;
-        background-color: #5B3C78;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 43px;
-        letter-spacing: 0.5px;
-        text-align: center;    
-        color: #FFFFFF;
-        & span{
-        color: white;
-        }
-    }
 `
 
 const SearchTextBox = styled(TextField)`
@@ -159,6 +170,7 @@ const useStyles = makeStyles(theme => ({
     marginLeft: theme.spacing(4),
     width: 337,
     padding: '2px',
+    marginBottom: '5px'
   },
 }));
 
@@ -204,7 +216,7 @@ export default function SimpleModal() {
 
             <SearchTextBox
                 disabled
-                type="tel"
+                type="text"
                 placeholder="เบอร์โทรศัพท์ / อีเมล"
                 className={classes.textField1}
                 margin="normal"
@@ -223,15 +235,17 @@ export default function SimpleModal() {
                 placeholder="รหัสยืนยัน"
                 className= "accept"
             />
-
+            
+            <CheckIcon />
+            
             <FieldFont
-                type="tel"
+                type="password"
                 placeholder="รหัสผ่านใหม่"
                 className={classes.textField1}
                 margin="normal"
             />
             <FieldFont
-                type="tel"
+                type="password"
                 placeholder="ยืนยันรหัสผ่านใหม่"
                 className={classes.textField1}
                 margin="normal"
