@@ -9,6 +9,7 @@ import CloseIcon from '@material-ui/icons/Close'
 import IconButton from '@material-ui/core/IconButton'
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
+import ic_cancel_white from '../../../images/Navbar/ic_cancel_white.svg'
 
 const BigBox = styled(Box)`
   display: flex;
@@ -135,6 +136,8 @@ const ModalContainer = styled(Modal)`
   && {
     /* background: linear-gradient(316.04deg, #44275d 0%, #3c5b78 100%); */
     /* opacity: 0.9; */
+    cursor: url(${ic_cancel_white}) 205 205, auto;
+
     &:after {
       content: '';
       position: absolute;
@@ -250,6 +253,7 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '10px',
     padding: 0,
     outline: 0,
+    cursor: 'auto',
   },
   textField2: {
     lineHeight: '43px',
@@ -260,8 +264,6 @@ const useStyles = makeStyles(theme => ({
 }))
 
 function getModalStyle() {
-  // const top = 20 ;
-  // const left = 52 ;
   return {
     background: '#fff',
   }
