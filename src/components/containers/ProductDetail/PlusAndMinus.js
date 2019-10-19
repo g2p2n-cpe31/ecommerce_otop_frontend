@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
+import {
+  QuantityContext,
+  QuantityProvider,
+} from '../../context/QuantityProduct'
 
 const ContainerButton = styled.div`
   display: flex;
@@ -36,30 +40,30 @@ const ButtonCustom = styled(Button)`
 
 const PlusandMinus = () => {
   const [count, setCount] = useState(0)
+  const { state, dispatch } = useContext(QuantityContext)
+
   const handleonChange = e => {
     const re = /^[0-9\b]+$/
-    if (e.target.value === '' || re.test(e.target.value)) {
-      setCount(e.target.value)
+    if (e.target.value !== '' && re.test(e.target.value)) {
+      dispatch({ type: 'typing', value: e.target.value })
     }
   }
 
   return (
-    <>
-      <ContainerButton>
-        <ButtonCustom onClick={() => setCount(parseInt(count) - 1)}>
-          -
-        </ButtonCustom>
-        <TextFieldCustom
-          margin="normal"
-          variant="outlined"
-          value={count}
-          onChange={e => handleonChange(e)}
-        />
-        <ButtonCustom onClick={() => setCount(parseInt(count) + 1)}>
-          +
-        </ButtonCustom>
-      </ContainerButton>
-    </>
+    <ContainerButton>
+      <ButtonCustom onClick={() => dispatch({ type: 'decrement' })}>
+        -
+      </ButtonCustom>
+      <TextFieldCustom
+        margin="normal"
+        variant="outlined"
+        value={state.quantity}
+        onChange={e => handleonChange(e)}
+      />
+      <ButtonCustom onClick={() => dispatch({ type: 'increment' })}>
+        +
+      </ButtonCustom>
+    </ContainerButton>
   )
 }
 export default PlusandMinus

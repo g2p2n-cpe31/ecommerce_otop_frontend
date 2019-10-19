@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
 import Cart from '../../../images/ProductDetail/cart.png'
 import Button from '@material-ui/core/Button'
@@ -7,6 +7,7 @@ import Image from '../ProductDetail/GalleryProductDetail'
 import Alert from './Alert'
 import Star from '../../../images/ProductDetail/star.svg'
 import StarOpacity from '../../../images/ProductDetail/star_opacity.png'
+import { QuantityContext } from '../../context/QuantityProduct'
 
 const Content = styled.div`
   display: flex;
@@ -193,63 +194,61 @@ const ButtonBuy = styled(Button)`
 
 const SectionOne = () => {
   const [isShow, setIsShow] = useState(false)
-
+  const { state } = useContext(QuantityContext)
   return (
-    <>
-      <Content>
-        <LeftItem>
-          <Image />
-        </LeftItem>
-        <RightItem>
-          {isShow ? <Alert closeAlert={() => setIsShow(false)} /> : null}
+    <Content>
+      <LeftItem>
+        <Image />
+      </LeftItem>
+      <RightItem>
+        {isShow ? <Alert closeAlert={() => setIsShow(false)} /> : null}
 
-          <ProductName>สับปะรดกับมะพร้าว</ProductName>
+        <ProductName>สับปะรดกับมะพร้าว</ProductName>
 
-          <ContainerDetial>
-            <StarStyle src={Star} />
-            <StarStyle src={Star} />
-            <StarStyle src={Star} />
-            <StarStyle src={Star} />
-            <StarStyle src={StarOpacity} />
-            <Rating>4.2</Rating>
-            <Sellout>ขายแล้ว 125 ชิ้น</Sellout>
-          </ContainerDetial>
+        <ContainerDetial>
+          <StarStyle src={Star} />
+          <StarStyle src={Star} />
+          <StarStyle src={Star} />
+          <StarStyle src={Star} />
+          <StarStyle src={StarOpacity} />
+          <Rating>4.2</Rating>
+          <Sellout>ขายแล้ว 125 ชิ้น</Sellout>
+        </ContainerDetial>
 
-          <ContainerDetial>
-            <NameStore>ชื่อร้านค้า</NameStore>
-            <Subtitle>Noon</Subtitle>
-          </ContainerDetial>
+        <ContainerDetial>
+          <NameStore>ชื่อร้านค้า</NameStore>
+          <Subtitle>Noon</Subtitle>
+        </ContainerDetial>
 
-          <ContainerDetial>
-            <IdSeller>รหัสผู้ขาย</IdSeller>
-            <Subtitle>6010504660</Subtitle>
-          </ContainerDetial>
+        <ContainerDetial>
+          <IdSeller>รหัสผู้ขาย</IdSeller>
+          <Subtitle>6010504660</Subtitle>
+        </ContainerDetial>
 
-          <Price>255 บาท</Price>
+        <Price>255 บาท</Price>
 
-          <ContainerDetial>
-            <Shipping>การจัดส่ง</Shipping>
-            <Subtitle>ฟรีค่าจัดส่ง</Subtitle>
-          </ContainerDetial>
+        <ContainerDetial>
+          <Shipping>การจัดส่ง</Shipping>
+          <Subtitle>ฟรีค่าจัดส่ง</Subtitle>
+        </ContainerDetial>
 
-          <ContainerDetial>
-            <Amount>จำนวน</Amount>
-            <ContainerPlusandMinus>
-              <PlusandMinus />
-            </ContainerPlusandMinus>
-            <Subtitle>มีสินค้าทั้งหมด 12 ชิ้น</Subtitle>
-          </ContainerDetial>
+        <ContainerDetial>
+          <Amount>จำนวน</Amount>
+          <ContainerPlusandMinus>
+            <PlusandMinus />
+          </ContainerPlusandMinus>
+          <Subtitle>มีสินค้าทั้งหมด {state.quantity} ชิ้น</Subtitle>
+        </ContainerDetial>
 
-          <ConntainerAddBuy>
-            <ButtonAdd variant="outlined" onClick={() => setIsShow(true)}>
-              <DetailText>เพิ่มลงตะกร้าสินค้า</DetailText>
-              <DetailCart src={Cart} atl="main-image"></DetailCart>
-            </ButtonAdd>
-            <ButtonBuy variant="outlined">ซื้อสินค้า</ButtonBuy>
-          </ConntainerAddBuy>
-        </RightItem>
-      </Content>
-    </>
+        <ConntainerAddBuy>
+          <ButtonAdd variant="outlined" onClick={() => setIsShow(true)}>
+            <DetailText>เพิ่มลงตะกร้าสินค้า</DetailText>
+            <DetailCart src={Cart} atl="main-image"></DetailCart>
+          </ButtonAdd>
+          <ButtonBuy variant="outlined">ซื้อสินค้า</ButtonBuy>
+        </ConntainerAddBuy>
+      </RightItem>
+    </Content>
   )
 }
 export default SectionOne
