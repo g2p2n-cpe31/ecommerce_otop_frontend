@@ -52,7 +52,7 @@ const PlusandMinus = () => {
                     margin="normal"
                     variant="outlined"
                     value={count}
-                    onChange={(e) =>  e.target.value !== null?setCount(e.target.value):setCount(0)}
+                    onChange={(e) =>  e.target.value !== null ? setCount(e.target.value):setCount(0)}
                 />
                 <ButtonCustom onClick={() => setCount(parseInt(count)+1)}>+</ButtonCustom>
             </ContainerButton>

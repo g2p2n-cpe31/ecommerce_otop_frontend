@@ -1,12 +1,12 @@
-import React  from 'react'
+import React, {useState}  from 'react'
 import styled from 'styled-components'
 import Cart from '../../../images/ProductDetail/cart.png'
 import Button from '@material-ui/core/Button'
 import PlusandMinus from '../ProductDetail/PlusAndMinus'
-import StarRate from '../ProductDetail/StarRate'
 import Image from '../ProductDetail/GalleryProductDetail'
-import Pipeapple from '../../../images/ProductDetail/pineapple.jpg'
-import X from '../../../images/ProductDetail/cross.svg'
+import Alert from './Alert'
+import Star from '../../../images/ProductDetail/star.svg'
+import StarOpacity from '../../../images/ProductDetail/star_opacity.png'
 
 
 const Content = styled.div `
@@ -35,64 +35,7 @@ const RightItem = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     padding: 50px 0px;
-`
-
-const Alert = styled.div`
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    width: 264px;
-    height: 58px;
-    background-color: rgba(154, 228, 185, 0.3);
-    top: 150px;
-    left: 1026px;
-    z-index: 200;
-`
-
-const Cross = styled.img`
-    position: absolute;
-    top: 7.4px;
-    left: 245px;
-    width: 9.5px;
-    height: 9.5px;
-    z-index: 250;
-`
-
-const ContainerAlertLeft = styled.div`
-    width: 30%;
-    padding: 8px 14px 8px 8px;
-`
-
-const ContainerAlertRight = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 70%;
-`
-
-const ContainerAlertImage = styled.img`
-    width: 64px;
-    height: 42px;
-`
-
-const AlertNameProduct = styled.p`
-    display: flex;
-    flex-direction: row;
-    font-family: Kanit;
-    font-weight: 300;
-    font-size: 12px;
-    color: #4F4F4F;
-    margin-top: 8px;
-    margin-bottom: 5px;
-`
-
-const AlertAddProduct = styled.p`
-    display: flex;
-    flex-direction: row;
-    font-family: Kanit;
-    font-weight: normal;
-    font-size: 12px;
-    color: #4F4F4F;
+    position: relative;
 `
 
 const ProductName = styled.p`
@@ -117,6 +60,35 @@ const  ContainerStar = styled.div`
     height: 40px;
     padding: 3px 0 0 0;
     margin-bottom: 0px;
+`
+
+const StarStyle = styled.img`
+    margin-right: 5px;
+    width: 16.55px;
+    height: 16px;
+    &:last-child{
+        margin-right: 20px;
+    }
+`
+
+const Rating = styled.p`
+    margin-bottom: 0px;
+    margin-right: 29px;
+    height: 46.61px;
+    width: 14px;
+    font-family: Kanit;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 10px;
+    color:  #E89C6B;
+`
+
+const Sellout = styled.p`
+    margin-bottom: 0px;
+    padding: 2px 0 0 0;
+    font-weight: normal;
+    font-size: 12px;
+    color: #828282;
 `
 
 
@@ -232,6 +204,9 @@ const ButtonBuy = styled(Button)`
 
 
 const SectionOne = () => {
+
+    const [isShow, setIsShow] = useState(false)
+
     return (
         <>
             <Content>
@@ -239,25 +214,22 @@ const SectionOne = () => {
                     <Image/>
                 </LeftItem>
                 <RightItem>
-                    <Alert>
-                      <ContainerAlertLeft>
-                          <ContainerAlertImage src={Pipeapple}/>
-                      </ContainerAlertLeft>
-
-                      <ContainerAlertRight>
-                         <Cross src={X}/>
-                         <AlertNameProduct>สับปะรดกับมะพร้าว</AlertNameProduct>
-                         <AlertAddProduct>ถูกเพิ่มลงตะกร้าสินค้าแล้ว</AlertAddProduct>
-                      </ContainerAlertRight>
-                    </Alert>
+                    {
+                        isShow ? <Alert closeAlert={() => setIsShow(false)}  /> : null
+                    }
 
                     <ProductName>สับปะรดกับมะพร้าว</ProductName>
 
                     <ContainerDetial>
                         <ContainerStar>
-                            <StarRate/>
+                            <StarStyle src = {Star}/>
+                            <StarStyle src = {Star}/>
+                            <StarStyle src = {Star}/>
+                            <StarStyle src = {Star}/>
+                            <StarStyle src = {StarOpacity}/>
+                            <Rating>4.2</Rating>
                         </ContainerStar>
-                            <Subtitle>ขายแล้ว 125 ชิ้น</Subtitle>
+                            <Sellout>ขายแล้ว 125 ชิ้น</Sellout>
                     </ContainerDetial>
 
                     <ContainerDetial>
@@ -286,7 +258,7 @@ const SectionOne = () => {
                     </ContainerDetial>
 
                     <ConntainerAddBuy >
-                        <ButtonAdd variant="outlined">
+                        <ButtonAdd variant="outlined" onClick={() => setIsShow(true)}>
                             <DetailText >เพิ่มลงตะกร้าสินค้า</DetailText>
                             <DetailCart src={Cart} atl='main-image'></DetailCart>
                         </ButtonAdd>
