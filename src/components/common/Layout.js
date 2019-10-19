@@ -18,11 +18,12 @@ const ContainerHaveSpace = styled.div`
   margin: 0 auto;
   width: 82%;
   max-width: 136.6rem;
-  z-index: 2;
+  /* z-index: 2; */
   padding-top: 13rem;
 `
 
 const ContainerFitScreen = styled.div`
+  margin: 0 auto;
   display: flex;
   width: 100%;
   padding-top: 13rem;

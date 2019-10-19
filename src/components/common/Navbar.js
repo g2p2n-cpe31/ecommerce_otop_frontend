@@ -89,7 +89,7 @@ const ContainerUserMenu = styled.div`
 `
 
 const TextMenu = styled.p`
-  font-family: Kanit-Light;
+  font-family: Kanit;
   font-size: 1.3rem;
   line-height: 3.28;
   color: #f2f2f2;
@@ -97,7 +97,7 @@ const TextMenu = styled.p`
   cursor: pointer;
 `
 
-const IconMenu = styled(Img)`
+const IconMenu = styled.img`
   width: 1.1rem;
   height: 1.1rem;
   margin: auto 0.5rem;
@@ -134,10 +134,11 @@ const SearchTextBox = styled(TextField)`
       height: 4.4rem;
     }
 
-    fieldset {
+    & fieldset {
       z-index: -1;
       background-color: rgba(242, 242, 242, 0.9);
       border-width: 0 !important;
+      padding: 0;
       width: 100%;
     }
 
@@ -219,11 +220,11 @@ const Navbar = props => {
           <GlobalStyle />
           <ContainerListMenus>
             <ContainerMenu>
-              <IconMenu fixed={ImgSell} />
+              <IconMenu src={ImgSell} />
               <TextMenu>ขาย</TextMenu>
             </ContainerMenu>
             <ContainerMenu>
-              <IconMenu fixed={ImgNoti} />
+              <IconMenu src={ImgNoti} />
               <TextMenu>การแจ้งเตือน</TextMenu>
             </ContainerMenu>
             <ContainerUserMenu>

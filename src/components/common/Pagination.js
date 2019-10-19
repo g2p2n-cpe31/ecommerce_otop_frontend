@@ -30,11 +30,11 @@ const TextFieldCustom = styled(TextField)`
 
     margin: auto 0.6rem;
 
-    input {
+    & input {
       padding: 0 0.4rem;
       height: 22px;
     }
-    fieldset {
+    & fieldset {
       border: 0.7px solid #bdbdbd !important;
       box-sizing: border-box;
       border-radius: 1px;
