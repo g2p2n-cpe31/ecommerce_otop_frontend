@@ -21,7 +21,7 @@ const WrapContent = styled.div`
   flex-wrap: nowrap;
   min-width: 100%;
   height: 359px;
-  padding: 0.5rem;
+  padding: 0 0.5rem;
   float: left;
 `
 
@@ -30,14 +30,14 @@ const ContainerPR = props => {
     <>
       <ContainerItems background={props.background}>
         <WrapContent>
-          <ItemProduct margin="auto .5rem" height="339px" />
-          <ItemProduct margin="auto .5rem" height="339px" />
-          <ItemProduct margin="auto .5rem" height="339px" />
-          <ItemProduct margin="auto .5rem" height="339px" />
-          <ItemProduct margin="auto .5rem" height="339px" />
-          <ItemProduct margin="auto .5rem" height="339px" />
-          <ItemProduct margin="auto .5rem" height="339px" />
-          <ItemProduct margin="auto .5rem" height="339px" />
+          <ItemProduct margin="auto .5rem" height="339px" multiImages={false} />
+          <ItemProduct margin="auto .5rem" height="339px" multiImages={false} />
+          <ItemProduct margin="auto .5rem" height="339px" multiImages={false} />
+          <ItemProduct margin="auto .5rem" height="339px" multiImages={false} />
+          <ItemProduct margin="auto .5rem" height="339px" multiImages={false} />
+          <ItemProduct margin="auto .5rem" height="339px" multiImages={false} />
+          <ItemProduct margin="auto .5rem" height="339px" multiImages={false} />
+          <ItemProduct margin="auto .5rem" height="339px" multiImages={false} />
         </WrapContent>
       </ContainerItems>
     </>

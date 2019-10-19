@@ -4,16 +4,16 @@ import ImgStarVote from '../../images/Navbar/star_vote.svg'
 
 const ImageContainer = styled.div`
   width: 229px;
-  height: 454px;
+  height: ${props => (props.multiImages ? ' 45.4rem' : '23.4rem')};
   background: rgb(224, 209, 214);
   border-radius: 5px 5px 0px 0px;
 `
 
 const ContainerDetail = styled.div`
-  width: 100%;
+  /* width: 100%; */
   display: flex;
-  /* padding: 0.6rem 1.2rem; */
-  padding: 1.2rem;
+  padding: 0.6rem 1.2rem;
+  /* padding: 1.2rem; */
   flex-direction: column;
 
   p {
@@ -96,10 +96,14 @@ const Card = styled.div`
   }
 `
 
-const ItemProduct = ({ margin = ' 2.9rem .5rem', height = '562px' }) => {
+const ItemProduct = ({
+  margin = ' 2.9rem 1rem',
+  height = '562px',
+  multiImages = true,
+}) => {
   return (
     <Card margin={margin} height={height}>
-      <ImageContainer></ImageContainer>
+      <ImageContainer multiImages={multiImages}></ImageContainer>
       <ContainerDetail>
         <NameProduct>กระหรี่ปัป</NameProduct>
         <Price>255 บาท</Price>

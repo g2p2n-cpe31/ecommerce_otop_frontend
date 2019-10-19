@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import CssBaseline from '@material-ui/core/CssBaseline'
+// import CssBaseline from '@material-ui/core/CssBaseline'
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
 import Pagination from 'material-ui-flat-pagination'
 import styled from 'styled-components'
@@ -70,7 +70,7 @@ const PaginationComponent = () => {
   return (
     <ContainerPagination>
       <MuiThemeProvider theme={theme}>
-        <CssBaseline />
+        {/* <CssBaseline /> */}
         <PaginationCustom
           currentPageColor="#828282"
           size="medium"
@@ -86,7 +86,7 @@ const PaginationComponent = () => {
       <TextFieldCustom defaultValue="" margin="normal" variant="outlined" />
       <ButtonFlat
         background="#828282"
-        color="#F2F2F2"
+        color_btn="#F2F2F2"
         font_size="10px"
         border_radius="1px"
         width="43px"

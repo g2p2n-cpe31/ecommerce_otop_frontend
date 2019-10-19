@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import InputAdornment from '@material-ui/core/InputAdornment'
@@ -139,7 +139,7 @@ const SearchTextBox = styled(TextField)`
       background-color: rgba(242, 242, 242, 0.9);
       border-width: 0 !important;
       padding: 0;
-      width: 100%;
+      /* width: 100%; */
     }
 
     & .MuiOutlinedInput-adornedEnd {
@@ -164,9 +164,10 @@ const LogoCart = styled.img`
   cursor: pointer;
 `
 
-const LogoOrg = styled(Img)`
+const LinkLogoOrg = styled(Link)`
   /* width: 17.5rem;
   height: 6.6rem; */
+  cursor: pointer;
   margin: auto auto auto 0;
 `
 
@@ -236,7 +237,9 @@ const Navbar = props => {
             </ContainerUserMenu>
           </ContainerListMenus>
           <ContainerTools>
-            <LogoOrg fixed={data.logo.childImageSharp.fixed} alt="" />
+            <LinkLogoOrg to="/home">
+            <Img fixed={data.logo.childImageSharp.fixed} alt="" />
+            </LinkLogoOrg>
             <SearchTextBox
               variant="outlined"
               margin="normal"
