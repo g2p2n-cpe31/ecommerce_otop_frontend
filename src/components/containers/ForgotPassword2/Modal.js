@@ -164,6 +164,7 @@ const useStyles = makeStyles(theme => ({
     fontFamily: 'Kanit',
     borderRadius: '10px',
     padding: '44px 36px',
+    outline: 0,
   },
   textField1: {
     lineHeight:'43px',
@@ -231,6 +232,7 @@ export default function SimpleModal() {
                 }}
             />
             <FieldFont
+                disabled
                 type="tel"
                 placeholder="รหัสยืนยัน"
                 className= "accept"
