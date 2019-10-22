@@ -10,7 +10,7 @@ import InputAdornment from '@material-ui/core/InputAdornment'
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 import CheckSharpIcon from '@material-ui/icons/CheckSharp';
-    
+
 const ButtonShow = styled.button`
   font-family: 'Kanit';
   font-size: 14px;
@@ -58,6 +58,34 @@ const ConfirmText = styled.div`
   color: #F2F2F2;
 `
 
+const TextFieldCustom = styled(TextField)`
+  && {
+    width: 337px;
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    & input {
+        width: 337px;
+        padding: 5px;
+        text-indent: 5px;
+        font-family: Kanit;
+        font-size: 14px;
+        line-height: 43px;
+        letter-spacing: 0.5px;
+    }
+
+    & .MuiInput-underline:before {
+      border-bottom-color: green;
+    }
+
+    & .MuiInput-underline:after{
+      border-bottom-color: green;
+    }
+
+  }
+`
+
 const EditButton = styled(Button)`
     margin-top: 68px;
     margin-left: 224px;
@@ -78,6 +106,10 @@ const EditButton = styled(Button)`
         & span{
           color: white;
         }
+        /* & span:nth-child(2){
+          color: red;
+        } */
+
     }
 `
 
@@ -88,8 +120,7 @@ const FieldFont = styled(TextField)`
     margin-top: 30px;
     display: flex;
     justify-content: center;
-    border-color: green;
-    & input{
+      & input{
         width: 337px;
         padding: 5px;
         text-indent: 5px;
@@ -102,7 +133,7 @@ const FieldFont = styled(TextField)`
      & .accept{
       margin: normal;
       border-bottom-color : green;
-      border-color: green;
+      border-color: 'green';
     }
   }
 `
@@ -216,26 +247,29 @@ export default function SimpleModal() {
             <ModalTitle id="simple-modal-title">ลืมรหัสผ่าน</ModalTitle>
 
             <SearchTextBox
-                disabled
                 type="text"
                 placeholder="เบอร์โทรศัพท์ / อีเมล"
                 className={classes.textField1}
                 margin="normal"
                 InputProps={{
-                    endAdornment: (
-                        <InputAdornment position="end">
-                            <ConfirmButton disabled>
-                                <ConfirmText disabled>ยืนยัน</ConfirmText>
-                            </ConfirmButton>
-                        </InputAdornment>                        
-                    ),
+                  readOnly: true,
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <ConfirmButton>
+                        <ConfirmText>ยืนยัน</ConfirmText>
+                      </ConfirmButton>
+                    </InputAdornment>                        
+                  ),
                 }}
             />
-            <FieldFont
-                disabled
+
+            <TextFieldCustom
                 type="tel"
                 placeholder="รหัสยืนยัน"
                 className= "accept"
+                InputProps={{
+                  readOnly: true,
+                }}
             />
             
             <CheckIcon />
