@@ -106,10 +106,6 @@ const EditButton = styled(Button)`
         & span{
           color: white;
         }
-        /* & span:nth-child(2){
-          color: red;
-        } */
-
     }
 `
 
