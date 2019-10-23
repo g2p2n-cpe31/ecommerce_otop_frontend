@@ -1,11 +1,8 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
-import {
-  QuantityContext,
-  QuantityProvider,
-} from '../../context/QuantityProduct'
+import { QuantityContext } from '../../context/QuantityProduct'
 
 const ContainerButton = styled.div`
   display: flex;
@@ -39,7 +36,7 @@ const ButtonCustom = styled(Button)`
 `
 
 const PlusandMinus = () => {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
   const { state, dispatch } = useContext(QuantityContext)
 
   const handleonChange = e => {

@@ -14,7 +14,7 @@ import ImgSearch from '../../images/Navbar/search.svg'
 import ButtonFlat from './ButtonFlat'
 import LoginModal from '../containers/Login/Modal'
 
-const ContainerNavbar = styled.div`
+const ContainerNavbar = styled.form`
   position: fixed;
   z-index: 900;
   display: flex;
@@ -208,6 +208,8 @@ const Navbar = props => {
     setShowCart(!showCart)
   }
 
+  const handleSearch = e => {}
+
   return (
     <>
       <LoginModal open={showLogin} handleClose={() => setShowLogin(false)} />
@@ -216,6 +218,7 @@ const Navbar = props => {
         showCart={showCart}
         isDown={isDown}
         isFixedColor={props.isFixedColor}
+        onSubmit={() => handleSearch()}
       >
         <ContainerLayout>
           <GlobalStyle />
@@ -238,7 +241,7 @@ const Navbar = props => {
           </ContainerListMenus>
           <ContainerTools>
             <LinkLogoOrg to="/home">
-            <Img fixed={data.logo.childImageSharp.fixed} alt="" />
+              <Img fixed={data.logo.childImageSharp.fixed} alt="" />
             </LinkLogoOrg>
             <SearchTextBox
               variant="outlined"
@@ -248,7 +251,7 @@ const Navbar = props => {
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
-                    <ButtonFlat margin="0 .28rem 0 0">
+                    <ButtonFlat margin="0 .28rem 0 0" type="submit">
                       <IconSearch src={ImgSearch} />
                     </ButtonFlat>
                     <ButtonFlat
