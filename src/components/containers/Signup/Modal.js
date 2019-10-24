@@ -84,30 +84,22 @@ const ConfirmButton = styled(Button)`
     align-items: center;
     width: 93px;
     height: 24px;
-    font-family: 'Kanit';
     background: #E0E0E0;
     border-radius: 30px;
     margin-bottom: 7px;
-    & span{
-      font-size: 12px;
-      display: absolute; 
-      align-items: flex-start;
-      justify-content: center; 
-      letter-spacing: 0.5px;
-      color: #828282;
-      margin-bottom: 25px;
-      }
 }
 `
 
 const ConfirmText = styled.div`
+  font-family: 'Kanit';
   font-size: 12px;
   line-height: 15px;
+  color: #828282;
   display: absolute; 
   align-items: flex-start;
   justify-content: center;
+  margin-bottom: 25px;
   letter-spacing: 0.5px;
-  color: #828282;
 `
 
 const FieldFont = styled(TextField)`
@@ -140,7 +132,6 @@ const ModalContainer = styled(Modal)`
   && {
     background: linear-gradient(316.04deg, #44275D 0%, #3C5B78 100%);
     opacity: 0.9;
-    border-radius: 10px;
   }
 `
 
