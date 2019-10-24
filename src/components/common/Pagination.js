@@ -67,6 +67,7 @@ const theme = createMuiTheme()
 const PaginationComponent = () => {
   const [offset, setOffset] = useState(0)
   const handleClick = offset => setOffset(offset)
+  
   return (
     <ContainerPagination>
       <MuiThemeProvider theme={theme}>
