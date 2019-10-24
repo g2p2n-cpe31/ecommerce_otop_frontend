@@ -52,6 +52,7 @@ const ContainerButton = styled.div`
 const Box = styled.div`
     margin-left: 20px;
     display: flex;
+    position: relative;
     flex-direction: row;
     justify-content: flex-start;
     width: 1150px;
@@ -83,7 +84,11 @@ const DeleteBox = styled.div`
     display: flex;
     align-items: flex-start;
 `
-
+const BoxCheckbox = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
 const Margin = styled.div`
     margin-top: 10px;
     margin-left: 20px;
@@ -91,7 +96,7 @@ const Margin = styled.div`
 `
 const Margin2 = styled.div`
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 4px;
 `
 const Margin3 = styled.div`
     margin-left: 73px;
@@ -151,15 +156,19 @@ const Product = () => {
     return (
         <div>
             <Box>
-                <Checkbox
-                    checked={state.checkedB}
-                    onChange={handleChange('checkedB')}
-                    value="checkedB"
-                    color="primary"
-                    inputProps={{
-                    'aria-label': 'secondary checkbox',
-                    }}
-                />
+                <TextBox>
+                    <BoxCheckbox>
+                        <Checkbox
+                            checked={state.checkedB}
+                            onChange={handleChange('checkedB')}
+                            value="checkedB"
+                            color="primary"
+                            inputProps={{
+                            'aria-label': 'secondary checkbox',
+                            }}
+                        />
+                    </BoxCheckbox>
+                </TextBox>
                 <img src={Pineapple}
                      width="100rem"
                      height="87rem">
@@ -212,7 +221,7 @@ const Product = () => {
                         </FontSize5>
                     </Box2>
                 </SetMargin>
-                <Margin3></Margin3>
+                <Margin3 />
                 <DeleteBox>
                     <FormControlLabel
                         control={
@@ -223,7 +232,7 @@ const Product = () => {
                         label="ลบ"
                     />
                 </DeleteBox>
-            </Box>   
+            </Box> 
         </div>
     )
 }

@@ -21,10 +21,11 @@ const Cart = () => {
     return (
         <Layout>
             <Containers>
-                <SelectAll></SelectAll>
-                <Margin></Margin>
-                <Store></Store>
-                <Total></Total>
+                <SelectAll />
+                <Margin />
+                <Store />
+                <Store />
+                <Total />
             </Containers>
         </Layout>
     )

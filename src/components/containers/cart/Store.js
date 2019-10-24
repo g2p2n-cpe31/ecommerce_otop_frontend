@@ -20,12 +20,15 @@ const Box2 = styled.div`
     width: 100%;   
 `
 
-const Margin_Line = styled.div`
+const MarginLine = styled.div`
     margin: 5px;
 `
 
 const Line = styled.hr`
     width: 93%;
+`
+const Margin = styled.div`
+    margin: 1rem;
 `
 
 const Store = () => {
@@ -53,12 +56,13 @@ const Store = () => {
                         label="ชื่อร้านค้า"
                     />
                 </Box2>
-                <Margin_Line></Margin_Line>
+                <MarginLine />
                 <Line />
-                <Product></Product>
-                <Product></Product>
-                <Product></Product>
+                <Product />
+                <Product />
+                <Product />
             </Box>
+            <Margin />
         </div>
     )
 }

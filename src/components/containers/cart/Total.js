@@ -28,6 +28,7 @@ const Box2 = styled.div`
     display: flex;
     flex-direction: row;
     align-items: baseline;
+    background: gray;
 `
 const Margin = styled.div`
     margin-right : 30px;
@@ -43,10 +44,12 @@ const useStyles = makeStyles(theme => ({
 
 const FontSize = styled.div`
     font-size: 22px;
+    color: white;
 `
 
 const FontSize2 = styled.div`
     font-size: 36px;
+    color: white;
 `
 
     
@@ -60,12 +63,12 @@ const Total = () => {
                     <FontSize>
                         ยอดรวมทั้งสิ้น
                     </FontSize>
-                    <Margin></Margin>
+                    <Margin />
                     <FontSize2>
                         255 บาท
                     </FontSize2>
                 </Box2>
-                <Margin></Margin>
+                <Margin />
                 <ButtonCustom variant="contained" size="medium" className={classes.margin}>
                     ดำเนินการชำระเงิน
                 </ButtonCustom>

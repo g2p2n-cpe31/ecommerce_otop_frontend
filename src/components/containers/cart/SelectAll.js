@@ -18,10 +18,10 @@ const Margin = styled.div`
     margin: 80px;
 `
 
-const Margin_left = styled.div`
+const MarginLeft = styled.div`
     margin-left: 20px;
 `
-const Trash_Margin = styled.div`
+const TrashMargin = styled.div`
     margin-left: 95rem;
 `
 
@@ -48,9 +48,9 @@ const SelectAll = () => {
 
     return (
         <div>
-            <Margin></Margin>
+            <Margin />
             <Box>
-                <Margin_left></Margin_left>
+                <MarginLeft />
                 <FormControlLabel
                     control={
                         <Checkbox
@@ -62,7 +62,7 @@ const SelectAll = () => {
                     }
                     label="เลือกทั้งหมด"
                 />
-                <Trash_Margin />
+                <TrashMargin />
                 <FormControlLabel
                     control={
                         <IconButton className={classes.button} aria-label="delete">
