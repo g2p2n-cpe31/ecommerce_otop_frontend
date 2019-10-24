@@ -43,7 +43,11 @@ const Layout = ({ haveSpace = true, isFixedColor = true, ...props }) => {
   return (
     <>
       <GlobalStyle />
-      <Navbar isFixedColor={isFixedColor} />
+      <Navbar
+        isFixedColor={isFixedColor}
+        location={props.location}
+        history={props.history}
+      />
       {/* <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{

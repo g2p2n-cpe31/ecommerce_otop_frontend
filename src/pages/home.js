@@ -30,9 +30,9 @@ const TextTopic = styled.p`
   margin: 1rem 0;
 `
 
-const Home = () => {
+const Home = ({ location, history }) => {
   return (
-    <Layout>
+    <Layout location={location} history={history}>
       <ContainerCarousel>
         <Carousel />
       </ContainerCarousel>

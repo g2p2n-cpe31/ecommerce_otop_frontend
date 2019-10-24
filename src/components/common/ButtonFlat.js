@@ -32,7 +32,7 @@ const ButtonFlat = ({
     }
   `
 
-  return <ButtonCustomFlat>{props.children}</ButtonCustomFlat>
+  return <ButtonCustomFlat {...props}>{props.children}</ButtonCustomFlat>
 }
 
 export default ButtonFlat

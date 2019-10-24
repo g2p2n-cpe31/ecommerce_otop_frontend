@@ -22,10 +22,10 @@ const WordSearching = styled.p`
   }
 `
 
-const SearchPage = () => {
+const SearchPage = ({ location, history }) => {
   return (
     <>
-      <Layout haveSpace={false}>
+      <Layout haveSpace={false} location={location} history={history}>
         <FilterSide />
         <WrapProduct>
           <WordSearching>
