@@ -14,15 +14,22 @@ import styled from 'styled-components'
 import GlobalStyle from '../utility/GlobalStyle'
 import Navbar from './Navbar'
 
-const ContainerDesktop = styled.div`
+const ContainerHaveSpace = styled.div`
   margin: 0 auto;
   width: 82%;
-  max-width: 1366px;
-  z-index: 2;
+  max-width: 136.6rem;
+  /* z-index: 2; */
   padding-top: 13rem;
 `
 
-const Layout = props => {
+const ContainerFitScreen = styled.div`
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  padding-top: 13rem;
+`
+
+const Layout = ({ haveSpace = true, isFixedColor = true, ...props }) => {
   // const data = useStaticQuery(graphql`
   //   query SiteTitleQuery {
   //     site {
@@ -36,7 +43,7 @@ const Layout = props => {
   return (
     <>
       <GlobalStyle />
-      <Navbar />
+      <Navbar isFixedColor={isFixedColor} />
       {/* <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{
@@ -46,7 +53,12 @@ const Layout = props => {
           paddingTop: 0,
         }}
       > */}
-      <ContainerDesktop>{props.children}</ContainerDesktop>
+      {haveSpace ? (
+        <ContainerHaveSpace>{props.children}</ContainerHaveSpace>
+      ) : (
+        <ContainerFitScreen>{props.children}</ContainerFitScreen>
+      )}
+
       {/* <footer>
           © {new Date().getFullYear()}, Built with
           {` `}

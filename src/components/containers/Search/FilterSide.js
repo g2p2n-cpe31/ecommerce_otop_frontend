@@ -2,6 +2,30 @@ import React from 'react'
 import styled from 'styled-components'
 import SelectFlat from '../../common/SelectFlat'
 import ButtonFlat from '../../common/ButtonFlat'
+import TextField from '@material-ui/core/TextField'
+
+const TextFieldMinMax = styled(TextField)`
+  && {
+    color: #bdbdbd;
+    background: #f2f2f2;
+    max-width: 13.9rem;
+    margin: auto 0;
+
+    & input {
+      padding: 0 0.4rem;
+      height: 4rem;
+      font-family: Kanit;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    & fieldset {
+      border: 0;
+      box-sizing: border-box;
+      border-radius: 2px;
+    }
+  }
+`
 
 const ContainerFilter = styled.div`
   max-width: 67.5rem;
@@ -67,24 +91,18 @@ const FilterSide = () => {
         <WrapPrice>
           <TextFilter>ราคา</TextFilter>
           <WrapSort>
-            <ButtonFlat
-              background="#F2F2F2"
-              width="13.9rem"
-              font_weight="300"
-              color="#BDBDBD"
-              font_size="13px"
-            >
-              น้อยสุด
-            </ButtonFlat>
-            <ButtonFlat
-              background="#F2F2F2"
-              width="13.9rem"
-              font_weight="300"
-              color="#BDBDBD"
-              font_size="13px"
-            >
-              มากสุด
-            </ButtonFlat>
+            <TextFieldMinMax
+              defaultValue=""
+              margin="normal"
+              variant="outlined"
+              placeholder="น้อยสุด"
+            />
+            <TextFieldMinMax
+              defaultValue=""
+              margin="normal"
+              variant="outlined"
+              placeholder="มากสุด"
+            />
           </WrapSort>
         </WrapPrice>
         <WrapSort>
@@ -100,7 +118,7 @@ const FilterSide = () => {
             background="#BDBDBD"
             width="10.6rem"
             font_weight="normal"
-            color="#F2F2F2"
+            color_btn="#F2F2F2"
             font_size="17px"
           >
             ล้าง
@@ -108,7 +126,7 @@ const FilterSide = () => {
           <ButtonFlat
             width="16.4rem"
             font_weight="normal"
-            color="#F2F2F2"
+            color_btn="#F2F2F2"
             font_size="17px"
           >
             ตกลง

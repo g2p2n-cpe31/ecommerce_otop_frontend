@@ -4,11 +4,11 @@ import Button from '@material-ui/core/Button'
 
 const ButtonFlat = ({
   width = '6.45rem',
-  height = '39px',
+  height = '3.9rem',
   background = ' #e89c6b',
   border_radius = '0.2rem',
   margin = '0',
-  color = '#000',
+  color_btn = '#000',
   font_size = '1.4rem',
   font_weight = '400',
   ...props
@@ -22,7 +22,7 @@ const ButtonFlat = ({
       justify-content: center;
       font-size: ${font_size};
       font-weight: ${font_weight};
-      color: ${color};
+      color: ${color_btn};
       min-width: 0;
       width: ${width};
       height: ${height};

@@ -1,16 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import FilterSide from '../components/containers/Search/FilterSide'
-import Navbar from '../components/common/Navbar'
+import Layout from '../components/common/Layout'
 import ContainerProduction from '../components/common/ContainerProduct'
 import Pagination from '../components/common/Pagination'
-
-const Contaienr = styled.div`
-  display: flex;
-  width: 100%;
-  /* height: 100vh; */
-  padding-top: 13rem;
-`
 
 const WrapProduct = styled.div`
   display: flex;
@@ -32,8 +25,7 @@ const WordSearching = styled.p`
 const SearchPage = () => {
   return (
     <>
-      <Navbar />
-      <Contaienr>
+      <Layout haveSpace={false}>
         <FilterSide />
         <WrapProduct>
           <WordSearching>
@@ -42,7 +34,7 @@ const SearchPage = () => {
           <ContainerProduction />
           <Pagination />
         </WrapProduct>
-      </Contaienr>
+      </Layout>
     </>
   )
 }
