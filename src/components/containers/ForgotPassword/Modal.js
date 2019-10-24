@@ -94,7 +94,6 @@ const ModalContainer = styled(Modal)`
   && {
     background: linear-gradient(316.04deg, #44275D 0%, #3C5B78 100%);
     opacity: 0.9;
-    border-radius: 10px;
   }
 `
 
