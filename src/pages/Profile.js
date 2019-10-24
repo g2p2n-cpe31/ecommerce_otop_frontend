@@ -1,28 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
 import Layout from '../components/common/Layout'
-import Detail from '../components/containers/Profile/Detail'
+import Option from '../components/containers/Profile/Option'
+import Information from '../components/containers/Profile/Information'
 
 
-const ContainerPersonal = styled.p`
-    height: 72px;
-    width: 276px;
-    font-family: Kanit;
-    font-size: 48px;
-    margin-top: 60px;
-    margin-bottom: 33px;
-    margin-left: 315px;
-    align-items: flex-start;
+const Container = styled.div`
+    display: flex;
+    flex-direction: row;
+
 `
 
 
+
 const Profile = () => {
-    return  (
+    return(
         <Layout>
-               <ContainerPersonal>
-                   ข้อมูลส่วนตัว
-               </ContainerPersonal>
-               <Detail/>
+               <Container>
+                    <Option/>
+                    <Information/>
+               </Container>
         </Layout>
     )
 }
