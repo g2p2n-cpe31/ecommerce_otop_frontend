@@ -27,32 +27,22 @@ const CloseIconButton = styled(IconButton)`
 
 const ConfirmButton = styled(Button)`
   &&  {
-    display: flex;
-    align-items: center;
     width: 93px;
     height: 24px;
-    font-family: 'Kanit';
     background: #E0E0E0;
     border-radius: 30px;
     margin-bottom: 7px;
-    & span{
-      font-size: 12px;
-      display: absolute; 
-      align-items: flex-start;
-      justify-content: center; 
-      letter-spacing: 0.5px;
-      color: #828282;
-      margin-bottom: 25px;
-      }
 }
 `
 
 const ConfirmText = styled.div`
-  font-size: 12px;
-  line-height: 15px;
   display: absolute; 
   align-items: flex-start;
   justify-content: center;
+  margin-bottom: 25px;
+  font-family: 'Kanit';
+  font-size: 12px;
+  line-height: 15px;
   letter-spacing: 0.5px;
   color: #828282;
 `
