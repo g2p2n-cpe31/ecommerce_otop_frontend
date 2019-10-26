@@ -39,7 +39,9 @@ const BottomLeft = styled(Box)`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  padding-top:10px;
   padding-right: 10px;
+  margin-top: -8px;
 `
 
 const BottomMiddle = styled(Box)`
@@ -59,7 +61,7 @@ const BottomRight = styled(Box)`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  margin-top: -15px;
+  margin-top: -8px;
   padding-left: 20px;
 `
 
@@ -131,31 +133,15 @@ const ModalContainer = styled(Modal)`
 
 const LogInButton = styled(Button)`
   &&  {
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-family: 'Kanit';
+    width: 100px;
+    height: 43px;
+    font-family: 'Kanit';
     font-size: 13px;
-    line-height: 43px;
-    max-width: 76px;
-    max-height: 93px;
+    text-align: center;
+    letter-spacing: 0.5px;
     color: rgba(91, 60, 120, 0.5);
-
-    /* & span {
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      width: 64px;
-      height: 26px;
-    } */
-
-    & .MuiButton-label {
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      width: 60px;
-      height: 43px;
-    }
+    padding-top: 0;
+    padding-bottom: 0;
   }
 `
 
@@ -203,12 +189,12 @@ const Underline = () => (
       style={{
           color: 'rgba(91, 60, 120, 0.5)',
           backgroundColor: 'rgba(91, 60, 120, 0.5)',
-          width: 51,
+          width: 52,
           height: 2,
           display: 'flex',
           position: "absolute",
-          left: 419,
-          top: 470,
+          left: 421,
+          top: 465,
       }}
   />
 );
