@@ -8,6 +8,35 @@ import Fade from '@material-ui/core/Fade';
 import ic_cancel_white from '../../../images/Navbar/ic_cancel_white.svg'
 import Input from '@material-ui/core/Input';
 
+const useStyles = makeStyles(theme => ({
+    button: {
+      margin: theme.spacing(1),
+    },
+    input: {
+      display: 'none',
+    },
+    extendedIcon: {
+        marginRight: theme.spacing(1),
+    },
+    modal: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    paper: {
+        backgroundColor: theme.palette.background.paper,
+        border: '2px solid #000',
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing(2, 4, 3),
+    },
+    container: {
+        display: 'flex',
+        flexWrap: 'wrap',
+    },
+      input: {
+        margin: theme.spacing(1),
+    },
+}));
 
 const AddrFade = styled(Fade)`
     &&{
@@ -57,37 +86,6 @@ const ContainerTextField = styled.div`
     margin-top: 150px;
     left: 60px;
 `
-
-const useStyles = makeStyles(theme => ({
-    button: {
-      margin: theme.spacing(1),
-    },
-    input: {
-      display: 'none',
-    },
-    extendedIcon: {
-        marginRight: theme.spacing(1),
-    },
-    modal: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    paper: {
-        backgroundColor: theme.palette.background.paper,
-        border: '2px solid #000',
-        boxShadow: theme.shadows[5],
-        padding: theme.spacing(2, 4, 3),
-    },
-    container: {
-        display: 'flex',
-        flexWrap: 'wrap',
-    },
-      input: {
-        margin: theme.spacing(1),
-    },
-}));
-
 
 const ButtonCustom = styled(Button)`
   &&{
@@ -176,6 +174,7 @@ const InInfoBoxLine2 = styled.div`
     font-family: "Kanit";
     font-size: 16px;
     margin-top: 17px;
+    margin-bottom: 9px;
     font-style: normal;
     font-weight: 300;
     font-size: 16px;
@@ -211,10 +210,8 @@ const AddrText = styled.p`
     font-style: normal;
     font-weight: 300;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 13px;
     letter-spacing: 0.5px;
-    max-height: 96px;
-    max-width: 278px;
     color: #333333;
 `
 const InputCustom = styled(Input)`
@@ -296,9 +293,10 @@ const AddrInfo = () => {
                     <InInfoBox>ปูรณ์  โชตอะไรซักอย่าง</InInfoBox>
                     <InInfoBoxLine2>088-088-0888</InInfoBoxLine2>
                     <InInfoBox>
-                        <AddrText>
-                            111/111 ซอยบลาบลาบลา ถนนบลาบลาบลา แขวงบลาบลาบลา เขตบลาบลาบลา จังหวัดบลาบลาบลา 10110
-                        </AddrText>
+                        <AddrText>111/111 ซอยบลาบลาบลา ถนนบลาบลาบลา</AddrText>
+                        <AddrText>แขวงบลาบลาบลา เขตบลาบลาบลา</AddrText>
+                        <AddrText>จังหวัดบลาบลาบลา</AddrText>
+                        <AddrText>10110</AddrText>
                     </InInfoBox>
                 </InfoBox>
                 <AddrEdit>

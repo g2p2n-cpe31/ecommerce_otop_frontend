@@ -100,6 +100,7 @@ const InInfoBoxLine2 = styled.div`
     font-family: "Kanit";
     font-size: 16px;
     margin-top: 17px;
+    margin-bottom: 9px;
     font-style: normal;
     font-weight: 300;
     font-size: 16px;
@@ -157,10 +158,8 @@ const AddrText = styled.p`
     font-style: normal;
     font-weight: 300;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 13px;
     letter-spacing: 0.5px;
-    max-height: 96px;
-    max-width: 278px;
     color: #333333;
 `
 
@@ -179,9 +178,10 @@ const SelectedInfo = () => {
                     <DefaultSign>ค่าเริ่มต้น</DefaultSign>
                     <InInfoBoxLine2>088-088-0888</InInfoBoxLine2>
                     <InInfoBox>
-                        <AddrText>
-                            111/111 ซอยบลาบลาบลา ถนนบลาบลาบลา แขวงบลาบลาบลา เขตบลาบลาบลา จังหวัดบลาบลาบลา 10110
-                        </AddrText>
+                        <AddrText>111/111 ซอยบลาบลาบลา ถนนบลาบลาบลา</AddrText>
+                        <AddrText>แขวงบลาบลาบลา เขตบลาบลาบลา</AddrText>
+                        <AddrText>จังหวัดบลาบลาบลา</AddrText>
+                        <AddrText>10110</AddrText>
                     </InInfoBox>
                 </InfoBox>
                 <AddrEdit>
