@@ -54,6 +54,10 @@ const PaginationCustom = styled(Pagination)`
     & .MuiButton-textPrimary {
       color: #bdbdbd;
     }
+
+    & .MuiFlatPageButton-rootCurrent:hover {
+      background: rgba(130, 130, 130, 0.2);
+    }
   }
 `
 
@@ -72,7 +76,7 @@ const PaginationComponent = () => {
       <MuiThemeProvider theme={theme}>
         {/* <CssBaseline /> */}
         <PaginationCustom
-          currentPageColor="#828282"
+          // currentPageColor="#828282"
           size="medium"
           limit={10}
           offset={offset}
