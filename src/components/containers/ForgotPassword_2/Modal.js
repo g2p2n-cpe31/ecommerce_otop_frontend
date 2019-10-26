@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal'
 import TextField from '@material-ui/core/TextField';
@@ -9,11 +9,21 @@ import Box from '@material-ui/core/Box';
 import InputAdornment from '@material-ui/core/InputAdornment'
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
+import CheckSharpIcon from '@material-ui/icons/CheckSharp';
 
 const ButtonShow = styled.button`
   font-family: 'Kanit';
   font-size: 14px;
   line-height: 43px;
+`
+
+const CheckIcon = styled(CheckSharpIcon)`
+  width: 42px;
+  height: 30px;
+  color: #27AE60;
+  position: absolute;
+  margin-left: 328px;
+  margin-top: -32px;
 `
 
 const CloseIconButton = styled(IconButton)`
@@ -27,34 +37,35 @@ const CloseIconButton = styled(IconButton)`
 
 const ConfirmButton = styled(Button)`
   &&  {
+    display: flex;
+    align-items: center;
     width: 93px;
     height: 24px;
-    background: #E0E0E0;
+    font-family: 'Kanit';
+    background: rgba(91, 60, 120, 0.7);
     border-radius: 30px;
     margin-bottom: 7px;
 }
 `
 
 const ConfirmText = styled.div`
+  font-size: 12px;
+  line-height: 15px;
   display: absolute; 
   align-items: flex-start;
   justify-content: center;
-  margin-bottom: 25px;
-  font-family: 'Kanit';
-  font-size: 12px;
-  line-height: 15px;
   letter-spacing: 0.5px;
-  color: #828282;
+  color: #F2F2F2;
 `
 
-const FieldFont = styled(TextField)`
-  &&  {
+const TextFieldCustom = styled(TextField)`
+  && {
     width: 337px;
     margin: auto;
-    margin-top: 25px;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
-    & input{
+    & input {
         width: 337px;
         padding: 5px;
         text-indent: 5px;
@@ -62,6 +73,63 @@ const FieldFont = styled(TextField)`
         font-size: 14px;
         line-height: 43px;
         letter-spacing: 0.5px;
+    }
+
+    & .MuiInput-underline:before {
+      border-bottom-color: green;
+    }
+
+    & .MuiInput-underline:after{
+      border-bottom-color: green;
+    }
+
+  }
+`
+
+const EditButton = styled(Button)`
+    margin-top: 68px;
+    margin-left: 224px;
+    padding-top: 3px;
+    border-color: #27AE60;
+    &&  {
+        width: 177px;
+        height: 48px;
+        font-family: 'Kanit';
+        border-radius: 25px;
+        background-color: #5B3C78;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 43px;
+        letter-spacing: 0.5px;
+        text-align: center;    
+        color: #FFFFFF;
+        & span{
+          color: white;
+        }
+    }
+`
+
+const FieldFont = styled(TextField)`
+  &&  {
+    width: 337px;
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+      & input{
+        width: 337px;
+        padding: 5px;
+        text-indent: 5px;
+        font-family: Kanit;
+        font-size: 14px;
+        line-height: 43px;
+        letter-spacing: 0.5px;
+    }
+    
+     & .accept{
+      margin: normal;
+      border-bottom-color : green;
+      border-color: 'green';
     }
   }
 `
@@ -77,7 +145,6 @@ const ModalTitle = styled.div`
   color: #444444;
   padding: 10px;
   margin-top: 9px;
-  margin-bottom: 5px;
 `
 
 const ModalContainer = styled(Modal)`
@@ -87,32 +154,12 @@ const ModalContainer = styled(Modal)`
   }
 `
 
-const NextButton = styled(Button)`
-    margin-top: 55px;
-    margin-left: 215px;
-    &&  {
-        width: 177px;
-        height: 48px;
-        font-family: 'Kanit';
-        border-radius: 25px;
-        background-color: #5B3C78;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 43px;
-        letter-spacing: 0.5px;
-        text-align: center;    
-        color: #FFFFFF;
-        & span{
-        color: white;
-        }
-    }
-`
-
 const SearchTextBox = styled(TextField)`
   && {
-      width:337px;
-      padding: 0px;
-      margin-top: 30px;
+    width:337px;
+    padding: 0px;
+    margin-top: 30px;
+    margin-bottom: 0px;
     input {
       padding: 10px;
       text-indent: 5px;
@@ -133,10 +180,10 @@ const useStyles = makeStyles(theme => ({
     position: 'absolute',
     left: '50%',
     top: '50%',
-    marginTop: '-196px',
+    marginTop: '-258px',
     marginLeft: '-238px',
-    height: 392,
     width: 476,
+    height: 516,   
     backgroundColor: theme.palette.background.paper,
     border: '0.5px solid #000',
     boxShadow: theme.shadows[1],
@@ -150,6 +197,7 @@ const useStyles = makeStyles(theme => ({
     marginLeft: theme.spacing(4),
     width: 337,
     padding: '2px',
+    marginBottom: '5px'
   },
 }));
 
@@ -159,27 +207,22 @@ function getModalStyle() {
   };
 }
 
-export default function SimpleModal(props) {
+export default function SimpleModal() {
   const classes = useStyles();
-  const [modalStyle] = useState(getModalStyle);
-  const [step, setStep] = useState(2)
-  const [verifyTemp, setVerifyTemp] = useState('')
-  const [otpTemp, setOtpTemp] = useState(0)
-  
+  const [modalStyle] = React.useState(getModalStyle);
 
   return (
     <div>
-    
+      
       <ModalContainer
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
         open={true}
-        // open={open}
         // onClose={handleClose}
       >
         <Box style={modalStyle} className={classes.paper}>
-            <CloseIconButton 
-              className={classes.button} 
+            <CloseIconButton
+              className={classes.button}
               aria-label="close"
               // onClick={handleClose}
             >
@@ -192,25 +235,43 @@ export default function SimpleModal(props) {
                 placeholder="เบอร์โทรศัพท์ / อีเมล"
                 className={classes.textField1}
                 margin="normal"
-                value={verifyTemp}
-                onChange={e => setVerifyTemp(e.target.value)}
                 InputProps={{
-                    endAdornment: (
-                        <InputAdornment position="end">
-                            <ConfirmButton>
-                                <ConfirmText>ยืนยัน</ConfirmText>
-                            </ConfirmButton>
-                        </InputAdornment>                        ),
+                  readOnly: true,
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <ConfirmButton disabled>
+                        <ConfirmText>ยืนยัน</ConfirmText>
+                      </ConfirmButton>
+                    </InputAdornment>                        
+                  ),
                 }}
+            />
+
+            <TextFieldCustom
+                type="tel"
+                placeholder="รหัสยืนยัน"
+                className= "accept"
+                InputProps={{
+                  readOnly: true,
+                }}
+            />
+            
+            <CheckIcon />
+            
+            <FieldFont
+                type="password"
+                placeholder="รหัสผ่านใหม่"
+                className={classes.textField1}
+                margin="normal"
             />
             <FieldFont
                 type="password"
-                placeholder="รหัสยืนยัน"
+                placeholder="ยืนยันรหัสผ่านใหม่"
                 className={classes.textField1}
                 margin="normal"
             />
 
-            <NextButton onClick={props.nextStep} >ถัดไป</NextButton>
+            <EditButton>แก้ไขรหัสผ่าน</EditButton>
 
         </Box>
       </ModalContainer>
