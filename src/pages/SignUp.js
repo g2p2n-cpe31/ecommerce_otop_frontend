@@ -1,16 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Modal from '../components/containers/SignUp/Modal.js'
 import SEO from '../components/utility/seo'
-// import { TypographyStyle } from 'react-typography'
-// import typography from '../components/utility/typography'
 
 const SignUp = () => {
+    const [step, setStep] = useState('close')
+    
     return (
-        <>
-            <SEO title="สมัครสมาชิก" />
-            <Modal />
-        </>
+      <>
+        <SEO title="สมัครสมาชิก" />
+        <button type="button" onClick={() => setStep('openModal')}>
+          สมัครสมาชิก
+        </button>
+        {
+          {
+            close: null,
+            openModal: (
+              <Modal
+                step={step}
+                handleClose={(e) => {
+                  setStep('close')
+                }}
+                />
+            ),
+          }[step]
+        }
+      </>
     )
-}
+  }
   
-export default SignUp
+  export default SignUp
+  

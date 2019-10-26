@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal'
 import TextField from '@material-ui/core/TextField';
@@ -61,12 +61,6 @@ const BottomRight = styled(Box)`
   justify-content: flex-start;
   margin-top: -15px;
   padding-left: 20px;
-`
-
-const ButtonShow = styled.button`
-  font-family: 'Kanit';
-  font-size: 14px;
-  line-height: 43px;
 `
 
 const CloseIconButton = styled(IconButton)`
@@ -135,6 +129,36 @@ const ModalContainer = styled(Modal)`
   }
 `
 
+const LogInButton = styled(Button)`
+  &&  {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family: 'Kanit';
+    font-size: 13px;
+    line-height: 43px;
+    max-width: 76px;
+    max-height: 93px;
+    color: rgba(91, 60, 120, 0.5);
+
+    /* & span {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width: 64px;
+      height: 26px;
+    } */
+
+    & .MuiButton-label {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width: 60px;
+      height: 43px;
+    }
+  }
+`
+
 const SearchTextBox = styled(TextField)`
   && {
     input {
@@ -149,16 +173,6 @@ const SearchTextBox = styled(TextField)`
     & .MuiOutlinedInput-adornedEnd {
       padding-right: 0;
     }
-  }
-`
-
-const SignInButton = styled(Button)`
-  &&  {
-    font-family: 'Kanit';
-    font-size: 13px;
-    line-height: 43px;
-    max-height: 38px;
-    color: rgba(91, 60, 120, 0.5);
   }
 `
 
@@ -194,7 +208,7 @@ const Underline = () => (
           display: 'flex',
           position: "absolute",
           left: 419,
-          top: 461,
+          top: 470,
       }}
   />
 );
@@ -236,35 +250,51 @@ function getModalStyle() {
   };
 }
 
-export default function SimpleModal() {
-  const classes = useStyles();
-  const [modalStyle] = React.useState(getModalStyle);
-  const [open, setOpen] = React.useState(false);
+export default function SimpleModal(props) {
+  const classes = useStyles()
+  const [modalStyle] = useState(getModalStyle)
+  const [name, setName] = useState('')
+  const [surname, setSurname] = useState('')
+  const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')
+  const [pwd, setPwd] = useState('')
+  const [confirmPwd, setConfirmPwd] = useState('')
+  const [telNum, setTelNum] = useState('')
+  const [otp, setOtp] = useState('')
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
+  const check = () => {
+    return (otp === '555555'
+            && name !== ''
+            && surname !== ''
+            && email !== ''
+            && username !== ''
+            && pwd !== ''
+            && confirmPwd !== ''
+            && telNum !== ''
+            ) ? true : false;
+  }
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const submit = () => {
+    if (check()) {
+      props.handleClose()
+    }
+  }
 
   return (
     <div>
-      <ButtonShow type="button" onClick={handleOpen}>
-        สมัครสมาชิก
-      </ButtonShow>
       <ModalContainer
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
-        open={open}
-        onClose={handleClose}
+        open={() => props.step !== 'close'}
+        onClose={()=>{ 
+          props.handleClose()   
+        }} 
       >
         <Box style={modalStyle} className={classes.paper}>
           <CloseIconButton 
             className={classes.button} 
             aria-label="close"
-            onClick={handleClose}
+            onClick={(e) => props.handleClose(e)}
           >
             <CloseIcon />
           </CloseIconButton> 
@@ -278,11 +308,15 @@ export default function SimpleModal() {
                 placeholder="ชื่อ"
                 className={classes.textField2}
                 margin="normal"
-              /> 
+                value={name}
+                onChange={e => setName(e.target.value)}
+                /> 
               <FieldFont
                 placeholder="นามสกุล"
                 className={classes.textField2}
                 margin="normal"
+                value={surname}
+                onChange={e => setSurname(e.target.value)}
               />
 
               <SearchTextBox
@@ -290,6 +324,8 @@ export default function SimpleModal() {
                 placeholder="เบอร์โทรศัพท์"
                 className={classes.textField2}
                 margin="normal"
+                value={telNum}
+                onChange={e => setTelNum(e.target.value)}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
@@ -306,6 +342,8 @@ export default function SimpleModal() {
                 placeholder="รหัส OTP (รหัสยืนยันจากโทรศัพท์)"
                 className={classes.textField2}
                 margin="normal"
+                value={otp}
+                onChange={e => setOtp(e.target.value)}
               />    
             
             <FieldFont
@@ -313,12 +351,16 @@ export default function SimpleModal() {
                 placeholder="อีเมล"
                 className={classes.textField1}
                 margin="normal"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
               />    
             <FieldFont
                 type="text"
                 placeholder="ชื่อบัญชีผู้ใช้"
                 className={classes.textField1}
                 margin="normal"
+                value={username}
+                onChange={e => setUsername(e.target.value)}
               />     
 
               <FieldFont
@@ -327,6 +369,8 @@ export default function SimpleModal() {
                 type="password"
                 autoComplete="current-password"
                 margin="normal"
+                value={pwd}
+                onChange={e => setPwd(e.target.value)}
               />      
               <FieldFont
                 placeholder="ยืนยันรหัสผ่าน"
@@ -334,6 +378,8 @@ export default function SimpleModal() {
                 type="password"
                 autoComplete="current-password"
                 margin="normal"
+                value={confirmPwd}
+                onChange={e => setConfirmPwd(e.target.value)}
               />  
 
           </BoxMiddle>
@@ -345,13 +391,17 @@ export default function SimpleModal() {
             </BottomLeft>
 
             <BottomMiddle>
-              <SignInButton href="#text-buttons" className={classes.button}>
+              <LogInButton className={classes.button}>
                 เข้าสู่ระบบ
-              </SignInButton>
+              </LogInButton>
             </BottomMiddle>
 
             <BottomRight>
-              <SignUpButton variant="extended" color="primary" aria-label="add" className={classes.margin}>
+              <SignUpButton 
+                variant="extended" 
+                className={classes.margin}
+                onClick={submit}                // onClick={() => props.setStep('close')}
+              >
                 สมัครสมาชิก
               </SignUpButton>
             </BottomRight>
