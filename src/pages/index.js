@@ -4,8 +4,8 @@ import Layout from '../components/common/Layout'
 import Image from '../components/common/image'
 import SEO from '../components/utility/seo'
 
-const IndexPage = () => (
-  <Layout>
+const IndexPage = ({ location }) => (
+  <Layout location={location}>
     {/* <Container></Container> */}
 
     <SEO title="Home" />

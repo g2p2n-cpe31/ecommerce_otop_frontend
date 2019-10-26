@@ -9,11 +9,11 @@ const Container = styled.div`
   height: 155.9rem;
 `
 
-const Product_detail = () => {
+const Product_detail = ({ location }) => {
   return (
     <QuantityProvider>
       <Container>
-        <Layout isFixedColor={false}>
+        <Layout isFixedColor={false} location={location}>
           <SectionOne />
           <SectionTwo />
         </Layout>

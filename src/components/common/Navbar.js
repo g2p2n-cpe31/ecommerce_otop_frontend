@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useStaticQuery, graphql } from 'gatsby'
+import { navigate, Link, useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import InputAdornment from '@material-ui/core/InputAdornment'
@@ -188,6 +188,7 @@ const Navbar = props => {
   const [showCart, setShowCart] = useState(false)
   const [isDown, setIsDown] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
+
   useEffect(() => {
     if (!props.isFixedColor) {
       // console.log(window.scollY.)
@@ -201,6 +202,12 @@ const Navbar = props => {
     }
   })
 
+  useEffect(() => {
+    const getCurrentURL = new URLSearchParams(props.location.search)
+    setValueSearch(getCurrentURL.get('keyword') || '')
+    console.log(getCurrentURL.get('keyword'))
+  }, [])
+
   const handleChangeSearch = event => setValueSearch(event.target.value)
   const handleCartFeature = e => {
     e.preventDefault()
@@ -208,7 +215,11 @@ const Navbar = props => {
     setShowCart(!showCart)
   }
 
-  const handleSearch = e => {}
+  const handleSearch = e => {
+    e.preventDefault()
+    navigate(`/search?keyword=${valueSearch}`)
+    e.stopPropagation()
+  }
 
   return (
     <>
@@ -218,7 +229,10 @@ const Navbar = props => {
         showCart={showCart}
         isDown={isDown}
         isFixedColor={props.isFixedColor}
-        onSubmit={() => handleSearch()}
+        onSubmit={e => {
+          handleSearch(e)
+          return false
+        }}
       >
         <ContainerLayout>
           <GlobalStyle />
