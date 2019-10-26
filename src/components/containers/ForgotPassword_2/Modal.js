@@ -10,18 +10,12 @@ import CloseIcon from '@material-ui/icons/Close'
 import IconButton from '@material-ui/core/IconButton'
 import CheckSharpIcon from '@material-ui/icons/CheckSharp'
 
-const ButtonShow = styled.button`
-  font-family: 'Kanit';
-  font-size: 14px;
-  line-height: 43px;
-`
-
 const CheckIcon = styled(CheckSharpIcon)`
   width: 42px;
   height: 30px;
   color: #27ae60;
   position: absolute;
-  margin-left: 328px;
+  margin-left: 365px;
   margin-top: -32px;
 `
 
@@ -57,36 +51,9 @@ const ConfirmText = styled.div`
   color: #f2f2f2;
 `
 
-const TextFieldCustom = styled(TextField)`
-  && {
-    width: 337px;
-    margin: auto;
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    & input {
-      width: 337px;
-      padding: 5px;
-      text-indent: 5px;
-      font-family: Kanit;
-      font-size: 14px;
-      line-height: 43px;
-      letter-spacing: 0.5px;
-    }
-
-    & .MuiInput-underline:before {
-      border-bottom-color: green;
-    }
-
-    & .MuiInput-underline:after {
-      border-bottom-color: green;
-    }
-  }
-`
-
 const EditButton = styled(Button)`
-  margin-top: 68px;
-  margin-left: 224px;
+  margin-top: 55px;
+  margin-left: 255px;
   padding-top: 3px;
   border-color: #27ae60;
   && {
@@ -111,12 +78,12 @@ const FieldFont = styled(TextField)`
   && {
     width: 337px;
     margin: auto;
-    margin-top: 30px;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     & input {
       width: 337px;
-      padding: 5px;
+      padding: 10px;
       text-indent: 5px;
       font-family: Kanit;
       font-size: 14px;
@@ -142,7 +109,7 @@ const ModalTitle = styled.div`
   letter-spacing: 0.5px;
   color: #444444;
   padding: 10px;
-  margin-top: 9px;
+  margin-top: 64px;
 `
 
 const ModalContainer = styled(Modal)`
@@ -155,9 +122,11 @@ const ModalContainer = styled(Modal)`
 const SearchTextBox = styled(TextField)`
   && {
     width: 337px;
-    padding: 0px;
-    margin-top: 30px;
-    margin-bottom: 0px;
+    margin: auto;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
     input {
       padding: 10px;
       text-indent: 5px;
@@ -169,6 +138,33 @@ const SearchTextBox = styled(TextField)`
 
     & .MuiOutlinedInput-adornedEnd {
       padding-right: 0;
+    }
+  }
+`
+
+const TextFieldCustom = styled(TextField)`
+  && {
+    width: 337px;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    & input {
+      width: 337px;
+      padding: 10px;
+      text-indent: 5px;
+      font-family: Kanit;
+      font-size: 14px;
+      line-height: 43px;
+      letter-spacing: 0.5px;
+    }
+
+    & .MuiInput-underline:before {
+      border-bottom-color: green;
+    }
+
+    & .MuiInput-underline:after {
+      border-bottom-color: green;
     }
   }
 `
@@ -187,7 +183,7 @@ const useStyles = makeStyles(theme => ({
     boxShadow: theme.shadows[1],
     fontFamily: 'Kanit',
     borderRadius: '10px',
-    padding: '44px 36px',
+    // padding: '44px 36px',
     outline: 0,
   },
   textField1: {
@@ -210,9 +206,8 @@ export default function SimpleModal(props) {
   const [modalStyle] = useState(getModalStyle)
   const [pwdTemp, setpwdTemp] = useState('')
   const [confirmpwdTemp, setConfirmpwdTemp] = useState('')
-  // const [otpTemp, setOtpTemp] = useState('123456')
   const submit = () => {
-    if(pwdTemp === confirmpwdTemp){
+    if(pwdTemp === confirmpwdTemp && pwdTemp !== '' && confirmpwdTemp !== ''){
       props.nextStep()
       props.setPwd(pwdTemp)
     }
@@ -222,14 +217,17 @@ export default function SimpleModal(props) {
       <ModalContainer
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
-        open={true}
-      >
+        // open={true}
+        open={() => props.step !== 'close'}
+        onClose={()=>{ 
+            props.handleClose()   
+        }} 
+        >
         <Box style={modalStyle} className={classes.paper}>
           <CloseIconButton
             className={classes.button}
             aria-label="close"
-            // onClick={props.close}
-            // onClick={handleClose}
+            onClick={props.handleClose}
           >
             <CloseIcon />
           </CloseIconButton>
@@ -237,7 +235,6 @@ export default function SimpleModal(props) {
 
           <SearchTextBox
             type="text"
-            // onChange={e => setVerifyTemp(e.target.value)}
             value={props.verify}
             className={classes.textField1}
             margin="normal"

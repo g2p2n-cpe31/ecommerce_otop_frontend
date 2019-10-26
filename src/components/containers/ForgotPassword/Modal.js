@@ -8,12 +8,7 @@ import Box from '@material-ui/core/Box'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import CloseIcon from '@material-ui/icons/Close'
 import IconButton from '@material-ui/core/IconButton'
-
-const ButtonShow = styled.button`
-  font-family: 'Kanit';
-  font-size: 14px;
-  line-height: 43px;
-`
+// import ClearRoundedIcon from '@material-ui/icons/ClearRounded';
 
 const CloseIconButton = styled(IconButton)`
   && {
@@ -55,7 +50,7 @@ const FieldFont = styled(TextField)`
     justify-content: center;
     & input {
       width: 337px;
-      padding: 5px;
+      padding: 10px;
       text-indent: 5px;
       font-family: Kanit;
       font-size: 14px;
@@ -75,7 +70,7 @@ const ModalTitle = styled.div`
   letter-spacing: 0.5px;
   color: #444444;
   padding: 10px;
-  margin-top: 9px;
+  margin-top: 64px;
   margin-bottom: 5px;
 `
 
@@ -88,7 +83,7 @@ const ModalContainer = styled(Modal)`
 
 const NextButton = styled(Button)`
   margin-top: 55px;
-  margin-left: 215px;
+  margin-left: 250px;
   && {
     width: 177px;
     height: 48px;
@@ -101,17 +96,25 @@ const NextButton = styled(Button)`
     letter-spacing: 0.5px;
     text-align: center;
     color: #ffffff;
+    align-items: center;
+    padding: 0 8 0 8;
+
     & span {
-      color: white;
+      width: 161px;
+      height: 36px;
     }
+
   }
 `
 
 const SearchTextBox = styled(TextField)`
   && {
     width: 337px;
-    padding: 0px;
-    margin-top: 30px;
+    margin: auto;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
     input {
       padding: 10px;
       text-indent: 5px;
@@ -134,14 +137,13 @@ const useStyles = makeStyles(theme => ({
     top: '50%',
     marginTop: '-196px',
     marginLeft: '-238px',
-    height: 392,
-    width: 476,
+    height: 391,
+    width: 475,
     backgroundColor: theme.palette.background.paper,
     border: '0.5px solid #000',
     boxShadow: theme.shadows[1],
     fontFamily: 'Kanit',
     borderRadius: '10px',
-    padding: '44px 36px',
     outline: 0,
   },
   textField1: {
@@ -161,16 +163,15 @@ function getModalStyle() {
 export default function SimpleModal(props) {
   const classes = useStyles()
   const [modalStyle] = useState(getModalStyle)
-  // const [step, setStep] = useState(2)
   const [verifyTemp, setVerifyTemp] = useState('')
   const [otpTemp, setOtpTemp] = useState('')
 
   const checkOtp = () => {
-    return true || false
+    return (verifyTemp !== '' && otpTemp === '555555') ? true : false;
   }
 
   const submit = () => {
-    if (checkOtp) {
+    if (checkOtp()) {
       props.nextStep()
       props.setVerify(verifyTemp)
       props.setOtp(otpTemp)
@@ -182,13 +183,16 @@ export default function SimpleModal(props) {
       <ModalContainer
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
-        open={true}
-      >
+        open={() => props.step !== 'close'}
+        onClose={()=>{ 
+            props.handleClose()   
+        }} 
+        >
         <Box style={modalStyle} className={classes.paper}>
           <CloseIconButton
             className={classes.button}
             aria-label="close"
-            onClick={props.closeClick}
+            onClick={(e) => props.handleClose(e)}
           >
             <CloseIcon />
           </CloseIconButton>
@@ -220,7 +224,7 @@ export default function SimpleModal(props) {
             margin="normal"
           />
 
-          <NextButton onClick={submit}>ถัดไป</NextButton>
+          <NextButton onClick={submit}> ถัดไป </NextButton>
         </Box>
       </ModalContainer>
     </div>

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import Forgot1 from '../components/containers/ForgotPassword/Modal.js'
 import Forgot2 from '../components/containers/ForgotPassword_2/Modal.js'
 import SEO from '../components/utility/seo'
-import { Button } from '@material-ui/core'
 
 const ForgotPassword = () => {
   const [step, setStep] = useState('close')
@@ -28,16 +27,24 @@ const ForgotPassword = () => {
           close: null,
           step1: (
             <Forgot1
+              step={step}
               nextStep={() => setStep('step2')}
+              handleClose={() => setStep('close')}
               setVerify={setVerify}
+              otp={otp}
               setOtp={setOtp}
             />
           ),
           step2: (
             <Forgot2
               nextStep={() => setStep('close')}
+              handleClose={(e) => {
+                setStep('close')
+
+              }}
               verify={verify}
               otp={otp}
+              pwd={pwd}
               setPwd={setPwd}
             />
           ),
