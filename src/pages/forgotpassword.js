@@ -5,9 +5,6 @@ import SEO from '../components/utility/seo'
 
 const ForgotPassword = () => {
   const [step, setStep] = useState('close')
-  // 0 close all
-  // 1 step1
-  // 2 step2
   const [verify, setVerify] = useState('')
   const [otp, setOtp] = useState(0)
   const [pwd, setPwd] = useState('')
