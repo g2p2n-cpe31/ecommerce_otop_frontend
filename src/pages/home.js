@@ -11,7 +11,9 @@ const ContainerCarousel = styled.div`
 `
 
 const ContainerSection = styled.div`
-  width: 100%;
+  width: 100%
+  
+  ;
   height: ${props => props.height || '464px'};
   margin: 1rem auto;
   display: flex;
