@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState }from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal'
 import TextField from '@material-ui/core/TextField';
@@ -207,9 +207,14 @@ function getModalStyle() {
   };
 }
 
-export default function SimpleModal() {
+export default function SimpleModal(props) {
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
+  const [step, setStep] = useState('close');
+  const [verify, setVerify] = useState('')
+  const [pwd, setPwd] = useState('')
+  const [confirmPwd, setConfirmPwd] = useState('')
+// const [otpTemp, setOtpTemp] = useState('123456')
 
   return (
     <div>
@@ -218,12 +223,12 @@ export default function SimpleModal() {
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
         open={true}
-        // onClose={handleClose}
       >
         <Box style={modalStyle} className={classes.paper}>
             <CloseIconButton
               className={classes.button}
               aria-label="close"
+              // onClick={props.close}              
               // onClick={handleClose}
             >
                 <CloseIcon />
@@ -232,7 +237,8 @@ export default function SimpleModal() {
 
             <SearchTextBox
                 type="text"
-                placeholder="เบอร์โทรศัพท์ / อีเมล"
+                // onChange={e => setVerifyTemp(e.target.value)}
+                value={props.verify}
                 className={classes.textField1}
                 margin="normal"
                 InputProps={{
@@ -249,7 +255,7 @@ export default function SimpleModal() {
 
             <TextFieldCustom
                 type="tel"
-                placeholder="รหัสยืนยัน"
+                placeholder="123456"
                 className= "accept"
                 InputProps={{
                   readOnly: true,
@@ -260,12 +266,16 @@ export default function SimpleModal() {
             
             <FieldFont
                 type="password"
+                value={pwd}
+                onChange={e => setPwd(e.target.value)}
                 placeholder="รหัสผ่านใหม่"
                 className={classes.textField1}
                 margin="normal"
             />
             <FieldFont
                 type="password"
+                value={confirmPwd}
+                onChange={e => setConfirmPwd(e.target.value)}
                 placeholder="ยืนยันรหัสผ่านใหม่"
                 className={classes.textField1}
                 margin="normal"

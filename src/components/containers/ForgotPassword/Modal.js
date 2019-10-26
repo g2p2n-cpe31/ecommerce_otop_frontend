@@ -162,10 +162,13 @@ function getModalStyle() {
 export default function SimpleModal(props) {
   const classes = useStyles();
   const [modalStyle] = useState(getModalStyle);
-  const [step, setStep] = useState(2)
+  // const [step, setStep] = useState(2)
   const [verifyTemp, setVerifyTemp] = useState('')
-  const [otpTemp, setOtpTemp] = useState(0)
-  
+  const [otpTemp, setOtpTemp] = useState('')
+  const submit = () => {
+    props.nextStep()
+    props.setVerify(verifyTemp)
+  }
 
   return (
     <div>
@@ -174,15 +177,12 @@ export default function SimpleModal(props) {
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
         open={true}
-        // open={open}
-        // onClose={handleClose}
       >
         <Box style={modalStyle} className={classes.paper}>
             <CloseIconButton 
               className={classes.button} 
               aria-label="close"
-              // onClick={handleClose}
-            >
+              onClick={props.closeClick}            >
                 <CloseIcon />
             </CloseIconButton>          
             <ModalTitle id="simple-modal-title">ลืมรหัสผ่าน</ModalTitle>
@@ -200,17 +200,23 @@ export default function SimpleModal(props) {
                             <ConfirmButton>
                                 <ConfirmText>ยืนยัน</ConfirmText>
                             </ConfirmButton>
-                        </InputAdornment>                        ),
+                        </InputAdornment>                        
+                    ),
                 }}
             />
             <FieldFont
-                type="password"
-                placeholder="รหัสยืนยัน"
-                className={classes.textField1}
-                margin="normal"
+              type="password"
+              value={otpTemp}
+              onChange={e => setOtpTemp(e.target.value)}
+              placeholder="รหัสยืนยัน"
+              className={classes.textField1}
+              margin="normal"
             />
 
-            <NextButton onClick={props.nextStep} >ถัดไป</NextButton>
+            <NextButton 
+            onClick={submit} > 
+              ถัดไป 
+            </NextButton>
 
         </Box>
       </ModalContainer>
