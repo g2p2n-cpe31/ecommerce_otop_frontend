@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Layout from '../components/common/Layout'
 import Rectangle from '../images/Profile/Rectangle.png'
 import Profile from '../components/containers/Information/Profile'
-
+import {Link} from 'gatsby'
 
 const Container = styled.div`
     display: flex;
@@ -25,44 +25,14 @@ const ContainerRectangle = styled.img`
     margin-right: 1.5rem;
 `
 
-const ContainerText = styled.div`
+const ContainerText = styled.nav`
     display: flex;
     flex-direction: column;
     margin-top: 19.7rem;
+    width: 100%;
 `
 
-const TextProfile = styled.p`
-    width: 7.9rem;
-    height: 1.9rem;
-    font-family: Kanit;
-    font-size: 1.4rem;
-    color: #5B3C78;
-    margin-top: 0;
-    margin-bottom: 2rem;
-    cursor: pointer;
-    &:active{
-        color: #5B3C78;
-    }
-`
-
-const TextAddress = styled.p`
-    width: 6.4rem;
-    height: 2rem;
-    font-family: Kanit;
-    font-size: 1.4rem;
-    font-weight: 300;
-    color: #4F4F4F;
-    margin-top: 0;
-    margin-bottom: 2.0rem;
-    cursor: pointer;
-    &:active{
-        color: #5B3C78;
-    }
-`
-
-const TextPassword = styled.p`
-    width: 8.7rem;
-    height: 1.8rem;
+const TextLink = styled(Link)`
     font-family: Kanit;
     font-weight: 300;
     font-size: 1.4rem;
@@ -70,43 +40,14 @@ const TextPassword = styled.p`
     margin-top: 0;
     margin-bottom: 2rem;
     cursor: pointer;
-    &:active{
-        color: #5B3C78;
-    }
-`
-const TextPaymentOption = styled.p`
-    width: 12.6rem;
-    height: 2rem;
-    font-family: Kanit;
-    font-weight: 300;
-    font-size: 1.4rem;
-    color: #4F4F4F;
-    margin-top: 0;
-    margin-bottom: 2rem;
-    cursor: pointer;
-    &:active{
-        color: #5B3C78;
-    }
-`
+    text-decoration: none;
 
-const TextHistory = styled.p`
-    width: 9.9rem;
-    height: 1.9rem;
-    font-family: Kanit;
-    font-weight: 300;
-    font-size: 1.4rem;
-    color: #4F4F4F;
-    margin-top: 0;
-    margin-bottom: 2rem;
-    cursor: pointer;
-    &:hover{
-        color: red;
-    }
-    &:active{
+    &.active{
+        font-size: 1.5rem;
+        font-weight: 800;
         color: red;
     }
 `
-
 
 
 const profile = () => {
@@ -116,11 +57,11 @@ const profile = () => {
                <ContainerLeft>
                     <ContainerRectangle src={Rectangle}/>
                     <ContainerText>
-                        <TextProfile>ข้อมูลส่วนตัว</TextProfile>
-                        <TextAddress>สมุดที่อยู่</TextAddress>
-                        <TextPassword>แก้ไขพาสเวิร์ด</TextPassword>
-                        <TextPaymentOption>ตัวเลือกการชำระเงิน</TextPaymentOption>
-                        <TextHistory>ประวัติการสั่งซื้อ</TextHistory>
+                        <TextLink to="profile" activeClassName="active" isPartiallyCurrent={true}>ข้อมูลส่วนตัว</TextLink>
+                        <TextLink to="address" activeClassName="active" isPartiallyCurrent={true}>สมุดที่อยู่</TextLink>
+                        <TextLink to="/" activeClassName="active">แก้ไขพาสเวิร์ด</TextLink>
+                        <TextLink to="/" activeClassName="active">ตัวเลือกการชำระเงิน</TextLink>
+                        <TextLink to="/" activeClassName="active">ประวัติการสั่งซื้อ</TextLink>
                     </ContainerText>
                 </ContainerLeft>
                     <Profile/>
