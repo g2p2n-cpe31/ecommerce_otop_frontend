@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useState } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import styled from 'styled-components'  
-import Box from '@material-ui/core/Box';
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+import styled from 'styled-components'
+import Box from '@material-ui/core/Box'
 import InputAdornment from '@material-ui/core/InputAdornment'
-import CloseIcon from '@material-ui/icons/Close';
-import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close'
+import IconButton from '@material-ui/core/IconButton'
 
 const ButtonShow = styled.button`
   font-family: 'Kanit';
@@ -16,26 +16,26 @@ const ButtonShow = styled.button`
 `
 
 const CloseIconButton = styled(IconButton)`
-  &&{
-      position: absolute;
-      padding: 3px;
-      top: 28px;
-      right: 28px;
+  && {
+    position: absolute;
+    padding: 3px;
+    top: 28px;
+    right: 28px;
   }
 `
 
 const ConfirmButton = styled(Button)`
-  &&  {
+  && {
     width: 93px;
     height: 24px;
-    background: #E0E0E0;
+    background: #e0e0e0;
     border-radius: 30px;
     margin-bottom: 7px;
-}
+  }
 `
 
 const ConfirmText = styled.div`
-  display: absolute; 
+  display: absolute;
   align-items: flex-start;
   justify-content: center;
   margin-bottom: 25px;
@@ -47,20 +47,20 @@ const ConfirmText = styled.div`
 `
 
 const FieldFont = styled(TextField)`
-  &&  {
+  && {
     width: 337px;
     margin: auto;
     margin-top: 25px;
     display: flex;
     justify-content: center;
-    & input{
-        width: 337px;
-        padding: 5px;
-        text-indent: 5px;
-        font-family: Kanit;
-        font-size: 14px;
-        line-height: 43px;
-        letter-spacing: 0.5px;
+    & input {
+      width: 337px;
+      padding: 5px;
+      text-indent: 5px;
+      font-family: Kanit;
+      font-size: 14px;
+      line-height: 43px;
+      letter-spacing: 0.5px;
     }
   }
 `
@@ -81,37 +81,37 @@ const ModalTitle = styled.div`
 
 const ModalContainer = styled(Modal)`
   && {
-    background: linear-gradient(316.04deg, #44275D 0%, #3C5B78 100%);
+    background: linear-gradient(316.04deg, #44275d 0%, #3c5b78 100%);
     opacity: 0.9;
   }
 `
 
 const NextButton = styled(Button)`
-    margin-top: 55px;
-    margin-left: 215px;
-    &&  {
-        width: 177px;
-        height: 48px;
-        font-family: 'Kanit';
-        border-radius: 25px;
-        background-color: #5B3C78;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 43px;
-        letter-spacing: 0.5px;
-        text-align: center;    
-        color: #FFFFFF;
-        & span{
-        color: white;
-        }
+  margin-top: 55px;
+  margin-left: 215px;
+  && {
+    width: 177px;
+    height: 48px;
+    font-family: 'Kanit';
+    border-radius: 25px;
+    background-color: #5b3c78;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 43px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: #ffffff;
+    & span {
+      color: white;
     }
+  }
 `
 
 const SearchTextBox = styled(TextField)`
   && {
-      width:337px;
-      padding: 0px;
-      margin-top: 30px;
+    width: 337px;
+    padding: 0px;
+    margin-top: 30px;
     input {
       padding: 10px;
       text-indent: 5px;
@@ -145,80 +145,84 @@ const useStyles = makeStyles(theme => ({
     outline: 0,
   },
   textField1: {
-    lineHeight:'43px',
+    lineHeight: '43px',
     marginLeft: theme.spacing(4),
     width: 337,
     padding: '2px',
   },
-}));
+}))
 
 function getModalStyle() {
   return {
-    background: '#fff'
-  };
+    background: '#fff',
+  }
 }
 
 export default function SimpleModal(props) {
-  const classes = useStyles();
-  const [modalStyle] = useState(getModalStyle);
+  const classes = useStyles()
+  const [modalStyle] = useState(getModalStyle)
   // const [step, setStep] = useState(2)
   const [verifyTemp, setVerifyTemp] = useState('')
   const [otpTemp, setOtpTemp] = useState('')
+
+  const checkOtp = () => {
+    return true || false
+  }
+
   const submit = () => {
-    props.nextStep()
-    props.setVerify(verifyTemp)
+    if (checkOtp) {
+      props.nextStep()
+      props.setVerify(verifyTemp)
+      props.setOtp(otpTemp)
+    }
   }
 
   return (
     <div>
-    
       <ModalContainer
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
         open={true}
       >
         <Box style={modalStyle} className={classes.paper}>
-            <CloseIconButton 
-              className={classes.button} 
-              aria-label="close"
-              onClick={props.closeClick}            >
-                <CloseIcon />
-            </CloseIconButton>          
-            <ModalTitle id="simple-modal-title">ลืมรหัสผ่าน</ModalTitle>
+          <CloseIconButton
+            className={classes.button}
+            aria-label="close"
+            onClick={props.closeClick}
+          >
+            <CloseIcon />
+          </CloseIconButton>
+          <ModalTitle id="simple-modal-title">ลืมรหัสผ่าน</ModalTitle>
 
-            <SearchTextBox
-                type="text"
-                placeholder="เบอร์โทรศัพท์ / อีเมล"
-                className={classes.textField1}
-                margin="normal"
-                value={verifyTemp}
-                onChange={e => setVerifyTemp(e.target.value)}
-                InputProps={{
-                    endAdornment: (
-                        <InputAdornment position="end">
-                            <ConfirmButton>
-                                <ConfirmText>ยืนยัน</ConfirmText>
-                            </ConfirmButton>
-                        </InputAdornment>                        
-                    ),
-                }}
-            />
-            <FieldFont
-              type="password"
-              value={otpTemp}
-              onChange={e => setOtpTemp(e.target.value)}
-              placeholder="รหัสยืนยัน"
-              className={classes.textField1}
-              margin="normal"
-            />
+          <SearchTextBox
+            type="text"
+            placeholder="เบอร์โทรศัพท์ / อีเมล"
+            className={classes.textField1}
+            margin="normal"
+            value={verifyTemp}
+            onChange={e => setVerifyTemp(e.target.value)}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <ConfirmButton>
+                    <ConfirmText>ยืนยัน</ConfirmText>
+                  </ConfirmButton>
+                </InputAdornment>
+              ),
+            }}
+          />
+          <FieldFont
+            type="password"
+            value={otpTemp}
+            onChange={e => setOtpTemp(e.target.value)}
+            placeholder="รหัสยืนยัน"
+            className={classes.textField1}
+            margin="normal"
+          />
 
-            <NextButton 
-            onClick={submit} > 
-              ถัดไป 
-            </NextButton>
-
+          <NextButton onClick={submit}>ถัดไป</NextButton>
         </Box>
       </ModalContainer>
     </div>
-  );
+  )
 }

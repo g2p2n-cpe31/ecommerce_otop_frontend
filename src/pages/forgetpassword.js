@@ -5,49 +5,46 @@ import SEO from '../components/utility/seo'
 import { Button } from '@material-ui/core'
 
 const ForgotPassword = () => {
-    const [step, setStep] = useState('close');
-    // 0 close all
-    // 1 step1
-    // 2 step2
-    const [verify, setVerify] = useState('')
-    const [otp, setOtp] = useState(0)
-    const [pwd, setPwd] = useState('')
-    const [confirmPwd, setConfirmPwd] = useState('')
-    // const [open, setOpen] = React.useState(false);
-    useEffect(()=> {
-        console.log(verify, otp)
-    }, [verify, otp])
+  const [step, setStep] = useState('close')
+  // 0 close all
+  // 1 step1
+  // 2 step2
+  const [verify, setVerify] = useState('')
+  const [otp, setOtp] = useState(0)
+  const [pwd, setPwd] = useState('')
 
-    return (
-        <>
-            <SEO title="ลืมรหัสผ่าน" />
-            <button type="button" onClick={() => setStep('step1')}>
-                    ลืมรหัสผ่าน
-            </button>
-            {
-                {
-                    'close' : (null),
-                    'step1' : (<Forgot1 
-                        step={step} 
-                        // closeClick={()=>setStep('close')} 
-                        nextStep={()=>setStep('step2')} 
-                        verify={verify} 
-                        setVerify={setVerify} 
-                        otp={otp} 
-                        setOtp={setOtp} 
-                        />),
-                    'step2' : <Forgot2 
-                        step={step} 
-                        // closeClick={()=>setStep('close')} 
-                        verify={verify} 
-                        setVerify={setVerify} 
-                        otp={otp} 
-                        setOtp={setOtp} 
-                /> 
-                }[step]
-            }
-        </>
-    );
+  useEffect(() => {
+    console.log(verify, otp)
+  }, [verify, otp])
+
+  return (
+    <>
+      <SEO title="ลืมรหัสผ่าน" />
+      <button type="button" onClick={() => setStep('step1')}>
+        ลืมรหัสผ่าน
+      </button>
+      {
+        {
+          close: null,
+          step1: (
+            <Forgot1
+              nextStep={() => setStep('step2')}
+              setVerify={setVerify}
+              setOtp={setOtp}
+            />
+          ),
+          step2: (
+            <Forgot2
+              nextStep={() => setStep('close')}
+              verify={verify}
+              otp={otp}
+              setPwd={setPwd}
+            />
+          ),
+        }[step]
+      }
+    </>
+  )
 }
-  
+
 export default ForgotPassword

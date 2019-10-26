@@ -1,14 +1,14 @@
-import React, { useState }from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useState } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
 import styled from 'styled-components'
-import Box from '@material-ui/core/Box';
+import Box from '@material-ui/core/Box'
 import InputAdornment from '@material-ui/core/InputAdornment'
-import CloseIcon from '@material-ui/icons/Close';
-import IconButton from '@material-ui/core/IconButton';
-import CheckSharpIcon from '@material-ui/icons/CheckSharp';
+import CloseIcon from '@material-ui/icons/Close'
+import IconButton from '@material-ui/core/IconButton'
+import CheckSharpIcon from '@material-ui/icons/CheckSharp'
 
 const ButtonShow = styled.button`
   font-family: 'Kanit';
@@ -19,23 +19,23 @@ const ButtonShow = styled.button`
 const CheckIcon = styled(CheckSharpIcon)`
   width: 42px;
   height: 30px;
-  color: #27AE60;
+  color: #27ae60;
   position: absolute;
   margin-left: 328px;
   margin-top: -32px;
 `
 
 const CloseIconButton = styled(IconButton)`
-  &&{
-      position: absolute;
-      padding: 3px;
-      top: 28px;
-      right: 28px;
+  && {
+    position: absolute;
+    padding: 3px;
+    top: 28px;
+    right: 28px;
   }
 `
 
 const ConfirmButton = styled(Button)`
-  &&  {
+  && {
     display: flex;
     align-items: center;
     width: 93px;
@@ -44,17 +44,17 @@ const ConfirmButton = styled(Button)`
     background: rgba(91, 60, 120, 0.7);
     border-radius: 30px;
     margin-bottom: 7px;
-}
+  }
 `
 
 const ConfirmText = styled.div`
   font-size: 12px;
   line-height: 15px;
-  display: absolute; 
+  display: absolute;
   align-items: flex-start;
   justify-content: center;
   letter-spacing: 0.5px;
-  color: #F2F2F2;
+  color: #f2f2f2;
 `
 
 const TextFieldCustom = styled(TextField)`
@@ -65,69 +65,68 @@ const TextFieldCustom = styled(TextField)`
     display: flex;
     justify-content: center;
     & input {
-        width: 337px;
-        padding: 5px;
-        text-indent: 5px;
-        font-family: Kanit;
-        font-size: 14px;
-        line-height: 43px;
-        letter-spacing: 0.5px;
+      width: 337px;
+      padding: 5px;
+      text-indent: 5px;
+      font-family: Kanit;
+      font-size: 14px;
+      line-height: 43px;
+      letter-spacing: 0.5px;
     }
 
     & .MuiInput-underline:before {
       border-bottom-color: green;
     }
 
-    & .MuiInput-underline:after{
+    & .MuiInput-underline:after {
       border-bottom-color: green;
     }
-
   }
 `
 
 const EditButton = styled(Button)`
-    margin-top: 68px;
-    margin-left: 224px;
-    padding-top: 3px;
-    border-color: #27AE60;
-    &&  {
-        width: 177px;
-        height: 48px;
-        font-family: 'Kanit';
-        border-radius: 25px;
-        background-color: #5B3C78;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 43px;
-        letter-spacing: 0.5px;
-        text-align: center;    
-        color: #FFFFFF;
-        & span{
-          color: white;
-        }
+  margin-top: 68px;
+  margin-left: 224px;
+  padding-top: 3px;
+  border-color: #27ae60;
+  && {
+    width: 177px;
+    height: 48px;
+    font-family: 'Kanit';
+    border-radius: 25px;
+    background-color: #5b3c78;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 43px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: #ffffff;
+    & span {
+      color: white;
     }
+  }
 `
 
 const FieldFont = styled(TextField)`
-  &&  {
+  && {
     width: 337px;
     margin: auto;
     margin-top: 30px;
     display: flex;
     justify-content: center;
-      & input{
-        width: 337px;
-        padding: 5px;
-        text-indent: 5px;
-        font-family: Kanit;
-        font-size: 14px;
-        line-height: 43px;
-        letter-spacing: 0.5px;
+    & input {
+      width: 337px;
+      padding: 5px;
+      text-indent: 5px;
+      font-family: Kanit;
+      font-size: 14px;
+      line-height: 43px;
+      letter-spacing: 0.5px;
     }
-    
-     & .accept{
+
+    & .accept {
       margin: normal;
-      border-bottom-color : green;
+      border-bottom-color: green;
       border-color: 'green';
     }
   }
@@ -148,14 +147,14 @@ const ModalTitle = styled.div`
 
 const ModalContainer = styled(Modal)`
   && {
-    background: linear-gradient(316.04deg, #44275D 0%, #3C5B78 100%);
+    background: linear-gradient(316.04deg, #44275d 0%, #3c5b78 100%);
     opacity: 0.9;
   }
 `
 
 const SearchTextBox = styled(TextField)`
   && {
-    width:337px;
+    width: 337px;
     padding: 0px;
     margin-top: 30px;
     margin-bottom: 0px;
@@ -182,7 +181,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: '-258px',
     marginLeft: '-238px',
     width: 476,
-    height: 516,   
+    height: 516,
     backgroundColor: theme.palette.background.paper,
     border: '0.5px solid #000',
     boxShadow: theme.shadows[1],
@@ -192,98 +191,99 @@ const useStyles = makeStyles(theme => ({
     outline: 0,
   },
   textField1: {
-    lineHeight:'43px',
+    lineHeight: '43px',
     marginLeft: theme.spacing(4),
     width: 337,
     padding: '2px',
-    marginBottom: '5px'
+    marginBottom: '5px',
   },
-}));
+}))
 
 function getModalStyle() {
   return {
-    background: '#fff'
-  };
+    background: '#fff',
+  }
 }
 
 export default function SimpleModal(props) {
-  const classes = useStyles();
-  const [modalStyle] = React.useState(getModalStyle);
-  const [step, setStep] = useState('close');
-  const [verify, setVerify] = useState('')
-  const [pwd, setPwd] = useState('')
-  const [confirmPwd, setConfirmPwd] = useState('')
-// const [otpTemp, setOtpTemp] = useState('123456')
-
+  const classes = useStyles()
+  const [modalStyle] = useState(getModalStyle)
+  const [pwdTemp, setpwdTemp] = useState('')
+  const [confirmpwdTemp, setConfirmpwdTemp] = useState('')
+  // const [otpTemp, setOtpTemp] = useState('123456')
+  const submit = () => {
+    if(pwdTemp === confirmpwdTemp){
+      props.nextStep()
+      props.setPwd(pwdTemp)
+    }
+  }
   return (
     <div>
-      
       <ModalContainer
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
         open={true}
       >
         <Box style={modalStyle} className={classes.paper}>
-            <CloseIconButton
-              className={classes.button}
-              aria-label="close"
-              // onClick={props.close}              
-              // onClick={handleClose}
-            >
-                <CloseIcon />
-            </CloseIconButton>          
-            <ModalTitle id="simple-modal-title">ลืมรหัสผ่าน</ModalTitle>
+          <CloseIconButton
+            className={classes.button}
+            aria-label="close"
+            // onClick={props.close}
+            // onClick={handleClose}
+          >
+            <CloseIcon />
+          </CloseIconButton>
+          <ModalTitle id="simple-modal-title">ลืมรหัสผ่าน</ModalTitle>
 
-            <SearchTextBox
-                type="text"
-                // onChange={e => setVerifyTemp(e.target.value)}
-                value={props.verify}
-                className={classes.textField1}
-                margin="normal"
-                InputProps={{
-                  readOnly: true,
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <ConfirmButton disabled>
-                        <ConfirmText>ยืนยัน</ConfirmText>
-                      </ConfirmButton>
-                    </InputAdornment>                        
-                  ),
-                }}
-            />
+          <SearchTextBox
+            type="text"
+            // onChange={e => setVerifyTemp(e.target.value)}
+            value={props.verify}
+            className={classes.textField1}
+            margin="normal"
+            InputProps={{
+              readOnly: true,
+              endAdornment: (
+                <InputAdornment position="end">
+                  <ConfirmButton disabled>
+                    <ConfirmText>ยืนยัน</ConfirmText>
+                  </ConfirmButton>
+                </InputAdornment>
+              ),
+            }}
+          />
 
-            <TextFieldCustom
-                type="tel"
-                placeholder="123456"
-                className= "accept"
-                InputProps={{
-                  readOnly: true,
-                }}
-            />
-            
-            <CheckIcon />
-            
-            <FieldFont
-                type="password"
-                value={pwd}
-                onChange={e => setPwd(e.target.value)}
-                placeholder="รหัสผ่านใหม่"
-                className={classes.textField1}
-                margin="normal"
-            />
-            <FieldFont
-                type="password"
-                value={confirmPwd}
-                onChange={e => setConfirmPwd(e.target.value)}
-                placeholder="ยืนยันรหัสผ่านใหม่"
-                className={classes.textField1}
-                margin="normal"
-            />
+          <TextFieldCustom
+            type="text"
+            value={props.otp}
+            className="accept"
+            InputProps={{
+              readOnly: true,
+            }}
+          />
 
-            <EditButton>แก้ไขรหัสผ่าน</EditButton>
+          <CheckIcon />
 
+          <FieldFont
+            type="password"
+            value={pwdTemp}
+            onChange={e => setpwdTemp(e.target.value)}
+            placeholder="รหัสผ่านใหม่"
+            className={classes.textField1}
+            margin="normal"
+          />
+          <FieldFont
+            type="password"
+            value={confirmpwdTemp}
+            onChange={e => setConfirmpwdTemp(e.target.value)}
+            placeholder="ยืนยันรหัสผ่านใหม่"
+            className={classes.textField1}
+            margin="normal"
+          />
+
+          <EditButton onClick={submit}>แก้ไขรหัสผ่าน</EditButton>
         </Box>
       </ModalContainer>
     </div>
-  );
+  )
 }
