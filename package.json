@@ -27,6 +27,7 @@
     "react-helmet": "^5.2.1",
     "react-typography": "^0.16.19",
     "styled-components": "^4.3.2",
+    "typeface-kanit": "0.0.72",
     "typography": "^0.16.19"
   },
   "devDependencies": {

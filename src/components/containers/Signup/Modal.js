@@ -302,7 +302,7 @@ export default function SimpleModal() {
               />
 
               <FieldFont
-                type="tel"
+                type="password"
                 placeholder="รหัส OTP (รหัสยืนยันจากโทรศัพท์)"
                 className={classes.textField2}
                 margin="normal"
@@ -315,7 +315,7 @@ export default function SimpleModal() {
                 margin="normal"
               />    
             <FieldFont
-                type="tel"
+                type="text"
                 placeholder="ชื่อบัญชีผู้ใช้"
                 className={classes.textField1}
                 margin="normal"
