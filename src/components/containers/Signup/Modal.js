@@ -4,7 +4,6 @@ import Modal from '@material-ui/core/Modal'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
-import 'typeface-kanit';
 import Box from '@material-ui/core/Box';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import CloseIcon from '@material-ui/icons/Close';
@@ -12,7 +11,7 @@ import IconButton from '@material-ui/core/IconButton';
 
 const BoxBottom = styled(Box)`
   width: 799px;
-  height: 93px;
+  height: 102px;
   border-radius: 10px;
   display: flex;
   flex-direction: row;
@@ -20,49 +19,49 @@ const BoxBottom = styled(Box)`
 
 const BoxMiddle = styled(Box)`
   width: 799px;
-  height: 347px;
+  height: 310px;
   border-radius: 10px;
   padding: 20px 45px 0 55px;
 `
 
 const BoxTop = styled(Box)`
-  width: 799px;
-  height: 93px;
+  width: 763px;
+  height: 49px;
   border-radius: 10px;
-  padding: 30px 0 0 45px;
+  padding: 44px 0 0 36px;
 `
 
 const BottomLeft = styled(Box)`
   width: 404px;
-  height: 93px;
-  border-radius: 10px;
+  height: 40px;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  align-items: flex-end;
   padding-top:10px;
-  padding-right: 10px;
   margin-top: -8px;
 `
 
 const BottomMiddle = styled(Box)`
-  width: 81px;
-  height: 93px;
-  border-radius: 10px;
+  height: 40px;
   display: flex;
-  flex-direction: row;
-  margin-top: -8px;
-  padding-left: 5px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-top:10px;
+  margin-top: 5px;
+  padding-right: 0px;
 `
 
 const BottomRight = styled(Box)`
   width: 314px;
-  height: 93px;
-  border-radius: 10px;
+  height: 40px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  margin-top: -8px;
+  margin-top: 8px;
   padding-left: 20px;
+  margin-right: -45px;
 `
 
 const CloseIconButton = styled(IconButton)`
@@ -94,7 +93,7 @@ const ConfirmText = styled.div`
   display: absolute; 
   align-items: flex-start;
   justify-content: center;
-  margin-bottom: 25px;
+  /* margin-bottom: 25px; */
   letter-spacing: 0.5px;
 `
 
@@ -133,7 +132,7 @@ const ModalContainer = styled(Modal)`
 
 const LogInButton = styled(Button)`
   &&  {
-    width: 100px;
+    width: 85px;
     height: 43px;
     font-family: 'Kanit';
     font-size: 13px;
@@ -142,6 +141,9 @@ const LogInButton = styled(Button)`
     color: rgba(91, 60, 120, 0.5);
     padding-top: 0;
     padding-bottom: 0;
+  }
+  & span {
+    color: none;
   }
 `
 
@@ -189,12 +191,14 @@ const Underline = () => (
       style={{
           color: 'rgba(91, 60, 120, 0.5)',
           backgroundColor: 'rgba(91, 60, 120, 0.5)',
-          width: 52,
+          width: 48,
           height: 2,
           display: 'flex',
-          position: "absolute",
-          left: 421,
-          top: 465,
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginTop: -10,
+          left: 407,
+          top: 459,
       }}
   />
 );
@@ -207,8 +211,8 @@ const useStyles = makeStyles(theme => ({
     top: '50%',
     marginTop: '-263px',
     marginLeft: '-409px',
-    width: 818,
-    height: 526,
+    width: 817,
+    height: 525,
     backgroundColor: theme.palette.background.paper,
     border: '0.5px solid #000',
     boxShadow: theme.shadows[1],
@@ -380,6 +384,7 @@ export default function SimpleModal(props) {
               <LogInButton className={classes.button}>
                 เข้าสู่ระบบ
               </LogInButton>
+              <Underline />
             </BottomMiddle>
 
             <BottomRight>
@@ -393,8 +398,6 @@ export default function SimpleModal(props) {
             </BottomRight>
 
           </BoxBottom>
-
-          <Underline />
 
       </Box>
     </ModalContainer>
