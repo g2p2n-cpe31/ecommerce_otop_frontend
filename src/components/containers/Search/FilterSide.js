@@ -15,7 +15,9 @@ const TextFieldMinMax = styled(TextField)`
       padding: 0 0.4rem;
       height: 4rem;
       font-family: Kanit;
-      font-size: 13px;
+      font-size: 17px;
+      font-weight: 300;
+      color: #828282;
       text-align: center;
     }
 
