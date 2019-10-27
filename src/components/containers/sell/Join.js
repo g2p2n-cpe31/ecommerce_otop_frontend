@@ -12,12 +12,12 @@ import ic_cancel_white from '../../../images/Navbar/ic_cancel_white.svg'
 
 
 const ContainerJoin = styled(Button)`
-    &&{
         width: 50%;
         height: 16.8rem;
         background: #FFFFFF;
         margin: 1.6rem 0 0 0;
-    }
+        font-weight: normal;
+        color: #4F4F4F;
 `
 
 const CreateNameJoin  = styled.p`
@@ -89,11 +89,16 @@ const CodeInvite = styled(TextField)`
 `
 
 const ButtonJoin = styled(Button)`
-    width: 15.5rem;
-    height: 4rem;
-    background: #E89C6B;
-    border-radius: 0.3rem;
-    padding: 0.9rem 0 1rem 0;
+    &&{
+        width: 15.5rem;
+        height: 4rem;
+        background: #E89C6B;
+        border-radius: 0.3rem;
+        padding: 0.9rem 0 1rem 0;
+    }
+    &:hover{
+        background: #ED7F38;
+    }
 `
 
 const NameButtonJoin = styled.p`

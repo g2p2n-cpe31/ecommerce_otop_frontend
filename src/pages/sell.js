@@ -9,9 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(theme => ({
     button: {
       margin: theme.spacing(1),
-    },
-    input: {
-      display: 'none',
+      color: '#4F4F4F'
     },
   }));
 
@@ -21,7 +19,8 @@ const ContainerMyStore = styled(Button)`
         width:100%;
         height: 16.8rem;
         background: #FFFFFF;
-        margin-top: 23.5rem;
+        font-weight: normal;
+        margin: 20.5rem 0 0 0;
     }
 `
 const StoreName = styled.p`

@@ -11,12 +11,12 @@ import TextField from '@material-ui/core/TextField'
 import CloseIcon from '../../../images/ProductDetail/cross.svg'
 
 const ContainerCreate = styled(Button)`
-    &&{
         width: 50%;
         height: 16.8rem;
         background: #FFFFFF;
         margin: 1.6rem 2rem 0 0;
-    }
+        font-weight: normal;
+        color: #4F4F4F;
 `
 
 const CreateNameStore  = styled.p`
@@ -125,11 +125,17 @@ const NameButtonCancle = styled.p`
 
 
 const ButtonCreate = styled(Button)`
-    width: 15.5rem;
-    height: 4rem;
-    background: #E89C6B;
-    border-radius: 0.3rem;
-    padding: 0.9rem 0 1rem 0;
+    &&{
+        width: 15.5rem;
+        height: 4rem;
+        background: #E89C6B;
+        border-radius: 0.3rem;
+        padding: 0.9rem 0 1rem 0;
+    }
+    &:hover{
+        background: #ED7F38;
+    }
+
 `
 
 const NameButtonCreate = styled.p`
@@ -181,7 +187,7 @@ const ContainerMyStore = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        width: 69.8rem;
+        width: 100%;
         height: 8.8rem;
         background: #FBFBFB;
         border-radius: 0.5rem;
@@ -275,7 +281,7 @@ const Create = () =>{
 
     return(
         <>
-            <ContainerCreate type="button" onClick={handleOpen}>
+            <ContainerCreate onClick={handleOpen}>
                 <CreateNameStore>สร้างร้านค้า</CreateNameStore>
             </ContainerCreate>
             <StyledCreate
