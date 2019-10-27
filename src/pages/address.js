@@ -6,7 +6,7 @@ import SEO from '../components/utility/seo'
 const address = () => {
     return (
         <div>
-            <SEO title="AddressBook" />
+            <SEO title="สมุดที่อยู่" />
             <AddrBook />
         </div>
     )

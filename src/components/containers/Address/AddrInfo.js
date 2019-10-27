@@ -8,6 +8,7 @@ import Fade from '@material-ui/core/Fade';
 import ic_cancel_white from '../../../images/Navbar/ic_cancel_white.svg'
 import Input from '@material-ui/core/Input';
 
+
 const useStyles = makeStyles(theme => ({
     button: {
       margin: theme.spacing(1),
@@ -41,13 +42,14 @@ const useStyles = makeStyles(theme => ({
 const AddrFade = styled(Fade)`
     &&{
         position: absolute;
-        width: 615px;
-        height: 750px;
-        left: 425px;
-        top: 30px;
+        width: 61.5rem;
+        height: 75rem;
+        left: 42.5rem;
+        top: 3rem;
         background: #FFFFFF;
-        border-radius: 5px;
+        border-radius: 0.5rem;
         cursor: auto;
+        outline: 0;
     }
 `
 const AddrModal = styled(Modal)`
@@ -69,43 +71,43 @@ const AddrModal = styled(Modal)`
 `
 const TextInModal = styled.p`
     position: absolute;
-    height: 45px;
-    left: 60px;
-    top: 30px;
+    height: 4.5rem;
+    left: 6rem;
+    top: 3rem;
     font-family: Kanit;
     font-style: normal;
     font-weight: normal;
-    font-size: 30px;
-    line-height: 45px;
-    margin-bottom: 80px;
+    font-size: 3rem;
+    line-height: 4.5rem;
+    margin-bottom: 8rem;
 `
 
 const ContainerTextField = styled.div`
     display: flex;
     flex-direction: column;
-    margin-top: 150px;
-    left: 60px;
+    margin-top: 15rem;
+    left: 6rem;
 `
 
 const ButtonCustom = styled(Button)`
   &&{
-        width: 145px;
-        height: 43px;
+        width: 14.5rem;
+        height: 4.3rem;
         font-family: "Kanit";
         justify-content: center;
         align-items: center;
-        font-size: 16px;
+        font-size: 1.6rem;
         color: white;
         border: 1px solid #BDBDBD;
         box-sizing: border-box;
-        border-radius: 5px;
+        border-radius: 0.5rem;
 
         font-family: Kanit;
         font-style: normal;
         font-weight: 300;
-        font-size: 16px;
-        line-height: 24px;
-        letter-spacing: 0.5px;
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        letter-spacing: 0.05rem;
         color: #4F4F4F;
   }
 `
@@ -117,8 +119,8 @@ const EditAndEraseButtonCustom = styled(Button)`
         font-family: Kanit;
         font-style: normal;
         font-weight: 300;
-        font-size: 16px;
-        letter-spacing: 0.5px;
+        font-size: 1.6rem;
+        letter-spacing: 0.05rem;
         text-decoration-line: underline;
         color: #4F4F4F;
         background: none;
@@ -127,28 +129,30 @@ const EditAndEraseButtonCustom = styled(Button)`
 
 const AddrInfoBox = styled.div`
     display: flex;
-    margin-top: 13px;
-    width: 960px;
-    height: 250px;
+    margin-top: 1.3rem;
+    width: 96rem;
+    /* max-width: 110.7rem; */
+    height: 25rem;
 
-    background: #FBFBFB;
+    /* background: #FBFBFB; */
+    background: ${props => props.selected ? 'rgba(91, 60, 120, 0.1)':'#FBFBFB'};
     border: 1px solid #BDBDBD;
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: 0.5rem;
 `
 const TitleBox = styled.div`
     display: flex;
     position: absolute;
     flex-direction: column;
     /* background: lightsalmon; */
-    margin-top: 31px;
-    margin-left: 70px;
+    margin-top: 3.1rem;
+    margin-left: 7rem;
 `
 
 const InTitleBox = styled.div`
     font-family: "Kanit";
-    font-size: 16px;
-    margin-bottom: 17px;
+    font-size: 1.6rem;
+    margin-bottom: 1.7rem;
     color: #828282;
 `
 const InfoBox = styled.div`
@@ -156,44 +160,44 @@ const InfoBox = styled.div`
     position: absolute;
     flex-direction: column;
     /* background: lightskyblue; */
-    margin-top: 31px;
-    margin-left: 155px;
+    margin-top: 3.1rem;
+    margin-left: 15.5rem;
 `
 
 const InInfoBox = styled.div`
     font-family: "Kanit";
-    font-size: 16px;
+    font-size: 1.6rem;
     font-style: normal;
     font-weight: 300;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: 0.5px;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    letter-spacing: 0.05rem;
     color: #333333;
 `
 const InInfoBoxLine2 = styled.div`
     font-family: "Kanit";
-    font-size: 16px;
-    margin-top: 17px;
-    margin-bottom: 9px;
+    font-size: 1.6rem;
+    margin-top: 1.7rem;
+    margin-bottom: 0.9rem;
     font-style: normal;
     font-weight: 300;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: 0.5px;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    letter-spacing: 0.05rem;
     color: #333333;
 `
 
 const AddrEdit = styled.p`
     display: flex;
     position: absolute;
-    margin-top: 48px;
-    margin-left: 823px;
+    margin-top: 4.8rem;
+    margin-left: 82.3rem;
 `
 const AddrErase = styled.p`
     display: flex;
     position: absolute;
-    margin-top: 48px;
-    margin-left: 878px;
+    margin-top: 5.05rem;
+    margin-left: 87.8rem;
 `
 
 const SetAsDefault = styled.div`
@@ -201,33 +205,33 @@ const SetAsDefault = styled.div`
     position: absolute;
     justify-content: center;
     align-items: center;
-    margin-top: 103px;
-    margin-left: 770px;
+    margin-top: 10.3rem;
+    margin-left: 77rem;
 `
 
 const AddrText = styled.p`
     font-family: Kanit;
     font-style: normal;
     font-weight: 300;
-    font-size: 16px;
-    line-height: 13px;
-    letter-spacing: 0.5px;
+    font-size: 1.6rem;
+    line-height: 1.3rem;
+    letter-spacing: 0.05rem;
     color: #333333;
 `
 const InputCustom = styled(Input)`
     && {
-        width: 491px;
+        width: 49.1rem;
         margin-bottom: 1.2rem;
-        margin-left: 60px;
-        margin-bottom: 20px;
+        margin-left: 6rem;
+        margin-bottom: 2rem;
     }
     & input{
         margin-bottom: 0.8rem;
         font-family: Kanit;
         font-style: normal;
         font-weight: normal;
-        font-size: 16px;
-        line-height: 24px;
+        font-size: 1.6rem;
+        line-height: 2.4rem;
     }
     & .MuiInput-underline::before{
         height: 0.5rem;
@@ -238,38 +242,58 @@ const BottonInModal = styled.div`
         display: flex;
         justify-content: flex-end;
         flex-direction: row;
-        margin-top: 30px;
-        margin-left: 250px;
-        margin-right:60px;
+        margin-top: 3rem;
+        margin-left: 25rem;
+        margin-right:6rem;
 `
 const MarginBetweenButton = styled.div`
-        margin-left: 30px;
+        margin-left: 3rem;
 `
 const CancelButtonCustom = styled(Button)`
   &&{
-        height: 40px;
-        width: 155px;
+        height: 4rem;
+        width: 15.5rem;
         font-family: "Kanit";
-        font-size: 14px;
-        color: black;
+        font-size: 1.4rem;
+        color: #828282;
         background: #F2F2F2;
-        border-radius: 3px;
+        border-radius: 0.3rem;
   }
 `
 const SaveButtonCustom = styled(Button)`
   &&{
-        height: 40px;
-        width: 155px;
+        height: 4rem;
+        width: 15.5rem;
         font-family: "Kanit";
-        font-size: 14px;
-        color: black;
+        font-size: 1.4rem;
+        color: #F2F2F2;
         background: #e89c6b;
-        border-radius: 3px;
+        border-radius: 0.3rem;
   }
 `
-   
+const DefaultSign = styled.div`
+    display: flex;
+    position: absolute;
+    margin-top: 0.2rem;
+    margin-left: 17rem;
+    justify-content: center;
+    align-items: center;
+    width: 7.7rem;
+    height: 2.3rem;
+    background: white;
+    opacity: 0.7;
+    border-radius: 1rem;
 
-const AddrInfo = () => {
+    font-family: Kanit;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    letter-spacing: 0.05rem;
+    color: linear-gradient(325.22deg, #44275D 0%, #3C5B78 100%);
+`
+
+const AddrInfo = ({ selected = false, ...props}) => {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
 
@@ -277,13 +301,14 @@ const AddrInfo = () => {
         setOpen(true);
       };
     
-      const handleClose = () => {
+    const handleClose = () => {
         setOpen(false);
       };
+    
 
     return (
         <div>
-            <AddrInfoBox>
+            <AddrInfoBox selected={selected}>
                 <TitleBox>
                     <InTitleBox>ชื่อ</InTitleBox>
                     <InTitleBox>โทรศัพท์</InTitleBox>
@@ -291,33 +316,34 @@ const AddrInfo = () => {
                 </TitleBox>
                 <InfoBox>
                     <InInfoBox>ปูรณ์  โชตอะไรซักอย่าง</InInfoBox>
+                    {
+                        selected ? (<DefaultSign>ค่าเริ่มต้น</DefaultSign>): null
+                    }
                     <InInfoBoxLine2>088-088-0888</InInfoBoxLine2>
                     <InInfoBox>
                         <AddrText>111/111 ซอยบลาบลาบลา ถนนบลาบลาบลา</AddrText>
                         <AddrText>แขวงบลาบลาบลา เขตบลาบลาบลา</AddrText>
                         <AddrText>จังหวัดบลาบลาบลา</AddrText>
-                        <AddrText>10110</AddrText>
+                        <AddrText>10100</AddrText>
                     </InInfoBox>
                 </InfoBox>
                 <AddrEdit>
-                    <EditAndEraseButtonCustom type="button" onClick={handleOpen}>
+                    <EditAndEraseButtonCustom type="button" onClick={handleOpen} disabled={selected}>
                         แก้ไข
                     </EditAndEraseButtonCustom>
                 </AddrEdit>
                 <AddrErase>
-                    <EditAndEraseButtonCustom size="small" className={classes.margin}>
+                    <EditAndEraseButtonCustom size="small" className={classes.margin} disabled={selected}>
                         ลบ
                     </EditAndEraseButtonCustom>
                 </AddrErase>
                 <SetAsDefault>
-                    <ButtonCustom variant="outlined" color="#BDBDBD" className={classes.button}>
+                    <ButtonCustom variant="outlined" color="#BDBDBD" className={classes.button} disabled={selected}>
                         ตั้งเป็นค่าเริ่มต้น
                     </ButtonCustom>
                 </SetAsDefault>
             </AddrInfoBox>
             <AddrModal
-                aria-labelledby="transition-modal-title"
-                aria-describedby="transition-modal-description"
                 className={classes.modal}
                 open={open}
                 onClose={handleClose}
