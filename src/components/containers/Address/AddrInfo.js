@@ -42,10 +42,12 @@ const useStyles = makeStyles(theme => ({
 const AddrFade = styled(Fade)`
     &&{
         position: absolute;
+        left: '50%';
+        top: '50%';
         width: 61.5rem;
         height: 75rem;
-        left: 42.5rem;
-        top: 3rem;
+        margin-top: '-37.5rem';
+        margin-left: '-30.75rem';
         background: #FFFFFF;
         border-radius: 0.5rem;
         cursor: auto;
@@ -130,7 +132,8 @@ const EditAndEraseButtonCustom = styled(Button)`
 const AddrInfoBox = styled.div`
     display: flex;
     margin-top: 1.3rem;
-    width: 96rem;
+    width: 97%;
+    /* width: 96rem; */
     /* max-width: 110.7rem; */
     height: 25rem;
 
@@ -142,7 +145,7 @@ const AddrInfoBox = styled.div`
 `
 const TitleBox = styled.div`
     display: flex;
-    position: absolute;
+    /* position: absolute; */
     flex-direction: column;
     /* background: lightsalmon; */
     margin-top: 3.1rem;
@@ -157,11 +160,10 @@ const InTitleBox = styled.div`
 `
 const InfoBox = styled.div`
     display: flex;
-    position: absolute;
+    /* position: absolute; */
     flex-direction: column;
-    /* background: lightskyblue; */
     margin-top: 3.1rem;
-    margin-left: 15.5rem;
+    margin-left: 2.7rem;
 `
 
 const InInfoBox = styled.div`
@@ -189,24 +191,19 @@ const InInfoBoxLine2 = styled.div`
 
 const AddrEdit = styled.p`
     display: flex;
-    position: absolute;
-    margin-top: 4.8rem;
-    margin-left: 82.3rem;
+    margin-right: 0.05rem;
 `
-const AddrErase = styled.p`
-    display: flex;
-    position: absolute;
-    margin-top: 5.05rem;
-    margin-left: 87.8rem;
-`
+// const AddrErase = styled.p`
+//     display: flex;
+//     width: 0.5rem;
+//     height: 0.5rem;
+// `
 
 const SetAsDefault = styled.div`
     display: flex;
-    position: absolute;
     justify-content: center;
     align-items: center;
-    margin-top: 10.3rem;
-    margin-left: 77rem;
+    margin-top: 1rem;
 `
 
 const AddrText = styled.p`
@@ -238,7 +235,7 @@ const InputCustom = styled(Input)`
         border-bottom-color: #4F4F4F;
     }
 `
-const BottonInModal = styled.div`
+const ButtonInModal = styled.div`
         display: flex;
         justify-content: flex-end;
         flex-direction: row;
@@ -293,6 +290,32 @@ const DefaultSign = styled.div`
     color: linear-gradient(325.22deg, #44275D 0%, #3C5B78 100%);
 `
 
+const ContainerContent = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+`
+const SetOfButton = styled.div`
+    display: flex;
+    flex-direction: column;
+    /* margin-left: 35.5rem; */
+    margin-top: 3.2rem;
+    width: 20%;
+`
+const ContainerEditErase = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-end;
+    align-items: center;
+    /* margin-left: 6rem; */
+    margin-right: 3rem;
+`
+const SetOfInfo = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+`
+
 const AddrInfo = ({ selected = false, ...props}) => {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
@@ -307,41 +330,49 @@ const AddrInfo = ({ selected = false, ...props}) => {
     
 
     return (
-        <div>
+        <>
             <AddrInfoBox selected={selected}>
-                <TitleBox>
-                    <InTitleBox>ชื่อ</InTitleBox>
-                    <InTitleBox>โทรศัพท์</InTitleBox>
-                    <InTitleBox>ที่อยู่</InTitleBox>
-                </TitleBox>
-                <InfoBox>
-                    <InInfoBox>ปูรณ์  โชตอะไรซักอย่าง</InInfoBox>
-                    {
-                        selected ? (<DefaultSign>ค่าเริ่มต้น</DefaultSign>): null
-                    }
-                    <InInfoBoxLine2>088-088-0888</InInfoBoxLine2>
-                    <InInfoBox>
-                        <AddrText>111/111 ซอยบลาบลาบลา ถนนบลาบลาบลา</AddrText>
-                        <AddrText>แขวงบลาบลาบลา เขตบลาบลาบลา</AddrText>
-                        <AddrText>จังหวัดบลาบลาบลา</AddrText>
-                        <AddrText>10100</AddrText>
-                    </InInfoBox>
-                </InfoBox>
-                <AddrEdit>
-                    <EditAndEraseButtonCustom type="button" onClick={handleOpen} disabled={selected}>
-                        แก้ไข
-                    </EditAndEraseButtonCustom>
-                </AddrEdit>
-                <AddrErase>
-                    <EditAndEraseButtonCustom size="small" className={classes.margin} disabled={selected}>
-                        ลบ
-                    </EditAndEraseButtonCustom>
-                </AddrErase>
-                <SetAsDefault>
-                    <ButtonCustom variant="outlined" color="#BDBDBD" className={classes.button} disabled={selected}>
-                        ตั้งเป็นค่าเริ่มต้น
-                    </ButtonCustom>
-                </SetAsDefault>
+                <ContainerContent>
+                    <SetOfInfo>
+                        <TitleBox>
+                            <InTitleBox>ชื่อ</InTitleBox>
+                            <InTitleBox>โทรศัพท์</InTitleBox>
+                            <InTitleBox>ที่อยู่</InTitleBox>
+                        </TitleBox>
+                        <InfoBox>
+                            <InInfoBox>ปูรณ์  โชตอะไรซักอย่าง</InInfoBox>
+                            {
+                                selected ? (<DefaultSign>ค่าเริ่มต้น</DefaultSign>): null
+                            }
+                            <InInfoBoxLine2>088-088-0888</InInfoBoxLine2>
+                            <InInfoBox>
+                                <AddrText>111/111 ซอยบลาบลาบลา ถนนบลาบลาบลา</AddrText>
+                                <AddrText>แขวงบลาบลาบลา เขตบลาบลาบลา</AddrText>
+                                <AddrText>จังหวัดบลาบลาบลา</AddrText>
+                                <AddrText>10100</AddrText>
+                            </InInfoBox>
+                        </InfoBox>
+                    </SetOfInfo>
+                    <SetOfButton>
+                        <ContainerEditErase>
+                            <AddrEdit>
+                                <EditAndEraseButtonCustom type="button" onClick={handleOpen} disabled={selected}>
+                                    แก้ไข
+                                </EditAndEraseButtonCustom>
+                            </AddrEdit>
+                            {/* <AddrErase> */}
+                                <EditAndEraseButtonCustom size="small" className={classes.margin} disabled={selected}>
+                                    ลบ
+                                </EditAndEraseButtonCustom>
+                            {/* </AddrErase> */}
+                        </ContainerEditErase>
+                        <SetAsDefault>
+                            <ButtonCustom variant="outlined" color="#BDBDBD" className={classes.button} disabled={selected}>
+                                ตั้งเป็นค่าเริ่มต้น
+                            </ButtonCustom>
+                        </SetAsDefault>
+                    </SetOfButton>
+                </ContainerContent>
             </AddrInfoBox>
             <AddrModal
                 className={classes.modal}
@@ -406,16 +437,16 @@ const AddrInfo = ({ selected = false, ...props}) => {
                             'aria-label': 'description',
                             }}
                         />
-                        <BottonInModal>
+                        <ButtonInModal>
                             <CancelButtonCustom type="button" onClick={handleClose}>ยกเลิก</CancelButtonCustom>
                             <MarginBetweenButton />
                             <SaveButtonCustom type="button" onClick={handleClose}>บันทึก</SaveButtonCustom>
-                        </BottonInModal>
+                        </ButtonInModal>
                     </ContainerTextField>
                 </div>
                 </AddrFade>
             </AddrModal>
-        </div>
+        </>
     )
 }
 

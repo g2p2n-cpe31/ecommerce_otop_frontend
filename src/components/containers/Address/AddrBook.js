@@ -1,10 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import Layout from '../../common/Layout'
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import Info from './AddrInfo'
-import Option from './Option'
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -12,13 +10,22 @@ import Fade from '@material-ui/core/Fade';
 import Input from '@material-ui/core/Input';
 import ic_cancel_white from '../../../images/Navbar/ic_cancel_white.svg'
 
+const ContainerContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+`   
+
+
 const AddrFade = styled(Fade)`
     &&{
         position: absolute;
-        width: 615px;
-        height: 750px;
-        left: 425px;
-        top: 30px;
+        width: 61.5rem;
+        height: 75rem;
+        left: 50%;
+        top: 50%;
+        margin-top: -37.5rem;
+        margin-left: -30.75rem;
         background: #FFFFFF;
         border-radius: 5px;
         cursor: auto;
@@ -69,10 +76,11 @@ const ButtonCustom = styled(Button)`
   &&{
       background: #e89c6b;
       height: 4.2rem;
-      width: 33.294rem;
+      width: 15.5rem;
       font-family: "Kanit";
       font-size: 1.4rem;
       color: white;
+      margin-right: 1.5rem;
   }
 `
 const CancelButtonCustom = styled(Button)`
@@ -106,20 +114,24 @@ const TxtBox = styled.div`
     display: flex;
     /* position: absolute; */
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     /* margin-left: 22rem;
     margin-top: 6rem; */
-    width: 97rem;
+    margin-top: 6rem;
+    margin-bottom: 3.254rem;
+    width: 100%;
     /* background: pink; */
 `
 const TxtAddr = styled.div`
     position: relative;
-
     font-family: Kanit;
     font-style: normal;
     font-weight: normal;
     font-size: 4.8rem;
     line-height: 7.2rem;
     letter-spacing: 0.05rem;
+    margin-left: 2.6rem;
 `
 const AddAddrBox = styled.div`
     display: flex;
@@ -137,6 +149,7 @@ const BigInfoBox = styled.div`
     background: white;
     border-radius: 5px;
     margin-bottom: 13.1rem;
+    width: 100%;
 `
 const TextInModal = styled.p`
     position: absolute;
@@ -207,8 +220,8 @@ const AddrBook = () => {
 
 
     return (
-        <div>
-            <Layout haveSpace={false}>
+        <ContainerContent>
+
                 <TxtBox>
                     <TxtAddr>
                         สมุดที่อยู่
@@ -228,7 +241,6 @@ const AddrBook = () => {
                     <Info />
                     <LastMargin />
                 </BigInfoBox>
-                <Option />
                 <AddrModal
                     className={classes.modal}
                     open={open}
@@ -301,8 +313,8 @@ const AddrBook = () => {
                     </div>
                     </AddrFade>
                 </AddrModal>
-            </Layout>
-        </div>
+
+        </ContainerContent>
     )
 }
 
