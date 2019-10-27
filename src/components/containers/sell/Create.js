@@ -59,7 +59,7 @@ const  BoxCreate = styled.div`
     display: flex;
     flex-direction: column;
     width: 83.9rem;
-    height: 58.4rem;
+    /* height: 58.4rem; */
     background: #FFFFFF;
     border-radius: 3px;
     padding: 4.8rem 6.7rem 4.4rem 6.8rem;
@@ -91,11 +91,9 @@ const StyledTextField = styled(TextField)`
             font-weight: normal;
             margin-left: 1rem;
             margin-bottom: 1.1rem;
+            line-height: 2.4rem;
+            padding: 0;
         }
-        /* & > div {
-            height: 4rem;
-            display: flex;
-        } */
     }
 `
 
@@ -170,6 +168,15 @@ const  NameMyStore = styled.p`
     margin-top: 0;
 `
 
+
+const ContainerListOfMyStore = styled.div`
+    display: flex;
+    flex-direction: column;
+    overflow:scroll;
+`
+
+
+
 const ContainerMyStore = styled.div`
     display: flex;
     flex-direction: column;
@@ -191,17 +198,18 @@ const  ContainerMyStoreName = styled.p`
 `
 
 const TitleStore = styled.p`
+    width: 7.9rem;
     font-family: Kanit;
     font-weight: normal;
     font-size: 16px;
     color: #828282;
-    margin: 0 7.3rem 0 0;
+    margin: 0 2.1rem 0 0;
 `
 
 const SubtitleStore = styled.p`
     font-family: Kanit;
     font-weight: 300;
-    font-size: 16px;
+    font-size: 1.6rem;
     color: #4F4F4F;
     margin: 0;
 `
@@ -214,9 +222,10 @@ const  ContainerOwner = styled.p`
 `
 
 const TitleOwner = styled.p`
+    width: 7.9rem;
     font-family: Kanit;
     font-weight: normal;
-    font-size: 16px;
+    font-size: 1.6rem;
     color: #828282;
     margin: 0 2.1rem 0 0;
 `
@@ -224,7 +233,7 @@ const TitleOwner = styled.p`
 const SubtitleOwner = styled.p`
     font-family: Kanit;
     font-weight: 300;
-    font-size: 16px;
+    font-size: 1.6rem;
     color: #4F4F4F;
     margin: 0;
 `
@@ -235,6 +244,7 @@ const Create = () =>{
     const classes = useStyles();
     const [open, setOpen] = React.useState(false)
     const [isShow, setIsShow] = useState(false)
+    const [nameStore, setNameStore] = useState('')
 
     const handleOpen = () => {
         setOpen(true);
@@ -244,6 +254,7 @@ const Create = () =>{
         setOpen(false);
         setTimeout(() => setIsShow(false), 600);
       };
+
     return(
         <>
             <ContainerCreate type="button" onClick={handleOpen}>
@@ -266,36 +277,49 @@ const Create = () =>{
                                     <BoxMyStore>
                                         <Cross src={CloseIcon} onClick={() => handleClose()} />
                                         <NameMyStore>ร้านค้าของฉัน</NameMyStore>
-                                        <ContainerMyStore>
-                                            <ContainerMyStoreName>
-                                                <TitleStore>ร้าน</TitleStore>
-                                                <SubtitleStore>ABCDEFG</SubtitleStore>
-                                            </ContainerMyStoreName>
-                                            <ContainerOwner>
-                                                <TitleOwner>เจ้าของร้าน</TitleOwner>
-                                                <SubtitleOwner>poonshit</SubtitleOwner>
-                                            </ContainerOwner>
-                                        </ContainerMyStore>
-                                        <ContainerMyStore>
-                                            <ContainerMyStoreName>
-                                                <TitleStore>ร้าน</TitleStore>
-                                                <SubtitleStore>ABCDEFG</SubtitleStore>
-                                            </ContainerMyStoreName>
-                                            <ContainerOwner>
-                                                <TitleOwner>เจ้าของร้าน</TitleOwner>
-                                                <SubtitleOwner>poonshit</SubtitleOwner>
-                                            </ContainerOwner>
-                                        </ContainerMyStore>
-                                        <ContainerMyStore>
-                                            <ContainerMyStoreName>
-                                                <TitleStore>ร้าน</TitleStore>
-                                                <SubtitleStore>ABCDEFG</SubtitleStore>
-                                            </ContainerMyStoreName>
-                                            <ContainerOwner>
-                                                <TitleOwner>เจ้าของร้าน</TitleOwner>
-                                                <SubtitleOwner>poonshit</SubtitleOwner>
-                                            </ContainerOwner>
-                                        </ContainerMyStore>
+
+                                        <ContainerListOfMyStore>
+                                            <ContainerMyStore>
+                                                <ContainerMyStoreName>
+                                                    <TitleStore>ร้าน</TitleStore>
+                                                    <SubtitleStore>{nameStore}</SubtitleStore>
+                                                </ContainerMyStoreName>
+                                                <ContainerOwner>
+                                                    <TitleOwner>เจ้าของร้าน</TitleOwner>
+                                                    <SubtitleOwner>poonshit</SubtitleOwner>
+                                                </ContainerOwner>
+                                            </ContainerMyStore>
+                                            <ContainerMyStore>
+                                                <ContainerMyStoreName>
+                                                    <TitleStore>ร้าน</TitleStore>
+                                                    <SubtitleStore>HIJKLMNOP</SubtitleStore>
+                                                </ContainerMyStoreName>
+                                                <ContainerOwner>
+                                                    <TitleOwner>เจ้าของร้าน</TitleOwner>
+                                                    <SubtitleOwner>poonshit</SubtitleOwner>
+                                                </ContainerOwner>
+                                            </ContainerMyStore>
+                                            <ContainerMyStore>
+                                                <ContainerMyStoreName>
+                                                    <TitleStore>ร้าน</TitleStore>
+                                                    <SubtitleStore>QRSTUVWXYZ</SubtitleStore>
+                                                </ContainerMyStoreName>
+                                                <ContainerOwner>
+                                                    <TitleOwner>เจ้าของร้าน</TitleOwner>
+                                                    <SubtitleOwner>poonshit</SubtitleOwner>
+                                                </ContainerOwner>
+                                            </ContainerMyStore>
+                                            <ContainerMyStore>
+                                                <ContainerMyStoreName>
+                                                    <TitleStore>ร้าน</TitleStore>
+                                                    <SubtitleStore>QRSTUVWXYZ</SubtitleStore>
+                                                </ContainerMyStoreName>
+                                                <ContainerOwner>
+                                                    <TitleOwner>เจ้าของร้าน</TitleOwner>
+                                                    <SubtitleOwner>poonshit</SubtitleOwner>
+                                                </ContainerOwner>
+                                            </ContainerMyStore>
+                                        </ContainerListOfMyStore>
                                     </BoxMyStore>
                                 ):(
                                     <BoxCreate>
@@ -303,9 +327,14 @@ const Create = () =>{
                                         <ContainerInput>
                                             <StyledTextField
                                                     placeholder="ชื่อร้านค้า"
+                                                    value={nameStore}
+                                                    onChange={e => setNameStore(e.target.value)}
                                             />
                                             <StyledTextField
                                                     placeholder="รายละเอียดร้านค้า"
+                                            />
+                                            <StyledTextField
+                                                    placeholder="ที่อยู่ร้านค้า"
                                             />
                                             <StyledTextField
                                                     placeholder="เบอร์โทรร้านค้า"
