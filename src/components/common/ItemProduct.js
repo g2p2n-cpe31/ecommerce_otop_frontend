@@ -10,10 +10,8 @@ const ImageContainer = styled.div`
 `
 
 const ContainerDetail = styled.div`
-  /* width: 100%; */
   display: flex;
-  padding: 0.6rem 1.2rem;
-  /* padding: 1.2rem; */
+  padding: 1rem 1.2rem;
   flex-direction: column;
 
   p {
