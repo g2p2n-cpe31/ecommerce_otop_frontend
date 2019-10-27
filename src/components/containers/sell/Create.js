@@ -85,7 +85,8 @@ const StyledTextField = styled(TextField)`
     &&{
         width: 100%;
         margin-bottom: 3.5rem;
-        & input{
+    }
+    & input{
             font-family: Kanit;
             font-size: 1.6rem;
             font-weight: normal;
@@ -93,7 +94,10 @@ const StyledTextField = styled(TextField)`
             margin-bottom: 1.1rem;
             line-height: 2.4rem;
             padding: 0;
+            color: #BDBDBD;
         }
+    & .MuiInput-underline::before{
+            border-bottom-color: #BDBDBD;
     }
 `
 
