@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import {navigate} from 'gatsby'
 import styled from 'styled-components'
 import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
@@ -59,7 +60,6 @@ const  BoxCreate = styled.div`
     display: flex;
     flex-direction: column;
     width: 83.9rem;
-    /* height: 58.4rem; */
     background: #FFFFFF;
     border-radius: 3px;
     padding: 4.8rem 6.7rem 4.4rem 6.8rem;
@@ -178,21 +178,28 @@ const ContainerListOfMyStore = styled.div`
 
 
 const ContainerMyStore = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 69.8rem;
-    height: 8.8rem;
-    background: #FBFBFB;
-    border-radius: 0.5rem;
-    box-sizing: border-box;
-    border: 1px solid #E0E0E0;
-    margin-bottom: 1rem;
-    margin-right: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 69.8rem;
+        height: 8.8rem;
+        background: #FBFBFB;
+        border-radius: 0.5rem;
+        box-sizing: border-box;
+        border: 1px solid #E0E0E0;
+        margin-bottom: 1rem;
+        margin-right: 0;
+        cursor: pointer;
+
+        &:hover{
+            background: #EBEBEB;
+        }
 `
 
 const  ContainerMyStoreName = styled.p`
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     margin-bottom: 0;
     margin: 1.4rem 0 1.2rem 2.6rem;
 `
@@ -253,7 +260,18 @@ const Create = () =>{
       const handleClose = () => {
         setOpen(false);
         setTimeout(() => setIsShow(false), 600);
+        setNameStore('')
       };
+
+      const onClickStore = (e, name) => {
+        navigate(`/managestore?nameStore=${name}`)
+      }
+
+      const handleSubmit = () => {
+        if(nameStore !== ''){
+            setIsShow(true)
+        }
+      }
 
     return(
         <>
@@ -279,7 +297,7 @@ const Create = () =>{
                                         <NameMyStore>ร้านค้าของฉัน</NameMyStore>
 
                                         <ContainerListOfMyStore>
-                                            <ContainerMyStore>
+                                            <ContainerMyStore onClick={(e, name = 'test') => onClickStore(e, name)}>
                                                 <ContainerMyStoreName>
                                                     <TitleStore>ร้าน</TitleStore>
                                                     <SubtitleStore>{nameStore}</SubtitleStore>
@@ -347,7 +365,7 @@ const Create = () =>{
                                             <ButtonCancle onClick={() => setOpen(false)}>
                                                 <NameButtonCancle>ยกเลิก</NameButtonCancle>
                                             </ButtonCancle>
-                                            <ButtonCreate onClick={() => setIsShow(true)}>
+                                            <ButtonCreate onClick={handleSubmit}>
                                                 <NameButtonCreate>สร้าง</NameButtonCreate>
                                             </ButtonCreate>
                                         </ContainerButton>
