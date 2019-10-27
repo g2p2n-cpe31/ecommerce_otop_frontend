@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Layout from '../components/common/Layout'
 import Button from '@material-ui/core/Button'
+import {navigate} from 'gatsby'
 // import Manage  from '../components/containers/ManageStore/Manage'
 
 
@@ -58,7 +59,6 @@ const StyledButtonSlotOne = styled(Button)`
 `
 
 const StyledButtonSlotTwo = styled(Button)`
-  
       display: flex;
       justify-content: center;
       width: 100%;
@@ -84,6 +84,11 @@ const ContainerSlotTwo = styled.div`
 
 
 const ManageStore = () => {
+
+    const onClickStore = (e, name) => {
+      navigate(`/manageproduct?nameStore=${name}`)
+    }
+
     return (
       <Layout>
         <ContainerName>
@@ -93,7 +98,7 @@ const ManageStore = () => {
         <Underline/>
 
         <ContainerSlotOne>
-            <StyledButtonSlotOne>จัดการร้านค้า</StyledButtonSlotOne>
+            <StyledButtonSlotOne onClick={(e,name = 'test1') => onClickStore(e, name)}>จัดการร้านค้า</StyledButtonSlotOne>
             <StyledButtonSlotOne>ตรวจสอบรายการสั่งซื้อ</StyledButtonSlotOne>
             <StyledButtonSlotOne>ประวัติการขาย</StyledButtonSlotOne>
         </ContainerSlotOne>

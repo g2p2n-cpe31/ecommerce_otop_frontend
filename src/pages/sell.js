@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import Layout from '../components/common/Layout'
 import Button from '@material-ui/core/Button'
-import Join from '../components/containers/sell/Join'
-import Create from '../components/containers/sell/Create'
-import { makeStyles } from '@material-ui/core/styles';
+import Join from '../components/containers/Sell/Join'
+import Create from '../components/containers/Sell/Create'
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
     button: {
