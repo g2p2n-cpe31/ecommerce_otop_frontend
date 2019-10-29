@@ -10,18 +10,19 @@ import styled from 'styled-components'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import Button from '@material-ui/core/Button';
-// import Badge from '@material-ui/core/Badge';
+import Badge from '@material-ui/core/Badge';
 import IconButton from '@material-ui/core/IconButton';
 import DropDownIcon from './tile.svg';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import { withStyles } from '@material-ui/core/styles';
 
 
 const AccountIcon = styled(AccountCircleIcon)`
-    width: 19px;
-    height: 19px;
-    margin-top: 3px;
-    margin-left: -50px;
+    width: 1.1875rem;
+    height: 1.1875rem;
+    margin-top: 0.188rem;
+    margin-left: -3.125rem;
     cursor: pointer;   
     && {
         color: #4F4F4F;
@@ -31,9 +32,13 @@ const AccountIcon = styled(AccountCircleIcon)`
 
 const BigNotificationIcon = styled(NotificationsNoneIcon)`
     opacity: 0.9;
-    width: 27px;
-    height: 27px;
-    margin-left: ${props => (props.isManageProd ? '12px' : null)};
+    /* width: 32px;
+    height: 32px; */
+    width: 2.3rem;
+    height: 2.3rem;
+    margin: auto;
+    /* padding-right: 10px; */
+    /* margin-left: ${props => (props.isManageProd ? '12px' : null)}; */
     /* margin-right: 15px; */
     cursor: pointer;
     && {
@@ -42,45 +47,48 @@ const BigNotificationIcon = styled(NotificationsNoneIcon)`
     }
 `
 
-// const CustomBadge = styled(Badge)`
-//     color: #FFFFFF;
-//     background-color: #EB5757;
-//     font-family: Kanit;
-//     font-weight: 300;
-//     font-size: 11px;
-//     line-height: 16px;
-//     display: flex;
-//     align-items: center;
-//     text-align: center;
-// `
+const ButtonContainer = styled(Container)`
+    width: 9rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0.369rem 0 1.5rem;
+    padding: 0 0;
+`
 
 const CustomButton = styled(Button)`
     color: #828282;
     font-family: Kanit;
     font-weight: 300;
-    font-size: 11px;
-    line-height: 16px;
+    font-size: 0.688rem;
+    line-height: 1rem;
     border-radius: 10px;
 `
 
 const CustomMenuItem = styled(MenuItem)`
     font-family: Kanit;
     font-weight: 300;
-    font-size: 14px;
-    line-height: 16px;
+    font-size: 1rem;
+    line-height: 1.1rem;
 `
 
 const CustomNavbar = styled(AppBar)`
-    height: 69px;
-    color: black;
+    max-width: 136.6rem;
+    width: 100%;
+    height: 5rem;
     background-color: #fff;
     opacity: 0.9;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
 `
 
 const CustomToolbar = styled(Toolbar)`
-    height: 69px;
-    padding: 0 21px;
+    max-width: 136.6rem;
+    width: 100%;
+    height: 6rem;
+    padding: 0 2rem;
+    /* padding: auto; */
+    /* margin: auto; */
     background: #FFFFFF;
     opacity: 0.9;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
@@ -89,20 +97,20 @@ const CustomToolbar = styled(Toolbar)`
 const HeaderText = styled.div`
     color: #727272;
     font-family: Kanit;
-    font-size: 24px;
-    line-height: 36px;
-    padding-left: 19px;
-    padding-right: ${props => props.isManageProd ? '845px' : '900px'};
+    font-size: 1.5rem;
+    line-height: 3rem;
+    padding-left: 1.19rem;
+    padding-right: ${props => props.isManageProd ? '52.813rem' : '56.25rem'};
     display: flex;
     align-items: center;
 `
 
 const LogoContainer = styled(Container)`
     background-color: #F2F2F2;
-    width: 142px;
-    height: 53px;
+    width: 10rem;
+    height: 3.5rem;
     margin: 0;
-    padding-left: -12px;
+    /* padding-left: -12px; */
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -110,9 +118,9 @@ const LogoContainer = styled(Container)`
 
 const NotiContainer = styled(Container)`
     background-color: #FFFFFF;
-    width: 27px;
-    height: 27px;
-    margin: 0 10px;
+    width: 1.688rem;
+    height: 1.688rem;
+    margin: 0 0;
     padding: 0 0;
     display: flex;
     align-items: center;
@@ -120,10 +128,12 @@ const NotiContainer = styled(Container)`
 
 const SmallNotificationIcon = styled(NotificationsNoneIcon)`
     opacity: 0.9;
-    width: 17px;
-    height: 17px;
-    margin-left: ${props => (props.isManageProd ? '12px' : null)};
-    /* margin-right: 15px; */
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 0.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     && {
         color: #4F4F4F;
@@ -131,20 +141,35 @@ const SmallNotificationIcon = styled(NotificationsNoneIcon)`
     }
 `
 
+const StyledBadge = withStyles(theme => ({
+    badge: {
+        right: 4,
+        top: 12,
+        border: `2px solid ${theme.palette.background.paper}`,
+        padding: '0 0.25rem',
+        backgroundColor: '#EB5757',
+        fontFamily: 'Kanit',
+        fontWeight: '400',
+        fontSize: '0.688rem',
+        lineHeight: '1rem',
+        color: '#FFFFFF',
+    },
+  }))(Badge);
+
 const StyledImage = styled.img`
-    width: 22px;
-    height: 22px;
+    width: 1.375rem;
+    height: 1.375rem;
 `
 
 const Text = styled.div`
     color: #4F4F4F;
     font-family: Kanit;
     font-weight: 300;
-    font-size: 14px;
-    line-height: 16px;
-    max-width: 95px;
-    padding-left: 5px;
-    padding-right: 56px;
+    font-size: 0.875rem;
+    line-height: 1rem;
+    max-width: 5.938rem;
+    padding-left: 0.313rem;
+    padding-right: 3.5rem;
     cursor: default;   
 `
 
@@ -189,6 +214,7 @@ export default function HideAppBar(props) {
                 <HeaderText>SELLER</HeaderText>
                 <AccountIcon />
                 <Text>{username}</Text>
+
                 {
                     props.isManageProd? (
                         <>
@@ -227,7 +253,7 @@ export default function HideAppBar(props) {
                         </>
                     ) : null
                 }
-                {/* <CustomBadge badgeContent={17}> */}
+
                 {
                     props.notification === 0? 
                         <>
@@ -238,22 +264,27 @@ export default function HideAppBar(props) {
                         : 
                         <>
                             <NotiContainer>
-                                <BigNotificationIcon/> 
+                                <StyledBadge 
+                                    badgeContent={props.notification} 
+                                >
+                                    <BigNotificationIcon aria-label="4 pending messages" />
+                                </StyledBadge>
                             </NotiContainer>
                         </>
 
                 }
-                {/* </CustomBadge> */}
-                <CustomButton variant="outlined">
-                    แนะนำผู้ขาย
-                </CustomButton>
-    
+
+                <ButtonContainer>
+                    <CustomButton variant="outlined">
+                        แนะนำผู้ขาย
+                    </CustomButton>
+                </ButtonContainer>
+              
               </CustomToolbar>
               
             </CustomNavbar>
           </HideOnScroll>
         </React.Fragment>
-        //   {/* <Toolbar /> */}
      }
     </>
   );

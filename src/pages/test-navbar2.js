@@ -4,7 +4,7 @@ import DropDown from '../components/containers/NavbarDropDown/Navbar.js'
 
 const Test = () => {
     const [navbar] = useState('second');
-    const [isManageProd] = useState(false);
+    const [isManageProd] = useState(true);
     const [notification] = useState(0);
 
     return (
