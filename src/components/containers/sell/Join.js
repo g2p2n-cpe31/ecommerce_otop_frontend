@@ -1,11 +1,11 @@
-import React, {useState} from './node_modules/react'
-import { makeStyles } from './node_modules/@material-ui/core/styles';
-import styled from './node_modules/styled-components'
-import Button from './node_modules/@material-ui/core/Button'
-import Modal from './node_modules/@material-ui/core/Modal'
-import Backdrop from './node_modules/@material-ui/core/Backdrop'
-import Fade from './node_modules/@material-ui/core/Fade'
-import TextField from './node_modules/@material-ui/core/TextField'
+import React, {useState} from 'react'
+import { makeStyles } from '@material-ui/core/styles';
+import styled from 'styled-components'
+import Button from '@material-ui/core/Button'
+import Modal from '@material-ui/core/Modal'
+import Backdrop from '@material-ui/core/Backdrop'
+import Fade from '@material-ui/core/Fade'
+import TextField from '@material-ui/core/TextField'
 import CloseIcon from '../../../images/ProductDetail/cross.svg'
 import ic_cancel_white from '../../../images/Navbar/ic_cancel_white.svg'
 
