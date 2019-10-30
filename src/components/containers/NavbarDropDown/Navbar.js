@@ -95,7 +95,7 @@ const CustomNavbar = styled(AppBar)`
 const CustomToolbar = styled(Toolbar)`
     max-width: 136.6rem;
     width: 100%;
-    height: 6rem;
+    height: 5rem;
     padding: 0 0;
     background: #FFFFFF;
     opacity: 0.9;
@@ -321,10 +321,15 @@ export default function HideAppBar(props) {
 
                     </RightContainer>
                 </BigContainer>
-              </CustomToolbar>
-              
+              </CustomToolbar>              
             </CustomNavbar>
-          </HideOnScroll>
+        </HideOnScroll>
+
+    <CustomToolbar />
+    <Container>
+            {props.content}
+        </Container>
+
         </>
      }
     </>
