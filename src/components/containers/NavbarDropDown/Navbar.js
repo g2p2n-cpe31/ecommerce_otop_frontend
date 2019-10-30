@@ -22,12 +22,21 @@ const AccountIcon = styled(AccountCircleIcon)`
     width: 1.1875rem;
     height: 1.1875rem;
     margin-top: 0.188rem;
-    margin-left: -3.125rem;
+    /* margin-left: -3.125rem; */
     cursor: pointer;   
     && {
         color: #4F4F4F;
         background-color: #fff;
     }
+`
+
+const BigContainer = styled(Container)`
+    max-width: 136.6rem;
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 `
 
 const BigNotificationIcon = styled(NotificationsNoneIcon)`
@@ -48,8 +57,8 @@ const BigNotificationIcon = styled(NotificationsNoneIcon)`
 `
 
 const ButtonContainer = styled(Container)`
-    width: 9rem;
-    height: 2rem;
+    width: 6rem;
+    height: 2.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,21 +83,20 @@ const CustomMenuItem = styled(MenuItem)`
 `
 
 const CustomNavbar = styled(AppBar)`
-    max-width: 136.6rem;
-    width: 100%;
-    height: 5rem;
     background-color: #fff;
     opacity: 0.9;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    max-width: 136.6rem;
+    width: 100%;
+    height: 5rem;
+    padding: 0 0;
 `
 
 const CustomToolbar = styled(Toolbar)`
     max-width: 136.6rem;
     width: 100%;
     height: 6rem;
-    padding: 0 2rem;
-    /* padding: auto; */
-    /* margin: auto; */
+    padding: 0 0;
     background: #FFFFFF;
     opacity: 0.9;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
@@ -100,9 +108,19 @@ const HeaderText = styled.div`
     font-size: 1.5rem;
     line-height: 3rem;
     padding-left: 1.19rem;
-    padding-right: ${props => props.isManageProd ? '52.813rem' : '56.25rem'};
     display: flex;
     align-items: center;
+`
+
+const LeftContainer = styled(Container)`
+    width: 15rem;
+    height: 4rem;
+    padding: 0 0;
+    margin: 0 0;
+    display: flex;
+    direction: row;
+    align-items: center;
+    justify-content: flex-start;
 `
 
 const LogoContainer = styled(Container)`
@@ -110,6 +128,7 @@ const LogoContainer = styled(Container)`
     width: 10rem;
     height: 3.5rem;
     margin: 0;
+    padding: 0 0;
     /* padding-left: -12px; */
     display: flex;
     align-items: center;
@@ -126,11 +145,22 @@ const NotiContainer = styled(Container)`
     align-items: center;
 `
 
+const RightContainer = styled(Container)`
+    width: 22rem;
+    height: 4rem;
+    padding: 0 0;
+    margin: 0 0;
+    display: flex;
+    direction: row;
+    align-items: center;
+    justify-content: flex-end;
+`
+
 const SmallNotificationIcon = styled(NotificationsNoneIcon)`
     opacity: 0.9;
     width: 1.5rem;
     height: 1.5rem;
-    margin-left: 0.4rem;
+    /* margin-left: 0.4rem; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -156,9 +186,14 @@ const StyledBadge = withStyles(theme => ({
     },
   }))(Badge);
 
+const StyledIconButton = styled(IconButton)`
+    margin-right: 0.7rem;
+`  
+
 const StyledImage = styled.img`
     width: 1.375rem;
     height: 1.375rem;
+    padding: 0 0;
 `
 
 const Text = styled.div`
@@ -169,7 +204,7 @@ const Text = styled.div`
     line-height: 1rem;
     max-width: 5.938rem;
     padding-left: 0.313rem;
-    padding-right: 3.5rem;
+    padding-right: 3rem;
     cursor: default;   
 `
 
@@ -204,87 +239,93 @@ export default function HideAppBar(props) {
   return (
     <>
      {
-        <React.Fragment>
+        <>
           <CssBaseline />
           <HideOnScroll {...props}>
             <CustomNavbar>
               <CustomToolbar>
-    
-                <LogoContainer />
-                <HeaderText>SELLER</HeaderText>
-                <AccountIcon />
-                <Text>{username}</Text>
+                <BigContainer>
+                    <LeftContainer>
+                        <LogoContainer />
+                        <HeaderText>SELLER</HeaderText>
+                    </LeftContainer>
 
-                {
-                    props.isManageProd? (
-                        <>
-                            <IconButton 
-                            aria-controls="simple-menu" 
-                            aria-haspopup="true" 
-                            onClick={handleClick}
-                            >
-                            <StyledImage src={DropDownIcon}/>
-                            
-                            </IconButton>
+                    <RightContainer>
+                        <AccountIcon />
+                        <Text>{username}</Text>
 
-                            <Menu
-                                id="simple-menu"
-                                anchorEl={anchorEl}
-                                keepMounted
-                                open={Boolean(anchorEl)}
-                                onClose={handleClose}
-                            >
-                                <CustomMenuItem 
-                                    onClick={handleClose}
-                                > จัดการสินค้า </CustomMenuItem>
-                                <CustomMenuItem 
-                                    onClick={handleClose}
-                                >ตรวจสอบรายการสั่งซื้อ</CustomMenuItem>
-                                <CustomMenuItem 
-                                    onClick={handleClose}
-                                >ประวัติการขาย</CustomMenuItem>
-                                <CustomMenuItem 
-                                    onClick={handleClose}
-                                >จัดการสมาชิกร้านค้า</CustomMenuItem>
-                                <CustomMenuItem 
-                                    onClick={handleClose}
-                                >แก้ไขข้อมูลร้านค้า</CustomMenuItem>
-                            </Menu>
-                        </>
-                    ) : null
-                }
+                        {
+                            props.isManageProd? (
+                                <>
+                                    <StyledIconButton 
+                                    aria-controls="simple-menu" 
+                                    aria-haspopup="true" 
+                                    onClick={handleClick}
+                                    >
+                                    <StyledImage src={DropDownIcon}/>
+                                    
+                                    </StyledIconButton>
 
-                {
-                    props.notification === 0? 
-                        <>
-                            <NotiContainer>
-                                <SmallNotificationIcon/> 
-                            </NotiContainer>
-                        </>
-                        : 
-                        <>
-                            <NotiContainer>
-                                <StyledBadge 
-                                    badgeContent={props.notification} 
-                                >
-                                    <BigNotificationIcon aria-label="4 pending messages" />
-                                </StyledBadge>
-                            </NotiContainer>
-                        </>
+                                    <Menu
+                                        id="simple-menu"
+                                        anchorEl={anchorEl}
+                                        keepMounted
+                                        open={Boolean(anchorEl)}
+                                        onClose={handleClose}
+                                    >
+                                        <CustomMenuItem 
+                                            onClick={handleClose}
+                                        > จัดการสินค้า </CustomMenuItem>
+                                        <CustomMenuItem 
+                                            onClick={handleClose}
+                                        >ตรวจสอบรายการสั่งซื้อ</CustomMenuItem>
+                                        <CustomMenuItem 
+                                            onClick={handleClose}
+                                        >ประวัติการขาย</CustomMenuItem>
+                                        <CustomMenuItem 
+                                            onClick={handleClose}
+                                        >จัดการสมาชิกร้านค้า</CustomMenuItem>
+                                        <CustomMenuItem 
+                                            onClick={handleClose}
+                                        >แก้ไขข้อมูลร้านค้า</CustomMenuItem>
+                                    </Menu>
+                                </>
+                            ) : null
+                        }
 
-                }
+                        {
+                            props.notification === 0? 
+                                <>
+                                    <NotiContainer>
+                                        <SmallNotificationIcon/> 
+                                    </NotiContainer>
+                                </>
+                                : 
+                                <>
+                                    <NotiContainer>
+                                        <StyledBadge 
+                                            badgeContent={props.notification} 
+                                        >
+                                            <BigNotificationIcon aria-label="4 pending messages" />
+                                        </StyledBadge>
+                                    </NotiContainer>
+                                </>
 
-                <ButtonContainer>
-                    <CustomButton variant="outlined">
-                        แนะนำผู้ขาย
-                    </CustomButton>
-                </ButtonContainer>
-              
+                        }
+
+                        <ButtonContainer>
+                            <CustomButton variant="outlined">
+                                แนะนำผู้ขาย
+                            </CustomButton>
+                        </ButtonContainer>
+
+                    </RightContainer>
+                </BigContainer>
               </CustomToolbar>
               
             </CustomNavbar>
           </HideOnScroll>
-        </React.Fragment>
+        </>
      }
     </>
   );
