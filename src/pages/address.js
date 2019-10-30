@@ -2,7 +2,7 @@ import React from 'react'
 import AddrBook from '../components/containers/Address/AddrBook'
 import styled from 'styled-components'
 import Layout from '../components/common/Layout'
-import Option from '../components/containers/Profile/Option'
+import Option from '../components/containers/Address/Option'
 import SEO from '../components/utility/seo'
 
 const Container = styled.div`

@@ -96,8 +96,5 @@ const Option = () => {
         </ContainerLeft>
     )
 }
+
 export default Option
-
-
-
-
