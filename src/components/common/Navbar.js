@@ -13,6 +13,7 @@ import ImgDropdown from '../../images/Navbar/dropdown.svg'
 import ImgSearch from '../../images/Navbar/search.svg'
 import ButtonFlat from './ButtonFlat'
 import LoginModal from '../containers/Login/Modal'
+import SignupModal from '../containers/Signup/Modal'
 
 const ContainerNavbar = styled.form`
   position: fixed;
@@ -188,6 +189,7 @@ const Navbar = props => {
   const [showCart, setShowCart] = useState(false)
   const [isDown, setIsDown] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
+  const [showSignup, setShowSignup] = useState(false)
 
   useEffect(() => {
     if (!props.isFixedColor) {
@@ -220,10 +222,29 @@ const Navbar = props => {
     navigate(`/search?keyword=${valueSearch}`)
     e.stopPropagation()
   }
+  
+  const handleOpenLogin = () => {
+    setShowLogin(true)
+    setShowSignup(false)
+  }
+
+  const handleOpenSignup = () => {
+    setShowLogin(false)
+    setShowSignup(true)
+  }
 
   return (
     <>
-      <LoginModal open={showLogin} handleClose={() => setShowLogin(false)} />
+      <LoginModal 
+        open={showLogin} 
+        handleClose={() => setShowLogin(false)} 
+        showSignup={()=>handleOpenSignup()}
+      />
+      <SignupModal 
+        open={showSignup} 
+        handleClose={() => setShowSignup(false)} 
+        showLogin={()=>handleOpenLogin()}
+      />
       <ContainerNavbar
         onClick={e => (showCart ? handleCartFeature(e) : null)}
         showCart={showCart}
@@ -246,9 +267,11 @@ const Navbar = props => {
               <TextMenu>การแจ้งเตือน</TextMenu>
             </ContainerMenu>
             <ContainerUserMenu>
-              <TextMenu>สมัครสมาชิก</TextMenu>
+              <TextMenu onClick={handleOpenSignup}>
+                สมัครสมาชิก
+              </TextMenu>
               <Line />
-              <TextMenu onClick={() => setShowLogin(true)}>
+              <TextMenu onClick={handleOpenLogin}>
                 เข้าสู่ระบบ
               </TextMenu>
             </ContainerUserMenu>
