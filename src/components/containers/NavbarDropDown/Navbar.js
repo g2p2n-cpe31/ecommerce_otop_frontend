@@ -16,6 +16,7 @@ import DropDownIcon from './tile.svg';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { withStyles } from '@material-ui/core/styles';
+import { Link } from 'gatsby'
 
 
 const AccountIcon = styled(AccountCircleIcon)`
@@ -135,6 +136,11 @@ const LogoContainer = styled(Container)`
     cursor: pointer;
 `
 
+const LogoLink = styled(Link)`
+  cursor: pointer;
+  margin: auto auto auto 0;
+`
+
 const NotiContainer = styled(Container)`
     background-color: #FFFFFF;
     width: 1.688rem;
@@ -246,7 +252,9 @@ export default function HideAppBar(props) {
               <CustomToolbar>
                 <BigContainer>
                     <LeftContainer>
-                        <LogoContainer />
+                        <LogoLink to="/home">
+                            <LogoContainer />
+                        </LogoLink>
                         <HeaderText>SELLER</HeaderText>
                     </LeftContainer>
 
@@ -306,7 +314,7 @@ export default function HideAppBar(props) {
                                         <StyledBadge 
                                             badgeContent={props.notification} 
                                         >
-                                            <BigNotificationIcon aria-label="4 pending messages" />
+                                            <BigNotificationIcon />
                                         </StyledBadge>
                                     </NotiContainer>
                                 </>
@@ -325,8 +333,8 @@ export default function HideAppBar(props) {
             </CustomNavbar>
         </HideOnScroll>
 
-    <CustomToolbar />
-    <Container>
+        <CustomToolbar />
+        <Container>
             {props.content}
         </Container>
 
