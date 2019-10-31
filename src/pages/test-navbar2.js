@@ -6,7 +6,7 @@ const Test = () => {
     const [navbar] = useState('second');
     const [isManageProd] = useState(false);
     const [notification] = useState(0);
-    const [content] = useState("sklnxvkdsmsdvsdfbvsfdbfdbdbdsbdfbsd")
+    // const [content] = useState("sklnxvkdsmsdvsdfbvsfdbfdbdbdsbdfbsd")
 
     return (
         <>
@@ -19,7 +19,7 @@ const Test = () => {
                         <DropDown 
                             isManageProd={isManageProd} 
                             notification={notification}
-                            content={content}
+                            // content={content}
                         />
                     )
                 }[navbar]

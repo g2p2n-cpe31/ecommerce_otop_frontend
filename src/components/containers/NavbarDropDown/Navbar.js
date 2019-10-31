@@ -334,9 +334,9 @@ export default function HideAppBar(props) {
         </HideOnScroll>
 
         <CustomToolbar />
-        <Container>
+        {/* <Container>
             {props.content}
-        </Container>
+        </Container> */}
 
         </>
      }
