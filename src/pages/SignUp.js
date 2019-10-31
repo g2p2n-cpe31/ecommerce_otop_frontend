@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Modal from '../components/containers/SignUp/Modal.js'
+import Modal from '../components/containers/Signup/Modal.js'
 import SEO from '../components/utility/seo'
 
 const SignUp = () => {

@@ -47,7 +47,7 @@ const BottomMiddle = styled(Box)`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: flex-end;
+  align-items: center;
   padding-top:10px;
   margin-top: 5px;
   padding-right: 0px;
@@ -82,6 +82,10 @@ const ConfirmButton = styled(Button)`
     background: #E0E0E0;
     border-radius: 30px;
     margin-bottom: 7px;
+
+    & :hover {
+      background-color: #c4c4c4;
+    }
 }
 `
 
@@ -132,15 +136,27 @@ const ModalContainer = styled(Modal)`
 
 const LogInButton = styled(Button)`
   &&  {
+
     width: 85px;
     height: 43px;
     font-family: 'Kanit';
     font-size: 13px;
     text-align: center;
     letter-spacing: 0.5px;
-    color: rgba(91, 60, 120, 0.5);
+    color: rgb(91, 60, 120);
     padding-top: 0;
     padding-bottom: 0;
+    opacity: 0.5;
+
+    & span {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  & :hover {
+   opacity: .7;
   }
   & span {
     color: none;
@@ -171,6 +187,9 @@ const SignUpButton = styled(Button)`
     font-family: 'Kanit';
     border-radius: 25px;
     background-color: #5B3C78;
+    & :hover {
+        background-color: #412a57;
+      }
     & span{
       color: white;
     }
@@ -186,23 +205,23 @@ const TextEnd = styled.div`
   opacity: 0.5;
 `
 
-const Underline = () => (
-  <hr
-      style={{
-          color: 'rgba(91, 60, 120, 0.5)',
-          backgroundColor: 'rgba(91, 60, 120, 0.5)',
-          width: 48,
-          height: 2,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginTop: -10,
-          left: 407,
-          top: 459,
-      }}
-  />
-);
+const StyledHR = styled.hr`
 
+  color: rgb(91, 60, 120);
+  background-color: rgb(91, 60, 120);
+  border: none;
+  width: 70%;
+  height: .2rem;
+  display: 'flex';
+  justify-content: 'center';
+  align-items: 'center';
+  margin-top: -1rem;
+  left: 40.7rem;
+  top: 45.9rem;
+  margin: auto 0;
+ 
+
+`
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -296,6 +315,7 @@ export default function SimpleModal(props) {
           <BoxMiddle>
               <FieldFont
                 placeholder="ชื่อ"
+                autoComplete="first-name"
                 className={classes.textField2}
                 margin="normal"
                 value={name}
@@ -303,6 +323,7 @@ export default function SimpleModal(props) {
                 /> 
               <FieldFont
                 placeholder="นามสกุล"
+                autoComplete="family-name"
                 className={classes.textField2}
                 margin="normal"
                 value={surname}
@@ -311,6 +332,7 @@ export default function SimpleModal(props) {
 
               <SearchTextBox
                 type="tel"
+                autoComplete="tel"
                 placeholder="เบอร์โทรศัพท์"
                 className={classes.textField2}
                 margin="normal"
@@ -338,6 +360,7 @@ export default function SimpleModal(props) {
             
             <FieldFont
                 type="email"
+                autoComplete="email"
                 placeholder="อีเมล"
                 className={classes.textField1}
                 margin="normal"
@@ -357,7 +380,7 @@ export default function SimpleModal(props) {
                 placeholder="รหัสผ่าน"
                 className={classes.textField2}
                 type="password"
-                autoComplete="current-password"
+                autoComplete="new-password"
                 margin="normal"
                 value={pwd}
                 onChange={e => setPwd(e.target.value)}
@@ -366,7 +389,6 @@ export default function SimpleModal(props) {
                 placeholder="ยืนยันรหัสผ่าน"
                 className={classes.textField2}
                 type="password"
-                autoComplete="current-password"
                 margin="normal"
                 value={confirmPwd}
                 onChange={e => setConfirmPwd(e.target.value)}
@@ -383,8 +405,9 @@ export default function SimpleModal(props) {
             <BottomMiddle>
               <LogInButton className={classes.button}>
                 เข้าสู่ระบบ
+                <StyledHR />       
               </LogInButton>
-              <Underline />
+           
             </BottomMiddle>
 
             <BottomRight>
