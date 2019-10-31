@@ -1,31 +1,17 @@
-import React  from 'react'
+import React ,{ useState }   from 'react'
 import styled from 'styled-components'
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
 import Select from '@material-ui/core/Select'
 import FormControl from '@material-ui/core/FormControl'
-import { makeStyles } from '@material-ui/core/styles'
-import Dropdown from '../../../images/Sell/dropdown.png'
+import Dropdown from '../../../images/SearchPage/dropdown_filter.svg'
 import Fab from '@material-ui/core/Fab'
 import IconPlus from '../../../images/Sell/Plus.png'
 import Button from '@material-ui/core/Button'
 
 
-const useStyles = makeStyles(theme => ({
-    formControl: {
-      minWidth: 120,
-    },
-    selectEmpty: {
-      marginTop: theme.spacing(2),
-    },
-    container: {
-        display: 'flex',
-        flexWrap: 'wrap',
-      },
-  }));
 
-
-  const DetailAddProduct = styled.div`
+const DetailAddProduct = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -39,6 +25,7 @@ const useStyles = makeStyles(theme => ({
 const ContainerTextFiled = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 30%;
     margin: 0.3rem 5.7rem 0 0 ;
 `
@@ -46,9 +33,14 @@ const InputTextFeild = styled(TextField)`
     &&{
         width: 100%;
         margin:0 0 3rem  0;
+        &:nth-child(1) {
+            margin-top: .6rem;
+        }
+
         &:last-child{
             margin-bottom: 0;
         }
+
         & input{
             font-family: Kanit;
             font-size: 1.6rem;
@@ -84,47 +76,73 @@ const StyledFormControl= styled(FormControl)`
 
 const StyledSelect = styled(Select)`
     &&{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 40px;
         font-family: Kanit;
-        height: 2.4rem;
-        color: #BDBDBD;
+        color: #828282;
+        border: 0.15rem solid #BDBDBD;
+        border-radius: 0.3rem;
     }
+
+    fieldset {
+        border-width: 0 !important;
+        border-radius: 0.2rem;
+        background: #fff;
+    }
+
     & .MuiOutlinedInput-input{
-       padding: 0 0 0 1.9rem;
-       box-sizing: border-box;
-       width: 19.8rem;
+       padding: auto 1.9rem;
+    }
+    & .MuiInputBase-input {
+      z-index: 2;
     }
 `
 
 const StyledIcon = styled.img`
+    position: absolute;
     width: 2rem;
     height: 1.1rem;
-    top: 1.5rem;
+    margin: auto 1rem;
     cursor: pointer;
+    right: 0;
+    z-index: 1;
 `
 
 const Item = styled(MenuItem)`
     &&{
-        height: 1.1rem;
         font-family: Kanit;
-        margin-right: 2.2rem;
+        color: #BDBDBD;
     }
 `
 
 const StyledDetail = styled(TextField)`
     &&{
         width: 100%;
-    }
-    & input{
-        font-family: Kanit;
-        font-size: 1.6rem;
-        font-weight: normal;
-        color: #BDBDBD;
         padding: 0;
-    }
-    & .MuiOutlinedInput-multiline {
-        padding: 0 1.9rem 1.3rem 1.9rem;
-        height: 11.5rem;
-        margin-top: 2.2rem;
+        & textarea{
+            font-family: Kanit;
+            font-size: 1.6rem;
+            font-weight: normal;
+            color: #BDBDBD;
+            line-height: normal;
+            margin: 0 1.9rem;
+        }
+
+        fieldset {
+            border: 0.15rem solid #BDBDBD;
+            border-radius: 0.3rem;
+            font-family: Kanit;
+        }
+
+        & .MuiOutlinedInput-multiline {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2.2rem;
+            height: 11rem;
+            padding: 4px;
+        }
     }
 `
 
@@ -136,7 +154,7 @@ const ContainerPicture = styled.div`
 
 const StyledFabPicture = styled(Fab)`
     width: 100%;
-    height: 17.2rem;
+    height: 100%;
     border-radius: 0.3rem;
     background: #F2F2F2;
     border: 0.2rem solid #BDBDBD;
@@ -154,7 +172,7 @@ const ContainerAdd = styled.div`
 
 const StyledButton = styled(Button)`
     width: 100%;
-    height: 17.2rem;
+    height: 100%;
     border-radius: 0.3rem;
     background: #E89C6B;
     font-family: Kanit;
@@ -165,14 +183,19 @@ const StyledButton = styled(Button)`
     &:hover{
         background: #ED7F38;
     }
+
 `
 
-const SectionOne = () => {
-    const classes = useStyles();
-    const [age, setAge] = React.useState('');
+const SectionOne = ({
+    displayEmpty = true,
+    placeholder = '',
+    margin_form = '0',
+    width = '100%',
+})  => {
+    const [age, setAge] = useState('');
     const handleChange = event => {
-        setAge(event.target.value);
-    };
+        setAge(event.target.value)
+    }
 
     return(
            <DetailAddProduct>
@@ -183,9 +206,9 @@ const SectionOne = () => {
                 </ContainerTextFiled>
 
                 <ContainerSelect>
-                    <StyledFormControl variant="outlined" className={classes.formControl} >
+                    <StyledFormControl variant="outlined">
                         <StyledSelect
-                            displayEmpty
+                            displayEmpty={displayEmpty}
                             value={age}
                             onChange={handleChange}
                             IconComponent={() => (
@@ -203,12 +226,11 @@ const SectionOne = () => {
                         rows="4"
                         multiline
                         placeholder="รายละเอียดเพิ่มเติม"
-                        className={classes.textField}
                         variant="outlined"
                     />
                 </ContainerSelect>
                 <ContainerPicture>
-                    <StyledFabPicture lassName={classes.fab} disableRipple={true}>
+                    <StyledFabPicture  disableRipple={true}>
                         <StyledIconPlus src={IconPlus} />
                     </StyledFabPicture>
                 </ContainerPicture>

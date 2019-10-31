@@ -1,23 +1,9 @@
-import React  from 'react'
+import React , { useState } from 'react'
 import styled from 'styled-components'
 import MenuItem from '@material-ui/core/MenuItem'
 import Select from '@material-ui/core/Select'
 import FormControl from '@material-ui/core/FormControl'
-import { makeStyles } from '@material-ui/core/styles'
-import Dropdown from '../../images/Sell/dropdown.png'
-
-const useStyles = makeStyles(theme => ({
-    formControl: {
-      minWidth: 120,
-    },
-    selectEmpty: {
-      marginTop: theme.spacing(2),
-    },
-    container: {
-        display: 'flex',
-        flexWrap: 'wrap',
-      },
-  }));
+import Dropdown from '../../images/SearchPage/dropdown_filter.svg'
 
 
   const ContainerSelect = styled.div`
@@ -28,63 +14,82 @@ const useStyles = makeStyles(theme => ({
 `
 
 
-const StyledFormControl= styled(FormControl)`
-    &&{
-        margin-bottom: 0;
-        background: #FFFFFF;
-    }
+const StyledFormControl = styled(FormControl)`
+  && {
+    width: ${props => props.width};
+    margin: ${props => props.margin_form};
+  }
 `
 
 
 const StyledSelect = styled(Select)`
     &&{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 44px;
         font-family: Kanit;
-        height: 2.4rem;
-        color: #BDBDBD;
-        border-radius: 0.2rem;
+        color: #828282;
     }
+
+    fieldset {
+        border-width: 0 !important;
+        border-radius: 0.2rem;
+        background: #fff;
+    }
+
+
     & .MuiOutlinedInput-input{
-       padding: 0 0 0 1.9rem;
-       box-sizing: border-box;
-       width: 24.9rem;
+       padding: auto 1.9rem;
+    }
+    & .MuiInputBase-input {
+      z-index: 2;
     }
 `
 
 const StyledIcon = styled.img`
-    width: 2rem;
+    position: absolute;
+    width: 2.2rem;
     height: 1.1rem;
-    top: 1.5rem;
+    margin: auto 1rem;
     cursor: pointer;
+    right: 0;
+    z-index: 1;
 `
 
 const Item = styled(MenuItem)`
     &&{
-        height: 1.1rem;
         font-family: Kanit;
-        margin-right: 2.2rem;
+        color: #BDBDBD;
     }
 `
 
 
 
-const Filter = () =>{
-    const classes = useStyles();
-    const [age, setAge] = React.useState('');
+const Filter  = ({
+    displayEmpty = true,
+    placeholder = '',
+    margin_form = '0',
+    width = '100%',
+}) =>{
+    const [age, setAge] = useState('')
+
     const handleChange = event => {
-        setAge(event.target.value);
-    };
+        setAge(event.target.value)
+    }
 
     return (
         <ContainerSelect>
-        <StyledFormControl variant="outlined" className={classes.formControl} >
+        <StyledFormControl variant="outlined"  placeholder={placeholder}  margin_form={margin_form}  >
             <StyledSelect
-                displayEmpty
+                displayEmpty={displayEmpty}
                 value={age}
                 onChange={handleChange}
                 IconComponent={() => (
                     <StyledIcon src={Dropdown}/>
                   )}>
             >
+            <Item value="" disabled >{placeholder}</Item>
             <Item value={10}>ชื่อสินค้า</Item>
             <Item value={20}>ราคา</Item>
             <Item value={30}>วันที่เพิ่มสินค้า</Item>
