@@ -9,16 +9,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-const Text_Field = styled(TextField)`
-    font-family: Kanit;
-    font-size: 1.6rem;
-    padding : 10px 30px;
-    background: #ffffff;
-    border-radius: 1px;
-    border: solid 1px #bdbdbd;
-    margin-right: 1px;
-    margin-left: 1px;
-`
 const TextFieldCustom = styled(TextField)`
     && {
         margin: 0 2px;
@@ -26,11 +16,12 @@ const TextFieldCustom = styled(TextField)`
         & input {
             padding: 0;
             width: 53.13px;
-            height: 22px;
+            height: 24px;
+            text-align: center;
         }
         & fieldset {
             border-radius: 1px;
-          }
+        }
     }
 `
 const ButtonCustom = styled(Button)`
@@ -42,6 +33,15 @@ const ButtonCustom = styled(Button)`
         background-color: #e0e0e0;
     }
 `
+const TrashLabel = styled(FormControlLabel)`
+    && .MuiTypography-body1 {
+        font-family: Kanit;
+        font-style: normal;
+        font-weight: '300';
+        font-size: '14px';
+        color: #BDBDBD;
+    }
+`
 const ContainerButton = styled.div`
     margin-top: 20px;
     display: flex;
@@ -50,21 +50,19 @@ const ContainerButton = styled.div`
     /* background: blue; */
 `
 const Box = styled.div`
-    margin-left: 20px;
+    margin-left: 2.479rem;
     display: flex;
-    position: relative;
     flex-direction: row;
     justify-content: flex-start;
-    width: 1150px;
+    width: 115rem;
     height: 10rem;
 `
 const ProductNameBox = styled.div`
     margin-left: 30px;
     display: flex;
     flex-direction: column;
-    width: 35rem;
+    width: 33rem;
     height: 10rem;
-    /* background: green; */
 `
 const Box2 = styled.div`
     /* margin-left: 40px; */
@@ -77,26 +75,26 @@ const Box2 = styled.div`
 const TextBox = styled.div`
     display:flex;
     align-items: center;
-    /* background: orange; */
+    /* background: green; */
 `
 const DeleteBox = styled.div`
     margin-top: 5px;
     display: flex;
     align-items: flex-start;
 `
-const BoxCheckbox = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`
+// const BoxCheckbox = styled.div`
+//     display: flex;
+//     /* align-items: center;
+//     justify-content: flex-start; */
+//     background: lightskyblue;
+// `
 const Margin = styled.div`
     margin-top: 10px;
     margin-left: 20px;
-    margin-bottom: 10px;
 `
 const Margin2 = styled.div`
     margin-top: 10px;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 `
 const Margin3 = styled.div`
     margin-left: 73px;
@@ -106,6 +104,7 @@ const SetMargin = styled.div`
 `
 const FontSize = styled.div`
     font-size: 18px;
+    margin-bottom: 10px;
 `
 const FontSize2 = styled.div`
     font-size: 13px;
@@ -154,21 +153,18 @@ const Product = () => {
     const classes = useStyles();
 
     return (
-        <div>
+        <>
             <Box>
-                <TextBox>
-                    <BoxCheckbox>
+                <FormControlLabel
+                    control={
                         <Checkbox
                             checked={state.checkedB}
                             onChange={handleChange('checkedB')}
                             value="checkedB"
                             color="primary"
-                            inputProps={{
-                            'aria-label': 'secondary checkbox',
-                            }}
                         />
-                    </BoxCheckbox>
-                </TextBox>
+                    }
+                />
                 <img src={Pineapple}
                      width="100rem"
                      height="87rem">
@@ -179,10 +175,10 @@ const Product = () => {
                             <FontSize>
                                 ชื่อสินค้า
                             </FontSize>
-                        </Margin>
-                        <FontSize2>
+                            <FontSize2>
                             รายละเอียดสินค้า
-                        </FontSize2>
+                            </FontSize2>
+                        </Margin>
                     </ProductNameBox>
                     <Box2>
                         <Margin2>
@@ -223,7 +219,7 @@ const Product = () => {
                 </SetMargin>
                 <Margin3 />
                 <DeleteBox>
-                    <FormControlLabel
+                    <TrashLabel
                         control={
                             <IconButton className={classes.button} aria-label="delete">
                                 <DeleteIcon />
@@ -233,7 +229,7 @@ const Product = () => {
                     />
                 </DeleteBox>
             </Box> 
-        </div>
+        </>
     )
 }
 

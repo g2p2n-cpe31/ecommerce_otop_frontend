@@ -8,29 +8,45 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 const Box = styled.div`
     display: flex;
-    width: 1150px;
+    width: 115rem;
     height: 4.6rem;  
     align-items: center;
+    justify-content: space-between;
     background-color: #F7F4F3;
-    border-radius: 2px;
+    border-radius: 0.2rem;
+    margin-top: 8rem;
 `
-const Margin = styled.div`
-    margin: 80px;
+const SelectButtonBox = styled.div`
+    margin-left: 2.479rem;
 `
-
-const MarginLeft = styled.div`
-    margin-left: 20px;
+const TextLabel = styled(FormControlLabel)`
+    && .MuiTypography-body1 {
+        font-family : Kanit;
+        font-style: normal;
+        font-weight: '300';
+        font-size: '14';
+    }
 `
-const TrashMargin = styled.div`
-    margin-left: 95rem;
+const TrashLabel = styled(FormControlLabel)`
+    && .MuiTypography-body1 {
+        font-family: Kanit;
+        font-style: normal;
+        font-weight: '300';
+        font-size: '14px';
+        color: #BDBDBD;
+    }
 `
-
+const TrashBox = styled.div`
+    align-items: center;
+    justify-content: center;
+    margin-right: 2rem;
+`
 const useStyles = makeStyles(theme => ({
     button: {
-      margin: theme.spacing(1),
+        margin: theme.spacing(1),
     },
     input: {
-      display: 'none',
+        display: 'none',
     },
   }));  
 
@@ -47,32 +63,33 @@ const SelectAll = () => {
     const classes = useStyles();
 
     return (
-        <div>
-            <Margin />
+        <>
             <Box>
-                <MarginLeft />
-                <FormControlLabel
-                    control={
-                        <Checkbox
-                            checked={state.checkedB}
-                            onChange={handleChange('checkedB')}
-                            value="checkedB"
-                            color="primary"
-                        />
-                    }
-                    label="เลือกทั้งหมด"
-                />
-                <TrashMargin />
-                <FormControlLabel
-                    control={
-                        <IconButton className={classes.button} aria-label="delete">
-                            <DeleteIcon />
-                        </IconButton>
-                    }
-                    label="ลบ"
-                />
+                <SelectButtonBox>
+                    <TextLabel
+                        control={
+                            <Checkbox
+                                checked={state.checkedB}
+                                onChange={handleChange('checkedB')}
+                                value="checkedB"
+                                color="primary"
+                            />
+                        }
+                        label="เลือกทั้งหมด"
+                    />
+                </SelectButtonBox>
+                <TrashBox>
+                    <TrashLabel
+                        control={
+                            <IconButton className={classes.button} aria-label="delete">
+                                <DeleteIcon />
+                            </IconButton>
+                        }
+                        label="ลบ"
+                    />
+                </TrashBox>
             </Box>
-        </div>
+        </>
     )
 }
 
