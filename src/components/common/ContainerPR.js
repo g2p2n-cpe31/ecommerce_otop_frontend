@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import ItemProduct from './ItemProduct'
+import { SliderLTR } from '../utility/Keyframes'
 
 const ContainerItems = styled.div`
   background: ${props => props.background || 'rgba(138, 138, 138, 0.4)'};
   border-radius: 5px;
   width: 80%;
   height: 359px;
-  overflow-x: auto;
+  overflow-x: scroll;
 
   ::-webkit-scrollbar {
     display: none;
@@ -23,6 +24,7 @@ const WrapContent = styled.div`
   height: 359px;
   padding: 0 0.5rem;
   float: left;
+  animation: ${SliderLTR} 100s infinite;
 `
 
 const ContainerPR = props => {

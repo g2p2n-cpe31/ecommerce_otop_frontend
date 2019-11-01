@@ -87,8 +87,7 @@ const Card = styled.div`
   border-radius: 5px;
   display: inline-flex;
   flex-direction: column;
-  /* margin: auto 1rem;
-  margin: 2.9rem 1rem; */
+
   margin: ${props => props.margin};
   &:last-child {
   }
