@@ -29,6 +29,11 @@ const ButtonFlat = ({
       border-radius: ${border_radius};
       background: ${background};
       margin: ${margin};
+      transition: all 0.25s ease;
+
+      &:hover {
+        opacity: 0.79;
+      }
     }
   `
 
