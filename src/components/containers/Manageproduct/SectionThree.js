@@ -1,5 +1,6 @@
-import React  from 'react'
+import React from 'react'
 import styled from 'styled-components'
+import StockList from './StockList'
 
 const ContainerSectionThree = styled.div`
     display: flex;
@@ -14,6 +15,7 @@ const ContainerSectionThree = styled.div`
 `
 
 const Content = styled.div`
+    position: sticky;
     display: flex;
     flex-direction: row;
     height: 4.7rem;
@@ -46,68 +48,13 @@ const Remain = styled.div`
     color: #828282;
 `
 
-const StockList = styled.div`
+
+const ContainerStockList = styled.div`
     display: flex;
-    flex-direction: row;
-    /* justify-content: space-between; */
-    height: 4.7rem;
-    width:100%;
-    padding: 1.3rem 2.3rem 0 2.3rem;
-    box-sizing: border-box;
-    border-bottom: 0.5px solid #BDBDBD;
-    margin-bottom: 2.6rem;
+    flex-direction: column;
+    overflow: auto;
+    height: 88.2rem;
 `
-
-const ProductName = styled.div`
-    width: 30%;
-    font-family: Kanit;
-    font-weight: 300;
-    font-size: 1.4rem;
-    color:  #4F4F4F;
-    display: flex;
-`
-
-const OtherName = styled.div`
-    width: 15%;
-    font-family: Kanit;
-    font-weight: 300;
-    font-size: 1.4rem;
-    color: #828282;
-`
-
-const RemainName = styled.div`
-    width: 15%;
-    font-family: Kanit;
-    font-weight: 300;
-    font-size: 1.4rem;
-    color: #828282;
-`
-
-const ContainerEdit = styled.div`
-   display: flex;
-   flex-direction: row;
-   margin-left: auto;
-`
-
-const Edit = styled.div`
-    text-decoration: underline;
-    color: #4F4F4F;
-    font-family: Kanit;
-    font-weight: 300;
-    font-size: 1.4rem;
-    margin-right: 3.5rem;
-    cursor: pointer;
-`
-
-const Delete = styled.div`
-    text-decoration: underline;
-    color: #4F4F4F;
-    font-family: Kanit;
-    font-weight: 300;
-    font-size: 1.4rem;
-    cursor: pointer;
-`
-
 
 
 
@@ -121,18 +68,12 @@ const SectionThree = () => {
                     <Other>วันที่แก้ไขล่าสุด</Other>
                     <Remain>จำนวนคงเหลือ</Remain>
                 </Content>
-
-                <StockList>
-                    <ProductName>สับประรดกับมะพร้าว</ProductName>
-                    <OtherName>255</OtherName>
-                    <OtherName>20/10/2562</OtherName>
-                    <OtherName>20/10/2562</OtherName>
-                    <RemainName>12</RemainName>
-                    <ContainerEdit>
-                        <Edit>แก้ไข</Edit>
-                        <Delete>ลบ</Delete>
-                    </ContainerEdit>
-                </StockList>
+                <ContainerStockList>
+                    <StockList/>
+                    <StockList/>
+                    <StockList/>
+                    <StockList/><StockList/><StockList/><StockList/><StockList/><StockList/><StockList/><StockList/><StockList/><StockList/>
+                </ContainerStockList>
         </ContainerSectionThree>
     )
 }

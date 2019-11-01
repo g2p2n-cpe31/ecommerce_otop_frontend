@@ -11,12 +11,12 @@ import TextField from '@material-ui/core/TextField'
 import CloseIcon from '../../../images/ProductDetail/cross.svg'
 
 const ContainerCreate = styled(Button)`
-        width: 50%;
-        height: 16.8rem;
-        background: #FFFFFF;
-        margin: 1.6rem 2rem 0 0;
-        font-weight: normal;
-        color: #4F4F4F;
+    width: 50%;
+    height: 16.8rem;
+    background: #FFFFFF;
+    margin: 1.6rem 2rem 0 0;
+    font-weight: normal;
+    color: #4F4F4F;
 `
 
 const CreateNameStore  = styled.p`
