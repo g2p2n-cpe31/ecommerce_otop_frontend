@@ -25,6 +25,10 @@ const WrapContent = styled.div`
   padding: 0 0.5rem;
   float: left;
   animation: ${SliderLTR} 100s infinite;
+
+  &:hover {
+    animation-play-state: paused;
+  }
 `
 
 const ContainerPR = props => {

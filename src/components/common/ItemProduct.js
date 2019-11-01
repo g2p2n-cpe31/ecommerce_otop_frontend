@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import ImgStarVote from '../../images/Navbar/star_vote.svg'
+import { Link } from 'gatsby'
 
 const ImageContainer = styled.div`
   width: 229px;
@@ -77,19 +78,36 @@ const TextSold = styled.p`
   color: #828282;
 `
 
-const Card = styled.div`
+const Card = styled(Link)`
+  cursor: pointer;
   width: 229px;
-  /* height: 339px;
-  height: 562px; */
   height: ${props => props.height};
+  margin: ${props => props.margin};
   background: #f2f2f2;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   display: inline-flex;
   flex-direction: column;
+  position: relative;
+  text-decoration: none;
 
-  margin: ${props => props.margin};
-  &:last-child {
+  &:hover {
+    box-shadow: 2px 5.5px 8px 5px rgba(0, 0, 0, 0.25);
+    /* &:after {
+      content: '';
+      width: 229px;
+      height: ${props => (props.multiImages ? ' 45.4rem' : '23.4rem')};
+      box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+      background: linear-gradient(
+        0deg,
+        rgba(65, 65, 65, 0.2),
+        rgba(65, 65, 65, 0.4)
+      );
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+    } */
   }
 `
 
@@ -99,7 +117,12 @@ const ItemProduct = ({
   multiImages = true,
 }) => {
   return (
-    <Card margin={margin} height={height}>
+    <Card
+      margin={margin}
+      height={height}
+      multiImages={multiImages}
+      // activeClassName="active"
+    >
       <ImageContainer multiImages={multiImages}></ImageContainer>
       <ContainerDetail>
         <NameProduct>กระหรี่ปัป</NameProduct>
