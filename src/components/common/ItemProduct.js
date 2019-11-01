@@ -90,6 +90,8 @@ const Card = styled(Link)`
   flex-direction: column;
   position: relative;
   text-decoration: none;
+  transition: box-shadow 0.25s ease;
+
 
   &:hover {
     box-shadow: 2px 5.5px 8px 5px rgba(0, 0, 0, 0.25);
