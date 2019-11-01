@@ -67,6 +67,17 @@ const SelectFlat = ({
         value={option}
         onChange={handleChange}
         displayEmpty={displayEmpty}
+        MenuProps={{
+          anchorOrigin: {
+            vertical: 'bottom',
+            horizontal: 'left',
+          },
+          transformOrigin: {
+            vertical: 'top',
+            horizontal: 'left',
+          },
+          getContentAnchorEl: null,
+        }}
       >
         <MenuItem value="" disabled>
           {placeholder}
