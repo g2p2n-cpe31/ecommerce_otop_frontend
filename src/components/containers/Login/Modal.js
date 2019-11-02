@@ -321,7 +321,7 @@ const ModalLogin = props => {
               margin="normal"
             />
             <ForgotPassword
-              href="#text-buttons"
+              href="#forgotpassword"
               className={classes.button}
               flexbox="flex-end"
             >
