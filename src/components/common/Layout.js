@@ -5,55 +5,56 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import GlobalStyle from '../utility/GlobalStyle'
 import Navbar from './Navbar'
+import NavbarDropDown from './NavbarDropDown'
 
-const ContainerHaveSpace = styled.div`
-  margin: 0 auto;
-  width: 82%;
-  max-width: 136.6rem;
-  /* z-index: 2; */
-  padding-top: 13rem;
-`
+const Layout = ({
+  navbar = 'default',
+  haveSpace = true,
+  isFixedColor = true,
+  ...props
+}) => {
+  const [isManageProd] = useState(true)
+  const [notification] = useState(0)
 
-const ContainerFitScreen = styled.div`
-  margin: 0 auto;
-  display: flex;
-  width: 100%;
-  padding-top: 13rem;
-`
+  const ContainerHaveSpace = styled.div`
+    margin: 0 auto;
+    width: 82%;
+    max-width: 136.6rem;
+    /* z-index: 2; */
+    padding-top: ${{ default: '13rem', second: '6.9rem' }[navbar]};
+  `
 
-const Layout = ({ haveSpace = true, isFixedColor = true, ...props }) => {
-  // const data = useStaticQuery(graphql`
-  //   query SiteTitleQuery {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //       }
-  //     }
-  //   }
-  // `)
-
+  const ContainerFitScreen = styled.div`
+    margin: 0 auto;
+    display: flex;
+    width: 100%;
+    padding-top: ${{ default: '13rem', second: '6.9rem' }[navbar]};
+  `
   return (
     <>
       <GlobalStyle />
-      <Navbar
-        isFixedColor={isFixedColor}
-        location={props.location}
-        history={props.history}
-      />
-      {/* <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      > */}
+      {
+        {
+          default: (
+            <Navbar
+              isFixedColor={isFixedColor}
+              location={props.location}
+              history={props.history}
+            />
+          ),
+          second: (
+            <NavbarDropDown
+              isManageProd={isManageProd}
+              notification={notification}
+            />
+          ),
+        }[navbar]
+      }
       {haveSpace ? (
         <ContainerHaveSpace>{props.children}</ContainerHaveSpace>
       ) : (
