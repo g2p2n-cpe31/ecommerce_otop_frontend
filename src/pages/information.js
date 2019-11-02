@@ -1,9 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useState } from 'react'
+import styled, {css} from 'styled-components'
 import Layout from '../components/common/Layout'
-import Rectangle from '../images/Profile/Rectangle.png'
 import Profile from '../components/containers/Information/Profile'
-import {Link} from 'gatsby'
+import Testone from '../components/containers/Information/Testone'
 
 const Container = styled.div`
     display: flex;
@@ -18,12 +17,6 @@ const ContainerLeft = styled.div`
 `
 
 
-const ContainerRectangle = styled.img`
-    width: 0.3rem;
-    height: 2.4rem;
-    margin-top: 19.5rem;
-    margin-right: 1.5rem;
-`
 
 const ContainerText = styled.nav`
     display: flex;
@@ -32,41 +25,67 @@ const ContainerText = styled.nav`
     width: 100%;
 `
 
-const TextLink = styled(Link)`
+const TextLink = styled.p`
+    width: 14.4rem;
+    padding-left: 1.8rem;
     font-family: Kanit;
-    font-weight: 300;
     font-size: 1.4rem;
-    color: #4F4F4F;
+    color: ${props => props.isActive ? '#5B3C78' : '#4F4F4F'};
+    font-weight: ${props => props.isActive? '400':'300'};
     margin-top: 0;
     margin-bottom: 2rem;
     cursor: pointer;
     text-decoration: none;
-
-    &.active{
-        font-size: 1.5rem;
-        font-weight: 800;
-        color: red;
+    ${
+        props => props.isActive && css`
+            border-left: 3px solid #5B3C78;
+            padding-left: 1.5rem;
+        `
+    }
+    &:hover{
+        color: #5B3C78;
     }
 `
 
 
-const profile = () => {
+const Information = () => {
+    const [pageShow, setPageShow] = useState('information')
+    const [actives, setActives] = useState({
+        'information':true,
+        'address':false,
+        'pwd':false,
+        'payment':false,
+        'history':false,
+    })
+
+    const handleActives = (key) => {
+        setPageShow(key)
+        setActives({[key]: true})
+    }
+
     return(
         <Layout>
                <Container>
-               <ContainerLeft>
-                    <ContainerRectangle src={Rectangle}/>
+                <ContainerLeft>
                     <ContainerText>
-                        <TextLink to="profile" activeClassName="active" isPartiallyCurrent={true}>ข้อมูลส่วนตัว</TextLink>
-                        <TextLink to="address" activeClassName="active" isPartiallyCurrent={true}>สมุดที่อยู่</TextLink>
-                        <TextLink to="/" activeClassName="active">แก้ไขพาสเวิร์ด</TextLink>
-                        <TextLink to="/" activeClassName="active">ตัวเลือกการชำระเงิน</TextLink>
-                        <TextLink to="/" activeClassName="active">ประวัติการสั่งซื้อ</TextLink>
+                        <TextLink isActive={actives.information} onClick={()=>handleActives('information')}>ข้อมูลส่วนตัว</TextLink>
+                        <TextLink isActive={actives.address} onClick={()=>handleActives('address')}>สมุดที่อยู่</TextLink>
+                        <TextLink isActive={actives.pwd} onClick={()=>handleActives('pwd')}>แก้ไขพาสเวิร์ด</TextLink>
+                        <TextLink isActive={actives.payment} onClick={()=>handleActives('payment')} >ตัวเลือกการชำระเงิน</TextLink>
+                        <TextLink isActive={actives.history} onClick={()=>handleActives('history')}  >ประวัติการสั่งซื้อ</TextLink>
                     </ContainerText>
                 </ContainerLeft>
-                    <Profile/>
-               </Container>
+                    {
+                        {
+                            information: <Profile/>,
+                            address: <Testone/>,
+                            pwd: null,
+                            payment: null,
+                            history: null
+                        }[pageShow]
+                    }
+                </Container>
         </Layout>
     )
 }
-export default profile
+export default Information
