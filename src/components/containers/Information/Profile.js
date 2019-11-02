@@ -131,6 +131,9 @@ const StyleButtonSummit = styled(Button)`
         background-color: #E89C6B;
         border-radius: 0.5rem;
     }
+    &:hover{
+        background: #ED7F38;
+    }
 `
 
 const StylePicture = styled.div`

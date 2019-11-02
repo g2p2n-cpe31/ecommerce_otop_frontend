@@ -88,6 +88,9 @@ const StyleButtonSummit = styled(Button)`
         border-radius: 0.5rem;
         margin-top: 1.1rem;
     }
+    &:hover{
+        background: #ED7F38;
+    }
 `
 
 const ItemRight = styled.div`
