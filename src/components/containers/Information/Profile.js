@@ -52,7 +52,9 @@ const TextFieldFirstName = styled(TextField)`
         margin-right: 2.9rem;
     }
     & input{
+        font-family: Kanit;
         margin-bottom: 0.8rem;
+        margin-left: 1.2rem;
     }
     & .MuiInput-underline::before{
         height: 0.5rem;
@@ -64,7 +66,9 @@ const TextFieldLastName = styled(TextField)`
         width: 50%;
     }
     & input{
+        font-family: Kanit;
         margin-bottom: 0.8rem;
+        margin-left: 1.2rem;
     }
     & .MuiInput-underline::before{
         height: 0.5rem;
@@ -79,7 +83,9 @@ const TextFieldOther = styled(TextField)`
     }
 
     & input{
+        font-family: Kanit;
         margin-bottom: 0.8rem;
+        margin-left: 1.2rem;
     }
     & .MuiInput-underline::before{
         height: 0.5rem;
@@ -94,7 +100,9 @@ const TextFieldAddress = styled(TextField)`
     }
 
     & input{
+        font-family: Kanit;
         margin-bottom: 0.8rem;
+        margin-left: 1.2rem;
     }
     & .MuiInput-underline::before{
         height: 0.5rem;
@@ -123,9 +131,6 @@ const StyleButtonSummit = styled(Button)`
         background-color: #E89C6B;
         border-radius: 0.5rem;
     }
-    /* & .MuiButton-colorInherit{ */
-        color: #E89C6B;
-    /* } */
 `
 
 const StylePicture = styled.div`
@@ -161,23 +166,13 @@ const Information = () => {
             <ContainerDetial>
                 <ContainerTextField>
                     <ContainerName>
-                        <TextFieldFirstName
-                            placeholder="Firstname"
-                        />
-                        <TextFieldLastName
-                            placeholder="Lastname"
-                        />
+                        <TextFieldFirstName placeholder="ชื่อ"/>
+                        <TextFieldLastName placeholder="นามสกุล"/>
                     </ContainerName>
 
-                    <TextFieldOther
-                        placeholder="PhoneNumber"
-                    />
-                     <TextFieldOther
-                        placeholder="E-mail"
-                    />
-                     <TextFieldAddress
-                        placeholder="Address"
-                    />
+                    <TextFieldOther placeholder="เบอร์โทร"/>
+                     <TextFieldOther placeholder="อีเมล"/>
+                     <TextFieldAddress placeholder="ที่อยู่"/>
                     <ContainterButton>
                         <StyleButtonSummit>บันทึก</StyleButtonSummit>
                     </ContainterButton>

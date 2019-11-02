@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled, {css} from 'styled-components'
 import Layout from '../components/common/Layout'
 import Profile from '../components/containers/Information/Profile'
-import Testone from '../components/containers/Information/Testone'
+import ChangePassword from '../components/containers/Information/ChangePassword'
 
 const Container = styled.div`
     display: flex;
@@ -78,8 +78,8 @@ const Information = () => {
                     {
                         {
                             information: <Profile/>,
-                            address: <Testone/>,
-                            pwd: null,
+                            address: null,
+                            pwd: <ChangePassword/>,
                             payment: null,
                             history: null
                         }[pageShow]
