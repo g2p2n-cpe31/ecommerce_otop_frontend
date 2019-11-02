@@ -208,7 +208,7 @@ const Navbar = props => {
     const getCurrentURL = new URLSearchParams(props.location.search)
     setValueSearch(getCurrentURL.get('keyword') || '')
     console.log(getCurrentURL.get('keyword'))
-  }, [])
+  }, [props.location.search])
 
   const handleChangeSearch = event => setValueSearch(event.target.value)
   const handleCartFeature = e => {
@@ -222,7 +222,7 @@ const Navbar = props => {
     navigate(`/search?keyword=${valueSearch}`)
     e.stopPropagation()
   }
-  
+
   const handleOpenLogin = () => {
     setShowLogin(true)
     setShowSignup(false)
@@ -235,15 +235,15 @@ const Navbar = props => {
 
   return (
     <>
-      <LoginModal 
-        open={showLogin} 
-        handleClose={() => setShowLogin(false)} 
-        showSignup={()=>handleOpenSignup()}
+      <LoginModal
+        open={showLogin}
+        handleClose={() => setShowLogin(false)}
+        showSignup={() => handleOpenSignup()}
       />
-      <SignupModal 
-        open={showSignup} 
-        handleClose={() => setShowSignup(false)} 
-        showLogin={()=>handleOpenLogin()}
+      <SignupModal
+        open={showSignup}
+        handleClose={() => setShowSignup(false)}
+        showLogin={() => handleOpenLogin()}
       />
       <ContainerNavbar
         onClick={e => (showCart ? handleCartFeature(e) : null)}
@@ -267,13 +267,9 @@ const Navbar = props => {
               <TextMenu>การแจ้งเตือน</TextMenu>
             </ContainerMenu>
             <ContainerUserMenu>
-              <TextMenu onClick={handleOpenSignup}>
-                สมัครสมาชิก
-              </TextMenu>
+              <TextMenu onClick={handleOpenSignup}>สมัครสมาชิก</TextMenu>
               <Line />
-              <TextMenu onClick={handleOpenLogin}>
-                เข้าสู่ระบบ
-              </TextMenu>
+              <TextMenu onClick={handleOpenLogin}>เข้าสู่ระบบ</TextMenu>
             </ContainerUserMenu>
           </ContainerListMenus>
           <ContainerTools>

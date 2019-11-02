@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import styled from 'styled-components';
-import Box from '@material-ui/core/Box';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import CloseIcon from '@material-ui/icons/Close';
-import IconButton from '@material-ui/core/IconButton';
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+import styled from 'styled-components'
+import Box from '@material-ui/core/Box'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import CloseIcon from '@material-ui/icons/Close'
+import IconButton from '@material-ui/core/IconButton'
 import ic_cancel_white from '../../../images/Navbar/ic_cancel_white.svg'
 
 const BoxBottom = styled(Box)`
@@ -42,7 +42,7 @@ const BottomLeft = styled(Box)`
   flex-direction: row;
   justify-content: flex-end;
   align-items: flex-end;
-  padding-top:10px;
+  padding-top: 10px;
   margin-top: -8px;
 `
 
@@ -52,7 +52,7 @@ const BottomMiddle = styled(Box)`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  padding-top:10px;
+  padding-top: 10px;
   margin-top: 5px;
   padding-right: 0px;
 `
@@ -69,28 +69,28 @@ const BottomRight = styled(Box)`
 `
 
 const CloseIconButton = styled(IconButton)`
-  &&{
-      position: absolute;
-      padding: 3px;
-      top: 28px;
-      right: 28px;
+  && {
+    position: absolute;
+    padding: 3px;
+    top: 28px;
+    right: 28px;
   }
 `
 
 const ConfirmButton = styled(Button)`
-  &&  {
+  && {
     display: flex;
     align-items: center;
     width: 93px;
     height: 24px;
-    background: #E0E0E0;
+    background: #e0e0e0;
     border-radius: 30px;
     margin-bottom: 7px;
 
     & :hover {
       background-color: #c4c4c4;
     }
-}
+  }
 `
 
 const ConfirmText = styled.div`
@@ -98,7 +98,7 @@ const ConfirmText = styled.div`
   font-size: 12px;
   line-height: 15px;
   color: #828282;
-  display: absolute; 
+  display: absolute;
   align-items: flex-start;
   justify-content: center;
   /* margin-bottom: 25px; */
@@ -106,8 +106,8 @@ const ConfirmText = styled.div`
 `
 
 const FieldFont = styled(TextField)`
-  &&  {
-    & input{
+  && {
+    & input {
       padding: 5px;
       text-indent: 5px;
       font-family: Kanit;
@@ -148,11 +148,10 @@ const ModalContainer = styled(Modal)`
 `
 
 const LogInButton = styled(Button)`
-  &&  {
-
-    width: 85px;
-    height: 43px;
-    font-family: 'Kanit';
+  && {
+    width: 85px;
+    height: 43px;
+    font-family: 'Kanit';
     font-size: 13px;
     text-align: center;
     letter-spacing: 0.5px;
@@ -169,7 +168,7 @@ const LogInButton = styled(Button)`
     }
   }
   & :hover {
-   opacity: .7;
+    opacity: 0.7;
   }
   & span {
     color: none;
@@ -194,20 +193,20 @@ const SearchTextBox = styled(TextField)`
 `
 
 const SignUpButton = styled(Button)`
-  &&  {
+  && {
     width: 234px;
     height: 48px;
-    font-size:14px;
+    font-size: 14px;
     font-family: 'Kanit';
     border-radius: 25px;
-    background-color: #5B3C78;
+    background-color: #5b3c78;
     & :hover {
-        background-color: #412a57;
-      }
-    & span{
+      background-color: #412a57;
+    }
+    & span {
       color: white;
     }
-}
+  }
 `
 
 const TextEnd = styled.div`
@@ -224,7 +223,7 @@ const StyledHR = styled.hr`
   background-color: rgb(91, 60, 120);
   border: none;
   width: 70%;
-  height: .2rem;
+  height: 0.2rem;
   display: 'flex';
   justify-content: 'center';
   align-items: 'center';
@@ -249,26 +248,26 @@ const useStyles = makeStyles(theme => ({
     fontFamily: 'Kanit',
     borderRadius: '10px',
     outline: 0,
-    cursor: 'auto'
+    cursor: 'auto',
   },
   textField1: {
-    lineHeight:'43px',
+    lineHeight: '43px',
     marginLeft: '19px',
     width: 665,
     padding: '2px',
   },
   textField2: {
-    lineHeight:'43px',
+    lineHeight: '43px',
     marginLeft: '19px',
     width: 323,
     padding: '2px',
   },
-}));
+}))
 
 function getModalStyle() {
   return {
-    background: '#fff'
-  };
+    background: '#fff',
+  }
 }
 
 export default function SimpleModal(props) {
@@ -284,15 +283,16 @@ export default function SimpleModal(props) {
   const [otp, setOtp] = useState('')
 
   const check = () => {
-    return (otp === '555555'
-            && name !== ''
-            && surname !== ''
-            && email !== ''
-            && username !== ''
-            && pwd !== ''
-            && confirmPwd !== ''
-            && telNum !== ''
-            ) ? true : false;
+    return otp === '555555' &&
+      name !== '' &&
+      surname !== '' &&
+      email !== '' &&
+      username !== '' &&
+      pwd !== '' &&
+      confirmPwd !== '' &&
+      telNum !== ''
+      ? true
+      : false
   }
 
   const submit = props => {
@@ -303,141 +303,127 @@ export default function SimpleModal(props) {
 
   return (
     <div>
-      <ModalContainer
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
-        open={props.open}
-        onClose={() => props.handleClose()}
-      >
+      <ModalContainer open={props.open} onClose={() => props.handleClose()}>
         <Box style={modalStyle} className={classes.paper}>
-          <CloseIconButton 
+          <CloseIconButton
             className={classes.button}
             aria-label="close"
             onClick={props.handleClose}
           >
             <CloseIcon fontSize="large" />
-          </CloseIconButton> 
+          </CloseIconButton>
 
-          <BoxTop>        
-            <ModalTitle id="simple-modal-title">สมัครสมาชิก</ModalTitle>
+          <BoxTop>
+            <ModalTitle>สมัครสมาชิก</ModalTitle>
           </BoxTop>
 
           <BoxMiddle>
-              <FieldFont
-                placeholder="ชื่อ"
-                autoComplete="first-name"
-                className={classes.textField2}
-                margin="normal"
-                value={name}
-                onChange={e => setName(e.target.value)}
-                /> 
-              <FieldFont
-                placeholder="นามสกุล"
-                autoComplete="family-name"
-                className={classes.textField2}
-                margin="normal"
-                value={surname}
-                onChange={e => setSurname(e.target.value)}
-              />
-
-              <SearchTextBox
-                type="tel"
-                autoComplete="tel"
-                placeholder="เบอร์โทรศัพท์"
-                className={classes.textField2}
-                margin="normal"
-                value={telNum}
-                onChange={e => setTelNum(e.target.value)}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <ConfirmButton>
-                        <ConfirmText>ยืนยัน</ConfirmText>
-                      </ConfirmButton>
-                    </InputAdornment>
-                  ),
-                }}
-              />
-
-              <FieldFont
-                type="password"
-                placeholder="รหัส OTP (รหัสยืนยันจากโทรศัพท์)"
-                className={classes.textField2}
-                margin="normal"
-                value={otp}
-                onChange={e => setOtp(e.target.value)}
-              />    
-            
             <FieldFont
-                type="email"
-                autoComplete="email"
-                placeholder="อีเมล"
-                className={classes.textField1}
-                margin="normal"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-              />    
+              placeholder="ชื่อ"
+              autoComplete="first-name"
+              className={classes.textField2}
+              margin="normal"
+              value={name}
+              onChange={e => setName(e.target.value)}
+            />
             <FieldFont
-                type="text"
-                placeholder="ชื่อบัญชีผู้ใช้"
-                className={classes.textField1}
-                margin="normal"
-                value={username}
-                onChange={e => setUsername(e.target.value)}
-              />     
+              placeholder="นามสกุล"
+              autoComplete="family-name"
+              className={classes.textField2}
+              margin="normal"
+              value={surname}
+              onChange={e => setSurname(e.target.value)}
+            />
 
-              <FieldFont
-                placeholder="รหัสผ่าน"
-                className={classes.textField2}
-                type="password"
-                autoComplete="new-password"
-                margin="normal"
-                value={pwd}
-                onChange={e => setPwd(e.target.value)}
-              />      
-              <FieldFont
-                placeholder="ยืนยันรหัสผ่าน"
-                className={classes.textField2}
-                type="password"
-                margin="normal"
-                value={confirmPwd}
-                onChange={e => setConfirmPwd(e.target.value)}
-              />  
+            <SearchTextBox
+              type="tel"
+              autoComplete="tel"
+              placeholder="เบอร์โทรศัพท์"
+              className={classes.textField2}
+              margin="normal"
+              value={telNum}
+              onChange={e => setTelNum(e.target.value)}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <ConfirmButton>
+                      <ConfirmText>ยืนยัน</ConfirmText>
+                    </ConfirmButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
 
+            <FieldFont
+              type="password"
+              placeholder="รหัส OTP (รหัสยืนยันจากโทรศัพท์)"
+              className={classes.textField2}
+              margin="normal"
+              value={otp}
+              onChange={e => setOtp(e.target.value)}
+            />
+
+            <FieldFont
+              type="email"
+              autoComplete="email"
+              placeholder="อีเมล"
+              className={classes.textField1}
+              margin="normal"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+            />
+            <FieldFont
+              type="text"
+              placeholder="ชื่อบัญชีผู้ใช้"
+              className={classes.textField1}
+              margin="normal"
+              value={username}
+              onChange={e => setUsername(e.target.value)}
+            />
+
+            <FieldFont
+              placeholder="รหัสผ่าน"
+              className={classes.textField2}
+              type="password"
+              autoComplete="new-password"
+              margin="normal"
+              value={pwd}
+              onChange={e => setPwd(e.target.value)}
+            />
+            <FieldFont
+              placeholder="ยืนยันรหัสผ่าน"
+              className={classes.textField2}
+              type="password"
+              margin="normal"
+              value={confirmPwd}
+              onChange={e => setConfirmPwd(e.target.value)}
+            />
           </BoxMiddle>
 
           <BoxBottom>
-
             <BottomLeft>
               <TextEnd>เป็นสมาชิกอยู่แล้ว ?</TextEnd>
             </BottomLeft>
 
             <BottomMiddle>
-              <LogInButton 
-                className={classes.button}
-                onClick={props.showLogin}
-              >
+              <LogInButton className={classes.button} onClick={props.showLogin}>
                 เข้าสู่ระบบ
-                <StyledHR />       
+                <StyledHR />
               </LogInButton>
-           
             </BottomMiddle>
 
             <BottomRight>
-              <SignUpButton 
-                variant="extended" 
+              <SignUpButton
+                variant="extended"
                 className={classes.margin}
-                onClick={submit}                // onClick={() => props.setStep('close')}
+                onClick={submit} // onClick={() => props.setStep('close')}
               >
                 สมัครสมาชิก
               </SignUpButton>
             </BottomRight>
-
           </BoxBottom>
-
-      </Box>
-    </ModalContainer>
-  </div>
-    
-  );
+        </Box>
+      </ModalContainer>
+    </div>
+  )
 }
