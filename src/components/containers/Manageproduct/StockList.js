@@ -149,6 +149,6 @@ const StockList = () => {
             </ContainerDel>
         </ContianerStockList> : null
 
-)
+    )
 }
 export default StockList
