@@ -10,6 +10,7 @@ import IconButton from '@material-ui/core/IconButton'
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import ic_cancel_white from '../../../images/Navbar/ic_cancel_white.svg'
+import { Link } from 'gatsby'
 
 const BigBox = styled(Box)`
   display: flex;
@@ -93,6 +94,10 @@ const ImageSideLeft = styled(Img)`
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
   margin: 0 0 0 0;
+`
+
+const LinkSignUp = styled(Link)`
+  margin: auto auto auto 0;
 `
 
 const NotMember = styled.div`
@@ -336,8 +341,8 @@ const ModalLogin = props => {
 
               <BoxFour>
                 <SignUpButton>
-                  <WrapContentBtn>
-                    <TextRegister>สมัครสมาชิก</TextRegister>
+                  <WrapContentBtn onClick={props.showSignup}>
+                    <TextRegister >สมัครสมาชิก</TextRegister>
                     <Underline />
                   </WrapContentBtn>
                 </SignUpButton>
