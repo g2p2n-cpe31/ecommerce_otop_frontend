@@ -46,8 +46,7 @@ const StockList = styled.div`
 const TableContainer = styled(Container)`
     background-color: #fff;
     max-width: 162.4rem;
-    max-height: 88.2rem;
-    min-height: 30rem;
+    min-height: 88.2rem;
     width: 100%;
     margin-top: 3.1rem;
     margin-left: 0;

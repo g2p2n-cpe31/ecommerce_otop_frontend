@@ -94,8 +94,7 @@ const StockList = styled.div`
 const TableContainer = styled(Container)`
     background-color: #fff;
     max-width: 162.4rem;
-    max-height: 88.2rem;
-    min-height: 50rem;
+    min-height: 88.2rem;
     width: 100%;
     margin-top: 3.1rem;
     margin-left: 0;
@@ -128,43 +127,40 @@ const PendingShip = () => {
 
     return (
         <>
-            {/* <Layout> */}
-                <TableContainer>
-                    <TableHead>
-                        <OrderNumber>หมายเลขคำสั่งซื้อ</OrderNumber>
-                        <PayDate>วันที่สั่งซื้อ</PayDate>
-                        <Tel>เบอร์ติดต่อผู้ซื้อ</Tel>
-                        <CustName>ชื่อผู้ซื้อ</CustName>
-                        <ProductName>ชื่อสินค้า</ProductName>
-                        <ProductNumber>จำนวน</ProductNumber>
-                        <OtherHead />
-                    </TableHead>
+            <TableContainer>
+                <TableHead>
+                    <OrderNumber>หมายเลขคำสั่งซื้อ</OrderNumber>
+                    <PayDate>วันที่สั่งซื้อ</PayDate>
+                    <Tel>เบอร์ติดต่อผู้ซื้อ</Tel>
+                    <CustName>ชื่อผู้ซื้อ</CustName>
+                    <ProductName>ชื่อสินค้า</ProductName>
+                    <ProductNumber>จำนวน</ProductNumber>
+                    <OtherHead />
+                </TableHead>
 
-                    <StockList>
-                        <OrderNumber>#2226210260000001</OrderNumber>
-                        <PayDate>21/10/2562</PayDate>
-                        <Tel>088-088-0888</Tel>
-                        <CustName>ชื่อจริง  นามสกุล</CustName>
-                        <ProdNameContainer>
-                            <ListText>สับปะรด</ListText>
-                            <ListText>กล้วย</ListText>
-                            <ListText>ผ้าไหม</ListText>
-                        </ProdNameContainer>
-                        <ProductNumberContainer>
-                            <ListText>2</ListText>
-                            <ListText>5</ListText>
-                            <ListText>1</ListText>
-                        </ProductNumberContainer>
-                        <OtherText>
-                            <ListDetail>รายละเอียดเพิ่มเติม</ListDetail>
-                            <ListOther>ที่อยู่จัดส่ง</ListOther>
-                            <ListOther>จัดส่งแล้ว</ListOther>
-                        </OtherText>
-                    </StockList>
+                <StockList>
+                    <OrderNumber>#2226210260000001</OrderNumber>
+                    <PayDate>21/10/2562</PayDate>
+                    <Tel>088-088-0888</Tel>
+                    <CustName>ชื่อจริง  นามสกุล</CustName>
+                    <ProdNameContainer>
+                        <ListText>สับปะรด</ListText>
+                        <ListText>กล้วย</ListText>
+                        <ListText>ผ้าไหม</ListText>
+                    </ProdNameContainer>
+                    <ProductNumberContainer>
+                        <ListText>2</ListText>
+                        <ListText>5</ListText>
+                        <ListText>1</ListText>
+                    </ProductNumberContainer>
+                    <OtherText>
+                        <ListDetail>รายละเอียดเพิ่มเติม</ListDetail>
+                        <ListOther>ที่อยู่จัดส่ง</ListOther>
+                        <ListOther>จัดส่งแล้ว</ListOther>
+                    </OtherText>
+                </StockList>
 
-                </TableContainer>
-
-            {/* </Layout> */}
+            </TableContainer>
         </>
     )
 }

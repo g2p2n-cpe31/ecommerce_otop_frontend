@@ -9,7 +9,7 @@ import ImgSearch from '../../../images/Navbar/search.svg'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import TextField from '@material-ui/core/TextField'
 import ButtonFlat from '../../common/ButtonFlat'
-import Filter from '../../common/Filter'
+import SelectFlat from '../../common/SelectFlat'
 
 const Background = styled(Container)`
     background-color: #F2F2F2;
@@ -46,21 +46,8 @@ const HeaderText = styled.div`
 
 const MenuContainer = styled(Container)`
     background-color: #fff;
-    max-width: 43.5rem;
-    max-height: 4.4rem;
-    width: 100%;
-    height: 100%;
-    padding: 0 0;
-    margin-top: 3.1rem;
-    margin-left: 0;
-    display: flex;
-    flex-direction: row;
-    /* justify-content: flex-start; */
-`
-
-const MenuBigContainer = styled(Container)`
-    background-color: #fff;
-    color: #4F4F4F;
+    /* color: #4F4F4F; */
+    color: ${props => props.isActive ? '#E89C6B':'#4F4F4F'};
     font-weight: 300;
     font-size: 1.4rem;
     line-height: 2.1rem;
@@ -78,29 +65,9 @@ const MenuBigContainer = styled(Container)`
     }
 `
 
-const MenuSmallContainer = styled(Container)`
-    background-color: #fff;
-    color: #4F4F4F;
-    font-weight: 300;
-    font-size: 1.4rem;
-    line-height: 2.1rem;
-    max-width: 43.5rem;
-    width: 30%;
-    height: 4.4rem;
-    padding: 0 0;
-    margin: 0 0 0 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    & :hover{
-        cursor: pointer;
-        color: #E89C6B;        
-    }
-`
-
 const SearchTextBox = styled(TextField)`
   && {
-    margin: 1.9rem 0 0 0;
+    margin: 0 0;
     width: 36%;
     max-width: 96.9rem;
     background: #FFFFFF;
@@ -120,7 +87,6 @@ const SearchTextBox = styled(TextField)`
       background-color: rgba(242, 242, 242, 0.9);
       border-width: 0 !important;
       padding: 0;
-      /* width: 100%; */
     }
 
     & .MuiOutlinedInput-adornedEnd {
@@ -131,15 +97,10 @@ const SearchTextBox = styled(TextField)`
 
 const SectionTwo = styled(Container)`
     display: flex;
-    /* direction: row; */
     align-items: center;
-    margin: 0 0;
+    height: 4.4rem;
+    margin: 1.9rem 0;
     padding: 0 0;
-`
-
-const StyledFilter = styled(Filter)`
-    /* margin-top: 1.9rem; */
-    margin: 1.9rem 0 0 0;
 `
 
 const StyledText = styled.div`
@@ -150,13 +111,23 @@ const StyledText = styled.div`
     font-size: 1.8rem;
     color: #828282;
     margin-left: 8.7rem;
-    margin-top: 1.9rem;
 `
 
 const PurchaseOrder = () => {
     const [valueSearch, setValueSearch] = useState('')
     const handleChangeSearch = event => setValueSearch(event.target.value)
-    const [useSwitch,setUseSwitch] = useState(0)
+    const [useSwitch,setUseSwitch] = useState('pending')
+    const [actives, setActives] = useState({
+        pending: true,
+        inprogress: false,
+        ship: false    
+    })
+
+    const handleOnClick = (key) => {
+        setUseSwitch(key)
+        setActives({[key]: true})
+        
+    }
 
     return (
         <>
@@ -189,34 +160,31 @@ const PurchaseOrder = () => {
                         }}
                     />
                     <StyledText>เรียงตาม</StyledText>
-                    <StyledFilter/>
+                    <SelectFlat 
+                        displayEmpty={false} 
+                        margin_form="3rem 3.1rem" 
+                        width="24.9rem" />
                 </SectionTwo>
 
                 <MenuContainer>
-                    <MenuBigContainer 
-                        onClick={() => setUseSwitch(0)}
-                    >
+                    <MenuContainer onClick={() => handleOnClick('pending')} isActive={actives.pending}>
                         รอการชำระเงิน
-                    </MenuBigContainer>
+                    </MenuContainer>
 
-                    <MenuSmallContainer
-                        onClick={() => setUseSwitch(1)}
-                    >
+                    <MenuContainer onClick={() => handleOnClick('inprogress')} isActive={actives.inprogress}>
                         รอการจัดส่ง
-                    </MenuSmallContainer>
+                    </MenuContainer>
 
-                    <MenuSmallContainer
-                        onClick={() => setUseSwitch(2)}
-                    >
+                    <MenuContainer onClick={() => handleOnClick('ship')} isActive={actives.ship}>
                         จัดส่งแล้ว
-                    </MenuSmallContainer>
+                    </MenuContainer>
                 </MenuContainer>
 
                     {
                         {
-                            0:  <PaymentPending /> ,
-                            1:  <PendingShip /> ,   
-                            2:  <SuccessShip />
+                            pending:  <PaymentPending /> ,
+                            inprogress:  <PendingShip /> ,   
+                            ship:  <SuccessShip />
                         }[useSwitch]
                     }
                 
