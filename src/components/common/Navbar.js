@@ -14,6 +14,7 @@ import ImgSearch from '../../images/Navbar/search.svg'
 import ButtonFlat from './ButtonFlat'
 import LoginModal from '../containers/Login/Modal'
 import SignupModal from '../containers/Signup/Modal'
+import ForgotContorller from '../containers/ForgotPassword/ControllerForgot'
 
 const ContainerNavbar = styled.form`
   position: fixed;
@@ -190,6 +191,7 @@ const Navbar = props => {
   const [isDown, setIsDown] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
   const [showSignup, setShowSignup] = useState(false)
+  const [showForgot, setShowForgot] = useState('close')
 
   useEffect(() => {
     if (!props.isFixedColor) {
@@ -226,11 +228,19 @@ const Navbar = props => {
   const handleOpenLogin = () => {
     setShowLogin(true)
     setShowSignup(false)
+    setShowForgot('close')
   }
 
   const handleOpenSignup = () => {
     setShowLogin(false)
     setShowSignup(true)
+    setShowForgot('close')
+  }
+
+  const handleOpenForgot = () => {
+    setShowLogin(false)
+    setShowSignup(false)
+    setShowForgot('step1')
   }
 
   return (
@@ -238,13 +248,22 @@ const Navbar = props => {
       <LoginModal
         open={showLogin}
         handleClose={() => setShowLogin(false)}
-        showSignup={() => handleOpenSignup()}
+        showSignup={handleOpenSignup}
+        showForgot={handleOpenForgot}
       />
+
       <SignupModal
         open={showSignup}
         handleClose={() => setShowSignup(false)}
-        showLogin={() => handleOpenLogin()}
+        showLogin={handleOpenLogin}
       />
+
+      <ForgotContorller
+        open={showForgot}
+        handleOpen={(key) => setShowForgot(key)}
+        // showForgot={handleOpenForgot}
+      />
+
       <ContainerNavbar
         onClick={e => (showCart ? handleCartFeature(e) : null)}
         showCart={showCart}

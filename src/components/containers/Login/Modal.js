@@ -321,7 +321,7 @@ const ModalLogin = props => {
               margin="normal"
             />
             <ForgotPassword
-              href="#forgotpassword"
+              onClick={props.showForgot}
               className={classes.button}
               flexbox="flex-end"
             >
