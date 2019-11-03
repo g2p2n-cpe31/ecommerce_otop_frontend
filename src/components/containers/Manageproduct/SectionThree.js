@@ -9,7 +9,7 @@ const ContainerSectionThree = styled.div`
     height: 88.2rem;
     background: #FFFFFF;
     border-radius: 0.3rem;
-    margin-top: 5rem ;
+    margin-top: 2.5rem ;
     margin-bottom: 9.8rem;
     padding: 0 2px 0 2px;
 `
@@ -23,7 +23,7 @@ const Content = styled.div`
     padding: 1.3rem 2.3rem 0 2.3rem;
     box-sizing: border-box;
     border-bottom: 0.1rem solid #828282;
-    margin-bottom: 2.6rem;
+    margin-bottom: 1.2rem;
 `
 
 const Product = styled.div`
@@ -72,7 +72,18 @@ const SectionThree = () => {
                     <StockList/>
                     <StockList/>
                     <StockList/>
-                    <StockList/><StockList/><StockList/><StockList/><StockList/><StockList/><StockList/><StockList/><StockList/><StockList/>
+                    <StockList/>
+                    <StockList/>
+                    <StockList/><StockList/><StockList/><StockList/><StockList/><StockList/><StockList/><StockList/>
+                    <StockList/>
+                    <StockList/>
+                    <StockList/>
+                    <StockList/>
+                    <StockList/><StockList/>
+                    <StockList/>
+                    <StockList/>
+                    <StockList/>
+                    <StockList/>
                 </ContainerStockList>
         </ContainerSectionThree>
     )

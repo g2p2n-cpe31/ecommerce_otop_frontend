@@ -9,7 +9,7 @@ const ContianerStockList = styled.div`
   padding: 1.3rem 2.3rem 1rem 2.3rem;
   box-sizing: border-box;
   border-bottom: 0.5px solid #bdbdbd;
-  margin-bottom: 2.6rem;
+  margin-bottom: 1.2rem;
   position: relative;
   outline: none;
 `
