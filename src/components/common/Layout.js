@@ -23,9 +23,9 @@ const Layout = ({
 
   const ContainerHaveSpace = styled.div`
     margin: 0 auto;
-    width: ${{ default: '82%', second: '84.1533%' }[navbar]};
+    width: ${{ default: '82%', second: '84.533%' }[navbar]};
     /* width: 84.58333%; */
-    max-width: 136.6rem;
+    max-width: ${{ default: '136.6rem', second: '162.4rem' }[navbar]};
     /* z-index: 2; */
     padding-top: ${{ default: '13rem', second: '0' }[navbar]};
   `

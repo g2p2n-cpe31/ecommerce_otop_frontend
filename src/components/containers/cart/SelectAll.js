@@ -58,7 +58,7 @@ const SelectAll = () => {
     checkboxOne: false,
   })
 
-  const handleChange = name => event => {
+  const handleChange = (name, event) => {
     console.log(state)
     setState({ ...state, [name]: event.target.checked })
   }
@@ -69,6 +69,7 @@ const SelectAll = () => {
   useEffect(() => {
     console.log(state)
   }, [state.checkboxOne])
+
   return (
     <>
       <Box>
@@ -79,7 +80,7 @@ const SelectAll = () => {
               <Checkbox
                 checked={state.checkboxOne}
                 // onChange={ handleChange('checkboxOne')}
-                onChange={() => alert('poon')}
+                onChange={e => handleChange('checkboxOne', e)}
                 value="checkboxOne"
                 color="primary"
               />
