@@ -287,7 +287,7 @@ const BankName = styled.p`
 `
 const CardNumber = styled.p`
     display: flex;
-    width: 32.7rem;
+    width: 35.7rem;
     height: 4.8rem;
     margin-top: 3.3rem;
     margin-left: 3.2rem;
@@ -366,7 +366,8 @@ const CreditCard = () => {
     const [values, setValues] = useState({
         nameCredit: '',
         numberCredit: '',
-        exeCredit: ''
+        exeCredit: '',
+        numberCVV: ''
     })
     const handleValues = name => e => {
         setValues({ ...values, [name]: e.target.value})
@@ -427,9 +428,19 @@ const CreditCard = () => {
 
     const checkNameCredit = (namecredit) => {
         const str  = namecredit.split(' ')
-        setFirstLetter(str[0].substring(0,1))
-        if(str.length > 1)
-        setLastnameLetter(str[1])
+        if (str[0].length === 0) setFirstLetter('x')
+        else if (str.length === 1) setFirstLetter(str[0].substring(0,1))
+        if(str.length > 1) setLastnameLetter(str[1])
+        else setLastnameLetter('xxxxxxxxxxxxxxxxxxx')
+    }
+
+    const getExeCredit = (exeCredit) => {
+        // const str = exeCredit.split('/')
+        return 'XXXX'.split('').map( (c, index) => exeCredit.length > index? exeCredit[index]: c).splice(',').join('')
+    }
+    const exeFormat = exeCredit => {
+        const result = getExeCredit(exeCredit)
+        return result.slice(0,2) + '/' + result.slice(2,4)
     }
     
     const handleonChange = name => e => {
@@ -437,9 +448,32 @@ const CreditCard = () => {
         if (re.test(e.target.value) && e.target.value.length <= 16) {
             setValues({ ...values, [name]: e.target.value})
         }
-      }
-   
-     const convertToCreditFormat = number => {
+    }
+
+    const handleonChangeDate = name => e => {
+        const re = /(^[0-9]+$|^$)/
+        if (re.test(e.target.value) && e.target.value.length <= 4) {
+            setValues({ ...values, [name]: e.target.value})
+        }
+    }
+
+    const handleonChangeCVV = name => e => {
+        const re = /(^[0-9]+$|^$)/
+        if (re.test(e.target.value) && e.target.value.length <= 3) {
+            setValues({ ...values, [name]: e.target.value})
+        }
+    }
+    
+    const creditFormat = number => {
+        return convertToCreditFormat(getCreditMask(number))
+    }
+
+    const getCreditMask = number => {
+        return 'XXXXXXXXXXXXXXXX'.split('').map( (c, index) => number.length > index? number[index]: c).splice(',').join('')
+        
+    }
+    
+    const convertToCreditFormat = number => {
          if(number !== '') return number.toString().match(/.{1,4}/g).join(' ')
         // return number.toString().replace(/\B(?=(\d{4})+(?!\d))/g, " ");
     }
@@ -454,6 +488,7 @@ const CreditCard = () => {
     useEffect(() => {
         checkNameCredit(values.nameCredit)
     }, [values.nameCredit])
+
 
     return (
         <>
@@ -507,11 +542,11 @@ const CreditCard = () => {
                         <ContainerInModal>
                             <CreditCardBox colorBankType={colorBankType}>
                                 <BankName>{nameBank}</BankName>
-                                <CardNumber>{convertToCreditFormat(values.numberCredit)}</CardNumber>
+                                <CardNumber>{creditFormat(values.numberCredit)}</CardNumber>
                                 <CardName>{firstLetter + ' ' + lastnameLetter}</CardName>
                                 <ExpiryContainer>
                                     <ExpiryDate>วันหมดอายุ :</ExpiryDate>
-                                    <ExpiryDateNumber>{values.exeCredit}</ExpiryDateNumber>
+                                    <ExpiryDateNumber>{exeFormat(values.exeCredit)}</ExpiryDateNumber>
                                 </ExpiryContainer>
                                 <IconBank>
                                     <img src={pathCreditType} />
@@ -540,7 +575,7 @@ const CreditCard = () => {
                                     <InputCustom2
                                         placeholder="วันหมดอายุ"
                                         value={values.exeCredit}
-                                        onChange={handleValues('exeCredit')}
+                                        onChange={handleonChangeDate('exeCredit')}
                                         className={classes.input}
                                         inputProps={{
                                         'aria-label': 'description',
@@ -549,6 +584,8 @@ const CreditCard = () => {
                                     <MarginTextField />
                                     <InputCustom2
                                         placeholder="CVV"
+                                        value={values.numberCVV}
+                                        onChange={handleonChangeCVV('numberCVV')}
                                         className={classes.input}
                                         inputProps={{
                                         'aria-label': 'description',

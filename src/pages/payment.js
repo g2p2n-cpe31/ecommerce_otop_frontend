@@ -3,7 +3,7 @@ import CreditCard from '../components/containers/Payment/CreditCard'
 import Layout from '../components/common/Layout'
 import SEO from '../components/utility/seo'
 
-const payment = ({location, history}) => {
+const Payment = ({location, history}) => {
     return (
         <div>
             <Layout location={location} history={history}>
@@ -14,4 +14,4 @@ const payment = ({location, history}) => {
     )
 }
 
-export default payment
+export default Payment
