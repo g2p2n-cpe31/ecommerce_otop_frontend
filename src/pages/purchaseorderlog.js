@@ -1,10 +1,27 @@
 import React from 'react'
-import OrderLog from '../components/containers/POlog/ItemOrderLog'
+import styled from 'styled-components'
+import Layout from '../components/common/Layout'
+import SearchSection from '../components/containers/POlog/SearchSection'
+import Table from '../components/containers/POlog/Table'
+// import { Table } from '@material-ui/core'
 
-const purchaseorderlog = () => {
+const HeaderText = styled.p`
+  font-family: Kanit;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  color: #4f4f4f;
+  margin: 0 0 0.4rem 1.5rem;
+`
+
+const purchaseorderlog = ({ location, history }) => {
     return (
         <>
-            <OrderLog />
+            <Layout location={location} history={history} navbar="second">
+                <HeaderText>ประวัติการขาย</HeaderText>
+                <SearchSection />
+                <Table />
+            </Layout>
         </>
     )
 }

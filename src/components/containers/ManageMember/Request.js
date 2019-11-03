@@ -1,4 +1,4 @@
-import React, { useState }  from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import RequestList from './RequestList.js'
 
@@ -45,12 +45,12 @@ const Other = styled.div`
 `
 
 const Request = () => {
-    const [showDelete, setShowDelete] = useState(false)
-    const [show, setShow] = useState(true)
+    // const [showDelete, setShowDelete] = useState(false)
+    // const [show, setShow] = useState(true)
 
-    const handleShowDelete = () => {
-        setShowDelete(true)
-    }
+    // const handleShowDelete = () => {
+    //     setShowDelete(true)
+    // }
 
     return ( 
         <ContainerSectionThree>
