@@ -1,78 +1,4 @@
-// import React from 'react'
-// import Checkbox from '@material-ui/core/Checkbox'
-
-// export default function Checkboxes() {
-//   const [state, setState] = React.useState({
-//     checkedA: true,
-//     checkedB: true,
-//     checkedF: true,
-//   })
-
-//   const handleChange = name => event => {
-//     setState({ ...state, [name]: event.target.checked })
-//   }
-
-//   return (
-//     <div>
-//       <Checkbox
-//         checked={state.checkedA}
-//         onChange={(e) => handleChange('checkedA', e)}
-//         value="checkedA"
-//         inputProps={{
-//           'aria-label': 'primary checkbox',
-//         }}
-//       />
-//       <Checkbox
-//         checked={state.checkedB}
-//         onChange={handleChange('checkedB')}
-//         value="checkedB"
-//         color="primary"
-//         inputProps={{
-//           'aria-label': 'secondary checkbox',
-//         }}
-//       />
-//       <Checkbox
-//         value="checkedC"
-//         inputProps={{
-//           'aria-label': 'uncontrolled-checkbox',
-//         }}
-//       />
-//       <Checkbox
-//         disabled
-//         value="checkedD"
-//         inputProps={{
-//           'aria-label': 'disabled checkbox',
-//         }}
-//       />
-//       <Checkbox
-//         disabled
-//         checked
-//         value="checkedE"
-//         inputProps={{
-//           'aria-label': 'disabled checked checkbox',
-//         }}
-//       />
-//       <Checkbox
-//         checked={state.checkedF}
-//         onChange={handleChange('checkedF')}
-//         value="checkedF"
-//         indeterminate
-//         inputProps={{
-//           'aria-label': 'indeterminate checkbox',
-//         }}
-//       />
-//       <Checkbox
-//         defaultChecked
-//         color="default"
-//         value="checkedG"
-//         inputProps={{
-//           'aria-label': 'checkbox with default color',
-//         }}
-//       />
-//     </div>
-//   )
-// }
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { makeStyles } from '@material-ui/core/styles'
 import Checkbox from '@material-ui/core/Checkbox'
@@ -91,23 +17,25 @@ const Box = styled.div`
   margin-top: 8rem;
   margin-bottom: 2rem;
 `
+
 const SelectButtonBox = styled.div`
   margin-left: 2.479rem;
 `
+
 const TextLabel = styled(FormControlLabel)`
   && .MuiTypography-body1 {
     font-family: Kanit;
     font-style: normal;
-    font-weight: '300';
-    font-size: '14';
+    font-weight: 300;
+    font-size: 14px;
   }
 `
 const TrashLabel = styled(FormControlLabel)`
   && .MuiTypography-body1 {
     font-family: Kanit;
     font-style: normal;
-    font-weight: '300';
-    font-size: '14px';
+    font-weight: 300;
+    font-size: 14px;
     color: #bdbdbd;
   }
 `
@@ -126,26 +54,34 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const SelectAll = () => {
-  const [state, setState] = React.useState({
-    checkedB: true,
+  const [state, setState] = useState({
+    checkboxOne: false,
   })
 
-  const handleChange = name => event => {
+  const handleChange = (name, event) => {
+    console.log(state)
     setState({ ...state, [name]: event.target.checked })
   }
 
+  //   const
+
   const classes = useStyles()
+  useEffect(() => {
+    console.log(state)
+  }, [state.checkboxOne])
 
   return (
     <>
       <Box>
+        {/* <input type='checkbox' onchange='handleChange(this)'> */}
         <SelectButtonBox>
           <TextLabel
             control={
               <Checkbox
-                checked={state.checkedB}
-                onChange={handleChange('checkedB')}
-                value="checkedB"
+                checked={state.checkboxOne}
+                // onChange={ handleChange('checkboxOne')}
+                onChange={e => handleChange('checkboxOne', e)}
+                value="checkboxOne"
                 color="primary"
               />
             }

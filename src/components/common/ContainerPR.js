@@ -6,8 +6,9 @@ import { SliderLTR } from '../utility/Keyframes'
 const ContainerItems = styled.div`
   background: ${props => props.background || 'rgba(138, 138, 138, 0.4)'};
   border-radius: 5px;
-  width: 80%;
-  height: 359px;
+  /* width: 80%; */
+  width: 94.4rem;
+  height: 35.9rem;
   overflow-x: scroll;
 
   ::-webkit-scrollbar {

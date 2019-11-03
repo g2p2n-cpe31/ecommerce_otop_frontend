@@ -7,7 +7,7 @@ import Pagination from '../components/common/Pagination'
 
 const WrapProduct = styled.div`
   display: flex;
-  width: 65%;
+  width: 61%;
   height: 100%;
   flex-direction: column;
   padding: 4.3rem 8.2rem;

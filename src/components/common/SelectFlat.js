@@ -17,9 +17,9 @@ const SelectCustom = styled(Select)`
     display: flex;
     align-items: center;
     width: 100%;
-    height: 40px;
+    height: 4rem;
     font-family: Kanit;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 300;
     color: #828282;
 

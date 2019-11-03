@@ -18,10 +18,8 @@ const Cart = () => {
   return (
     <Containers>
       <SelectAll />
-      <Store />
-      <Store />
-      <Store />
-      <Store />
+      {/* <Store />
+      <Store /> */}
       <Total />
     </Containers>
   )
