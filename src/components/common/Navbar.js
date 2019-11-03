@@ -16,7 +16,6 @@ import LoginModal from '../containers/Login/Modal'
 import SignupModal from '../containers/Signup/Modal'
 import ForgotContorller from '../containers/ForgotPassword/ControllerForgot'
 import Cart from '../containers/cart/AllCart'
-// const Cart = lazy(() => import('../containers/cart/AllCart'))
 
 const HiddenGlobal = createGlobalStyle`
 ${props =>
