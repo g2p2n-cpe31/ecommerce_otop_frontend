@@ -11,7 +11,8 @@ import Filter from '../../common/SelectFlat'
 const StyledSectionTwo = styled.div`
     display: flex;
     flex-direction: row;
-    margin-top: 4.1rem;
+    align-items: center;
+    margin-top: 1.9rem;
 `
 
 const SearchTextBox = styled(TextField)`
@@ -19,6 +20,7 @@ const SearchTextBox = styled(TextField)`
     margin: auto 0;
     width: 45%;
     max-width: 96.9rem;
+    height: 4.7rem;
     background: #FFFFFF;
     border: 0.1rem solid #E0E0E0;
     border-radius: 0.2rem;
@@ -61,6 +63,7 @@ const StyledText = styled.div`
     font-style: normal;
     font-weight: 300;
     font-size: 1.8rem;
+    line-height: 1.8rem;
     color: #828282;
     margin-left: 8.7rem;
     align-items: center;

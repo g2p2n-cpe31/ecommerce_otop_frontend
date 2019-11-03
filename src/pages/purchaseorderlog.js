@@ -11,7 +11,7 @@ const HeaderText = styled.p`
   font-weight: normal;
   font-size: 30px;
   color: #4f4f4f;
-  margin: 0 0 0.4rem 1.5rem;
+  margin: 0 0 0 1.5rem;
 `
 
 const purchaseorderlog = ({ location, history }) => {
