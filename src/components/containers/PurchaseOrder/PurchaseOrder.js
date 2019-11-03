@@ -141,7 +141,7 @@ const PurchaseOrder = () => {
                         margin="normal"
                         value={valueSearch}
                         onChange={event => handleChangeSearch(event)}
-                        placeholder="ค้นหาจากชื่อ"
+                        placeholder="ค้นหาจากหมายเลขคำสั่งซื้อ"
                         InputProps={{
                             endAdornment: (
                             <InputAdornment position="end">
