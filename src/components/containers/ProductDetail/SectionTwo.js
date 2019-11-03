@@ -10,7 +10,6 @@ const Content = styled.div`
   padding: 30px;
   height: 72.8rem;
   max-width: 100%;
-  /* margin-bottom: 11.6rem; */
 `
 
 const Detail = styled.p`

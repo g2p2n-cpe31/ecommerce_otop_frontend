@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import styled from 'styled-components'
 import Cart from '../../../images/ProductDetail/cart.png'
 import Button from '@material-ui/core/Button'
@@ -89,8 +89,6 @@ const NameStore = styled.p`
   font-size: 1.4rem;
   font-weight: normal;
   margin: 0 28px 0 0;
-
-  /* margin-bottom: 15px; */
 `
 
 const Subtitle = styled.p`
@@ -153,10 +151,10 @@ const ButtonAdd = styled(Button)`
     flex-direction: row;
     margin-right: 1rem;
     border: solid 1px #e89c6b;
-    /* padding: 8px; */
     height: 40px;
     width: 179px;
     background: rgba(232, 156, 107, 0.2);
+    position: relative;
   }
 `
 
@@ -195,6 +193,14 @@ const ButtonBuy = styled(Button)`
 const SectionOne = () => {
   const [isShow, setIsShow] = useState(false)
   const { state } = useContext(QuantityContext)
+
+  useEffect(()=>{
+     if(isShow){
+       setTimeout(() => setIsShow(false),3450)
+     }
+
+  }, [isShow])
+
   return (
     <Content>
       <LeftItem>

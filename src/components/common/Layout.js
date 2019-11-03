@@ -23,7 +23,7 @@ const Layout = ({
 
   const ContainerHaveSpace = styled.div`
     margin: 0 auto;
-    width: 82%;
+    width: ${{ default: '82%', second: '84.1533%' }[navbar]};
     /* width: 84.58333%; */
     max-width: 136.6rem;
     /* z-index: 2; */

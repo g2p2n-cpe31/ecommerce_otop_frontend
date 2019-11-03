@@ -10,9 +10,16 @@ const ContainerAlert = styled.div`
   width: 264px;
   height: 58px;
   background-color: rgba(154, 228, 185, 0.3);
-  top: 19px;
-  right: 15px;
   z-index: 200;
+  top: 0px;
+  right: 15px;
+  animation: mymove 3.4s linear forwards;
+  @keyframes mymove {
+    0%{top: 0px; right: 15px;opacity:0}
+    7%{top:19px; right: 15px;opacity:1}
+    90%{top:19px; right: 15px;opacity:1}
+    100%{top:0px; right: 15px;opacity:0}
+  }
 `
 
 const Cross = styled.img`
@@ -51,7 +58,6 @@ const AlertNameProduct = styled.p`
   color: #4f4f4f;
   margin-top: 8px;
   margin-bottom: 5px;
-  /* margin: auto 0; */
 `
 
 const AlertAddProduct = styled.p`
@@ -62,7 +68,6 @@ const AlertAddProduct = styled.p`
   font-size: 12px;
   color: #4f4f4f;
   margin: 0;
-  /* margin: auto 0; */
 `
 
 const Alert = props => {

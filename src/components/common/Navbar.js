@@ -126,6 +126,16 @@ const TextMenu = styled.p`
   cursor: pointer;
 `
 
+const LinkToInternal = styled(Link)`
+  font-family: Kanit;
+  font-size: 1.3rem;
+  line-height: 3.28;
+  color: #f2f2f2;
+  margin: 0;
+  cursor: pointer;
+  text-decoration: none;
+`
+
 const IconMenu = styled.img`
   width: 1.1rem;
   height: 1.1rem;
@@ -309,7 +319,7 @@ const Navbar = props => {
           <ContainerListMenus>
             <ContainerMenu>
               <IconMenu src={ImgSell} />
-              <TextMenu>ขาย</TextMenu>
+              <LinkToInternal to='/sell' >ขาย</LinkToInternal>
             </ContainerMenu>
             <ContainerMenu>
               <IconMenu src={ImgNoti} />

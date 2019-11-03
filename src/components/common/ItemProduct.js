@@ -122,7 +122,7 @@ const ItemProduct = ({
     <Card
       margin={margin}
       height={height}
-      to="/home"
+      to="/product_detail"
       // multiImages={multiImages}
       // activeClassName="active"
     >
