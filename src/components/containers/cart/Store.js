@@ -36,6 +36,9 @@ const TextLabel = styled(FormControlLabel)`
         font-weight: '300';
         font-size: '14';
     }
+    && .MuiCheckbox-colorPrimary.Mui-checked{
+        color: #333333;
+    }
 `
 const Store = () => {
     const [state, setState] = React.useState({

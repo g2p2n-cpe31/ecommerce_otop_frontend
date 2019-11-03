@@ -26,6 +26,10 @@ const TextLabel = styled(FormControlLabel)`
         font-weight: '300';
         font-size: '14';
     }
+
+    && .MuiCheckbox-colorPrimary.Mui-checked{
+        color: #333333;
+    }
 `
 const TrashLabel = styled(FormControlLabel)`
     && .MuiTypography-body1 {
@@ -49,6 +53,14 @@ const useStyles = makeStyles(theme => ({
         display: 'none',
     },
   }));  
+
+const FormControlLabelCustom =styled(FormControlLabel)`
+    && {
+        & .MuiCheckbox-colorPrimary.Mui-checked{
+            color: #333333;
+        }
+    }
+`
 
 
 const SelectAll = () => {

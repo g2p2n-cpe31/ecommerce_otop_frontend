@@ -131,7 +131,15 @@ const useStyles = makeStyles(theme => ({
     input: {
       display: 'none',
     },
-  }));  
+}));  
+
+const FormControlLabelCustom =styled(FormControlLabel)`
+    && {
+        & .MuiCheckbox-colorPrimary.Mui-checked{
+            color: #333333;
+        }
+    }
+`
 
 const Product = () => {
     const [count,setCount] = useState(0)
@@ -155,7 +163,7 @@ const Product = () => {
     return (
         <>
             <Box>
-                <FormControlLabel
+                <FormControlLabelCustom
                     control={
                         <Checkbox
                             checked={state.checkedB}
