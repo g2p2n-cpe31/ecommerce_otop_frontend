@@ -3,7 +3,7 @@ import GlobalStyle from '../../utility/GlobalStyle'
 import styled from 'styled-components'
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import Line from '../../../images/Payment/Line.png'
+import Line from '../../../images/Payment/line.svg'
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
@@ -171,7 +171,8 @@ const AddedCreditCardBox = styled.div`
     max-width: 103.6rem;
     height: 29.4rem;
     overflow-x: scroll;
-    padding-left: 6.3rem;
+    margin-left: 6.3rem;
+    margin-right: 4.3rem;
     padding-top: 2.7rem;
 `
 const TextandButtonBox = styled.div`
