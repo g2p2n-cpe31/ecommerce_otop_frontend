@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import ImgStarVote from '../../images/Navbar/star_vote.svg'
+import { Link } from "gatsby"
 
 const ImageContainer = styled.div`
   width: 229px;
@@ -79,18 +80,14 @@ const TextSold = styled.p`
   color: #828282;
 `
 
-const Card = styled.div`
+const Card = styled(Link)`
   width: 229px;
-  /* height: 339px;
-  height: 562px; */
   height: ${props => props.height};
   background: #f2f2f2;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   display: inline-flex;
   flex-direction: column;
-  /* margin: auto 1rem;
-  margin: 2.9rem 1rem; */
   margin: ${props => props.margin};
   &:last-child {
   }
@@ -102,21 +99,21 @@ const ItemProduct = ({
   multiImages = true,
 }) => {
   return (
-    <Card margin={margin} height={height}>
-      <ImageContainer multiImages={multiImages}></ImageContainer>
-      <ContainerDetail>
-        <NameProduct>กระหรี่ปัป</NameProduct>
-        <Price>255 บาท</Price>
-        <SendStatus>จัดส่งฟรี</SendStatus>
-        <ContainerFooterItem>
-          <ContainerStar>
-            <IconStar src={ImgStarVote} />
-            <VoteNumber>4.2</VoteNumber>
-          </ContainerStar>
-          <TextSold>ขายแล้ว 125 ชิ้น</TextSold>
-        </ContainerFooterItem>
-      </ContainerDetail>
-    </Card>
+      <Card margin={margin} height={height} to="product_detail" style={{ textDecoration: 'none' }}>
+        <ImageContainer multiImages={multiImages}></ImageContainer>
+        <ContainerDetail>
+          <NameProduct>กระหรี่ปัป</NameProduct>
+          <Price>255 บาท</Price>
+          <SendStatus>จัดส่งฟรี</SendStatus>
+          <ContainerFooterItem>
+            <ContainerStar>
+              <IconStar src={ImgStarVote} />
+              <VoteNumber>4.2</VoteNumber>
+            </ContainerStar>
+            <TextSold>ขายแล้ว 125 ชิ้น</TextSold>
+          </ContainerFooterItem>
+        </ContainerDetail>
+      </Card>
   )
 }
 

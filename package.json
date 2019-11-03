@@ -9,6 +9,7 @@
     "@material-ui/icons": "^4.4.3",
     "@material-ui/lab": "^4.0.0-alpha.28",
     "@material-ui/styles": "^4.4.1",
+    "animate.css": "^3.7.2",
     "babel-plugin-styled-components": "^1.10.6",
     "gatsby": "^2.15.16",
     "gatsby-cli": "^2.8.1",
