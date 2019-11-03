@@ -131,6 +131,7 @@ const ContainerInModal = styled.div`
 `
 const Container = styled.div`
     display: flex;
+    justify-content: center;
     width: 100%;
     height: 100%;
     flex-direction: column;
@@ -158,8 +159,10 @@ const OptionBox = styled.div`
 `
 const CreditBox = styled.div`
     display: flex;
-    width: 113.7rem;
-    height: 37.5rem;
+    min-width: 113.7rem;
+    width: 100%;
+    min-height: 37.5rem;
+    height: 100%;
     flex-direction: column;
     background: #FFFFFF;
     border-radius: 5px;
@@ -167,8 +170,9 @@ const CreditBox = styled.div`
 `
 const AddedCreditCardBox = styled.div`
     display: flex;
-    width: 100%;
-    max-width: 103.6rem;
+    /* width: 100%; */
+    width: 91.25%;
+    /* max-width: 103.6rem; */
     height: 29.4rem;
     overflow-x: scroll;
     margin-left: 6.3rem;
@@ -194,16 +198,26 @@ const Text = styled.p`
     letter-spacing: 0.05rem;
     color: #333333;
 `
-const LineBox = styled.div`
+// const LineBox = styled.div`
+//     display: flex;
+//     width: 100%;
+//     padding-left: 5.8rem;
+//     padding-right: 4.3rem;
+//     margin-bottom: 0rem;
+// `
+
+const LineHR = styled.hr`
     display: flex;
-    padding-left: 5.8rem;
-    padding-right: 4.3rem;
-    margin-bottom: 0rem;
+    width: 92%;
+    margin-left: 5.8rem;
+    /* margin-right: 4.3rem; */
 `
 const BankAccountBox = styled.div`
     display: flex;
-    width: 113.7rem;
-    height: 37.5rem;
+    min-width: 113.7rem;
+    width: 100%;
+    min-height: 37.5rem;
+    height: 100%;
     flex-direction: column;
     background: #FFFFFF;
     border-radius: 5px;
@@ -301,6 +315,7 @@ const CardNumber = styled.p`
     color: #4F4F4F;
 `
 const CardName = styled.p`
+    text-transform: uppercase;
     display: flex;
     width: 25rem;
     margin-top: 0.5rem;
@@ -432,7 +447,7 @@ const CreditCard = () => {
         if (str[0].length === 0) setFirstLetter('x')
         else if (str.length === 1) setFirstLetter(str[0].substring(0,1))
         if(str.length > 1) setLastnameLetter(str[1])
-        else setLastnameLetter('xxxxxxxxxxxxxxxxxxx')
+        else setLastnameLetter('xxxxxxxxxxxxxxx')
     }
 
     const getExeCredit = (exeCredit) => {
@@ -504,9 +519,10 @@ const CreditCard = () => {
                                 เพิ่มบัตรเครดิต / เดบิต
                             </ButtonCustom>
                         </TextandButtonBox>
-                        <LineBox>
+                        {/* <LineBox>
                             <img src={Line} />
-                        </LineBox>
+                        </LineBox> */}
+                        <LineHR />
                         <AddedCreditCardBox>
                             <AddedCreditCard />
                             <AddedCreditCard />
@@ -522,9 +538,10 @@ const CreditCard = () => {
                                 เพิ่มบัญชีธนาคาร
                             </AddBankAccountButtonCustom>
                         </TextandButtonBox>
-                        <LineBox>
+                        {/* <LineBox>
                             <img src={Line} />
-                        </LineBox>
+                        </LineBox> */}
+                        <LineHR />
                     </BankAccountBox>
                 </OptionBox>
                 <AddrModal
