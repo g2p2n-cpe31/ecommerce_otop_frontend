@@ -80,7 +80,7 @@ const TextSold = styled.p`
 
 const Card = styled(Link)`
   cursor: pointer;
-  width: 229px;
+  width: 22.9rem;
   height: ${props => props.height};
   margin: ${props => props.margin};
   background: #f2f2f2;
