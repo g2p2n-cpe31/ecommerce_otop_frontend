@@ -15,7 +15,7 @@ const Background = styled(Container)`
   background-color: #f2f2f2;
   width: 100%;
   max-width: 192rem;
-  min-height: 144.3rem;
+  min-height: 120rem;
   padding: 0 0;
 `
 
@@ -40,7 +40,7 @@ const HeaderText = styled.div`
   max-height: 4.5rem;
   width: 100%;
   height: 100%;
-  padding-top: 4.1rem;
+  margin-top: 4.1rem;
   margin-left: 1.5rem;
 `
 

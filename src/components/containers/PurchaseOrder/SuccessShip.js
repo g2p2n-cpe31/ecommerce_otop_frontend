@@ -17,11 +17,11 @@ const AddressBox = styled.div`
     align-items: center;
     justify-content: flex-start;
     padding: 0;
-    /* margin: 0 57rem; */
-    width: ${props => props.showAddress ? '84.6rem' : '0'};
-    height: 3.3rem;
+    margin: 0 11.1rem;
+    width: ${props => props.showAddress ? '65.69rem' : '0'};
+    /* height: 3.3rem; */
     position: absolute;
-    top: 0;
+    top: 78;
     right: 0;
     z-index: 200;
     overflow: hidden;
@@ -31,7 +31,7 @@ const AddressBox = styled.div`
 const AddressSearchTextBox = styled(TextField)`
   && {
     margin: 0 0;
-    width: 90.5%;
+    width: 100%;
     width: 90rem;
     height: 3.1rem;
     background: #FFFFFF;
@@ -67,11 +67,13 @@ const AmountContainer = styled.div`
     width: 4%;
     color: ${props => props.showAddress ? 'transparent' : '#4F4F4F'};
     text-shadow: ${props => props.showAddress ? '0 0 0.4rem rgba(0,0,0,0.2)' : 'null'};
-
+    margin: -0.2rem 3.5rem 0 -3.5rem;
+    /* margin-top: -0.2rem;
+    margin-left: -3.5rem; */
 `
 
 const CustName = styled.div`
-    width: 16%;
+    width: 14%;
 `
 
 const Empty = styled.div`
@@ -81,7 +83,7 @@ const Empty = styled.div`
     font-weight: 300;   
     line-height: 21px;
     letter-spacing: 0.5px;
-    width: 10%;
+    width: 8%;
     text-decoration: underline;
     display: flex;
     justify-content: center;
@@ -89,32 +91,32 @@ const Empty = styled.div`
 `
 
 const ListText = styled.div`
-    width: 90%;
-    padding-top: 0.5rem;
+    width: 100%;
+    line-height: 2.8rem;
+    /* padding-top: 0.5rem; */
 `
 
 const OrderNumber = styled.div`
-    width: 13%;
+    width: 15%;
 `
 
 const PayDate = styled.div`
-    width: 8%;
+    width: 9%;
 `
 
 const ProductName = styled.div`
-    width: 17%;
-    
+    width: 13%;
 `
 
 const ProdNameContainer = styled.div`
-    width: 17%;
+    width: 16%;
     color: ${props => props.showAddress ? 'transparent' : '#4F4F4F'};
     text-shadow: ${props => props.showAddress ? '0 0 0.4rem rgba(0,0,0,0.2)' : 'null'};
-
+    margin-top: -0.2rem;
 `
 
 const ShipDate = styled.div`
-    width: 8%;
+    width: 9%;
 `
 
 const ShipStatus = styled.div`
@@ -135,7 +137,7 @@ const StockList = styled.div`
     font-weight: 300;   
     line-height: 21px;
     letter-spacing: 0.5px;
-    position: relative;
+    /* position: relative; */
 `
 
 const StyledCloseIcon = styled(CloseRoundedIcon)`
@@ -177,7 +179,7 @@ const TableHead = styled.div`
 `
 
 const TrackNo = styled.div`
-    width: 12%;
+    width: 13%;
 `
 
 

@@ -16,12 +16,12 @@ import CopyIcon from '@material-ui/icons/FilterNoneRounded';
 const AddressBox = styled.div`
     background-color: #fff;
     box-sizing: border-box;
-    border-radius: 3px 0px 0px 3px;
+    /* border-radius: 3px 0px 0px 3px; */
     display: flex;
     align-items: center;
     justify-content: flex-start;
     padding: 0 0;
-    width: ${props => props.showAddress ? '75rem' : '0'};
+    width: ${props => props.showAddress ? '63.5rem' : '0'};
     height: 3.3rem;
     position: absolute;
     top: 0;
@@ -36,7 +36,7 @@ const AddressSearchTextBox = styled(TextField)`
     margin: 0 0;
     width: 90.5%;
     width: 75rem;
-    height: 3.1rem;
+    height: 3.3rem;
     background: #FFFFFF;
     border: 0.1rem solid #BDBDBD;
     border-radius: 0.2rem;
@@ -91,7 +91,7 @@ const DetailSearchTextBox = styled(TextField)`
     margin: 0 0;
     width: 100%;
     max-width: 51.9rem;
-    height: 7.6rem !important;
+    height: 7.7rem !important;
     background: #FFFFFF;
     border: 0.1rem solid #BDBDBD;
     border-radius: 0.2rem;
@@ -295,7 +295,7 @@ const TrackBox = styled.div`
     justify-content: flex-start;
     padding: 0 0;
     /* margin-right: rem; */
-    width: ${props => props.showTrack ? '38.6rem' : '0'};
+    width: ${props => props.showTrack ? '38.05rem' : '0'};
     height: 3.3rem;
     position: absolute;
     top: 0;
@@ -433,6 +433,7 @@ const PendingShip = () => {
                                             <ButtonFlat 
                                                 background='#FBB282' 
                                                 width="3.5rem"
+                                                height="3.1rem"
                                                 onClick={() => setShowAddress(false)}
                                             >
                                                 <StyledCopyIcon />
@@ -440,6 +441,7 @@ const PendingShip = () => {
                                             <ButtonFlat
                                                 background="#C4C4C4"
                                                 width="2.1rem"
+                                                height="3.1rem"
                                                 type="submit"
                                                 onClick={() => setShowAddress(false)}
                                             >
@@ -465,8 +467,10 @@ const PendingShip = () => {
                                         <InputAdornment position="end">
                                             <ButtonFlat
                                                 background="#C4C4C4"
+                                                border_radius="0"
+                                                margin="-0.01rem -0.1rem 0 0"
                                                 width="2.1rem"
-                                                height="8.5rem"
+                                                height="7.6rem"
                                                 type="submit"
                                                 onClick={() => setShowDetail(false)}
                                             >
