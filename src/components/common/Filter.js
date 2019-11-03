@@ -80,7 +80,7 @@ const Filter  = ({
 
     return (
         <ContainerSelect>
-        <StyledFormControl variant="outlined"  placeholder={placeholder}  margin_form={margin_form}  >
+        <StyledFormControl variant="outlined"  placeholder={placeholder}  margin_form={margin_form} width={width} >
             <StyledSelect
                 displayEmpty={displayEmpty}
                 value={age}
