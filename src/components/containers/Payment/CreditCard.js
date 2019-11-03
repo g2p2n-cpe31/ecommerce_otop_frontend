@@ -360,12 +360,13 @@ const CreditCard = () => {
     const [open, setOpen] = useState(false);
     const [pathCreditType, setPathCreditType] = useState('')
     const [colorBankType, setColorBankType] = useState('')
+    const [firstLetter, setFirstLetter] = useState('')
+    const [lastnameLetter, setLastnameLetter] = useState('')
     const [nameBank, setNameBank] = useState('')
     const [values, setValues] = useState({
         nameCredit: '',
         numberCredit: '',
-        exeCredit: '',
-        // nameBank: ''
+        exeCredit: ''
     })
     const handleValues = name => e => {
         setValues({ ...values, [name]: e.target.value})
@@ -392,7 +393,7 @@ const CreditCard = () => {
 
     const checkpathBankType = (number) => {
         
-        if(number === '4162') setColorBankType(colorBank.kBank) && setNameBank('KBank')
+        if(number === '4162') setColorBankType(colorBank.kBank)
         else if(number === '5577') setColorBankType(colorBank.scbBank)
         else if(number === '4013' ) setColorBankType(colorBank.tmbBank)
         else if(number === '4834') setColorBankType(colorBank.aomsinBank)
@@ -402,25 +403,33 @@ const CreditCard = () => {
         else setColorBankType(colorBank.default)
         // console.log('get bank-type success') 
     }
-    // const checkpathBankName = (number) => {
-        
-    //     if(number === '4162') setNameBank('KBank')
-    //     else if(number === '5577') setNameBank('SCB')
-    //     else if(number === '4013' ) setNameBank(colorBank.tmbBank)
-    //     else if(number === '4834') setNameBank(colorBank.aomsinBank)
-    //     else if(number === '4215') setNameBank(colorBank.krungsriBank)
-    //     else if(number === '4389') setNameBank(colorBank.thanachat)
-    //     else if(number === '4732') setNameBank(colorBank.krungthaiBank)
-    //     else setNameBank(colorBank.default)
-    //     // console.log('get bank-type success') 
-    // }
+
+    const checkpathBankName = (number) => {
+        if(number === '4162') setNameBank('KBank')
+        else if(number === '5577') setNameBank('SCB')
+        else if(number === '4013' ) setNameBank('TMB')
+        else if(number === '4834') setNameBank('ออมสิน')
+        else if(number === '4215') setNameBank('Krungsri')
+        else if(number === '4389') setNameBank('Thanachat')
+        else if(number === '4732') setNameBank('Krungthai')
+        else setNameBank('Card')
+        // console.log('get bank-type success') 
+    }
 
     const checkCredittype = (digit) => {
         if(digit === '3') setPathCreditType(PathJCB)
         else if(digit === '4') setPathCreditType(PathVisa)
         else if(digit === '5' || digit === '2') setPathCreditType(PathMasterCard)
         else if(digit === '6') setPathCreditType(PathUnionPay)
+        else setPathCreditType('')
         // console.log('get credit-type success')   
+    }
+
+    const checkNameCredit = (namecredit) => {
+        const str  = namecredit.split(' ')
+        setFirstLetter(str[0].substring(0,1))
+        if(str.length > 1)
+        setLastnameLetter(str[1])
     }
     
     const handleonChange = name => e => {
@@ -437,12 +446,14 @@ const CreditCard = () => {
 
     useEffect(() => {
         checkpathBankType(values.numberCredit.substring(0, 4))
-        if(values.numberCredit.length === 1)
-            checkCredittype(values.numberCredit[0])
+        checkpathBankName(values.numberCredit.substring(0, 4))
+        checkCredittype(values.numberCredit[0])
         // if(values.numberCredit.length >= 4)
-        
-        
     }, [values.numberCredit])
+
+    useEffect(() => {
+        checkNameCredit(values.nameCredit)
+    }, [values.nameCredit])
 
     return (
         <>
@@ -497,7 +508,7 @@ const CreditCard = () => {
                             <CreditCardBox colorBankType={colorBankType}>
                                 <BankName>{nameBank}</BankName>
                                 <CardNumber>{convertToCreditFormat(values.numberCredit)}</CardNumber>
-                                <CardName>{values.nameCredit}</CardName>
+                                <CardName>{firstLetter + ' ' + lastnameLetter}</CardName>
                                 <ExpiryContainer>
                                     <ExpiryDate>วันหมดอายุ :</ExpiryDate>
                                     <ExpiryDateNumber>{values.exeCredit}</ExpiryDateNumber>
