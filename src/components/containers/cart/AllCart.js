@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import SelectAll from './SelectAll'
 import Store from './Store'
@@ -15,9 +15,6 @@ const Containers = styled.div`
 `
 
 const Cart = () => {
-  const [selectAll, setSelectAll] = useState(true)
-  // const [cart, setCart] = useState([{}])
-
   return (
     <Containers>
       <SelectAll />

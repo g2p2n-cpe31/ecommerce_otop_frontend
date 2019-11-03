@@ -11,7 +11,7 @@ import ButtonFlat from '../../common/ButtonFlat'
 import SelectFlat from '../../common/SelectFlat'
 import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
-import NotificationsIcon from '@material-ui/icons/Notifications';
+// import NotificationsIcon from '@material-ui/icons/Notifications';
 
 const Background = styled(Container)`
     background-color: #F2F2F2;

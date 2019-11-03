@@ -165,7 +165,7 @@ const Product = () => {
             />
           }
         />
-        <img src={Pineapple} width="100rem" height="87rem"></img>
+        <img src={Pineapple} width="100rem" height="87rem" alt="pine" />
         <TextBox>
           <ProductNameBox>
             <Margin>
