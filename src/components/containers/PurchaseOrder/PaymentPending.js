@@ -31,7 +31,7 @@ const StockList = styled.div`
     display: flex;
     flex-direction: row;
     width:100%;
-    padding: 1.3rem 2.3rem 0 2.3rem;
+    padding: 0 2.3rem 1.7rem 2.3rem;
     box-sizing: border-box;
     border-bottom: 0.5px solid #BDBDBD;
     margin-bottom: 2.6rem;
@@ -61,7 +61,7 @@ const TableHead = styled.div`
     padding: 1.3rem 2.3rem 0 2.3rem;
     box-sizing: border-box;
     border-bottom: 0.1rem solid #828282;
-    margin-bottom: 2.6rem;
+    margin-bottom: 1.7rem;
     font-family: Kanit;
     font-weight: normal;
     font-size: 1.8rem;

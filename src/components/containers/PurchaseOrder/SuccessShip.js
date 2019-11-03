@@ -16,14 +16,16 @@ const AddressBox = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 0 0;
-    margin: 0 57rem;
+    padding: 0;
+    /* margin: 0 57rem; */
     width: ${props => props.showAddress ? '84.6rem' : '0'};
     height: 3.3rem;
     position: absolute;
-    transition: all 0.25s ease;
+    top: 0;
+    right: 0;
     z-index: 200;
     overflow: hidden;
+    transition: all 0.25s ease;
 `
 
 const AddressSearchTextBox = styled(TextField)`
@@ -123,7 +125,7 @@ const StockList = styled.div`
     display: flex;
     flex-direction: row;
     width:100%;
-    padding: 1.3rem 2.3rem 0 2.3rem;
+    padding: 0 2.3rem 1.7rem 2.3rem;
     box-sizing: border-box;
     border-bottom: 0.5px solid #BDBDBD;
     margin-bottom: 2.6rem;
@@ -133,6 +135,7 @@ const StockList = styled.div`
     font-weight: 300;   
     line-height: 21px;
     letter-spacing: 0.5px;
+    position: relative;
 `
 
 const StyledCloseIcon = styled(CloseRoundedIcon)`
@@ -166,7 +169,7 @@ const TableHead = styled.div`
     padding: 1.3rem 2.3rem 0 2.3rem;
     box-sizing: border-box;
     border-bottom: 0.1rem solid #828282;
-    margin-bottom: 2.6rem;
+    margin-bottom: 1.7rem;
     font-family: Kanit;
     font-weight: normal;
     font-size: 1.8rem;

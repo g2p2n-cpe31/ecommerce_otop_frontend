@@ -21,10 +21,11 @@ const AddressBox = styled.div`
     align-items: center;
     justify-content: flex-start;
     padding: 0 0;
-    margin: 0 -36.36rem;
     width: ${props => props.showAddress ? '75rem' : '0'};
     height: 3.3rem;
     position: absolute;
+    top: 0;
+    right: 0;
     transition: all 0.25s ease;
     z-index: 100;
     overflow: hidden;
@@ -73,11 +74,13 @@ const DetailBox = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 0 0;
-    margin: 0 -6.142rem;
+    padding: 0;
+    /* margin-top: 0rem; */
     width: ${props => props.showDetail ? '44.85rem' : '0'};
     height: 7.8rem;
     position: absolute;
+    top: 0;
+    right: 0;
     transition: all 0.25s ease;
     z-index: 100;
     overflow: hidden;
@@ -192,9 +195,6 @@ const ProdNameContainer = styled.div`
     width: 25%;
     color: ${props => props.showAddress ? 'transparent' : '#4F4F4F'};
     text-shadow: ${props => props.showAddress ? '0 0 0.4rem rgba(0,0,0,0.2)' : 'null'};
-    /* color: transparent;
-    text-shadow: 0 0 0.4rem rgba(0,0,0,0.2);     */
-    /* color: #4F4F4F; */
     font-family: Kanit;
     font-size: 1.4rem; 
     font-weight: 300;   
@@ -210,8 +210,6 @@ const ProductNumberContainer = styled.div`
     width: 5%;
     color: ${props => props.showAddress ? 'transparent' : '#4F4F4F'};
     text-shadow: ${props => props.showAddress ? '0 0 0.4rem rgba(0,0,0,0.2)' : 'null'};
-    /* color: transparent;
-    text-shadow: 0 0 0.4rem rgba(0,0,0,0.2);     */
     font-family: Kanit;
     font-size: 1.4rem; 
     font-weight: 300;   
@@ -223,7 +221,7 @@ const StockList = styled.div`
     display: flex;
     flex-direction: row;
     width:100%;
-    padding: 1.3rem 2.3rem 0 2.3rem;
+    padding: 0 2.3rem 1.7rem 2.3rem;
     box-sizing: border-box;
     border-bottom: 0.5px solid #BDBDBD;
     margin-bottom: 2.6rem;
@@ -231,8 +229,9 @@ const StockList = styled.div`
     font-family: Kanit;
     font-size: 1.4rem; 
     font-weight: 300;   
-    line-height: 21px;
+    line-height: 2.1rem;
     letter-spacing: 0.5px;
+    position: relative;
 `
 
 const StyledCloseIcon = styled(CloseRoundedIcon)`
@@ -267,7 +266,7 @@ const TableHead = styled.div`
     padding: 1.3rem 2.3rem 0 2.3rem;
     box-sizing: border-box;
     border-bottom: 0.1rem solid #828282;
-    margin-bottom: 2.6rem;
+    margin-bottom: 1.7rem;
     font-family: Kanit;
     font-weight: normal;
     font-size: 1.8rem;
@@ -291,13 +290,19 @@ const TextButton = styled.div`
 `
 
 const TrackBox = styled.div`
+    background-color: #fff;
+    box-sizing: border-box;
+    border-radius: 3px 0px 0px 3px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin: 0 0;
-    width: ${props => props.showTrack ? '42.7rem' : '0'};
+    padding: 0 0;
+    /* margin-right: rem; */
+    width: ${props => props.showTrack ? '38.6rem' : '0'};
     height: 3.3rem;
     position: absolute;
+    top: 0;
+    right: 0;
     transition: all 0.25s ease;
     z-index: 100;
     overflow: hidden;
@@ -306,8 +311,8 @@ const TrackBox = styled.div`
 const TrackSearchTextBox = styled(TextField)`
   && {
     margin: 0 0;
-    width: 90.5%;
-    max-width: 42.7rem;
+    width: 100%;
+    max-width: 38.6rem;
     height: 3.1rem;
     background: #FFFFFF;
     border: 0.1rem solid #BDBDBD;
