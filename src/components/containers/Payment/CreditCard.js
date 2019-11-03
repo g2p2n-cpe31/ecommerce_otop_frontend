@@ -360,11 +360,12 @@ const CreditCard = () => {
     const [open, setOpen] = useState(false);
     const [pathCreditType, setPathCreditType] = useState('')
     const [colorBankType, setColorBankType] = useState('')
+    const [nameBank, setNameBank] = useState('')
     const [values, setValues] = useState({
         nameCredit: '',
         numberCredit: '',
         exeCredit: '',
-        nameBank: ''
+        // nameBank: ''
     })
     const handleValues = name => e => {
         setValues({ ...values, [name]: e.target.value})
@@ -391,7 +392,7 @@ const CreditCard = () => {
 
     const checkpathBankType = (number) => {
         
-        if(number === '4162') setColorBankType(colorBank.kBank)
+        if(number === '4162') setColorBankType(colorBank.kBank) && setNameBank('KBank')
         else if(number === '5577') setColorBankType(colorBank.scbBank)
         else if(number === '4013' ) setColorBankType(colorBank.tmbBank)
         else if(number === '4834') setColorBankType(colorBank.aomsinBank)
@@ -401,6 +402,19 @@ const CreditCard = () => {
         else setColorBankType(colorBank.default)
         // console.log('get bank-type success') 
     }
+    // const checkpathBankName = (number) => {
+        
+    //     if(number === '4162') setNameBank('KBank')
+    //     else if(number === '5577') setNameBank('SCB')
+    //     else if(number === '4013' ) setNameBank(colorBank.tmbBank)
+    //     else if(number === '4834') setNameBank(colorBank.aomsinBank)
+    //     else if(number === '4215') setNameBank(colorBank.krungsriBank)
+    //     else if(number === '4389') setNameBank(colorBank.thanachat)
+    //     else if(number === '4732') setNameBank(colorBank.krungthaiBank)
+    //     else setNameBank(colorBank.default)
+    //     // console.log('get bank-type success') 
+    // }
+
     const checkCredittype = (digit) => {
         if(digit === '3') setPathCreditType(PathJCB)
         else if(digit === '4') setPathCreditType(PathVisa)
@@ -481,7 +495,7 @@ const CreditCard = () => {
                         <TextInModal>เพิ่มบัตรเครดิต / เดบิต</TextInModal>
                         <ContainerInModal>
                             <CreditCardBox colorBankType={colorBankType}>
-                                <BankName>Card</BankName>
+                                <BankName>{nameBank}</BankName>
                                 <CardNumber>{convertToCreditFormat(values.numberCredit)}</CardNumber>
                                 <CardName>{values.nameCredit}</CardName>
                                 <ExpiryContainer>
