@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import styled from 'styled-components'
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
       margin: theme.spacing(1),
     },
     input: {
-      display: 'none',
+      margin: theme.spacing(1),
     },
     extendedIcon: {
         marginRight: theme.spacing(1),
@@ -33,9 +33,6 @@ const useStyles = makeStyles(theme => ({
     container: {
         display: 'flex',
         flexWrap: 'wrap',
-    },
-      input: {
-        margin: theme.spacing(1),
     },
 }));
 
@@ -56,10 +53,7 @@ const AddrFade = styled(Fade)`
 `
 const AddrModal = styled(Modal)`
     && {
-    /* background: linear-gradient(316.04deg, #44275d 0%, #3c5b78 100%); */
-    /* opacity: 0.9; */
     cursor: url(${ic_cancel_white}) 205 205, auto;
-    
     &:after {
       content: '';
       position: absolute;
@@ -133,11 +127,8 @@ const AddrInfoBox = styled.div`
     display: flex;
     margin-top: 1.3rem;
     width: 97%;
-    /* width: 96rem; */
-    /* max-width: 110.7rem; */
     height: 25rem;
 
-    /* background: #FBFBFB; */
     background: ${props => props.selected ? 'rgba(91, 60, 120, 0.1)':'#FBFBFB'};
     border: 1px solid #BDBDBD;
     box-sizing: border-box;
@@ -145,9 +136,7 @@ const AddrInfoBox = styled.div`
 `
 const TitleBox = styled.div`
     display: flex;
-    /* position: absolute; */
     flex-direction: column;
-    /* background: lightsalmon; */
     margin-top: 3.1rem;
     margin-left: 7rem;
 `
@@ -160,7 +149,6 @@ const InTitleBox = styled.div`
 `
 const InfoBox = styled.div`
     display: flex;
-    /* position: absolute; */
     flex-direction: column;
     margin-top: 3.1rem;
     margin-left: 2.7rem;
@@ -193,11 +181,6 @@ const AddrEdit = styled.p`
     display: flex;
     margin-right: 0.05rem;
 `
-// const AddrErase = styled.p`
-//     display: flex;
-//     width: 0.5rem;
-//     height: 0.5rem;
-// `
 
 const SetAsDefault = styled.div`
     display: flex;
@@ -247,7 +230,6 @@ const MarginBetweenButton = styled.div`
         margin-left: 3rem;
 `
 const CancelButtonCustom = styled(Button)`
-  &&{
         height: 4rem;
         width: 15.5rem;
         font-family: "Kanit";
@@ -255,7 +237,6 @@ const CancelButtonCustom = styled(Button)`
         color: #828282;
         background: #F2F2F2;
         border-radius: 0.3rem;
-  }
 `
 const SaveButtonCustom = styled(Button)`
   &&{
@@ -266,6 +247,9 @@ const SaveButtonCustom = styled(Button)`
         color: #F2F2F2;
         background: #e89c6b;
         border-radius: 0.3rem;
+        &:hover{
+        background: #ED7F38;
+        }
   }
 `
 const DefaultSign = styled.div`
@@ -298,7 +282,6 @@ const ContainerContent = styled.div`
 const SetOfButton = styled.div`
     display: flex;
     flex-direction: column;
-    /* margin-left: 35.5rem; */
     margin-top: 3.2rem;
     width: 20%;
 `
@@ -307,7 +290,6 @@ const ContainerEditErase = styled.div`
     flex-direction: row;
     justify-content:flex-end;
     align-items: center;
-    /* margin-left: 6rem; */
     margin-right: 3rem;
 `
 const SetOfInfo = styled.div`
@@ -318,20 +300,19 @@ const SetOfInfo = styled.div`
 
 const AddrInfo = ({ selected = false, ...props}) => {
     const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
+    const [show, setShow] = useState(true);
 
     const handleOpen = () => {
         setOpen(true);
       };
-    
+
     const handleClose = () => {
         setOpen(false);
       };
-    
 
     return (
-        <>
-            <AddrInfoBox selected={selected}>
+            show ? <> <AddrInfoBox selected={selected}>
                 <ContainerContent>
                     <SetOfInfo>
                         <TitleBox>
@@ -360,14 +341,12 @@ const AddrInfo = ({ selected = false, ...props}) => {
                                     แก้ไข
                                 </EditAndEraseButtonCustom>
                             </AddrEdit>
-                            {/* <AddrErase> */}
-                                <EditAndEraseButtonCustom size="small" className={classes.margin} disabled={selected}>
+                                <EditAndEraseButtonCustom size="small" className={classes.margin} disabled={selected} onClick={() => setShow(false)}>
                                     ลบ
                                 </EditAndEraseButtonCustom>
-                            {/* </AddrErase> */}
                         </ContainerEditErase>
                         <SetAsDefault>
-                            <ButtonCustom variant="outlined" color="#BDBDBD" className={classes.button} disabled={selected}>
+                            <ButtonCustom variant="outlined" color="#BDBDBD" className={classes.button} onclick={()=>alert('wating api')}>
                                 ตั้งเป็นค่าเริ่มต้น
                             </ButtonCustom>
                         </SetAsDefault>
@@ -445,8 +424,7 @@ const AddrInfo = ({ selected = false, ...props}) => {
                     </ContainerTextField>
                 </div>
                 </AddrFade>
-            </AddrModal>
-        </>
+            </AddrModal> </> : null
     )
 }
 

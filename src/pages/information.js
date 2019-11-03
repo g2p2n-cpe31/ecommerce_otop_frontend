@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled, {css} from 'styled-components'
 import Layout from '../components/common/Layout'
 import Profile from '../components/containers/Information/Profile'
+import Address from '../components/containers/Address/AddrBook'
 import ChangePassword from '../components/containers/Information/ChangePassword'
 
 const Container = styled.div`
@@ -78,7 +79,7 @@ const Information = () => {
                     {
                         {
                             information: <Profile/>,
-                            address: null,
+                            address: <Address/>,
                             pwd: <ChangePassword/>,
                             payment: null,
                             history: null

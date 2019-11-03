@@ -55,6 +55,7 @@ const TextFieldFirstName = styled(TextField)`
         font-family: Kanit;
         margin-bottom: 0.8rem;
         margin-left: 1.2rem;
+        color: #828282;
     }
     & .MuiInput-underline::before{
         height: 0.5rem;
@@ -69,6 +70,7 @@ const TextFieldLastName = styled(TextField)`
         font-family: Kanit;
         margin-bottom: 0.8rem;
         margin-left: 1.2rem;
+        color: #828282;
     }
     & .MuiInput-underline::before{
         height: 0.5rem;
@@ -86,6 +88,7 @@ const TextFieldOther = styled(TextField)`
         font-family: Kanit;
         margin-bottom: 0.8rem;
         margin-left: 1.2rem;
+        color: #828282;
     }
     & .MuiInput-underline::before{
         height: 0.5rem;
@@ -103,6 +106,7 @@ const TextFieldAddress = styled(TextField)`
         font-family: Kanit;
         margin-bottom: 0.8rem;
         margin-left: 1.2rem;
+        color: #828282;
     }
     & .MuiInput-underline::before{
         height: 0.5rem;

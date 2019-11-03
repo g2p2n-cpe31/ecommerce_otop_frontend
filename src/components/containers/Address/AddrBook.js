@@ -14,7 +14,7 @@ const ContainerContent = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-`   
+`
 
 
 const AddrFade = styled(Fade)`
@@ -38,7 +38,6 @@ const AddrModal = styled(Modal)`
     /* background: linear-gradient(316.04deg, #44275d 0%, #3c5b78 100%); */
     /* opacity: 0.9; */
     cursor: url(${ic_cancel_white}) 205 205, auto;
-    
     &:after {
       content: '';
       position: absolute;
@@ -69,7 +68,7 @@ const useStyles = makeStyles(theme => ({
       },
       input: {
         margin: theme.spacing(1),
-      },    
+      },
   }));
 
 const ButtonCustom = styled(Button)`
@@ -82,9 +81,11 @@ const ButtonCustom = styled(Button)`
       color: white;
       margin-right: 1.5rem;
   }
+  &:hover{
+        background: #ED7F38;
+    }
 `
 const CancelButtonCustom = styled(Button)`
-  &&{
         height: 4rem;
         width: 15.5rem;
         font-family: "Kanit";
@@ -92,7 +93,6 @@ const CancelButtonCustom = styled(Button)`
         color: #828282;
         background: #F2F2F2;
         border-radius: 0.3rem;
-  }
 `
 const SaveButtonCustom = styled(Button)`
   &&{
@@ -103,6 +103,9 @@ const SaveButtonCustom = styled(Button)`
         color: white;
         background: #e89c6b;
         border-radius: 0.3rem;
+  }
+  &:hover{
+        background: #ED7F38;
   }
 `
 
@@ -228,7 +231,7 @@ const AddrBook = () => {
                     </TxtAddr>
                     <AddAddrBox>
                         <ButtonCustom type="button" onClick={handleOpen}>
-                            <AddIcon /> 
+                            <AddIcon />
                             <MarginInButton>
                                 เพิ่มที่อยู่
                             </MarginInButton>
@@ -236,8 +239,9 @@ const AddrBook = () => {
                     </AddAddrBox>
                 </TxtBox>
                 <BigInfoBox>
+                    <Info  />
+                    <Info selected={true} />
                     <Info />
-                    <Info selected={true}/>
                     <Info />
                     <LastMargin />
                 </BigInfoBox>
@@ -318,4 +322,4 @@ const AddrBook = () => {
     )
 }
 
-export default AddrBook 
+export default AddrBook
