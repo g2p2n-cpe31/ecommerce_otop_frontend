@@ -187,8 +187,6 @@ const PayDate = styled.div`
 
 const ProductName = styled.div`
     width: 25%;
-    /* color: transparent;
-   text-shadow: 0 0 5px rgba(0,0,0,0.5); */
 `
 
 const ProdNameContainer = styled.div`
@@ -422,7 +420,6 @@ const PendingShip = () => {
                         </TrackBox>
 
                         <AddressBox showAddress={showAddress}>
-                            {/* <BlurBox> */}
                             <AddressSearchTextBox
                                 variant="outlined"
                                 margin="normal"
@@ -452,7 +449,6 @@ const PendingShip = () => {
                                     ),
                                 }}
                             />
-                            {/* </BlurBox> */}
                         </AddressBox>
                         
 
