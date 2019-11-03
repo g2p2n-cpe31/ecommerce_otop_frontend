@@ -94,7 +94,7 @@ const Card = styled(Link)`
 
 
   &:hover {
-    box-shadow: 2px 5.5px 8px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 3px 6px 5px rgba(0, 0, 0, 0.2);
     /* &:after {
       content: '';
       width: 229px;

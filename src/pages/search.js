@@ -7,7 +7,7 @@ import Pagination from '../components/common/Pagination'
 
 const WrapProduct = styled.div`
   display: flex;
-  width: 65%;
+  width: 56%;
   height: 100%;
   flex-direction: column;
   padding: 4.3rem 8.2rem;
@@ -21,11 +21,16 @@ const WordSearching = styled.p`
     color: #44275d;
   }
 `
-
+const ContainerSearch = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+`
 const SearchPage = ({ location, history }) => {
   return (
     <>
       <Layout haveSpace={false} location={location} history={history}>
+        {/* <ContainerSearch> */}
         <FilterSide />
         <WrapProduct>
           <WordSearching>
@@ -34,6 +39,7 @@ const SearchPage = ({ location, history }) => {
           <ContainerProduction />
           <Pagination />
         </WrapProduct>
+        {/* </ContainerSearch> */}
       </Layout>
     </>
   )
