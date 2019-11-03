@@ -51,7 +51,7 @@ const FontSize2 = styled.div`
   color: white;
 `
 
-const Total = () => {
+const Total = props => {
   const classes = useStyles()
   return (
     <div>
@@ -66,6 +66,7 @@ const Total = () => {
           variant="contained"
           size="medium"
           className={classes.margin}
+          onClick={props.setShowPayment}
         >
           ดำเนินการชำระเงิน
         </ButtonCustom>

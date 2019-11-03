@@ -14,7 +14,7 @@ const Containers = styled.div`
   margin-bottom: 20rem;
 `
 
-const Cart = () => {
+const Cart = props => {
   return (
     <Containers>
       <SelectAll />
@@ -22,7 +22,7 @@ const Cart = () => {
       <Store />
       <Store />
       <Store />
-      <Total />
+      <Total  {...props}/>
     </Containers>
   )
 }
