@@ -122,10 +122,11 @@ const ItemProduct = ({
     <Card
       margin={margin}
       height={height}
-      multiImages={multiImages}
+      to="/home"
+      // multiImages={multiImages}
       // activeClassName="active"
     >
-      <ImageContainer multiImages={multiImages}></ImageContainer>
+      <ImageContainer multiImages={multiImages} />
       <ContainerDetail>
         <NameProduct>กระหรี่ปัป</NameProduct>
         <Price>255 บาท</Price>

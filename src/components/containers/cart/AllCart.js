@@ -16,11 +16,11 @@ const Containers = styled.div`
 
 const Cart = () => {
   const [selectAll, setSelectAll] = useState(true)
-  const [cart, setCart] = useState([{}])
+  // const [cart, setCart] = useState([{}])
 
   return (
     <Containers>
-      <SelectAll setSelectAll={setSelectAll} />
+      <SelectAll />
       <Store />
       <Store />
       <Store />
