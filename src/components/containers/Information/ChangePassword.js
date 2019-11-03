@@ -42,6 +42,8 @@ const StyleText = styled.p`
     font-size: 1.4rem;
     color: #333333;
     margin: 3.2rem 0 4.3rem 0;
+    letter-spacing: 0.5px;
+    white-space : nowrap;
 `
 
 const ContainerTextField = styled.div`
