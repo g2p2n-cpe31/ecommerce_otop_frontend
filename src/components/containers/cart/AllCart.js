@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import SelectAll from './SelectAll'
 import Store from './Store'
@@ -8,21 +8,19 @@ const Containers = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: center;
   cursor: auto;
   margin-bottom: 20rem;
 `
 
-const Margin = styled.div`
-  margin: 1rem;
-`
-
 const Cart = () => {
+  const [selectAll, setSelectAll] = useState(true)
+  const [cart, setCart] = useState([{}])
+
   return (
     <Containers>
-      <SelectAll />
-      <Margin />
+      <SelectAll setSelectAll={setSelectAll} />
       <Store />
       <Store />
       <Store />

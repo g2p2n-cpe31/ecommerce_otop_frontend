@@ -36,7 +36,8 @@ ${props =>
 `
 
 const ContainerNavbar = styled.form`
-  position: ${props => (props.showCart ? 'absolute' : 'fixed')};
+  /* position: ${props => (props.showCart ? 'fixed' : 'fixed')}; */
+  position: fixed;
   z-index: 900;
   display: flex;
   flex-direction: column;
