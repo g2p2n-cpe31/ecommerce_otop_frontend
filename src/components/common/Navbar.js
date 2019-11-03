@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { navigate, Link, useStaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
+import styled, { css, createGlobalStyle } from 'styled-components'
 import Img from 'gatsby-image'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import TextField from '@material-ui/core/TextField'
@@ -15,19 +15,39 @@ import ButtonFlat from './ButtonFlat'
 import LoginModal from '../containers/Login/Modal'
 import SignupModal from '../containers/Signup/Modal'
 import ForgotContorller from '../containers/ForgotPassword/ControllerForgot'
+import Cart from '../containers/cart/AllCart'
+// const Cart = lazy(() => import('../containers/cart/AllCart'))
+
+const HiddenGlobal = createGlobalStyle`
+${props =>
+  props.showCart
+    ? css`
+        html,
+        body {
+          overflow: hidden;
+        }
+      `
+    : css`
+        html,
+        body {
+          overflow: initial;
+        }
+      `}
+  
+`
 
 const ContainerNavbar = styled.form`
-  position: fixed;
+  position: ${props => (props.showCart ? 'absolute' : 'fixed')};
   z-index: 900;
   display: flex;
   flex-direction: column;
   align-items: center;
-
   top: 0;
   left: 0;
   right: 0;
+  background: green;
   height: ${props => (props.showCart ? '100%' : '13rem')};
-
+  overflow: ${props => (props.showCart ? 'scroll' : 'hidden')};
   &:hover {
     cursor: ${props =>
       props.showCart ? `url(${ic_cancel_white}) 205 205, auto` : 'normal'};
@@ -35,8 +55,11 @@ const ContainerNavbar = styled.form`
 
   &:after {
     content: '';
-    z-index: -1;
+    position: fixed;
+    z-index: 1;
     height: ${props => (props.showCart ? '100%' : '13rem')};
+
+    overflow: ${props => (props.showCart ? 'hidden' : 'initial')};
     width: 100%;
     top: 0;
     left: 0;
@@ -53,10 +76,15 @@ const ContainerNavbar = styled.form`
 const ContainerLayout = styled.div`
   max-width: 136.6rem;
   width: 82%;
-  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  /* height: auto; */
+  height: ${props => (props.showCart ? '100%' : '13rem')};
+  z-index: 2;
+  transition: all 0.55s ease;
 `
 
 const ContainerListMenus = styled.div`
@@ -104,11 +132,13 @@ const IconMenu = styled.img`
   height: 1.1rem;
   margin: auto 0.5rem;
 `
+
 const IconSearch = styled.img`
   width: 1.527rem;
   height: 1.555rem;
   margin: auto 0.5rem;
 `
+
 const IconDropdown = styled.img`
   width: 1.331rem;
   height: 0.682rem;
@@ -215,8 +245,8 @@ const Navbar = props => {
   const handleChangeSearch = event => setValueSearch(event.target.value)
   const handleCartFeature = e => {
     e.preventDefault()
-    // if (e.target === e.currentTarget) setShowCart(!showCart) // This condition for click able foebackground
-    setShowCart(!showCart)
+    if (e.target === e.currentTarget) setShowCart(!showCart) // This condition for click able foebackground
+    // setShowCart(!showCart)
   }
 
   const handleSearch = e => {
@@ -245,6 +275,7 @@ const Navbar = props => {
 
   return (
     <>
+      <HiddenGlobal showCart={showCart} />
       <LoginModal
         open={showLogin}
         handleClose={() => setShowLogin(false)}
@@ -260,7 +291,7 @@ const Navbar = props => {
 
       <ForgotContorller
         open={showForgot}
-        handleOpen={(key) => setShowForgot(key)}
+        handleOpen={key => setShowForgot(key)}
         // showForgot={handleOpenForgot}
       />
 
@@ -274,7 +305,7 @@ const Navbar = props => {
           return false
         }}
       >
-        <ContainerLayout>
+        <ContainerLayout showCart={showCart}>
           <GlobalStyle />
           <ContainerListMenus>
             <ContainerMenu>
@@ -326,6 +357,12 @@ const Navbar = props => {
               <LogoCart src={ImgCart} onClick={e => handleCartFeature(e)} />
             </BoxGrid>
           </ContainerTools>
+          {showCart ? <Cart /> : null}
+          {/* {showCart ? (
+            <Suspense fallback={<div>Loading ...</div>}>
+              <Cart />
+            </Suspense>
+          ) : null} */}
         </ContainerLayout>
       </ContainerNavbar>
     </>
