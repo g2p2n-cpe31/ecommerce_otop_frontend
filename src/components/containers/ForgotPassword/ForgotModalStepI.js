@@ -8,7 +8,7 @@ import Box from '@material-ui/core/Box'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import CloseIcon from '@material-ui/icons/Close'
 import IconButton from '@material-ui/core/IconButton'
-// import ClearRoundedIcon from '@material-ui/icons/ClearRounded';
+import ic_cancel_white from '../../../images/Navbar/ic_cancel_white.svg'
 
 const CloseIconButton = styled(IconButton)`
   && {
@@ -76,10 +76,23 @@ const ModalTitle = styled.div`
 
 const ModalContainer = styled(Modal)`
   && {
-    background: linear-gradient(316.04deg, #44275d 0%, #3c5b78 100%);
-    opacity: 0.9;
+    
+      cursor: url(${ic_cancel_white}) 205 205, auto;
+    
+    
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: linear-gradient(316.04deg, #44275d 0%, #3c5b78 100%);
+      opacity: 0.9;
+    }
   }
 `
+
 
 const NextButton = styled(Button)`
   margin-top: 55px;
@@ -145,6 +158,7 @@ const useStyles = makeStyles(theme => ({
     fontFamily: 'Kanit',
     borderRadius: '10px',
     outline: 0,
+    cursor: 'auto'
   },
   textField1: {
     lineHeight: '43px',

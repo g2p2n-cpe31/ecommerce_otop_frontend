@@ -9,6 +9,7 @@ import InputAdornment from '@material-ui/core/InputAdornment'
 import CloseIcon from '@material-ui/icons/Close'
 import IconButton from '@material-ui/core/IconButton'
 import CheckSharpIcon from '@material-ui/icons/CheckSharp'
+import ic_cancel_white from '../../../images/Navbar/ic_cancel_white.svg'
 
 const CheckIcon = styled(CheckSharpIcon)`
   width: 42px;
@@ -114,10 +115,20 @@ const ModalTitle = styled.div`
 
 const ModalContainer = styled(Modal)`
   && {
-    background: linear-gradient(316.04deg, #44275d 0%, #3c5b78 100%);
-    opacity: 0.9;
+    cursor: url(${ic_cancel_white}) 205 205, auto;
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: linear-gradient(316.04deg, #44275d 0%, #3c5b78 100%);
+      opacity: 0.9;
+    }
   }
 `
+
 
 const SearchTextBox = styled(TextField)`
   && {
@@ -185,6 +196,7 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '10px',
     // padding: '44px 36px',
     outline: 0,
+    cursor: 'auto'
   },
   textField1: {
     lineHeight: '43px',
