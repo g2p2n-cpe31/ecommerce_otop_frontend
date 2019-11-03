@@ -30,9 +30,9 @@ const TextFieldMinMax = styled(TextField)`
 `
 
 const ContainerFilter = styled.div`
-  max-width: 67.5rem;
+  /* max-width: 67.5rem; */
   min-width: 28rem;
-  width: 44%;
+  width: 39%;
   height: auto;
   display: flex;
   flex-direction: column;

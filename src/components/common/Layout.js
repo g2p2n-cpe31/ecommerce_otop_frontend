@@ -27,14 +27,14 @@ const Layout = ({
     /* width: 84.58333%; */
     max-width: 136.6rem;
     /* z-index: 2; */
-    padding-top: ${{ default: '13rem', second: '6.9rem' }[navbar]};
+    padding-top: ${{ default: '13rem', second: '0' }[navbar]};
   `
 
   const ContainerFitScreen = styled.div`
     margin: 0 auto;
     display: flex;
     width: 100%;
-    padding-top: ${{ default: '13rem', second: '6.9rem' }[navbar]};
+    padding-top: ${{ default: '13rem', second: '0' }[navbar]};
   `
   return (
     <>
