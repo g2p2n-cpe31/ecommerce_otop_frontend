@@ -254,7 +254,6 @@ const TableContainer = styled(Container)`
     width: 100%;
     margin-top: 3.1rem;
     margin-left: 0;
-    /* margin: 0 0; */
     padding: 0 0;
 `
 

@@ -13,9 +13,9 @@ import SelectFlat from '../../common/SelectFlat'
 
 const Background = styled(Container)`
     background-color: #F2F2F2;
-    max-width: 144rem;
     width: 100%;
-    min-height: 80rem;
+    max-width: 192rem;
+    min-height: 144.3rem;
     padding: 0 0;    
 `
 
