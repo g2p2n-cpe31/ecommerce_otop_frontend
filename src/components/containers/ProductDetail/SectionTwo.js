@@ -7,13 +7,19 @@ const Content = styled.div`
   justify-content: flex-start;
   background-color: white;
   border-radius: 5px;
-  padding: 30px;
+  padding: 3rem;
+  padding-top: 2rem;
   height: 72.8rem;
   max-width: 100%;
 `
 
 const Detail = styled.p`
   font-family: Kanit;
+  align-items: center;
+  font-size: 2.4rem;
+  color: #333333;
+  margin-top: 0;
+  margin-bottom: 1.2rem;
 `
 
 const SectionTwo = () => {
