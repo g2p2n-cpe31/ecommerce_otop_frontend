@@ -34,7 +34,7 @@ const SearchTextBox = styled(TextField)`
     input {
       font-family: Kanit;
       font-size: 1.4rem;
-      font-weight: 300;
+      font-weight: 350;
       padding: 0 1.8rem;
       width: 100%;
       height: 4.4rem;
