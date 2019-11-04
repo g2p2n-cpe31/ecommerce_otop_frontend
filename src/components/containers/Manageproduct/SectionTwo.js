@@ -6,7 +6,15 @@ import ImgDropdown from '../../../images/Sell/dropdown.png'
 import ImgSearch from '../../../images/Navbar/search.svg'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import Filter from '../../common/SelectFlat'
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
 
+const SwitchForm = styled(FormControlLabel)`
+  width: 5.5rem;
+  margin: 0 1.3rem 0 9.4rem;
+  display: flex;
+  align-items: center;
+`
 
 const StyledSectionTwo = styled.div`
     display: flex;
@@ -26,7 +34,7 @@ const SearchTextBox = styled(TextField)`
     input {
       font-family: Kanit;
       font-size: 1.4rem;
-      font-weight: 300;
+      font-weight: 350;
       padding: 0 1.8rem;
       width: 100%;
       height: 4.4rem;
@@ -56,6 +64,21 @@ const IconDropdown = styled.img`
   height: 0.682rem;
   margin: auto 0.5rem;
 `
+
+const StyledSwitch = styled(Switch)`
+  && {
+    & .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
+    background-color: #E89C6B;
+}
+    & .MuiSwitch-colorSecondary.Mui-checked{
+      color: #E89C6B;
+    }
+    & .MuiSwitch-colorSecondary.Mui-checked {
+      color: #E89C6B;
+    }
+  }
+`
+
 const StyledText = styled.div`
     display: flex;
     font-family: Kanit;
@@ -69,16 +92,6 @@ const StyledText = styled.div`
     align-items: center;
 `
 
-const StyledSoldOut = styled.div`
-    display: flex;
-    align-items: center;
-    width: 3.1rem;
-    height: 1.7rem;
-    /* margin: 1.5rem 1.3rem 0 9.4rem; */
-    margin: 0 1.3rem 0 4.5rem;
-    background: #EB5757;
-    border-radius: 0.3rem;
-`
 const TextSoldOut = styled.p`
     display: flex;
     align-items: center;
@@ -93,8 +106,13 @@ const TextSoldOut = styled.p`
 const SectionTwo  = () => {
     const handleChangeSearch = event => setValueSearch(event.target.value)
     const [valueSearch, setValueSearch] = useState('')
-
-    return (
+    const [state, setState] = React.useState({
+      checkedB: true
+    });
+  
+    const handleChange = name => event => {
+      setState({ ...state, [name]: event.target.checked });
+    };    return (
         <StyledSectionTwo>
             <SearchTextBox
               variant="outlined"
@@ -121,7 +139,17 @@ const SectionTwo  = () => {
             />
             <StyledText>เรียงตาม</StyledText>
             <Filter width="24.9rem" displayEmpty={false} margin_form='0 0 0 3.1rem' />
-            <StyledSoldOut/>
+
+            <SwitchForm
+              control={
+                <StyledSwitch
+                  checked={state.checkedB}
+                  onChange={handleChange('checkedB')}
+                  value="checkedB"
+                  // color="primary"
+                />
+              }
+            />
             <TextSoldOut>แสดงสินค้าที่หมดสต๊อก</TextSoldOut>
         </StyledSectionTwo>
     )

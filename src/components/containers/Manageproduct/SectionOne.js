@@ -43,9 +43,9 @@ const InputTextFeild = styled(TextField)`
         & input{
             font-family: Kanit;
             font-size: 1.6rem;
-            font-weight: normal;
+            font-weight: 350;
             margin-left: 1rem;
-            margin-bottom: 1.2rem;
+            margin-bottom: 0.8rem;
             line-height: 2.4rem;
             padding: 0;
             color: #4F4F4F;
@@ -124,7 +124,7 @@ const StyledDetail = styled(TextField)`
             font-family: Kanit;
             font-size: 1.6rem;
             font-weight: normal;
-            color: #BDBDBD;
+            color: #4f4f4f;
             line-height: normal;
             margin: 0 1.9rem;
             padding-top: 1.2rem;
@@ -213,13 +213,25 @@ const SectionOne = ({
                             onChange={handleChange}
                             IconComponent={() => (
                                 <StyledIcon src={Dropdown}/>
-                              )}>
-                        >
-                        <Item value="" disabled>หมวดหมู่</Item>
-                        <Item value={10}>ผลไม้</Item>
-                        <Item value={20}>ของใช้</Item>
-                        <Item value={30}>เสื้อผ้า</Item>
-                        <Item value={30}>อื่นๆ</Item>
+                              )}
+                              MenuProps={{
+                                anchorOrigin: {
+                                  vertical: 'bottom',
+                                  horizontal: 'left',
+                                },
+                                transformOrigin: {
+                                  vertical: 'top',
+                                  horizontal: 'left',
+                                },
+                                getContentAnchorEl: null,
+                              }}  
+                            >
+                        
+                            <Item value="" disabled>หมวดหมู่</Item>
+                            <Item value={10}>ผลไม้</Item>
+                            <Item value={20}>ของใช้</Item>
+                            <Item value={30}>เสื้อผ้า</Item>
+                            <Item value={30}>อื่น ๆ</Item>
                         </StyledSelect>
                     </StyledFormControl>
                     <StyledDetail

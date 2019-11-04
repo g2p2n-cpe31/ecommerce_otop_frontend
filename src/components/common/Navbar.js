@@ -319,7 +319,7 @@ const Navbar = props => {
           <ContainerListMenus>
             <ContainerMenu>
               <IconMenu src={ImgSell} />
-              <LinkToInternal to='/sell' >ขาย</LinkToInternal>
+              <LinkToInternal to="/sell">ขาย</LinkToInternal>
             </ContainerMenu>
             <ContainerMenu>
               <IconMenu src={ImgNoti} />
