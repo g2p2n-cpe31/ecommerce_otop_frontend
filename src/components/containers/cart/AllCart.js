@@ -19,9 +19,9 @@ const Cart = props => {
     <Containers>
       <SelectAll />
       <Store />
+      {/* <Store />
       <Store />
-      <Store />
-      <Store />
+      <Store /> */}
       <Total  {...props}/>
     </Containers>
   )

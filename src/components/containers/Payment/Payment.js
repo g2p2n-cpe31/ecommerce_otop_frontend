@@ -5,8 +5,10 @@ import Right from './Right'
 
 const Container = styled.div`
     display: flex;
+    justify-content: center;
     width: 100%;
     padding-top: 7.4rem;
+    margin-bottom: 5rem;
 `
 
 const PaymentIndex = () => {
