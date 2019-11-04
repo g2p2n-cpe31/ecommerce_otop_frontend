@@ -115,7 +115,7 @@ const Card = styled(Link)`
 
 const ItemProduct = ({
   margin = ' 2.9rem 1rem',
-  height = '562px',
+  height = '56.2rem',
   multiImages = true,
 }) => {
   return (

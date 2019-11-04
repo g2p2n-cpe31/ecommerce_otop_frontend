@@ -33,15 +33,20 @@ const StoreName = styled.p`
 const ContainerCreate = styled.div`
   display: flex;
   flex-direction: row;
-  margin-bottom: 30.4rem;
+  width: 100%;
+  /* margin-bottom: 30.4rem; */
 `
+
 const BigContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 23.5rem;
-  margin-bottom: 30.4rem;
+  /* margin: 0; */
+  /* margin-top: 23.5rem;
+  margin-bottom: 30.4rem; */
 `
 
 const Sell = ({ location, history }) => {

@@ -16,13 +16,13 @@ const ContainerItems = styled.div`
   }
 `
 
-const WrapContent = styled.div`
+const WrapContent = styled.div` 
   /* This Wrap builded for layer scollable padding at end */
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
   min-width: 100%;
-  height: 359px;
+  height: 35.9rem;
   padding: 0 0.5rem;
   float: left;
   animation: ${SliderLTR} 100s infinite;
@@ -37,14 +37,14 @@ const ContainerPR = props => {
     <>
       <ContainerItems background={props.background}>
         <WrapContent>
-          <ItemProduct margin="auto .5rem" height="339px" multiImages={false} />
-          <ItemProduct margin="auto .5rem" height="339px" multiImages={false} />
-          <ItemProduct margin="auto .5rem" height="339px" multiImages={false} />
-          <ItemProduct margin="auto .5rem" height="339px" multiImages={false} />
-          <ItemProduct margin="auto .5rem" height="339px" multiImages={false} />
-          <ItemProduct margin="auto .5rem" height="339px" multiImages={false} />
-          <ItemProduct margin="auto .5rem" height="339px" multiImages={false} />
-          <ItemProduct margin="auto .5rem" height="339px" multiImages={false} />
+          <ItemProduct margin="auto .5rem" height="33.9rem" multiImages={false} />
+          <ItemProduct margin="auto .5rem" height="33.9rem" multiImages={false} />
+          <ItemProduct margin="auto .5rem" height="33.9rem" multiImages={false} />
+          <ItemProduct margin="auto .5rem" height="33.9rem" multiImages={false} />
+          <ItemProduct margin="auto .5rem" height="33.9rem" multiImages={false} />
+          <ItemProduct margin="auto .5rem" height="33.9rem" multiImages={false} />
+          <ItemProduct margin="auto .5rem" height="33.9rem" multiImages={false} />
+          <ItemProduct margin="auto .5rem" height="33.9rem" multiImages={false} />
         </WrapContent>
       </ContainerItems>
     </>
