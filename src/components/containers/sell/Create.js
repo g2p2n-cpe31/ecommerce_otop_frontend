@@ -182,7 +182,11 @@ const  NameMyStore = styled.p`
 const ContainerListOfMyStore = styled.div`
     display: flex;
     flex-direction: column;
-    overflow:scroll;
+   
+        /* overflow: hidden; */
+    overflow-y: scroll;
+    overflow-x: hidden;    
+    
 `
 
 
@@ -191,7 +195,7 @@ const ContainerMyStore = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        width: 100%;
+        /* width: 100%; */
         height: 8.8rem;
         background: #FBFBFB;
         border-radius: 0.5rem;
@@ -204,6 +208,9 @@ const ContainerMyStore = styled.div`
         &:hover{
             background: #EBEBEB;
         }
+        /* overflow-y: scroll;
+        overflow-x: hidden;     */
+
 `
 
 const  ContainerMyStoreName = styled.p`

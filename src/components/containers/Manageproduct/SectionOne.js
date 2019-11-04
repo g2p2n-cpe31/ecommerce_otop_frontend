@@ -10,7 +10,6 @@ import IconPlus from '../../../images/Sell/Plus.png'
 import Button from '@material-ui/core/Button'
 
 
-
 const DetailAddProduct = styled.div`
     display: flex;
     flex-direction: row;
@@ -26,8 +25,8 @@ const ContainerTextFiled = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 30%;
-    margin: 0.3rem 5.7rem 0 0 ;
+    width: 35%;
+    margin: 0.3rem 4rem 0 0 ;
 `
 const InputTextFeild = styled(TextField)`
     &&{
@@ -49,7 +48,7 @@ const InputTextFeild = styled(TextField)`
             margin-bottom: 1.2rem;
             line-height: 2.4rem;
             padding: 0;
-            color: #BDBDBD;
+            color: #4F4F4F;
         }
         & .MuiInput-underline::before{
             border-bottom-color: #BDBDBD;
@@ -60,8 +59,8 @@ const InputTextFeild = styled(TextField)`
 const ContainerSelect = styled.div`
     display: flex;
     flex-direction: column;
-    width: 40%;
-    margin: 0.3rem 6.1rem 0 0 ;
+    width: 35%;
+    margin: 0.3rem 4rem 0 0 ;
 `
 
 
@@ -81,22 +80,21 @@ const StyledSelect = styled(Select)`
         width: 100%;
         height: 40px;
         font-family: Kanit;
+        /* color:  #4F4F4F; */
         color: #828282;
-        border: 0.15rem solid #BDBDBD;
+        border: 0.1rem solid #BDBDBD;
         border-radius: 0.3rem;
-    }
-
-    fieldset {
-        border-width: 0 !important;
-        border-radius: 0.2rem;
-        background: #fff;
-    }
-
-    & .MuiOutlinedInput-input{
-       padding: auto 1.9rem;
-    }
-    & .MuiInputBase-input {
-      z-index: 2;
+        fieldset {
+            border-width: 0 !important;
+            border-radius: 0.2rem;
+            background: #fff;
+        }
+        & .MuiOutlinedInput-input{
+        padding: auto 1.9rem;
+        }
+        & .MuiInputBase-input {
+        z-index: 2;
+        }
     }
 `
 
@@ -113,7 +111,8 @@ const StyledIcon = styled.img`
 const Item = styled(MenuItem)`
     &&{
         font-family: Kanit;
-        color: #BDBDBD;
+        /* color: rgba(0,0,0,0.87); */
+        color: #4F4F4F;
     }
 `
 
@@ -128,10 +127,11 @@ const StyledDetail = styled(TextField)`
             color: #BDBDBD;
             line-height: normal;
             margin: 0 1.9rem;
+            padding-top: 1.2rem;
         }
 
         fieldset {
-            border: 0.15rem solid #BDBDBD;
+            border: 0.1rem solid #BDBDBD;
             border-radius: 0.3rem;
             font-family: Kanit;
         }
@@ -149,7 +149,7 @@ const StyledDetail = styled(TextField)`
 const ContainerPicture = styled.div`
     display: flex;
     width: 25%;
-    margin-right: 4.7rem;
+    margin-right: 4rem;
 `
 
 const StyledFabPicture = styled(Fab)`

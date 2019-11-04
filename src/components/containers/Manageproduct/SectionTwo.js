@@ -5,16 +5,15 @@ import ButtonFlat from '../../common/ButtonFlat'
 import ImgDropdown from '../../../images/Sell/dropdown.png'
 import ImgSearch from '../../../images/Navbar/search.svg'
 import InputAdornment from '@material-ui/core/InputAdornment'
-import Filter from '../../common/Filter'
+import Filter from '../../common/SelectFlat'
 
 
 const StyledSectionTwo = styled.div`
     display: flex;
+    align-items: center;
     flex-direction: row;
-    margin-top: 4.1rem;
+    margin-top: 3rem;
 `
-
-
 
 const SearchTextBox = styled(TextField)`
   && {
@@ -64,7 +63,9 @@ const StyledText = styled.div`
     font-weight: 300;
     font-size: 1.8rem;
     color: #828282;
-    margin-left: 11.3rem;
+    width: 8rem;
+    margin-left:8rem;
+    /* margin-right: 3.1rem; */
     align-items: center;
 `
 
@@ -73,16 +74,19 @@ const StyledSoldOut = styled.div`
     align-items: center;
     width: 3.1rem;
     height: 1.7rem;
-    margin: 1.5rem 1.3rem 0 9.4rem;
+    /* margin: 1.5rem 1.3rem 0 9.4rem; */
+    margin: 0 1.3rem 0 4.5rem;
     background: #EB5757;
     border-radius: 0.3rem;
 `
 const TextSoldOut = styled.p`
     display: flex;
     align-items: center;
+    /* margin: 0; */
     font-family: Kanit;
     font-weight: 300;
     color: #828282;
+    width: 17rem;
 `
 
 
@@ -116,7 +120,7 @@ const SectionTwo  = () => {
               }}
             />
             <StyledText>เรียงตาม</StyledText>
-            <Filter/>
+            <Filter width="24.9rem" displayEmpty={false} margin_form='0 0 0 3.1rem' />
             <StyledSoldOut/>
             <TextSoldOut>แสดงสินค้าที่หมดสต๊อก</TextSoldOut>
         </StyledSectionTwo>

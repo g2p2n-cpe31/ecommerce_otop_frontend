@@ -17,7 +17,7 @@ const ContainerSectionThree = styled.div`
     height: 88.2rem;
     background: #FFFFFF;
     border-radius: 0.3rem;
-    margin-top: 4.1rem ;
+    margin-top: 2.9rem ;
     margin-bottom: 9.8rem;
     padding: 0 2px 0 2px;
 `

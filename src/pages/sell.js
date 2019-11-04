@@ -20,7 +20,6 @@ const ContainerMyStore = styled(Button)`
     background: #ffffff;
     font-weight: normal;
     margin: 0;
-    /* margin: 20.5rem 0 0 0; */
   }
 `
 const StoreName = styled.p`

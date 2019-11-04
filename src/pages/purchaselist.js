@@ -3,20 +3,19 @@ import React from 'react'
 import styled from 'styled-components'
 // import { QuantityProvider } from '../components/context/QuantityProduct'
 import PurchaseOrder from '../components/containers/PurchaseOrder/PurchaseOrder.js'
-import GlobalStyles from '../components/utility/GlobalStyle'
+import Layout from '../components/common/Layout'
 
 const Container = styled.div`
   margin: 0 0;
 `
 
 
-const PurchaseList = ({ location }) => {
+const PurchaseList = ({ location ,history}) => {
     return (
         <>
-            <Container>
-                <GlobalStyles />
-                    <PurchaseOrder />
-            </Container>
+            <Layout location={location} history={history} navbar="second">
+                <PurchaseOrder />
+            </Layout>
         </>
     )
 }
