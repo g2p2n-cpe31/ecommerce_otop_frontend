@@ -1,19 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 import Main from '../components/containers/ManageMember/Main'
-import GlobalStyles from '../components/utility/GlobalStyle'
+import Layout from '../components/common/Layout'
 
 const Container = styled.div`
   margin: 0 0;
 `
 
-const ManageMember = ({ location }) => {
+const ManageMember = ({ location , history }) => {
     return (
         <>
-            <Container>
-                <GlobalStyles />
-                    <Main />
-            </Container>
+            <Layout location={location} history={history} navbar="second">
+                <Main />
+            </Layout>
         </>
     )
 }
