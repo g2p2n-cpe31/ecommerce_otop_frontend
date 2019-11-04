@@ -12,16 +12,18 @@ const Containers = styled.div`
   align-items: center;
   cursor: auto;
   margin-bottom: 20rem;
+  /* position: absolute;
+  z-index: 10000; */
 `
 
 const Cart = () => {
   return (
-    // <Containers>
-    <SelectAll />
-    // {/* <Store />
-    // <Store /> */}
-    // {/* <Total /> */}
-    // </Containers>
+    <Containers>
+      <SelectAll />
+      <Store />
+      <Store />
+      <Total />
+    </Containers>
   )
 }
 

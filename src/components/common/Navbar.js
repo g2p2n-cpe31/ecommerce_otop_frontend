@@ -38,13 +38,14 @@ ${props =>
 const ContainerNavbar = styled.form`
   /* position: ${props => (props.showCart ? 'fixed' : 'fixed')}; */
   position: fixed;
-  z-index: 900;
+  /* z-index: 900; */
   display: flex;
   flex-direction: column;
   align-items: center;
   top: 0;
   left: 0;
   right: 0;
+  z-index: 2; 
   height: ${props => (props.showCart ? '100%' : '13rem')};
   overflow: ${props => (props.showCart ? 'scroll' : 'hidden')};
   &:hover {
@@ -82,8 +83,9 @@ const ContainerLayout = styled.div`
   position: absolute;
   /* height: auto; */
   height: ${props => (props.showCart ? '100%' : '13rem')};
-  z-index: 2;
+  z-index: 3;
   transition: all 0.55s ease;
+  /* background: red; */
 `
 
 const ContainerListMenus = styled.div`
@@ -303,7 +305,6 @@ const Navbar = props => {
         handleOpen={key => setShowForgot(key)}
         // showForgot={handleOpenForgot}
       />
-
       <ContainerNavbar
         onClick={e => (showCart ? handleCartFeature(e) : null)}
         showCart={showCart}
@@ -314,8 +315,8 @@ const Navbar = props => {
           return false
         }}
       >
+        <GlobalStyle />
         <ContainerLayout showCart={showCart}>
-          <GlobalStyle />
           <ContainerListMenus>
             <ContainerMenu>
               <IconMenu src={ImgSell} />
@@ -357,21 +358,13 @@ const Navbar = props => {
                 ),
               }}
             />
-            {/* {ranges.map(option => (
-          <MenuItem key={option.value} value={option.value}>
-            {option.label}
-          </MenuItem>
-        ))} */}
+
             <BoxGrid>
               <LogoCart src={ImgCart} onClick={e => handleCartFeature(e)} />
             </BoxGrid>
           </ContainerTools>
-          {showCart ? <Cart /> : null}
-          {/* {showCart ? (
-            <Suspense fallback={<div>Loading ...</div>}>
-              <Cart />
-            </Suspense>
-          ) : null} */}
+          <Cart />
+          {/* {showCart ? <Cart /> : null} */}
         </ContainerLayout>
       </ContainerNavbar>
     </>
@@ -379,3 +372,8 @@ const Navbar = props => {
 }
 
 export default Navbar
+/* {ranges.map(option => (
+          <MenuItem key={option.value} value={option.value}>
+            {option.label}
+          </MenuItem>
+        ))} */

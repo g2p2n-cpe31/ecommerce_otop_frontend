@@ -23,11 +23,14 @@ const SelectButtonBox = styled.div`
 `
 
 const TextLabel = styled(FormControlLabel)`
-  && .MuiTypography-body1 {
-    font-family: Kanit;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 14px;
+  && {
+    z-index: 999 !important;
+    & .MuiTypography-body1 {
+      font-family: Kanit;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 14px;
+    }
   }
 `
 const TrashLabel = styled(FormControlLabel)`
@@ -63,52 +66,52 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const SelectAll = () => {
-  const [poon, setpoon] = useState({
+  const [value, setValue] = useState({
     checkboxOne: true,
   })
 
-  const handleChange = (name, event) => {
-    console.log(poon)
-    setpoon({ ...poon, [name]: event.target.checked })
+  const handleChange = name => event => {
+    console.log(value)
+    setValue({ ...value, [name]: event.target.checked })
   }
 
   //   const
 
   const classes = useStyles()
   useEffect(() => {
-    console.log(poon)
-  }, [poon.checkboxOne])
+    console.log(value)
+  }, [value.checkboxOne])
 
   return (
-    // <>
-    //   <Box>
-    //     {/* <input type='checkbox' onchange='handleChange(this)'> */}
-    //     <SelectButtonBox>
-    //       <TextLabel
-    //         control={
-    <Checkbox
-      checked={poon.checkboxOne}
-      // onChange={ handleChange('checkboxOne')}
-      onChange={e => handleChange('checkboxOne', e)}
-      value="checkboxOne"
-      color="primary"
-    />
-    //         }
-    //         label="เลือกทั้งหมด"
-    //       />
-    //     </SelectButtonBox>
-    //     <TrashBox>
-    //       <TrashLabel
-    //         control={
-    //           <IconButton className={classes.button} aria-label="delete">
-    //             <DeleteIcon />
-    //           </IconButton>
-    //         }
-    //         label="ลบ"
-    //       />
-    //     </TrashBox>
-    //   </Box>
-    // </>
+    <>
+      <Box>
+        {/* <input type='checkbox' onchange='handleChange(this)'> */}
+        <SelectButtonBox>
+          <TextLabel
+            control={
+              <CheckboxCustom
+                checked={value.checkboxOne}
+                // onChange={ handleChange('checkboxOne')}
+                onChange={handleChange('checkboxOne')}
+                value="checkboxOne"
+                color="primary"
+              />
+            }
+            label="เลือกทั้งหมด"
+          />
+        </SelectButtonBox>
+        <TrashBox>
+          <TrashLabel
+            control={
+              <IconButton className={classes.button} aria-label="delete">
+                <DeleteIcon />
+              </IconButton>
+            }
+            label="ลบ"
+          />
+        </TrashBox>
+      </Box>
+    </>
   )
 }
 
