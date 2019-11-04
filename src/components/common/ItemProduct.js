@@ -117,6 +117,7 @@ const ItemProduct = ({
   margin = ' 2.9rem 1rem',
   height = '56.2rem',
   multiImages = true,
+  ...props
 }) => {
   return (
     <Card
@@ -128,8 +129,8 @@ const ItemProduct = ({
     >
       <ImageContainer multiImages={multiImages} />
       <ContainerDetail>
-        <NameProduct>กระหรี่ปัป</NameProduct>
-        <Price>255 บาท</Price>
+        <NameProduct>{props.name}</NameProduct>
+        <Price>{props.price} บาท</Price>
         <SendStatus>จัดส่งฟรี</SendStatus>
         <ContainerFooterItem>
           <ContainerStar>

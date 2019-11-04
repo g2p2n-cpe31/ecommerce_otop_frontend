@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import ItemProduct from './ItemProduct'
+import axios from 'axios'
 
 const Container = styled.div`
   width: 100%;
@@ -12,14 +13,25 @@ const Container = styled.div`
 `
 
 const ContainerProduct = () => {
+  const [products, setProducts] = useState([])
+
+  const getProduct = async () => {
+    try {
+      const res = await axios.get(
+        'https://otop-d5bqdesqsq-an.a.run.app/v01/api/store'
+      )
+      setProducts(res.data)
+      console.log(res)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <Container>
-      <ItemProduct />
-      <ItemProduct />
-      <ItemProduct />
-      <ItemProduct />
-      <ItemProduct />
-      <ItemProduct />
+      {products.map(item => (
+        <ItemProduct name={item.name} price={item.phoneNumber} />
+      ))}
     </Container>
   )
 }

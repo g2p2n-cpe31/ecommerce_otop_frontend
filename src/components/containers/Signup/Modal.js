@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
 import TextField from '@material-ui/core/TextField'
@@ -84,7 +85,7 @@ const ConfirmButton = styled(Button)`
     width: 9.3rem;
     height: 2.4rem;
     background: #e0e0e0;
-    border-radius: 3.0rem;
+    border-radius: 3rem;
     margin-bottom: 0.7rem;
 
     & :hover {
@@ -292,23 +293,58 @@ export default function SimpleModal(props) {
       confirmPwd !== '' &&
       telNum !== ''
       ? true
-        : false
+      : false
   }
 
   const submit = () => {
     if (check()) {
       props.handleClose()
+      createAccout()
     }
+  }
+  
+  const createAccout = async () => {
+    try {
+      // const res = await axios.post( 'URL', DATA)
+      const res = await axios.post(`https://otop-d5bqdesqsq-an.a.run.app/v01/api/account/`, {
+        firstname: name,
+        lastname: surname,
+        email: email,
+        username: username,
+        password: pwd,
+        phoneNumber: telNum,
+      })
+      console.log(res)
+      clearForm()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const clearForm = () => {
+    setName('')
+    setSurname('')
+    setEmail('')
+    setUsername('')
+    setPwd('')
+    setConfirmPwd('')
+    setTelNum('')
+    setOtp('')
+  }
+
+  const closeForm = () => {
+    clearForm()
+    props.handleClose()
   }
 
   return (
     <div>
-      <ModalContainer open={props.open} onClose={() => props.handleClose()}>
+      <ModalContainer open={props.open} onClose={() => closeForm()}>
         <Box style={modalStyle} className={classes.paper}>
           <CloseIconButton
             className={classes.button}
             aria-label="close"
-            onClick={props.handleClose}
+            onClick={closeForm}
           >
             <CloseIcon fontSize="large" />
           </CloseIconButton>

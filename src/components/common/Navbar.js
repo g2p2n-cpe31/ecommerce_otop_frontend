@@ -39,14 +39,14 @@ ${props =>
 const ContainerNavbar = styled.form`
   /* position: ${props => (props.showCart ? 'fixed' : 'fixed')}; */
   position: fixed;
-  /* z-index: 900; */
+  z-index: 900;
   display: flex;
   flex-direction: column;
   align-items: center;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 2; 
+  /* z-index: 2;  */
   height: ${props => (props.showCart ? '100%' : '13rem')};
   overflow: ${props => (props.showCart ? 'scroll' : 'hidden')};
   &:hover {
@@ -257,12 +257,15 @@ const Navbar = props => {
 
   const handleChangeSearch = event => setValueSearch(event.target.value)
   const handleCartFeature = e => {
-    e.preventDefault()
-    if (e.target === e.currentTarget) { // This condition for click able foebackground
-      setShowCart(!showCart)
-      setShowPayment(false)
+    if (e.target === e.currentTarget) {
+      // This condition for click able foebackground
+      closeNavbar()
     }
-    // setShowCart(!showCart)
+  }
+
+  const closeNavbar = () => {
+    setShowCart(!showCart)
+    setShowPayment(false)
   }
 
   const handleSearch = e => {
@@ -368,7 +371,13 @@ const Navbar = props => {
               <LogoCart src={ImgCart} onClick={e => handleCartFeature(e)} />
             </BoxGrid>
           </ContainerTools>
-          {showCart ? showPayment ? <Payment /> :<Cart setShowPayment={() => setShowPayment(true)}/> : null}
+          {showCart ? (
+            showPayment ? (
+              <Payment />
+            ) : (
+              <Cart setShowPayment={() => setShowPayment(true)} />
+            )
+          ) : null}
           {/* {showCart ? (
             <Suspense fallback={<div>Loading ...</div>}>
               <Cart />
