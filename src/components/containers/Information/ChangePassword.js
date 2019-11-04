@@ -8,7 +8,7 @@ const ContainerRight = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 48rem;
+  min-height: 60rem;
   box-sizing: border-box;
   margin-bottom: 5rem;
 `
@@ -25,6 +25,7 @@ const ContainerDetial = styled.div`
   flex-direction: row;
   width: auto;
   max-width: 113.7rem;
+  height: 40.8rem;
   background-color: #ffffff;
   border-radius: 0.5rem;
   padding-left: 4.1rem;
@@ -43,7 +44,7 @@ const StyleText = styled.p`
   font-size: 1.4rem;
   color: #333333;
   margin: 3.2rem 0 4.3rem 0;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.05rem;
   white-space: nowrap;
 `
 
@@ -62,8 +63,8 @@ const TextFieldPassWord = styled(TextField)`
   & input {
     font-family: Kanit;
     font-weight: normal;
-    font-size: 14px;
-    color: #828282;
+    font-size: 1.4rem;
+    color: #4f4f4f;
     margin-bottom: 0.8rem;
     margin-left: 1.2rem;
   }
