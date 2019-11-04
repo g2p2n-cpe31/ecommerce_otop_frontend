@@ -83,8 +83,9 @@ const ContainerSlotTwo = styled.div`
 
 const ManageStore = ({ location, history }) => {
   const onClickStore = (e, name) => {
-    navigate(`/manageproduct?nameStore=${name}`)
+    navigate(`/${name}`)
   }
+
 
   return (
     <Layout location={location} history={history} navbar="second">
@@ -95,17 +96,13 @@ const ManageStore = ({ location, history }) => {
       <Underline />
 
       <ContainerSlotOne>
-        <StyledButtonSlotOne
-          onClick={(e, name = 'test1') => onClickStore(e, name)}
-        >
-          จัดการร้านค้า
-        </StyledButtonSlotOne>
-        <StyledButtonSlotOne>ตรวจสอบรายการสั่งซื้อ</StyledButtonSlotOne>
-        <StyledButtonSlotOne>ประวัติการขาย</StyledButtonSlotOne>
+        <StyledButtonSlotOne onClick={(e, name = 'manageproduct') => onClickStore(e, name)}>จัดการร้านค้า</StyledButtonSlotOne>
+        <StyledButtonSlotOne onClick={(e, name = 'purchaselist') => onClickStore(e, name)}>ตรวจสอบรายการสั่งซื้อ</StyledButtonSlotOne>
+        <StyledButtonSlotOne  onClick={(e, name = 'purchaseorderlog') => onClickStore(e, name)}>ประวัติการขาย</StyledButtonSlotOne>
       </ContainerSlotOne>
 
       <ContainerSlotTwo>
-        <StyledButtonSlotTwo>จัดการสมาชิกร้านค้า</StyledButtonSlotTwo>
+        <StyledButtonSlotTwo onClick={(e, name = 'managemember') => onClickStore(e, name)}>จัดการสมาชิกร้านค้า</StyledButtonSlotTwo>
         <StyledButtonSlotTwo disabled>แก้ไขข้อมูลร้านค้า</StyledButtonSlotTwo>
         <StyledButtonSlotTwo disabled> </StyledButtonSlotTwo>
       </ContainerSlotTwo>
