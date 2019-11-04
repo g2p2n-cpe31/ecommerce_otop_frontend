@@ -32,18 +32,28 @@ const ContainerCreate = styled.div`
   display: flex;
   flex-direction: row;
 `
+const BigContainer = styled.div`
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 23.5rem;
+    margin-bottom: 30.4rem;
+`
 
 const Sell = ({ location, history }) => {
   const classes = useStyles()
   return (
     <Layout location={location} history={history} navbar="second">
-      <ContainerMyStore disabled className={classes.button}>
-        <StoreName>ร้านค้าของฉัน</StoreName>
-      </ContainerMyStore>
-      <ContainerCreate>
-        <Create />
-        <Join />
-      </ContainerCreate>
+      <BigContainer>
+        <ContainerMyStore disabled className={classes.button}>
+          <StoreName>ร้านค้าของฉัน</StoreName>
+        </ContainerMyStore>
+        <ContainerCreate>
+          <Create />
+          <Join />
+        </ContainerCreate>
+      </BigContainer>
     </Layout>
   )
 }

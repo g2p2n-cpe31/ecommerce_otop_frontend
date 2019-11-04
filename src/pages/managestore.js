@@ -9,7 +9,7 @@ const ContainerName = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  /* margin-top: 6rem; */
+  margin-top: 7.8rem;
 `
 
 const StyledTitle = styled.p`
@@ -77,8 +77,9 @@ const ContainerSlotTwo = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 2rem;
-  margin-bottom: 14rem;
+  margin-bottom: 16.4rem;
 `
+
 
 const ManageStore = ({ location, history }) => {
   const onClickStore = (e, name) => {

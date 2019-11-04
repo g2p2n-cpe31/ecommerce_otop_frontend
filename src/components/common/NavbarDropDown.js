@@ -86,7 +86,7 @@ const CustomMenuItem = styled(MenuItem)`
 
 const CustomNavbar = styled(AppBar)`
   background-color: #fff;
-  opacity: 0.9;
+  opacity: 1;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
   /* max-width: 136.6rem; */
   width: 100%;
@@ -98,7 +98,7 @@ const CustomToolbar = styled(Toolbar)`
   max-width: 136.6rem;
   height: 6.9rem;
   padding: 0;
-  opacity: 0.9;
+  /* opacity: 0.9; */
   margin: 0 4.25rem;
   /* box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1); */
 `
