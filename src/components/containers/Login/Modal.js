@@ -88,8 +88,6 @@ const ForgotPassword = styled(Button)`
 `
 
 const ImageSideLeft = styled(Img)`
-  /* width: 272px;
-  height: 474px; */
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
   margin: 0 0 0 0;
@@ -128,8 +126,6 @@ const ModalTitle = styled.div`
 
 const ModalContainer = styled(Modal)`
   && {
-    /* background: linear-gradient(316.04deg, #44275d 0%, #3c5b78 100%); */
-    /* opacity: 0.9; */
     cursor: url(${ic_cancel_white}) 205 205, auto;
 
     &:after {
@@ -168,14 +164,18 @@ const PasswordField = styled(TextField)`
 
 const SignInButton = styled(Button)`
     &&   {
-    width: 234px;
-    height: 48px;
+    width: 23.4rem;
+    height: 4.8rem;
     font-size: 1.4rem;
     font-family: 'Kanit';
-    border-radius: 25px;
+    border-radius: 2.5rem;
     background-color: #5b3c78;
     color: white;
-    margin: 44px 114px 0px;
+    margin: 4.4rem 11.4rem 0rem;
+    & :hover {
+      background-color: #412a57;
+    }
+
   }
 `
 
@@ -206,6 +206,7 @@ const WrapContentBtn = styled.div`
 
 const TextRegister = styled.p`
   margin: 0 auto;
+
 `
 
 const Underline = () => (
@@ -288,7 +289,20 @@ const ModalLogin = props => {
   `)
   const classes = useStyles()
   const [modalStyle] = useState(getModalStyle)
+  const [username, setUsername] = useState('')
+  const [pwd, setPwd] = useState('')
 
+  const check = () => {
+    return (username !== '' && pwd !== '') 
+      ? true : false
+  }
+
+  const submit = () => {
+    if (check()) {
+      props.handleClose()
+    }
+  }
+  
   return (
     <form>
       <ModalContainer open={props.open} onClose={() => props.handleClose()}>
@@ -312,6 +326,7 @@ const ModalLogin = props => {
               placeholder="ชื่อบัญชี / อีเมล"
               className={classes.textField2}
               margin="normal"
+              onChange={e => setUsername(e.target.value)}
             />
             <PasswordField
               placeholder="รหัสผ่าน"
@@ -319,6 +334,7 @@ const ModalLogin = props => {
               type="password"
               autoComplete="current-password"
               margin="normal"
+              onChange={e => setPwd(e.target.value)}
             />
             <ForgotPassword
               onClick={props.showForgot}
@@ -327,7 +343,13 @@ const ModalLogin = props => {
             >
               ลืมรหัสผ่าน
             </ForgotPassword>
-            <SignInButton>เข้าสู่ระบบ</SignInButton>
+            <SignInButton
+              variant="extended"
+              className={classes.margin}
+              onClick={submit} // onClick={() => props.setStep('close')}
+            >
+              เข้าสู่ระบบ
+            </SignInButton>
 
             <SmallBox>
               <BoxThree>

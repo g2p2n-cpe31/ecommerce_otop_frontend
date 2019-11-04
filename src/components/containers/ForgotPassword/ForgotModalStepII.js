@@ -69,6 +69,9 @@ const EditButton = styled(Button)`
     letter-spacing: 0.5px;
     text-align: center;
     color: #ffffff;
+    & :hover {
+      background-color: #412a57;
+    }
     & span {
       color: white;
     }
