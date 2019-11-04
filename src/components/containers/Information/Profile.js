@@ -7,6 +7,7 @@ const ContainerRight = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-height: 72.8rem;
 `
 
 const ContainerPersonal = styled.p`
@@ -47,31 +48,41 @@ const TextFieldFirstName = styled(TextField)`
   && {
     width: 50%;
     margin-right: 2.9rem;
-  }
-  & input {
-    font-family: Kanit;
-    margin-bottom: 0.8rem;
-    margin-left: 1.2rem;
-    color: #828282;
-  }
-  & .MuiInput-underline::before {
-    height: 0.5rem;
-    border-bottom-color: #4f4f4f;
+    & input {
+      margin-bottom: 0.2rem;
+      margin-left: 1rem;
+      font-family: Kanit;
+      font-style: normal;
+      font-size: 1.4rem;
+      line-height: 2.11rem;
+      letter-spacing: 0.05rem;
+      color: #4F4F4F;  
+    }
+    & .MuiInput-underline::before {
+      height: 0.5rem;
+      border-bottom-color: #4f4f4f;
+    }
+
   }
 `
 const TextFieldLastName = styled(TextField)`
   && {
     width: 50%;
-  }
-  & input {
-    font-family: Kanit;
-    margin-bottom: 0.8rem;
-    margin-left: 1.2rem;
-    color: #828282;
+    & input {
+      margin-bottom: 0.2rem;
+      margin-left: 1rem;
+      font-family: Kanit;
+      font-style: normal;
+      font-size: 1.4rem;
+      line-height: 2.1rem;
+      letter-spacing: 0.05rem;
+      color: #4F4F4F;  
   }
   & .MuiInput-underline::before {
     height: 0.5rem;
     border-bottom-color: #4f4f4f;
+  }
+
   }
 `
 
@@ -79,17 +90,20 @@ const TextFieldOther = styled(TextField)`
   && {
     width: 100%;
     margin-bottom: 3.3rem;
-  }
-
-  & input {
-    font-family: Kanit;
-    margin-bottom: 0.8rem;
-    margin-left: 1.2rem;
-    color: #828282;
-  }
-  & .MuiInput-underline::before {
-    height: 0.5rem;
-    border-bottom-color: #4f4f4f;
+    & input {
+      margin-bottom: 0.2rem;
+      margin-left: 1rem;
+      font-family: Kanit;
+      font-style: normal;
+      font-size: 1.4rem;
+      line-height: 2.1rem;
+      letter-spacing: 0.05rem;
+      color: #4F4F4F;  
+    }
+    & .MuiInput-underline::before {
+      height: 0.5rem;
+      border-bottom-color: #4f4f4f;
+    }
   }
 `
 
@@ -97,17 +111,21 @@ const TextFieldAddress = styled(TextField)`
   && {
     width: 100%;
     margin-bottom: 4rem;
-  }
-
-  & input {
-    font-family: Kanit;
-    margin-bottom: 0.8rem;
-    margin-left: 1.2rem;
-    color: #828282;
+    & input {
+      margin-bottom: 0.2rem;
+      margin-left: 1rem;
+      font-family: Kanit;
+      font-style: normal;
+      font-size: 1.4rem;
+      line-height: 2.1rem;
+      letter-spacing: 0.05rem;
+      color: #4F4F4F;  
   }
   & .MuiInput-underline::before {
     height: 0.5rem;
     border-bottom-color: #4f4f4f;
+  }
+
   }
 `
 
@@ -150,7 +168,7 @@ const StyleButtonEditPicture = styled(Button)`
     font-size: 1rem;
     color: #ffffff;
     margin: 9.2rem 7.2rem 9.2rem 7.2rem;
-    border: 1px solid #ffffff;
+    border: 0.1rem solid #ffffff;
     box-sizing: border-box;
     border-radius: 0.5rem;
     padding: 0 1.9rem 0.3rem 1.9rem;

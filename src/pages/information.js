@@ -5,6 +5,12 @@ import Profile from '../components/containers/Information/Profile'
 import Address from '../components/containers/Address/AddrBook'
 import ChangePassword from '../components/containers/Information/ChangePassword'
 
+const Footer = styled.div`
+  background-color: #fff;
+  width: 100%;
+  height: 10.2rem;
+`
+
 const Container = styled.div`
   display: flex;
   flex-direction: row;
@@ -38,7 +44,7 @@ const TextLink = styled.p`
   ${props =>
     props.isActive &&
     css`
-      border-left: 3px solid #5b3c78;
+      border-left: 0.3rem solid #5b3c78;
       padding-left: 1.5rem;
     `}
   &:hover {
@@ -62,6 +68,7 @@ const Information = ({ location, history }) => {
   }
 
   return (
+    <>
     <Layout location={location} history={history}>
       <Container>
         <ContainerLeft>
@@ -109,6 +116,8 @@ const Information = ({ location, history }) => {
         }
       </Container>
     </Layout>
+    <Footer />
+    </>
   )
 }
 export default Information
