@@ -31,7 +31,7 @@ const ContianerStockList = styled.div`
     display: flex;
     flex-direction: row;
     width:100%;
-    padding: 0 2.3rem 1.7rem 2.3rem;
+    padding: 0 2.3rem 1.4rem 2.3rem;
     box-sizing: border-box;
     border-bottom: 0.5px solid #BDBDBD;
     margin-bottom: 1.7rem;

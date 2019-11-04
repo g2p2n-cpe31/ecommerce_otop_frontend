@@ -75,7 +75,7 @@ const HeaderText = styled.div`
     font-size: 3rem;
     line-height: 4.5rem;
     color: #4F4F4F;
-    max-width: 17rem;
+    max-width: 20rem;
     max-height: 4.5rem;
     display:flex;
     align-items: flex-end;
@@ -105,7 +105,7 @@ const MenuContainer = styled(Container)`
 const SearchTextBox = styled(TextField)`
   && {
     margin: 0 0;
-    width: 36%;
+    width: 50%;
     max-width: 96.9rem;
     background: #FFFFFF;
     border: 0.1rem solid #E0E0E0;
@@ -177,7 +177,7 @@ const Main = () => {
         <>
             <Background>
                 <HeaderContainer>
-                    <HeaderText>รายการสั่งซื้อ</HeaderText>
+                    <HeaderText>จัดการสมาชิก</HeaderText>
                     <HeaderCodeText>รหัสเข้าร่วมร้านค้า</HeaderCodeText>
                     <HeaderCode>#3233478503482</HeaderCode>
                 </HeaderContainer>
