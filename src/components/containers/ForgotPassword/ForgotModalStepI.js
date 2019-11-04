@@ -26,6 +26,10 @@ const ConfirmButton = styled(Button)`
     background: #e0e0e0;
     border-radius: 30px;
     margin-bottom: 7px;
+    & :hover {
+      background-color: #c4c4c4;
+    }
+
   }
 `
 
@@ -111,6 +115,9 @@ const NextButton = styled(Button)`
     color: #ffffff;
     align-items: center;
     padding: 0 8 0 8;
+    & :hover {
+      background-color: #412a57;
+    }
 
     & span {
       width: 161px;

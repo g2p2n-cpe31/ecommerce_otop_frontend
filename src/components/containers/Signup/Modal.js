@@ -81,11 +81,11 @@ const ConfirmButton = styled(Button)`
   && {
     display: flex;
     align-items: center;
-    width: 93px;
-    height: 24px;
+    width: 9.3rem;
+    height: 2.4rem;
     background: #e0e0e0;
-    border-radius: 30px;
-    margin-bottom: 7px;
+    border-radius: 3.0rem;
+    margin-bottom: 0.7rem;
 
     & :hover {
       background-color: #c4c4c4;
@@ -292,10 +292,10 @@ export default function SimpleModal(props) {
       confirmPwd !== '' &&
       telNum !== ''
       ? true
-      : false
+        : false
   }
 
-  const submit = props => {
+  const submit = () => {
     if (check()) {
       props.handleClose()
     }

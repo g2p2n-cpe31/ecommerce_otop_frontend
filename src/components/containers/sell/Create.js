@@ -17,7 +17,7 @@ const ContainerCreate = styled(Button)`
     background: #FFFFFF;
     margin: 1.6rem 2rem 0 0;
     font-weight: normal;
-    color: #4F4F4F;
+    color: #4F4F4F; 
 `
 
 const CreateNameStore  = styled.p`
@@ -85,21 +85,25 @@ const ContainerInput = styled.div`
 const StyledTextField = styled(TextField)`
     &&{
         width: 100%;
-        margin-bottom: 3.5rem;
-    }
-    & input{
-            font-family: Kanit;
-            font-size: 1.6rem;
-            font-weight: normal;
-            margin-left: 1rem;
-            margin-bottom: 1.1rem;
-            line-height: 2.4rem;
-            padding: 0;
-            color: #BDBDBD;
-        }
-    & .MuiInput-underline::before{
+        margin-bottom: 3.5rem; 
+     
+
+        & input{
+                font-family: Kanit;
+                font-size: 1.6rem;
+                font-weight: normal;
+                margin-left: 1rem;
+                margin-bottom: 1.1rem;
+                line-height: 2.4rem;
+                padding: 0;
+                color: #4f4f4f;
+            }
+        
+        & .MuiInput-underline::before{
             border-bottom-color: #BDBDBD;
+        }
     }
+  
 `
 
 const ContainerButton = styled.div`
@@ -179,18 +183,13 @@ const  NameMyStore = styled.p`
     margin-top: 0;
 `
 
-
 const ContainerListOfMyStore = styled.div`
     display: flex;
     flex-direction: column;
-   
-        /* overflow: hidden; */
     overflow-y: scroll;
     overflow-x: hidden;    
     
 `
-
-
 
 const ContainerMyStore = styled.div`
         display: flex;
@@ -209,9 +208,6 @@ const ContainerMyStore = styled.div`
         &:hover{
             background: #EBEBEB;
         }
-        /* overflow-y: scroll;
-        overflow-x: hidden;     */
-
 `
 
 const  ContainerMyStoreName = styled.p`
