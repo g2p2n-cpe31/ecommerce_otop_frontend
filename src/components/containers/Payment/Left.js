@@ -15,11 +15,12 @@ const ContainerPayment = styled.div`
     display: flex;
     flex-direction: column;
     width: 55rem;
-    height: 69rem;
-    background: #F2F2F2;
-    padding: 3.6rem 6.8rem 4.6rem 4.5rem;
+    height: 72rem;
+    padding: 3.6rem 4.5rem 3.6rem 4.5rem;
     box-sizing: border-box;
-    overflow: ${props => (props ? 'scroll': 'none')};
+    overflow: ${props => (props.overflow ? 'scroll': 'none')};
+    border-radius: 1rem;
+    background-color:  ${props => (props.credit ? '#F2F2F2':'rgba(255,255,255,0.1)')};
 `
 
 const ChoiceText = styled.p`
@@ -56,25 +57,26 @@ const ContainerButton = styled(Button)`
     }
 `
 
-const StyledCheckBox = styled(Checkbox)`
-    &&{
-        margin-right: 0.5rem;
-        color: #5B3C78;
+// const StyledCheckBox = styled(Checkbox)`
+//     &&{
+//         margin-right: 0.5rem;
+//         color: #5B3C78;
 
-        &:hover{
-            background: rgba(91, 60, 120, 0.1);
-            opacity: .3;
-        }
-    }
-`
+//         &:hover{
+//             background: rgba(91, 60, 120, 0.1);
+//             opacity: .3;
+//         }
+//     }
+// `
 
 const ContainerText = styled.p`
     font-family: Kanit;
-    font-weight: 300;
+    font-weight:${props => (props.isSelect? 'normal': '300')};
     font-size: 18px;
-    color: #4F4F4F;
+    color: ${props => (props.isSelect? '#5B3C78' : '#4F4F4F')};
     margin: 0 ;
     box-sizing: border-box;
+    margin-left: 4.7rem;
 `
 
 const ContainerCredit = styled.div`
@@ -221,23 +223,23 @@ const Left = () => {
 
     return (
            <ContainerLeft>
-             <ContainerPayment overflow={overflow}>
+             <ContainerPayment overflow={overflow} credit={credit}>
              {
                         credit ? (
                         <>
                             <ChoiceText>ตัวเลือกการจัดส่ง</ChoiceText>
                             <ContainerChoice>
                                 <ContainerButton onClick={() => {setSelect({['ems']: true})}} isSelect={select.ems}>
-                                    <StyledCheckBox/>
-                                    <ContainerText>ems</ContainerText>
+                                    {/* <StyledCheckBox/> */}
+                                    <ContainerText isSelect={select.ems}>ems</ContainerText>
                                 </ContainerButton>
                                 <ContainerButton onClick={() => {setSelect({['kerry']: true})}} isSelect={select.kerry}>
-                                    <StyledCheckBox/>
-                                    <ContainerText>kerry</ContainerText>
+                                    {/* <StyledCheckBox/> */}
+                                    <ContainerText isSelect={select.kerry}>kerry</ContainerText>
                                 </ContainerButton>
                                 <ContainerButton onClick={() => {setSelect({['standardexpress']: true})}} isSelect={select.standardexpress}>
-                                    <StyledCheckBox/>
-                                    <ContainerText>standard express</ContainerText>
+                                    {/* <StyledCheckBox/> */}
+                                    <ContainerText isSelect={select.standardexpress}>standard express</ContainerText>
                                 </ContainerButton>
                             </ContainerChoice>
                             <ChoiceText>การชำระเงิน</ChoiceText>

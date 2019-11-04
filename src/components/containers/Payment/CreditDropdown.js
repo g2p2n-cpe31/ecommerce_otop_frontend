@@ -8,14 +8,14 @@ import Plus from '../../../images/Pay/plus.svg'
 const ContainerDropdown = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     position: relative;
     margin-bottom: 2.5rem;
 `
 
 const CreditCard = styled(Button)`
     display: flex;
-    margin-left: 1.2rem;
+    margin-left: 2.255rem;
     background: linear-gradient(312.35deg, rgba(80, 80, 80, 0.8) 0%, rgba(208, 208, 208, 0.8) 100%);
     box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
     width: 41.5rem;
