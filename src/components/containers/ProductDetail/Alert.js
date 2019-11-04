@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import CloseIcon from '../../../images/ProductDetail/cross.svg'
 import Pipeapple from '../../../images/ProductDetail/pineapple.jpg'
+import { Alert } from '../../utility/Keyframes'
 
 const ContainerAlert = styled.div`
   display: flex;
@@ -13,13 +14,7 @@ const ContainerAlert = styled.div`
   z-index: 200;
   top: 0px;
   right: 15px;
-  animation: mymove 3.4s linear forwards;
-  @keyframes mymove {
-    0%{top: 0px; right: 15px;opacity:0}
-    7%{top:19px; right: 15px;opacity:1}
-    90%{top:19px; right: 15px;opacity:1}
-    100%{top:0px; right: 15px;opacity:0}
-  }
+  animation: ${Alert} 3.4s linear forwards;
 `
 
 const Cross = styled.img`
@@ -70,7 +65,7 @@ const AlertAddProduct = styled.p`
   margin: 0;
 `
 
-const Alert = props => {
+const AlertPage = props => {
   return (
     <>
       <ContainerAlert>
@@ -87,4 +82,4 @@ const Alert = props => {
     </>
   )
 }
-export default Alert
+export default AlertPage

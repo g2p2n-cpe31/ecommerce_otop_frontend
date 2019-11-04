@@ -26,3 +26,10 @@ export const SliderRTL = keyframes`
   90%  { transform: translateX(10%); }
   100% { transform: translateX(0%); }
 `
+
+export const Alert = keyframes`
+  0%{top: 0px; right: 15px;opacity:0}
+  7%{top:19px; right: 15px;opacity:1}
+  90%{top:19px; right: 15px;opacity:1}
+  100%{top:0px; right: 15px;opacity:0}
+`

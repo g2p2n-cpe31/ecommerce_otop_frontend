@@ -5,10 +5,20 @@ import Profile from '../components/containers/Information/Profile'
 import Address from '../components/containers/Address/AddrBook'
 import ChangePassword from '../components/containers/Information/ChangePassword'
 
+const CloneBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  padding; 0;
+`
+
 const Footer = styled.div`
   background-color: #fff;
   width: 100%;
   height: 10.2rem;
+  margin: 0;
+  margin-top: auto;
 `
 
 const Container = styled.div`
@@ -68,56 +78,56 @@ const Information = ({ location, history }) => {
   }
 
   return (
-    <>
-    <Layout location={location} history={history}>
-      <Container>
-        <ContainerLeft>
-          <ContainerText>
-            <TextLink
-              isActive={actives.information}
-              onClick={() => handleActives('information')}
-            >
-              ข้อมูลส่วนตัว
-            </TextLink>
-            <TextLink
-              isActive={actives.address}
-              onClick={() => handleActives('address')}
-            >
-              สมุดที่อยู่
-            </TextLink>
-            <TextLink
-              isActive={actives.pwd}
-              onClick={() => handleActives('pwd')}
-            >
-              แก้ไขพาสเวิร์ด
-            </TextLink>
-            <TextLink
-              isActive={actives.payment}
-              onClick={() => handleActives('payment')}
-            >
-              ตัวเลือกการชำระเงิน
-            </TextLink>
-            <TextLink
-              isActive={actives.history}
-              onClick={() => handleActives('history')}
-            >
-              ประวัติการสั่งซื้อ
-            </TextLink>
-          </ContainerText>
-        </ContainerLeft>
-        {
+    <CloneBody>
+      <Layout location={location} history={history}>
+        <Container>
+          <ContainerLeft>
+            <ContainerText>
+              <TextLink
+                isActive={actives.information}
+                onClick={() => handleActives('information')}
+              >
+                ข้อมูลส่วนตัว
+              </TextLink>
+              <TextLink
+                isActive={actives.address}
+                onClick={() => handleActives('address')}
+              >
+                สมุดที่อยู่
+              </TextLink>
+              <TextLink
+                isActive={actives.pwd}
+                onClick={() => handleActives('pwd')}
+              >
+                แก้ไขพาสเวิร์ด
+              </TextLink>
+              <TextLink
+                isActive={actives.payment}
+                onClick={() => handleActives('payment')}
+              >
+                ตัวเลือกการชำระเงิน
+              </TextLink>
+              <TextLink
+                isActive={actives.history}
+                onClick={() => handleActives('history')}
+              >
+                ประวัติการสั่งซื้อ
+              </TextLink>
+            </ContainerText>
+          </ContainerLeft>
           {
-            information: <Profile />,
-            address: <Address />,
-            pwd: <ChangePassword />,
-            payment: null,
-            history: null,
-          }[pageShow]
-        }
-      </Container>
-    </Layout>
-    <Footer />
-    </>
+            {
+              information: <Profile />,
+              address: <Address />,
+              pwd: <ChangePassword />,
+              payment: null,
+              history: null,
+            }[pageShow]
+          }
+        </Container>
+      </Layout>
+      <Footer />
+    </CloneBody>
   )
 }
 export default Information
