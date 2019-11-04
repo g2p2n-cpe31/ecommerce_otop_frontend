@@ -78,12 +78,8 @@ const Text = styled.div`
 `
 
 const RequestList = () => {
-  const [showDelete, setShowDelete] = useState(false)
+  const [setShowDelete] = useState(false)
   const [show, setShow] = useState(true)
-
-  const handleShowDelete = () => {
-    setShowDelete(true)
-  }
 
   return show ? (
     <ContianerStockList onBlur={() => setShowDelete(false)} tabIndex={0}>

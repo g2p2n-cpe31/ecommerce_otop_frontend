@@ -35,6 +35,7 @@ const BigContainer = styled(Container)`
   max-width: 136.6rem;
   width: 100%;
   height: 5rem;
+  padding: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -97,9 +98,8 @@ const CustomToolbar = styled(Toolbar)`
   max-width: 136.6rem;
   height: 6.9rem;
   padding: 0;
-
   opacity: 0.9;
-  margin: auto;
+  margin: 0 4.25rem;
   /* box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1); */
 `
 
@@ -152,6 +152,7 @@ const NotiContainer = styled(Container)`
 
 const RightContainer = styled(Container)`
   /* width: 22rem; */
+  max-width: 110rem;
   height: 4rem;
   padding: 0 0;
   margin: 0 0;
