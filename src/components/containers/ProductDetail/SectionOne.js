@@ -13,9 +13,10 @@ const Content = styled.div`
   display: flex;
   justify-content: flex-start;
   background-color: white;
-  border-radius: 5px;
-  height: 559px;
+  border-radius: 0.5rem;
+  height: 55.9rem;
   width: 100%;
+  margin-top: 2rem;
   margin-bottom: 1.5rem;
 `
 
@@ -25,8 +26,8 @@ const LeftItem = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 50px 75px;
-  margin-right: 23px;
+  padding: 5rem 7.5rem;
+  margin-right: 2.3rem;
 `
 
 const RightItem = styled.div`
