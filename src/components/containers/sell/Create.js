@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import axios from 'axios'
 import {navigate} from 'gatsby'
 import styled from 'styled-components'
 import { makeStyles } from '@material-ui/core/styles'
@@ -287,7 +288,26 @@ const Create = () =>{
       const handleSubmit = () => {
         if(nameStore !== ''){
             setIsShow(true)
+            createStore() 
         }
+      }
+
+      const createStore = () => {
+        //   alert('kkk')
+        axios.post('https://otop-d5bqdesqsq-an.a.run.app/v01/api/store/',
+        {
+            "name": "pooonstore",
+            "detail" : "ig poonsht",
+            "location" : "Vetro",
+            "phoneNumber" : "1112",
+            "email" : "poonsht3@sht.com"    
+        })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
       }
 
     return(
