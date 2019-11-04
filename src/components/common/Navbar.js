@@ -16,6 +16,7 @@ import LoginModal from '../containers/Login/Modal'
 import SignupModal from '../containers/Signup/Modal'
 import ForgotContorller from '../containers/ForgotPassword/ControllerForgot'
 import Cart from '../containers/cart/AllCart'
+import Payment from '../containers/Payment/Payment'
 
 const HiddenGlobal = createGlobalStyle`
 ${props =>
@@ -233,6 +234,7 @@ const Navbar = props => {
   const [showLogin, setShowLogin] = useState(false)
   const [showSignup, setShowSignup] = useState(false)
   const [showForgot, setShowForgot] = useState('close')
+  const [showPayment, setShowPayment] = useState(false)
 
   useEffect(() => {
     if (!props.isFixedColor) {
@@ -256,7 +258,10 @@ const Navbar = props => {
   const handleChangeSearch = event => setValueSearch(event.target.value)
   const handleCartFeature = e => {
     e.preventDefault()
-    if (e.target === e.currentTarget) setShowCart(!showCart) // This condition for click able foebackground
+    if (e.target === e.currentTarget) { // This condition for click able foebackground
+      setShowCart(!showCart)
+      setShowPayment(false)
+    }
     // setShowCart(!showCart)
   }
 
@@ -363,8 +368,12 @@ const Navbar = props => {
               <LogoCart src={ImgCart} onClick={e => handleCartFeature(e)} />
             </BoxGrid>
           </ContainerTools>
-          <Cart />
-          {/* {showCart ? <Cart /> : null} */}
+          {showCart ? showPayment ? <Payment /> :<Cart setShowPayment={() => setShowPayment(true)}/> : null}
+          {/* {showCart ? (
+            <Suspense fallback={<div>Loading ...</div>}>
+              <Cart />
+            </Suspense>
+          ) : null} */}
         </ContainerLayout>
       </ContainerNavbar>
     </>

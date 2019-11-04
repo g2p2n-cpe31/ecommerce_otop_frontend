@@ -16,13 +16,15 @@ const Containers = styled.div`
   z-index: 10000; */
 `
 
-const Cart = () => {
+const Cart = props => {
   return (
     <Containers>
       <SelectAll />
       <Store />
+      {/* <Store />
       <Store />
-      <Total />
+      <Store /> */}
+      <Total {...props} />
     </Containers>
   )
 }
