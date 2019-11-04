@@ -94,7 +94,7 @@ const StyledTextField = styled(TextField)`
             margin-bottom: 1.1rem;
             line-height: 2.4rem;
             padding: 0;
-            color: #BDBDBD;
+            color: #4f4f4f;
         }
     & .MuiInput-underline::before{
             border-bottom-color: #BDBDBD;
@@ -178,18 +178,13 @@ const  NameMyStore = styled.p`
     margin-top: 0;
 `
 
-
 const ContainerListOfMyStore = styled.div`
     display: flex;
     flex-direction: column;
-   
-        /* overflow: hidden; */
     overflow-y: scroll;
     overflow-x: hidden;    
     
 `
-
-
 
 const ContainerMyStore = styled.div`
         display: flex;
@@ -208,9 +203,6 @@ const ContainerMyStore = styled.div`
         &:hover{
             background: #EBEBEB;
         }
-        /* overflow-y: scroll;
-        overflow-x: hidden;     */
-
 `
 
 const  ContainerMyStoreName = styled.p`
