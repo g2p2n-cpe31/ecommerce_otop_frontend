@@ -32,10 +32,11 @@ const AccountIcon = styled(AccountCircleIcon)`
 `
 
 const BigContainer = styled(Container)`
-  max-width: 136.6rem;
+  max-width: 163rem;
   width: 100%;
   height: 5rem;
   display: flex;
+  padding: 0;
   justify-content: space-between;
   align-items: center;
 `
@@ -85,7 +86,7 @@ const CustomMenuItem = styled(MenuItem)`
 
 const CustomNavbar = styled(AppBar)`
   background-color: #fff;
-  opacity: 0.9;
+  /* opacity: 0.9; */
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
   /* max-width: 136.6rem; */
   width: 100%;
@@ -94,12 +95,13 @@ const CustomNavbar = styled(AppBar)`
 
 const CustomToolbar = styled(Toolbar)`
   width: 100%;
-  max-width: 136.6rem;
+  /* max-width: 136.6rem; */
   height: 6.9rem;
-  padding: 0;
+  padding-left: 2.1rem;
+  padding-right: 3.8rem;
 
   opacity: 0.9;
-  margin: auto;
+  /* margin: auto; */
   /* box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1); */
 `
 
@@ -108,9 +110,11 @@ const HeaderText = styled.div`
   font-family: Kanit;
   font-size: 2.4rem;
   line-height: 3rem;
-  padding-left: 1.19rem;
+  /* padding-left: 1.19rem; */
   display: flex;
-  align-items: center;
+  /* align-items: center;
+  justify-content: center; */
+  margin-left:  1.9rem;
 `
 const SellerLink = styled(Link)`
   cursor: pointer;
@@ -121,13 +125,14 @@ const SellerLink = styled(Link)`
 
 const LeftContainer = styled(Container)`
   /* width: 15rem; */
-  /* width: 10%; */
-  height: 4rem;
-  padding: 0 0;
-  margin: 0 0;
+  width: 50%;
+  max-width: 241px; 
+  /* height: 4rem; */
+  padding: 0;
+  margin: 0;
   display: flex;
-  direction: row;
-  align-items: center;
+  /* direction: row; */
+  /* align-items: center; */
   justify-content: flex-start;
 `
 
@@ -159,7 +164,7 @@ const NotiContainer = styled(Container)`
 
 const RightContainer = styled(Container)`
   /* width: 22rem; */
-  /* width: 90%; */
+  width: 50%;
   /* width: 1100rem; */
   height: 4rem;
   padding: 0 0;

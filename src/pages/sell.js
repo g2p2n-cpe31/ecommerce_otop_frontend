@@ -20,6 +20,7 @@ const ContainerMyStore = styled(Button)`
     background: #ffffff;
     font-weight: normal;
     margin: 0;
+    margin-top: 17.5rem;
     /* margin: 20.5rem 0 0 0; */
   }
 `
@@ -32,6 +33,7 @@ const StoreName = styled.p`
 const ContainerCreate = styled.div`
   display: flex;
   flex-direction: row;
+  margin-bottom: 30.4rem;
 `
 
 const Sell = ({ location, history }) => {
