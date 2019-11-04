@@ -123,7 +123,7 @@ const StyledDetail = styled(TextField)`
         & textarea{
             font-family: Kanit;
             font-size: 1.6rem;
-            font-weight: normal;
+            font-weight: 350;
             color: #4f4f4f;
             line-height: normal;
             margin: 0 1.9rem;
