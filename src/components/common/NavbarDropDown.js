@@ -17,7 +17,8 @@ import MenuItem from '@material-ui/core/MenuItem'
 import { withStyles } from '@material-ui/core/styles'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import DropDownIcon from '../../images/NavbarDropDown/tile.svg'
-import Img from 'gatsby-image'
+// import Img from 'gatsby-image'
+import Logo from '../../images/NavbarDropDown/logo_navbardropdown.png'
 
 const AccountIcon = styled(AccountCircleIcon)`
   width: 1.9rem;
@@ -97,7 +98,7 @@ const CustomToolbar = styled(Toolbar)`
   width: 100%;
   /* max-width: 136.6rem; */
   height: 6.9rem;
-  padding-left: 2.1rem;
+  padding-left: 5rem;
   padding-right: 3.8rem;
 
   opacity: 0.9;
@@ -126,7 +127,7 @@ const SellerLink = styled(Link)`
 const LeftContainer = styled(Container)`
   /* width: 15rem; */
   width: 50%;
-  max-width: 241px; 
+  max-width: 155px; 
   /* height: 4rem; */
   padding: 0;
   margin: 0;
@@ -278,7 +279,8 @@ export default function HideAppBar(props) {
                 <BigContainer>
                   <LeftContainer>
                     <LogoLink to="/home">
-                      <Img fixed={data.logo.childImageSharp.fixed} alt="" />
+                      {/* <Img fixed={data.logo.childImageSharp.fixed} alt="" /> */}
+                      <img src={Logo} width= '55' height= '55' />
                     </LogoLink>
                     <HeaderText>
                       <SellerLink to="/sell">
