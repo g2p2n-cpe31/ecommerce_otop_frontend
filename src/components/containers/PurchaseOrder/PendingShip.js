@@ -295,7 +295,7 @@ const TrackBox = styled.div`
     justify-content: flex-start;
     padding: 0 0;
     /* margin-right: rem; */
-    width: ${props => props.showTrack ? '38.05rem' : '0'};
+    width: ${props => props.showTrack ? '33.05rem' : '0'};
     height: 3.3rem;
     position: absolute;
     top: 0;
@@ -400,14 +400,14 @@ const PendingShip = () => {
                                     <InputAdornment position="end">
                                         <ButtonFlat 
                                             background='#BDBDBD' 
-                                            width="8.1rem"
+                                            width="6.1rem"
                                             onClick={() => setShowTrack(false)}
                                         >
                                             <TextButton>ยกเลิก</TextButton>
                                         </ButtonFlat>
                                         <ButtonFlat
                                             background="#FBB282"
-                                            width="8.1rem"
+                                            width="6.1rem"
                                             type="submit"
                                             onClick={() => setShowTrack(false)}
                                         >

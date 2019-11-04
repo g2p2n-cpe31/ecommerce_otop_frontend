@@ -92,8 +92,8 @@ const Empty = styled.div`
 
 const ListText = styled.div`
     width: 100%;
-    line-height: 2.8rem;
-    /* padding-top: 0.5rem; */
+    line-height: 2.6rem;
+    padding-top: 0.2rem;
 `
 
 const OrderNumber = styled.div`
@@ -127,6 +127,7 @@ const StockList = styled.div`
     display: flex;
     flex-direction: row;
     width:100%;
+    height: 9.55rem;
     padding: 0 2.3rem 1.7rem 2.3rem;
     box-sizing: border-box;
     border-bottom: 0.5px solid #BDBDBD;
@@ -135,7 +136,7 @@ const StockList = styled.div`
     font-family: Kanit;
     font-size: 1.4rem; 
     font-weight: 300;   
-    line-height: 21px;
+    line-height: 2.1rem;
     letter-spacing: 0.5px;
     /* position: relative; */
 `
