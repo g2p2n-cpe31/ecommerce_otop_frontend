@@ -17,7 +17,8 @@ import MenuItem from '@material-ui/core/MenuItem'
 import { withStyles } from '@material-ui/core/styles'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import DropDownIcon from '../../images/NavbarDropDown/tile.svg'
-import Img from 'gatsby-image'
+// import Img from 'gatsby-image'
+import Logo from '../../images/NavbarDropDown/logo_navbardropdown.png'
 
 const AccountIcon = styled(AccountCircleIcon)`
   width: 1.9rem;
@@ -32,11 +33,12 @@ const AccountIcon = styled(AccountCircleIcon)`
 `
 
 const BigContainer = styled(Container)`
-  max-width: 136.6rem;
+  max-width: 163rem;
   width: 100%;
   height: 5rem;
   padding: 0;
   display: flex;
+  padding: 0;
   justify-content: space-between;
   align-items: center;
 `
@@ -86,7 +88,7 @@ const CustomMenuItem = styled(MenuItem)`
 
 const CustomNavbar = styled(AppBar)`
   background-color: #fff;
-  opacity: 0.9;
+  /* opacity: 0.9; */
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
   /* max-width: 136.6rem; */
   width: 100%;
@@ -95,11 +97,13 @@ const CustomNavbar = styled(AppBar)`
 
 const CustomToolbar = styled(Toolbar)`
   width: 100%;
-  max-width: 136.6rem;
+  /* max-width: 136.6rem; */
   height: 6.9rem;
-  padding: 0;
+  padding-left: 5rem;
+  padding-right: 3.8rem;
+
   opacity: 0.9;
-  margin: 0 4.25rem;
+  /* margin: auto; */
   /* box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1); */
 `
 
@@ -108,9 +112,11 @@ const HeaderText = styled.div`
   font-family: Kanit;
   font-size: 2.4rem;
   line-height: 3rem;
-  padding-left: 1.19rem;
+  /* padding-left: 1.19rem; */
   display: flex;
-  align-items: center;
+  /* align-items: center;
+  justify-content: center; */
+  margin-left: 1.9rem;
 `
 const SellerLink = styled(Link)`
   cursor: pointer;
@@ -121,13 +127,14 @@ const SellerLink = styled(Link)`
 
 const LeftContainer = styled(Container)`
   /* width: 15rem; */
-  /* width: 10%; */
-  height: 4rem;
-  padding: 0 0;
-  margin: 0 0;
+  width: 50%;
+  max-width: 155px;
+  /* height: 4rem; */
+  padding: 0;
+  margin: 0;
   display: flex;
-  direction: row;
-  align-items: center;
+  /* direction: row; */
+  /* align-items: center; */
   justify-content: flex-start;
 `
 
@@ -159,7 +166,8 @@ const NotiContainer = styled(Container)`
 
 const RightContainer = styled(Container)`
   /* width: 22rem; */
-  /* max-width: 110rem; */
+  width: 50%;
+  /* width: 1100rem; */
   height: 4rem;
   padding: 0 0;
   margin: 0 0;
@@ -272,7 +280,8 @@ export default function HideAppBar(props) {
                 <BigContainer>
                   <LeftContainer>
                     <LogoLink to="/home">
-                      <Img fixed={data.logo.childImageSharp.fixed} alt="" />
+                      {/* <Img fixed={data.logo.childImageSharp.fixed} alt="" /> */}
+                      <img src={Logo} width="55" height="55" />
                     </LogoLink>
                     <HeaderText>
                       <SellerLink to="/sell">SELLER</SellerLink>
