@@ -8,17 +8,18 @@ import Plus from '../../../images/Pay/plus.svg'
 
 
 const ContainerLeft = styled.div`
-    width: 55rem;
-    height: 69rem;
     border-radius: 0.2rem;
     box-sizing: border-box;
 `
 const ContainerPayment = styled.div`
     display: flex;
     flex-direction: column;
+    width: 55rem;
+    height: 69rem;
     background: #F2F2F2;
     padding: 3.6rem 6.8rem 4.6rem 4.5rem;
     box-sizing: border-box;
+    overflow: ${props => (props ? 'scroll': 'none')};
 `
 
 const ChoiceText = styled.p`
@@ -209,11 +210,18 @@ const Left = () => {
     })
 
     const [credit,setCredit] = useState(true)
+    const [overflow,setOverflow] = useState(true)
+
+
+    const handleCheck = () => {
+        setCredit(false)
+        setOverflow(true)
+    }
 
 
     return (
            <ContainerLeft>
-             <ContainerPayment>
+             <ContainerPayment overflow={overflow}>
              {
                         credit ? (
                         <>
@@ -237,7 +245,7 @@ const Left = () => {
                                     <TextCredit>บัตรเครดิต / เดบิต</TextCredit>
                                     <TextAccountBank>บัญชีธนาคาร</TextAccountBank>
                             </ContainerCredit>
-                            <CreditCard onClick={() => {setCredit(false)}}>
+                            <CreditCard onClick={() => handleCheck() }>
                                 <BankName>Card</BankName>
                                 <CardNumber>xxxx xxxx xxxx xxxx</CardNumber>
                                 <CardName>x xxxxxxxxxxxxxxxxxxx</CardName>

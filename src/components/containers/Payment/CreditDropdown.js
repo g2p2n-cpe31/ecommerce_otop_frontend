@@ -1,29 +1,16 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Button from '@material-ui/core/Button'
-
-const ContainerLeft = styled.div`
-    width: 50%;
-    border-radius: 0.2rem;
-    box-sizing: border-box;
-`
-
-
-const ContainerPayment = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    background: #F2F2F2;
-    padding: 4rem 4.9rem 4.6rem 4.6rem;
-    box-sizing: border-box;
-`
-
+import Circle from '../../../images/Pay/circle.svg'
+import Plus from '../../../images/Pay/plus.svg'
 
 
 const ContainerDropdown = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     position: relative;
+    margin-bottom: 2.5rem;
 `
 
 const CreditCard = styled(Button)`
@@ -132,10 +119,60 @@ const ItemDropdown = styled.div`
 const CreditDropdown = () => {
 
     return(
-       <ContainerLeft>
-            <ContainerPayment>
-            </ContainerPayment>
-       </ContainerLeft>
+       <ContainerDropdown>
+            <CreditCard>
+                <BankName>Card</BankName>
+                <CardNumber>xxxx xxxx xxxx xxxx</CardNumber>
+                <CardName>x xxxxxxxxxxxxxxxxxxx</CardName>
+                <ContainerDate>
+                    <Date>วันหมดอายุ :</Date>
+                    <DateNumber>xx/xx</DateNumber>
+                </ContainerDate>
+                <Mask>
+                    <IconCircle src={Circle}/>
+                    <IconPlus src={Plus}/>
+                </Mask>
+            </CreditCard>
+            <CreditCard>
+                <BankName>Card</BankName>
+                <CardNumber>xxxx xxxx xxxx xxxx</CardNumber>
+                <CardName>x xxxxxxxxxxxxxxxxxxx</CardName>
+                <ContainerDate>
+                    <Date>วันหมดอายุ :</Date>
+                    <DateNumber>xx/xx</DateNumber>
+                </ContainerDate>
+                <Mask>
+                    <IconCircle src={Circle}/>
+                    <IconPlus src={Plus}/>
+                </Mask>
+            </CreditCard>
+            <CreditCard>
+                <BankName>Card</BankName>
+                <CardNumber>xxxx xxxx xxxx xxxx</CardNumber>
+                <CardName>x xxxxxxxxxxxxxxxxxxx</CardName>
+                <ContainerDate>
+                    <Date>วันหมดอายุ :</Date>
+                    <DateNumber>xx/xx</DateNumber>
+                </ContainerDate>
+                <Mask>
+                    <IconCircle src={Circle}/>
+                    <IconPlus src={Plus}/>
+                </Mask>
+            </CreditCard>
+            <CreditCard>
+                <BankName>Card</BankName>
+                <CardNumber>xxxx xxxx xxxx xxxx</CardNumber>
+                <CardName>x xxxxxxxxxxxxxxxxxxx</CardName>
+                <ContainerDate>
+                    <Date>วันหมดอายุ :</Date>
+                    <DateNumber>xx/xx</DateNumber>
+                </ContainerDate>
+                <Mask>
+                    <IconCircle src={Circle}/>
+                    <IconPlus src={Plus}/>
+                </Mask>
+            </CreditCard>
+       </ContainerDropdown>
     )
 }
 export default CreditDropdown
