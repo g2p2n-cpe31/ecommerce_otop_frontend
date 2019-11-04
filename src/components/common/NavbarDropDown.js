@@ -152,6 +152,7 @@ const NotiContainer = styled(Container)`
 
 const RightContainer = styled(Container)`
   /* width: 22rem; */
+  max-width: 110rem;
   height: 4rem;
   padding: 0 0;
   margin: 0 0;
