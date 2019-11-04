@@ -112,9 +112,16 @@ const HeaderText = styled.div`
   display: flex;
   align-items: center;
 `
+const SellerLink = styled(Link)`
+  cursor: pointer;
+  margin: auto auto auto 0;
+  color: #727272;
+  text-decoration: none;
+`
 
 const LeftContainer = styled(Container)`
-  width: 15rem;
+  /* width: 15rem; */
+  /* width: 10%; */
   height: 4rem;
   padding: 0 0;
   margin: 0 0;
@@ -137,7 +144,7 @@ const LeftContainer = styled(Container)`
 
 const LogoLink = styled(Link)`
   cursor: pointer;
-  margin: auto auto auto 0;
+  margin: auto 0;
 `
 
 const NotiContainer = styled(Container)`
@@ -152,7 +159,7 @@ const NotiContainer = styled(Container)`
 
 const RightContainer = styled(Container)`
   /* width: 22rem; */
-  max-width: 110rem;
+  /* max-width: 110rem; */
   height: 4rem;
   padding: 0 0;
   margin: 0 0;
@@ -267,7 +274,9 @@ export default function HideAppBar(props) {
                     <LogoLink to="/home">
                       <Img fixed={data.logo.childImageSharp.fixed} alt="" />
                     </LogoLink>
-                    <HeaderText>SELLER</HeaderText>
+                    <HeaderText>
+                      <SellerLink to="/sell">SELLER</SellerLink>
+                    </HeaderText>
                   </LeftContainer>
 
                   <RightContainer>

@@ -16,12 +16,12 @@ const Containers = styled.div`
 
 const Cart = () => {
   return (
-    <Containers>
-      <SelectAll />
-      {/* <Store />
-      <Store /> */}
-      <Total />
-    </Containers>
+    // <Containers>
+    <SelectAll />
+    // {/* <Store />
+    // <Store /> */}
+    // {/* <Total /> */}
+    // </Containers>
   )
 }
 
