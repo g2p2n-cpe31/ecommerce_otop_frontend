@@ -5,9 +5,9 @@ import ButtonFlat from '../../common/ButtonFlat'
 import ImgDropdown from '../../../images/Sell/dropdown.png'
 import ImgSearch from '../../../images/Navbar/search.svg'
 import InputAdornment from '@material-ui/core/InputAdornment'
-import Filter from '../../common/SelectFlat'
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import Filter from '../../common/SelectFlat'
 
 const SwitchForm = styled(FormControlLabel)`
   width: 5.5rem;
@@ -112,7 +112,9 @@ const SectionTwo  = () => {
   
     const handleChange = name => event => {
       setState({ ...state, [name]: event.target.checked });
-    };    return (
+    };      
+    
+    return (
         <StyledSectionTwo>
             <SearchTextBox
               variant="outlined"
@@ -138,7 +140,12 @@ const SectionTwo  = () => {
               }}
             />
             <StyledText>เรียงตาม</StyledText>
-            <Filter width="24.9rem" displayEmpty={false} margin_form='0 0 0 3.1rem' />
+
+            <Filter 
+              width="24.9rem" 
+              displayEmpty={false} 
+              margin_form='0 0 0 3.1rem' 
+            />
 
             <SwitchForm
               control={
@@ -146,7 +153,6 @@ const SectionTwo  = () => {
                   checked={state.checkedB}
                   onChange={handleChange('checkedB')}
                   value="checkedB"
-                  // color="primary"
                 />
               }
             />
