@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import StockList from './StockList'
 
+
 const ContainerSectionThree = styled.div`
     display: flex;
     flex-direction: column;
@@ -57,8 +58,8 @@ const ContainerStockList = styled.div`
 `
 
 
-
-const SectionThree = () => {
+const SectionThree = (props) => {
+    const { products, search } = props
     return (
         <ContainerSectionThree>
                 <Content>
@@ -69,21 +70,20 @@ const SectionThree = () => {
                     <Remain>จำนวนคงเหลือ</Remain>
                 </Content>
                 <ContainerStockList>
-                    <StockList/>
-                    <StockList/>
-                    <StockList/>
-                    <StockList/>
-                    <StockList/>
-                    <StockList/><StockList/><StockList/><StockList/><StockList/><StockList/><StockList/><StockList/>
-                    <StockList/>
-                    <StockList/>
-                    <StockList/>
-                    <StockList/>
-                    <StockList/><StockList/>
-                    <StockList/>
-                    <StockList/>
-                    <StockList/>
-                    <StockList/>
+
+                    {
+                        products.map( (item,key) =>
+                        <StockList
+                            key={key}
+                            id={item._id}
+                            name={item.name}
+                            price={item.price}
+                            date={item.createdAt}
+                            edit={item.updatedAt}
+                            total={item.total}
+                            search={search}
+                            />)
+                    }
                 </ContainerStockList>
         </ContainerSectionThree>
     )

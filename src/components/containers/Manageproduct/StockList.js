@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import axios from 'axios'
 
 const ContianerStockList = styled.div`
   display: flex;
@@ -19,7 +20,7 @@ const ProductName = styled.div`
   font-family: Kanit;
   font-weight: 300;
   font-size: 1.4rem;
-  color: #4f4f4f;
+  color: ${props => props.isEmpty};
   display: flex;
 `
 
@@ -28,7 +29,7 @@ const OtherName = styled.div`
   font-family: Kanit;
   font-weight: 300;
   font-size: 1.4rem;
-  color: #828282;
+  color: ${props => props.isEmpty};
 `
 
 const RemainName = styled.div`
@@ -36,7 +37,7 @@ const RemainName = styled.div`
   font-family: Kanit;
   font-weight: 300;
   font-size: 1.4rem;
-  color: #828282;
+  color:${props => props.isEmpty};
 `
 
 const ContainerEdit = styled.div`
@@ -47,7 +48,7 @@ const ContainerEdit = styled.div`
 
 const Edit = styled.div`
   text-decoration: underline;
-  color: #4f4f4f;
+  color: ${props => props.isEmpty};
   font-family: Kanit;
   font-weight: 300;
   font-size: 1.4rem;
@@ -57,7 +58,7 @@ const Edit = styled.div`
 
 const Delete = styled.div`
   text-decoration: underline;
-  color: #4f4f4f;
+  color: ${props => props.isEmpty};
   font-family: Kanit;
   font-weight: 300;
   font-size: 1.4rem;
@@ -120,31 +121,63 @@ const ConfirmDelete = styled.div`
   cursor: pointer;
 `
 
-const StockList = () => {
+const StockList = props => {
   const [showDelete, setShowDelete] = useState(false)
   const [show, setShow] = useState(true)
+  const [nameproduct,setNameproduct] = useState('')
+  const [price,setPrice] = useState('')
+  const [amount,setAmount] = useState('')
+  const [detail,setDetail] = useState('')
+  const isEmpty = props.total === 0 ? '#EB5757': '#4F4F4F'
 
   const handleShowDelete = () => {
     setShowDelete(true)
   }
+  const dateFormat = (date) => {
+    return date.split('T')[0]
+
+  }
+
+  const handleDelete = () => {
+    setShow(false)
+    deleteProduct()
+  }
+
+  const deleteProduct = async () =>
+    {
+        try{
+            const delproduct = await axios.post(`https://otop-d5bqdesqsq-an.a.run.app/v01/api/product/delete/${props.id}`,
+            {
+                "name"  : nameproduct,
+                "price" : price,
+                "total" : amount,
+                "detail" : detail
+            })
+            console.log(delproduct)
+            await props.search('')
+        }catch(error){
+            console.error();
+        }
+    }
+
 
   return show ? (
     <ContianerStockList onBlur={() => setShowDelete(false)} tabIndex={0}>
-      <ProductName>สับประรดกับมะพร้าว</ProductName>
-      <OtherName>255</OtherName>
-      <OtherName>20/10/2562</OtherName>
-      <OtherName>20/10/2562</OtherName>
-      <RemainName>12</RemainName>
+      <ProductName isEmpty={isEmpty}>{props.name}</ProductName>
+      <OtherName  isEmpty={isEmpty}>{props.price}</OtherName>
+      <OtherName  isEmpty={isEmpty}>{dateFormat(props.date)}</OtherName>
+      <OtherName  isEmpty={isEmpty}>{dateFormat(props.edit)}</OtherName>
+      <RemainName isEmpty={isEmpty}>{props.total}</RemainName>
       <ContainerEdit>
-        <Edit>แก้ไข</Edit>
-        <Delete onClick={() => handleShowDelete()}>ลบ</Delete>
+        <Edit isEmpty={isEmpty}>แก้ไข</Edit>
+        <Delete  isEmpty={isEmpty}  onClick={() => handleShowDelete()}>ลบ</Delete>
       </ContainerEdit>
       <ContainerDel showDelete={showDelete}>
-        <Confirm>ยืนยันการลบ</Confirm>
+        <Confirm >ยืนยันการลบ</Confirm>
         <Cancle onClick={() => setShowDelete(false)}>
           <p>ยกเลิก</p>
         </Cancle>
-        <ConfirmDelete onClick={() => setShow(false)}>ลบ</ConfirmDelete>
+        <ConfirmDelete onClick={() => handleDelete()}>ลบ</ConfirmDelete>
       </ContainerDel>
     </ContianerStockList>
   ) : null

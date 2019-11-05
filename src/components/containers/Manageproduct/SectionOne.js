@@ -8,6 +8,8 @@ import Dropdown from '../../../images/SearchPage/dropdown_filter.svg'
 import Fab from '@material-ui/core/Fab'
 import IconPlus from '../../../images/Sell/Plus.png'
 import Button from '@material-ui/core/Button'
+import axios from 'axios'
+
 
 
 const DetailAddProduct = styled.div`
@@ -111,7 +113,6 @@ const StyledIcon = styled.img`
 const Item = styled(MenuItem)`
     &&{
         font-family: Kanit;
-        /* color: rgba(0,0,0,0.87); */
         color: #4F4F4F;
     }
 `
@@ -191,18 +192,66 @@ const SectionOne = ({
     placeholder = '',
     margin_form = '0',
     width = '100%',
+    ...props
 })  => {
-    const [age, setAge] = useState('');
+    const [age, setAge] = useState('')
+    const [nameproduct,setNameproduct] = useState('')
+    const [price,setPrice] = useState('')
+    const [amount,setAmount] = useState('')
+    const [detail,setDetail] = useState('')
+    const [picture,setPicture] = useState([])
+
+
     const handleChange = event => {
         setAge(event.target.value)
     }
 
+    const handleAdd = async () => {
+       await addProduct()
+       setNameproduct('')
+       setPrice('')
+       setAmount('')
+       setDetail('')
+       setPicture('')
+    }
+
+    const handlePrice = (e) => {
+        const re = /^[0-9\b]+$/
+        if (e.target.value !== '' && re.test(e.target.value)) {
+            setPrice(e.target.value)
+        }   
+    }
+    const handleAmount = (e) => {
+        const re = /^[0-9\b]+$/
+        if (e.target.value !== '' && re.test(e.target.value)) {
+            setAmount(e.target.value)
+        }   
+    }
+
+    const addProduct = async () =>
+    {
+        try{
+            const product = await axios.post('https://otop-d5bqdesqsq-an.a.run.app/v01/api/product',
+            {
+                "name"  : nameproduct,
+                "price" : price,
+                "total" : amount,
+                "detail" : detail
+            })
+            console.log(product)
+            await props.search('')
+        }catch(error){
+            console.error();
+        }
+    }
+
+
     return(
            <DetailAddProduct>
                 <ContainerTextFiled>
-                    <InputTextFeild placeholder="ชื่อสินค้า"/>
-                    <InputTextFeild placeholder="ราคา"/>
-                    <InputTextFeild placeholder="จำนวน"/>
+                    <InputTextFeild placeholder="ชื่อสินค้า" value={nameproduct}  onChange ={ e => setNameproduct(e.target.value)}/>
+                    <InputTextFeild placeholder="ราคา" value={price}  onChange ={ e => handlePrice(e)}/>
+                    <InputTextFeild placeholder="จำนวน" value={amount}  onChange ={ e => handleAmount(e)}/>
                 </ContainerTextFiled>
 
                 <ContainerSelect>
@@ -224,9 +273,8 @@ const SectionOne = ({
                                   horizontal: 'left',
                                 },
                                 getContentAnchorEl: null,
-                              }}  
+                              }}
                             >
-                        
                             <Item value="" disabled>หมวดหมู่</Item>
                             <Item value={10}>ผลไม้</Item>
                             <Item value={20}>ของใช้</Item>
@@ -239,15 +287,17 @@ const SectionOne = ({
                         multiline
                         placeholder="รายละเอียดเพิ่มเติม"
                         variant="outlined"
+                        value={detail}
+                        onChange ={ e => setDetail(e.target.value)}
                     />
                 </ContainerSelect>
                 <ContainerPicture>
-                    <StyledFabPicture  disableRipple={true}>
+                    <StyledFabPicture  disableRipple={true} value={picture} onChange ={ e => setPicture(e.target.value)}>
                         <StyledIconPlus src={IconPlus} />
                     </StyledFabPicture>
                 </ContainerPicture>
                 <ContainerAdd>
-                    <StyledButton>เพิ่ม</StyledButton>
+                    <StyledButton onClick={handleAdd}>เพิ่ม</StyledButton>
                 </ContainerAdd>
             </DetailAddProduct>
     )

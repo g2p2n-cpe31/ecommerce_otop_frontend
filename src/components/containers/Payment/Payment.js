@@ -9,6 +9,7 @@ const Container = styled.div`
     width: 100%;
     padding-top: 7.4rem;
     margin-bottom: 5rem;
+    cursor: auto;
 `
 
 const PaymentIndex = () => {

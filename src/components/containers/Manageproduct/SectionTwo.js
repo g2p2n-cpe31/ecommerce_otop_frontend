@@ -6,7 +6,7 @@ import ImgDropdown from '../../../images/Sell/dropdown.png'
 import ImgSearch from '../../../images/Navbar/search.svg'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
+import Switch from '@material-ui/core/Switch'
 import Filter from '../../common/SelectFlat'
 
 const SwitchForm = styled(FormControlLabel)`
@@ -88,14 +88,12 @@ const StyledText = styled.div`
     color: #828282;
     width: 8rem;
     margin-left:8rem;
-    /* margin-right: 3.1rem; */
     align-items: center;
 `
 
 const TextSoldOut = styled.p`
     display: flex;
     align-items: center;
-    /* margin: 0; */
     font-family: Kanit;
     font-weight: 300;
     color: #828282;
@@ -103,17 +101,21 @@ const TextSoldOut = styled.p`
 `
 
 
-const SectionTwo  = () => {
+const SectionTwo  = props => {
     const handleChangeSearch = event => setValueSearch(event.target.value)
     const [valueSearch, setValueSearch] = useState('')
     const [state, setState] = React.useState({
       checkedB: true
     });
-  
+
     const handleChange = name => event => {
       setState({ ...state, [name]: event.target.checked });
-    };      
-    
+    };
+
+    const submitSearch = (e) => {
+      props.search(valueSearch)
+    }
+
     return (
         <StyledSectionTwo>
             <SearchTextBox
@@ -125,8 +127,8 @@ const SectionTwo  = () => {
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
-                    <ButtonFlat margin="0 .28rem 0 0" type="submit">
-                      <IconSearch src={ImgSearch} />
+                    <ButtonFlat margin="0 .28rem 0 0" type="submit" onClick={(e) => submitSearch(e)}>
+                     <IconSearch src={ImgSearch}  />
                     </ButtonFlat>
                     <ButtonFlat
                       background="#828282"
@@ -141,10 +143,10 @@ const SectionTwo  = () => {
             />
             <StyledText>เรียงตาม</StyledText>
 
-            <Filter 
-              width="24.9rem" 
-              displayEmpty={false} 
-              margin_form='0 0 0 3.1rem' 
+            <Filter
+              width="24.9rem"
+              displayEmpty={false}
+              margin_form='0 0 0 3.1rem'
             />
 
             <SwitchForm

@@ -80,6 +80,8 @@ const CodeInvite = styled(TextField)`
             font-family: Kanit;
             font-size: 1.6rem;
             font-weight: normal;
+            color: #BDBDBD;
+            margin-left: 1rem;
         }
         & > div {
             height: 4rem;

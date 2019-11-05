@@ -17,7 +17,7 @@ const ContainerCreate = styled(Button)`
     background: #FFFFFF;
     margin: 1.6rem 2rem 0 0;
     font-weight: normal;
-    color: #4F4F4F; 
+    color: #4F4F4F;
 `
 
 const CreateNameStore  = styled.p`
@@ -85,8 +85,7 @@ const ContainerInput = styled.div`
 const StyledTextField = styled(TextField)`
     &&{
         width: 100%;
-        margin-bottom: 3.5rem; 
-     
+        margin-bottom: 3.5rem;
 
         & input{
                 font-family: Kanit;
@@ -98,12 +97,11 @@ const StyledTextField = styled(TextField)`
                 padding: 0;
                 color: #4f4f4f;
             }
-        
+
         & .MuiInput-underline::before{
             border-bottom-color: #BDBDBD;
         }
     }
-  
 `
 
 const ContainerButton = styled.div`
@@ -187,15 +185,13 @@ const ContainerListOfMyStore = styled.div`
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
-    overflow-x: hidden;    
-    
+    overflow-x: hidden;
 `
 
 const ContainerMyStore = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        /* width: 100%; */
         height: 8.8rem;
         background: #FBFBFB;
         border-radius: 0.5rem;
@@ -265,6 +261,12 @@ const Create = () =>{
     const [open, setOpen] = React.useState(false)
     const [isShow, setIsShow] = useState(false)
     const [nameStore, setNameStore] = useState('')
+    const [detailStore, setDetailStore] = useState('')
+    const [locationStore, setLocationStore] = useState('')
+    const [telStore, setTelStore] = useState('')
+    const [emailStore, setEmailStore] = useState('')
+    const [store,setStore] = useState([])
+
 
     const handleOpen = () => {
         setOpen(true);
@@ -274,36 +276,55 @@ const Create = () =>{
         setOpen(false);
         setTimeout(() => setIsShow(false), 600);
         setNameStore('')
+        setDetailStore('')
+        setLocationStore('')
+        setTelStore('')
+        setEmailStore('')
       };
 
       const onClickStore = (e, name) => {
         navigate(`/managestore?nameStore=${name}`)
       }
 
-      const handleSubmit = () => {
+      const handleSubmit = async () => {
         if(nameStore !== ''){
             setIsShow(true)
-            createStore() 
+            await createStore()
+            await getStore()
         }
       }
 
-      const createStore = () => {
-        //   alert('kkk')
-        axios.post('https://otop-d5bqdesqsq-an.a.run.app/v01/api/store/',
-        {
-            "name": "pooonstore",
-            "detail" : "ig poonsht",
-            "location" : "Vetro",
-            "phoneNumber" : "1112",
-            "email" : "poonsht3@sht.com"    
-        })
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-      }
+       const createStore = async () =>
+       {
+           try{
+               const store = await axios.post('https://otop-d5bqdesqsq-an.a.run.app/v01/api/store',
+               {
+                   "name" : nameStore,
+                   "detail" : detailStore,
+                   "location" : locationStore,
+                   "phoneNumber": telStore,
+                   "email": emailStore,
+               })
+               console.log(store)
+           }catch (error){
+               console.log(error)
+           }
+       }
+
+       const getStore = async () =>
+       {
+
+           const id = ''
+           try{
+               const res = await axios.get('https://otop-d5bqdesqsq-an.a.run.app/v01/api/store/'+id,
+            )
+            setStore(res.data)
+            console.log(res.data)
+           }catch (error){
+               console.log(error)
+           }
+       }
+
 
     return(
         <>
@@ -329,46 +350,18 @@ const Create = () =>{
                                         <NameMyStore>ร้านค้าของฉัน</NameMyStore>
 
                                         <ContainerListOfMyStore>
-                                            <ContainerMyStore onClick={(e, name = 'test') => onClickStore(e, name)}>
+                                            {store.map(item => (
+                                                <ContainerMyStore onClick={(e, name = 'test') => onClickStore(e, name)}>
                                                 <ContainerMyStoreName>
                                                     <TitleStore>ร้าน</TitleStore>
-                                                    <SubtitleStore>{nameStore}</SubtitleStore>
+                                                    <SubtitleStore>{item.name}</SubtitleStore>
                                                 </ContainerMyStoreName>
                                                 <ContainerOwner>
                                                     <TitleOwner>เจ้าของร้าน</TitleOwner>
-                                                    <SubtitleOwner>poonshit</SubtitleOwner>
+                                                    <SubtitleOwner>{item.ownerId}</SubtitleOwner>
                                                 </ContainerOwner>
-                                            </ContainerMyStore>
-                                            <ContainerMyStore>
-                                                <ContainerMyStoreName>
-                                                    <TitleStore>ร้าน</TitleStore>
-                                                    <SubtitleStore>HIJKLMNOP</SubtitleStore>
-                                                </ContainerMyStoreName>
-                                                <ContainerOwner>
-                                                    <TitleOwner>เจ้าของร้าน</TitleOwner>
-                                                    <SubtitleOwner>poonshit</SubtitleOwner>
-                                                </ContainerOwner>
-                                            </ContainerMyStore>
-                                            <ContainerMyStore>
-                                                <ContainerMyStoreName>
-                                                    <TitleStore>ร้าน</TitleStore>
-                                                    <SubtitleStore>QRSTUVWXYZ</SubtitleStore>
-                                                </ContainerMyStoreName>
-                                                <ContainerOwner>
-                                                    <TitleOwner>เจ้าของร้าน</TitleOwner>
-                                                    <SubtitleOwner>poonshit</SubtitleOwner>
-                                                </ContainerOwner>
-                                            </ContainerMyStore>
-                                            <ContainerMyStore>
-                                                <ContainerMyStoreName>
-                                                    <TitleStore>ร้าน</TitleStore>
-                                                    <SubtitleStore>QRSTUVWXYZ</SubtitleStore>
-                                                </ContainerMyStoreName>
-                                                <ContainerOwner>
-                                                    <TitleOwner>เจ้าของร้าน</TitleOwner>
-                                                    <SubtitleOwner>poonshit</SubtitleOwner>
-                                                </ContainerOwner>
-                                            </ContainerMyStore>
+                                                </ContainerMyStore>
+                                                ))}
                                         </ContainerListOfMyStore>
                                     </BoxMyStore>
                                 ):(
@@ -382,19 +375,27 @@ const Create = () =>{
                                             />
                                             <StyledTextField
                                                     placeholder="รายละเอียดร้านค้า"
+                                                    value={detailStore}
+                                                    onChange={e => setDetailStore(e.target.value)}
                                             />
                                             <StyledTextField
                                                     placeholder="ที่อยู่ร้านค้า"
+                                                    value={locationStore}
+                                                    onChange={e => setLocationStore(e.target.value)}
                                             />
                                             <StyledTextField
                                                     placeholder="เบอร์โทรร้านค้า"
+                                                    value={telStore}
+                                                    onChange={e => setTelStore(e.target.value)}
                                             />
                                             <StyledTextField
                                                     placeholder="อีเมลร้านค้า"
+                                                    value={emailStore}
+                                                    onChange={e => setEmailStore(e.target.value)}
                                             />
                                         </ContainerInput>
                                         <ContainerButton>
-                                            <ButtonCancle onClick={() => setOpen(false)}>
+                                            <ButtonCancle onClick={() => handleClose()}>
                                                 <NameButtonCancle>ยกเลิก</NameButtonCancle>
                                             </ButtonCancle>
                                             <ButtonCreate onClick={handleSubmit}>
