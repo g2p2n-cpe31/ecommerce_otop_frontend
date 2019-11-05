@@ -26,6 +26,7 @@ const AddressBox = styled.div`
     z-index: 200;
     overflow: hidden;
     transition: all 0.25s ease;
+    /* height: 7.8rem; */
 `
 
 const AddressSearchTextBox = styled(TextField)`
@@ -68,11 +69,13 @@ const AmountContainer = styled.div`
     color: ${props => props.showAddress ? 'transparent' : '#4F4F4F'};
     text-shadow: ${props => props.showAddress ? '0 0 0.4rem rgba(0,0,0,0.2)' : 'null'};
     margin: -0.2rem 3.5rem 0 -3.5rem;
+    height: 7.8rem;
     /* margin-top: -0.2rem;
     margin-left: -3.5rem; */
 `
 
 const CustName = styled.div`
+    height: 7.8rem;
     width: 14%;
 `
 
@@ -84,6 +87,7 @@ const Empty = styled.div`
     line-height: 21px;
     letter-spacing: 0.5px;
     width: 8%;
+    height: 7.8rem;
     text-decoration: underline;
     display: flex;
     justify-content: center;
@@ -93,14 +97,17 @@ const Empty = styled.div`
 const ListText = styled.div`
     width: 100%;
     line-height: 2.8rem;
+
     /* padding-top: 0.5rem; */
 `
 
 const OrderNumber = styled.div`
+    height: 7.8rem;
     width: 15%;
 `
 
 const PayDate = styled.div`
+    height: 7.8rem;
     width: 9%;
 `
 
@@ -113,13 +120,16 @@ const ProdNameContainer = styled.div`
     color: ${props => props.showAddress ? 'transparent' : '#4F4F4F'};
     text-shadow: ${props => props.showAddress ? '0 0 0.4rem rgba(0,0,0,0.2)' : 'null'};
     margin-top: -0.2rem;
+    height: 7.8rem;
 `
 
 const ShipDate = styled.div`
+    height: 7.8rem;
     width: 9%;
 `
 
 const ShipStatus = styled.div`
+    height: 7.8rem;
     width: 12%;
 `
 
@@ -179,6 +189,7 @@ const TableHead = styled.div`
 `
 
 const TrackNo = styled.div`
+    height: 7.8rem;
     width: 13%;
 `
 
