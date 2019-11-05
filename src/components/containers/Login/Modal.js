@@ -10,7 +10,7 @@ import IconButton from '@material-ui/core/IconButton'
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import ic_cancel_white from '../../../images/Navbar/ic_cancel_white.svg'
-import { getFirebase }  from '../../utility/Firebase'
+import { getFirebase } from '../../utility/Firebase'
 import axios from 'axios'
 
 const BigBox = styled(Box)`
@@ -307,16 +307,19 @@ const ModalLogin = props => {
   }
   const getId = async () => {
     try {
-      const res = await axios.get(`https://otop-d5bqdesqsq-an.a.run.app/v01/api/account/email/${username}`)
-      console.log(res.data._id)
-      localStorage.setItem('id', res.data._id)
+      const res = await axios.get(
+        `https://otop-d5bqdesqsq-an.a.run.app/v01/api/account/email/${username}`
+      )
+      console.log(res.data)
+      localStorage.setItem('id', res.data[0]._id)
+      localStorage.setItem('username', res.data[0].username)
     } catch (error) {
       console.log(error)
-      
     }
   }
   const Login = () => {
-    firebase.auth()
+    firebase
+      .auth()
       .signInWithEmailAndPassword(username, pwd)
       .then(response => {
         setCurrentUser(response.user)
@@ -329,21 +332,18 @@ const ModalLogin = props => {
   }
 
   useEffect(() => {
-    
     const lazyApp = import('firebase/app')
     const lazyDatabase = import('firebase/auth')
 
     Promise.all([lazyApp, lazyDatabase]).then(([firebase]) => {
       setFirebase(getFirebase(firebase))
       firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        setCurrentUser(user)
-        console.log(user)
-      }
+        if (user) {
+          setCurrentUser(user)
+          console.log(user)
+        }
+      })
     })
-    })
-  
-    
   }, [])
 
   return (
