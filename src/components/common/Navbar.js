@@ -18,6 +18,7 @@ import ForgotContorller from '../containers/ForgotPassword/ControllerForgot'
 import Cart from '../containers/cart/AllCart'
 import Payment from '../containers/Payment/Payment'
 import { CartOpenContext } from '../context/CartOpen'
+import { SearchValueContext } from '../context/SearchValue'
 const HiddenGlobal = createGlobalStyle`
 ${props =>
   props.showCart
@@ -236,6 +237,7 @@ const Navbar = props => {
   const [showForgot, setShowForgot] = useState('close')
   const [showPayment, setShowPayment] = useState(false)
   const { state, dispatch } = useContext(CartOpenContext)
+  const search = useContext(SearchValueContext)
 
   useEffect(() => {
     if (!props.isFixedColor) {
@@ -256,7 +258,10 @@ const Navbar = props => {
     console.log(getCurrentURL.get('keyword'))
   }, [props.location.search])
 
-  const handleChangeSearch = event => setValueSearch(event.target.value)
+  const handleChangeSearch = event => {
+    // dispatch({ type: 'typing', value: event.target.value })
+    setValueSearch(event.target.value)
+  }
   const handleCartFeature = e => {
     if (e.target === e.currentTarget) {
       // This condition for click able foebackground
@@ -266,13 +271,14 @@ const Navbar = props => {
 
   const closeNavbar = () => {
     // setShowCart(!showCart)
-    dispatch({ type: 'toggle'})
+    dispatch({ type: 'toggle' })
     setShowPayment(false)
   }
 
   const handleSearch = e => {
     e.preventDefault()
     navigate(`/search?keyword=${valueSearch}`)
+    search.dispatch({ type: 'typing', value: valueSearch })
     e.stopPropagation()
   }
 
@@ -350,6 +356,7 @@ const Navbar = props => {
               variant="outlined"
               margin="normal"
               value={valueSearch}
+              // value={search.value}
               onChange={event => handleChangeSearch(event)}
               InputProps={{
                 endAdornment: (
