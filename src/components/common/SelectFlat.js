@@ -21,13 +21,13 @@ const SelectCustom = styled(Select)`
     font-family: Kanit;
     font-size: 15px;
     font-weight: 300;
-    color: #828282;
-  
+
 
     fieldset {
       border-width: ${props => props.border};
       border-radius: ${props => props.border_radius};
       background: #fff;
+      color: #828282;
     }
     .MuiOutlinedInput-input {
       padding: auto 1.9rem;
@@ -38,6 +38,16 @@ const SelectCustom = styled(Select)`
     }
   }
 `
+
+
+const StyleMenuItem = styled(MenuItem)`
+  font-family: Kanit;
+  font-weight: normal;
+  font-size: 1.4rem;
+  color: #4F4F4F;
+`
+
+
 
 const IconDropDown = styled.img`
   width: 20px;
@@ -84,13 +94,13 @@ const SelectFlat = ({
         border_radius={border_radius}
         {...props}
       >
-        <MenuItem value="" disabled>
+        <StyleMenuItem value="" disabled>
           {placeholder}
-        </MenuItem>
+        </StyleMenuItem>
         {options.map((item, key) => (
-          <MenuItem key={key} value={item.value}>
+          <StyleMenuItem key={key} value={item.value}>
             {item.label}
-          </MenuItem>
+          </StyleMenuItem>
         ))}
       </SelectCustom>
     </FormCustom>

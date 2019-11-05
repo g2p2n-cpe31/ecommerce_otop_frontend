@@ -20,6 +20,8 @@ const Manage = ({ location, history }) => {
   const [products, setProduct] = useState([])
   const [isAvaliable, setIsAvaliable] = useState(true);
   const [currentSearch, setCurrentSearch] = useState('')
+
+
   useEffect(()=> {
     search('')
   }, [])
