@@ -159,6 +159,11 @@ const DropdownManageProduct = styled(Link)`
   margin: auto 0;
   text-decoration: none;
 `
+const ProfileLink = styled(Link)`
+  cursor: pointer;
+  margin: auto 0;
+  text-decoration: none;
+`
 const DropdownPurchaseListLink = styled(Link)`
   cursor: pointer;
   margin: auto 0;
@@ -247,7 +252,6 @@ const Text = styled.div`
   max-width: 5.938rem;
   padding-left: 0.313rem;
   padding-right: 3rem;
-  cursor: default;
 `
 
 function HideOnScroll(props) {
@@ -311,7 +315,9 @@ export default function HideAppBar(props) {
 
                   <RightContainer>
                     <AccountIcon />
-                    <Text>{username}</Text>
+                    <ProfileLink to={'/information'}>
+                      <Text>{username}</Text>
+                    </ProfileLink>
 
                     {props.isManageProd ? (
                       <>
@@ -350,7 +356,7 @@ export default function HideAppBar(props) {
                               จัดการสมาชิกร้านค้า
                             </CustomMenuItem>
                           </DropdownManageMember>
-                          <CustomMenuItem onClick={handleClose}>
+                          <CustomMenuItem>
                             แก้ไขข้อมูลร้านค้า
                           </CustomMenuItem>
                         </Menu>
