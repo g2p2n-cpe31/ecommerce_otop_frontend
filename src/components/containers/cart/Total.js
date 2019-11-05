@@ -75,6 +75,8 @@ const Total = props => {
         height="4.2rem"
         color_btn="#FFF"
         background="#E89C6B"
+        font_weight="500"
+        font_size="1.8rem"
         onClick={props.setShowPayment}
       >
         ดำเนินการชำระเงิน
