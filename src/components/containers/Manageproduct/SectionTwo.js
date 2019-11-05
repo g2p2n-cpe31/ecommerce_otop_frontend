@@ -104,16 +104,15 @@ const TextSoldOut = styled.p`
 const SectionTwo  = props => {
     const handleChangeSearch = event => setValueSearch(event.target.value)
     const [valueSearch, setValueSearch] = useState('')
-    const [state, setState] = React.useState({
-      checkedB: true
-    });
-
-    const handleChange = name => event => {
-      setState({ ...state, [name]: event.target.checked });
-    };
 
     const submitSearch = (e) => {
       props.search(valueSearch)
+    }
+
+    const handleToggle  = async () => {
+      
+      await props.setIsAvaliable()
+      props.searchToggle()
     }
 
     return (
@@ -152,9 +151,9 @@ const SectionTwo  = props => {
             <SwitchForm
               control={
                 <StyledSwitch
-                  checked={state.checkedB}
-                  onChange={handleChange('checkedB')}
-                  value="checkedB"
+                  checked={props.isAvaliable}
+                  onChange={() => handleToggle()}
+                  value={props.isAvaliable}
                 />
               }
             />

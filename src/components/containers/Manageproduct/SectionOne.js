@@ -1,15 +1,11 @@
 import React ,{ useState }   from 'react'
 import styled from 'styled-components'
 import TextField from '@material-ui/core/TextField'
-import MenuItem from '@material-ui/core/MenuItem'
-import Select from '@material-ui/core/Select'
-import FormControl from '@material-ui/core/FormControl'
-import Dropdown from '../../../images/SearchPage/dropdown_filter.svg'
 import Fab from '@material-ui/core/Fab'
 import IconPlus from '../../../images/Sell/Plus.png'
 import Button from '@material-ui/core/Button'
 import axios from 'axios'
-
+import SelectFlat from '../../common/SelectFlat'
 
 
 const DetailAddProduct = styled.div`
@@ -30,6 +26,26 @@ const ContainerTextFiled = styled.div`
     width: 35%;
     margin: 0.3rem 4rem 0 0 ;
 `
+
+const Containerfilter = styled.div`
+    display: flex;
+    justify-content: space-between;
+
+`
+
+// const StyleSelectFlat = styled(SelectFlat)`
+//     &&{
+//         margin-right: 5rem;
+//         border: 1.5px solid #BDBDBD;
+//         border-radius: 3px;
+//         & :last-child{
+//             margin-right: 0;
+//         }
+//     }
+// `
+
+
+
 const InputTextFeild = styled(TextField)`
     &&{
         width: 100%;
@@ -66,56 +82,6 @@ const ContainerSelect = styled.div`
 `
 
 
-
-const StyledFormControl= styled(FormControl)`
-    &&{
-        width: 60%;
-        margin-bottom: 0;
-    }
-`
-
-
-const StyledSelect = styled(Select)`
-    &&{
-        display: flex;
-        align-items: center;
-        width: 100%;
-        height: 40px;
-        font-family: Kanit;
-        /* color:  #4F4F4F; */
-        color: #828282;
-        border: 0.1rem solid #BDBDBD;
-        border-radius: 0.3rem;
-        fieldset {
-            border-width: 0 !important;
-            border-radius: 0.2rem;
-            background: #fff;
-        }
-        & .MuiOutlinedInput-input{
-        padding: auto 1.9rem;
-        }
-        & .MuiInputBase-input {
-        z-index: 2;
-        }
-    }
-`
-
-const StyledIcon = styled.img`
-    position: absolute;
-    width: 2rem;
-    height: 1.1rem;
-    margin: auto 1rem;
-    cursor: pointer;
-    right: 0;
-    z-index: 1;
-`
-
-const Item = styled(MenuItem)`
-    &&{
-        font-family: Kanit;
-        color: #4F4F4F;
-    }
-`
 
 const StyledDetail = styled(TextField)`
     &&{
@@ -207,7 +173,7 @@ const SectionOne = ({
     }
 
     const handleAdd = async () => {
-       await addProduct()
+        addProduct()
        setNameproduct('')
        setPrice('')
        setAmount('')
@@ -219,13 +185,13 @@ const SectionOne = ({
         const re = /^[0-9\b]+$/
         if (e.target.value !== '' && re.test(e.target.value)) {
             setPrice(e.target.value)
-        }   
+        }
     }
     const handleAmount = (e) => {
         const re = /^[0-9\b]+$/
         if (e.target.value !== '' && re.test(e.target.value)) {
             setAmount(e.target.value)
-        }   
+        }
     }
 
     const addProduct = async () =>
@@ -255,33 +221,10 @@ const SectionOne = ({
                 </ContainerTextFiled>
 
                 <ContainerSelect>
-                    <StyledFormControl variant="outlined">
-                        <StyledSelect
-                            displayEmpty={displayEmpty}
-                            value={age}
-                            onChange={handleChange}
-                            IconComponent={() => (
-                                <StyledIcon src={Dropdown}/>
-                              )}
-                              MenuProps={{
-                                anchorOrigin: {
-                                  vertical: 'bottom',
-                                  horizontal: 'left',
-                                },
-                                transformOrigin: {
-                                  vertical: 'top',
-                                  horizontal: 'left',
-                                },
-                                getContentAnchorEl: null,
-                              }}
-                            >
-                            <Item value="" disabled>หมวดหมู่</Item>
-                            <Item value={10}>ผลไม้</Item>
-                            <Item value={20}>ของใช้</Item>
-                            <Item value={30}>เสื้อผ้า</Item>
-                            <Item value={30}>อื่น ๆ</Item>
-                        </StyledSelect>
-                    </StyledFormControl>
+                    <Containerfilter>
+                    <SelectFlat border_radius=".3rem" border=".15rem solid #BDBDBD" margin_form="0 2rem 0 0"/>
+                    <SelectFlat border_radius=".3rem" border=".15rem solid #BDBDBD"/>
+                    </Containerfilter>
                     <StyledDetail
                         rows="4"
                         multiline

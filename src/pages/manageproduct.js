@@ -18,8 +18,8 @@ const StyledAddProduct = styled.p`
 
 const Manage = ({ location, history }) => {
   const [products, setProduct] = useState([])
-
-
+  const [isAvaliable, setIsAvaliable] = useState(true);
+  const [currentSearch, setCurrentSearch] = useState('')
   useEffect(()=> {
     search('')
   }, [])
@@ -27,8 +27,9 @@ const Manage = ({ location, history }) => {
   const search = async (valueSearch) =>
     {
         try{
-            const res = await axios.get(`https://otop-d5bqdesqsq-an.a.run.app/v01/api/product/name/${valueSearch}`)
+            const res = await axios.get(`https://otop-d5bqdesqsq-an.a.run.app/v01/api/getproduct/${isAvaliable ? 'avaliable' : 'haveall'}/sortbyname/name/${valueSearch}`)
             setProduct(res.data)
+            setCurrentSearch(valueSearch)
             console.log(valueSearch, res.data)
         }catch (error){
             console.log(error);
@@ -40,7 +41,7 @@ const Manage = ({ location, history }) => {
     <Layout location={location} history={history} navbar="second">
       <StyledAddProduct>เพิ่มสินค้า</StyledAddProduct>
       <SectionOne search={search} />
-      <SectionTwo  search={search} />
+      <SectionTwo  search={search} setIsAvaliable={() => setIsAvaliable(!isAvaliable)} isAvaliable={isAvaliable} searchToggle={() => search(currentSearch)} />
       <SectionThree  products={products}  search={search}/>
     </Layout>
   )

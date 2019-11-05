@@ -22,10 +22,11 @@ const SelectCustom = styled(Select)`
     font-size: 15px;
     font-weight: 300;
     color: #828282;
+  
 
     fieldset {
-      border-width: 0 !important;
-      border-radius: 2px;
+      border-width: ${props => props.border};
+      border-radius: ${props => props.border_radius};
       background: #fff;
     }
     .MuiOutlinedInput-input {
@@ -53,6 +54,8 @@ const SelectFlat = ({
   placeholder = '',
   margin_form = '0',
   width = '100%',
+  border_radius=".2rem",
+  border = "0 !important"
 }) => {
   const [option, setOption] = useState('')
 
@@ -78,6 +81,8 @@ const SelectFlat = ({
           },
           getContentAnchorEl: null,
         }}
+        border={border}
+        border_radius={border_radius}
       >
         <MenuItem value="" disabled>
           {placeholder}
