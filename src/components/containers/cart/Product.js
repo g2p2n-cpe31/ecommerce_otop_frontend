@@ -1,128 +1,113 @@
 import styled from 'styled-components'
 import Checkbox from '@material-ui/core/Checkbox'
 import { makeStyles } from '@material-ui/core/styles'
-import Pineapple from './pineapple.png'
+import ProdPath from '../../../images/Cart/prod.png'
 import React, { useState, useEffect } from 'react'
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import IconButton from '@material-ui/core/IconButton'
-import DeleteIcon from '@material-ui/icons/Delete'
+import IconDeleteProd from '../../common/IconDeleteProd'
+import CheckBox from '../../common/CheckBoxCustom'
+import PlusAndMinus from '../ProductDetail/PlusAndMinus'
+import { QuantityProvider } from '../../context/QuantityProduct'
 
-const TextFieldCustom = styled(TextField)`
-  && {
-    margin: 0 2px;
-    height: 23.8px;
-    & input {
-      padding: 0;
-      width: 53.13px;
-      height: 24px;
-      text-align: center;
-    }
-    & fieldset {
-      border-radius: 1px;
-    }
-  }
-`
-const ButtonCustom = styled(Button)`
-  && {
-    width: 28px;
-    min-width: 28px;
-    height: 23.8px;
-    border-radius: 1px;
-    background-color: #e0e0e0;
-  }
-`
-const TrashLabel = styled(FormControlLabel)`
-  && .MuiTypography-body1 {
-    font-family: Kanit;
-    font-style: normal;
-    font-weight: '300';
-    font-size: '14px';
-    color: #bdbdbd;
-  }
-`
-const ContainerButton = styled.div`
-  margin-top: 20px;
-  display: flex;
-  width: 109.13px;
-  height: 22px;
-  /* background: blue; */
-`
 const Box = styled.div`
-  margin-left: 2.479rem;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  width: 115rem;
+  align-items: center;
+  width: 100%;
   height: 10rem;
+  margin: 0;
+  padding-left: 1.079rem;
+  box-sizing: border-box;
+  margin: 0.8rem 0;
 `
-const ProductNameBox = styled.div`
-  margin-left: 30px;
-  display: flex;
-  flex-direction: column;
-  width: 33rem;
-  height: 10rem;
+
+const ContainerPlusAndMinus = styled.div`
+  height: 100%;
+
+  margin: 0 6.5rem 0 0;
 `
-const Box2 = styled.div`
-  /* margin-left: 40px; */
-  display: flex;
-  flex-direction: column;
-  width: 15rem;
-  height: 10rem;
-  /* background: pink; */
+
+const DetailToSeller = styled.div`
+  height: 100%;
+  width: auto;
+
+  margin: 0;
 `
-const TextBox = styled.div`
+
+const Detail = styled.p`
+  font-family: Kanit;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 20px;
+  color: #4f4f4f;
+  margin: 0;
+`
+
+const ContentPM = styled.div`
   display: flex;
   align-items: center;
-  /* background: green; */
+  height: 3.5rem;
 `
-const DeleteBox = styled.div`
-  margin-top: 5px;
+const ContainerItemContent = styled.div`
+  margin: 0;
+
+  padding-top: 2rem;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
   display: flex;
-  align-items: flex-start;
+  width: 100%;
 `
-// const BoxCheckbox = styled.div`
-//     display: flex;
-//     /* align-items: center;
-//     justify-content: flex-start; */
-//     background: lightskyblue;
-// `
-const Margin = styled.div`
-  margin-top: 10px;
-  margin-left: 20px;
+const ContainerText = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin-left: 4.6rem;
+  max-width: 50.4rem;
+  width: 40%;
+  height: 100%;
 `
-const Margin2 = styled.div`
-  margin-top: 10px;
-  margin-bottom: 6px;
+
+const ContainerHorizontal = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `
-const Margin3 = styled.div`
-  margin-left: 73px;
-`
-const SetMargin = styled.div`
-  margin-left: 55px;
-`
-const FontSize = styled.div`
+
+const FontSize = styled.p`
   font-size: 18px;
-  margin-bottom: 10px;
+  margin: 0;
 `
-const FontSize2 = styled.div`
+const FontSize2 = styled.p`
   font-size: 13px;
   color: #828282;
+  margin: 0;
 `
-const FontSize3 = styled.div`
-  font-size: 24px;
+const FontSize3 = styled.p`
+  width: 15rem;
+  font-size: 2.4rem;
+  margin: 0;
   color: #5b3c78;
 `
-const FontSize4 = styled.div`
+const FontSize4 = styled.p`
+  width: 15rem;
   font-size: 12px;
   letter-spacing: 0.5px;
   color: #828282;
+  margin: 0;
 `
-const FontSize5 = styled.div`
-  margin-top: 20px;
-  font-size: 12px;
-  color: #4f4f4f;
+const DeleteBox = styled.div`
+  height: 100%;
+  margin-top: -3rem;
+  margin-left: auto;
+`
+
+const PreviewProdImage = styled.img`
+  width: 15.7rem;
+  height: 8.7rem;
 `
 const useStyles = makeStyles(theme => ({
   button: {
@@ -153,50 +138,54 @@ const Product = () => {
   const classes = useStyles()
 
   return (
-    <>
+    <QuantityProvider>
       <Box>
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={state.checkedB}
-              onChange={handleChange('checkedB')}
-              value="checkedB"
-              color="primary"
-            />
-          }
+        <CheckBox
+          checked={state.checkedB}
+          onChange={handleChange('checkedB')}
+          value="checkedB"
+          color="primary"
         />
-        <img src={Pineapple} width="100rem" height="87rem" alt="pine" />
-        <TextBox>
-          <ProductNameBox>
-            <Margin>
+
+        <PreviewProdImage src={ProdPath} alt="preview_product" />
+        <ContainerItemContent>
+          <ContainerText>
+            <ContainerHorizontal>
               <FontSize>ชื่อสินค้า</FontSize>
-              <FontSize2>รายละเอียดสินค้า</FontSize2>
-            </Margin>
-          </ProductNameBox>
-          <Box2>
-            <Margin2>
               <FontSize3>255 บาท</FontSize3>
-            </Margin2>
-            <FontSize4>ฟรีค่าจัดส่ง</FontSize4>
-          </Box2>
-        </TextBox>
-        <ContainerButton>
+            </ContainerHorizontal>
+            <ContainerHorizontal>
+              <FontSize2>รายละเอียดสินค้า</FontSize2>
+              <FontSize4>ฟรีค่าจัดส่ง</FontSize4>
+            </ContainerHorizontal>
+          </ContainerText>
+          <ContainerPlusAndMinus>
+            <ContentPM>
+              <PlusAndMinus />
+            </ContentPM>
+          </ContainerPlusAndMinus>
+          <DetailToSeller>
+            <Detail>รายละเอียดถึงผู้ขาย</Detail>
+            <Detail>-----------------</Detail>
+          </DetailToSeller>
+          <DeleteBox>
+            <IconDeleteProd />
+          </DeleteBox>
+        </ContainerItemContent>
+        {/* <ContainerButton>
           <ButtonCustom onClick={() => setCount(parseInt(count) - 1)}>
             -
           </ButtonCustom>
-          {/* <Text_Field type="input"  InputProps={count} value={count}></Text_Field> */}
+
           <TextFieldCustom
             id="outlined-bare"
             type="number"
-            // defaultValue={count}
             margin="normal"
             variant="outlined"
-            // inputProps={{ 'aria-label': 'bare' }}
             value={count}
             onChange={e =>
               e.target.value !== null ? setCount(e.target.value) : setCount(0)
             }
-            // setCount(parseInt(e.target.value))
           />
           <ButtonCustom onClick={() => setCount(parseInt(count) + 1)}>
             +
@@ -204,23 +193,14 @@ const Product = () => {
         </ContainerButton>
         <SetMargin>
           <Box2>
-            <FontSize5>รายละเอียดถึงผู้ขาย</FontSize5>
+            <FontSize5></FontSize5>
             <FontSize5>-----------------</FontSize5>
           </Box2>
         </SetMargin>
         <Margin3 />
-        <DeleteBox>
-          <TrashLabel
-            control={
-              <IconButton className={classes.button} aria-label="delete">
-                <DeleteIcon />
-              </IconButton>
-            }
-            label="ลบ"
-          />
-        </DeleteBox>
+       */}
       </Box>
-    </>
+    </QuantityProvider>
   )
 }
 
