@@ -1,8 +1,6 @@
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import Checkbox from '@material-ui/core/Checkbox'
-import { makeStyles } from '@material-ui/core/styles'
 import ProdPath from '../../../images/Cart/prod.png'
-import React, { useState, useEffect } from 'react'
 import IconDeleteProd from '../../common/IconDeleteProd'
 import CheckBox from '../../common/CheckBoxCustom'
 import PlusAndMinus from '../ProductDetail/PlusAndMinus'
@@ -80,24 +78,32 @@ const ContainerHorizontal = styled.div`
 const FontSize = styled.p`
   font-size: 18px;
   margin: 0;
+  font-family: Kanit;
+  font-weight: normal;
+  font-size: 18px;
+  color: #333333;
 `
-const FontSize2 = styled.p`
+const DetailProd = styled.p`
+  font-family: Kanit;
   font-size: 13px;
   color: #828282;
   margin: 0;
 `
 const FontSize3 = styled.p`
+  font-family: Kanit;
   width: 15rem;
   font-size: 2.4rem;
   margin: 0;
   color: #5b3c78;
 `
-const FontSize4 = styled.p`
+const TextShipping = styled.p`
   width: 15rem;
+  font-family: Kanit;
+  font-weight: 300;
   font-size: 12px;
   letter-spacing: 0.5px;
   color: #828282;
-  margin: 0;
+  margin: 0.5rem 0;
 `
 const DeleteBox = styled.div`
   height: 100%;
@@ -109,24 +115,8 @@ const PreviewProdImage = styled.img`
   width: 15.7rem;
   height: 8.7rem;
 `
-const useStyles = makeStyles(theme => ({
-  button: {
-    margin: theme.spacing(1),
-  },
-  input: {
-    display: 'none',
-  },
-}))
 
 const Product = () => {
-  const [count, setCount] = useState(0)
-
-  useEffect(() => {
-    console.log(count)
-    if (count < 0) setCount(0)
-    if (count === 'NaN') setCount(0)
-  }, [count])
-
   const [state, setState] = React.useState({
     checkedB: true,
   })
@@ -134,9 +124,6 @@ const Product = () => {
   const handleChange = name => event => {
     setState({ ...state, [name]: event.target.checked })
   }
-
-  const classes = useStyles()
-
   return (
     <QuantityProvider>
       <Box>
@@ -155,8 +142,8 @@ const Product = () => {
               <FontSize3>255 บาท</FontSize3>
             </ContainerHorizontal>
             <ContainerHorizontal>
-              <FontSize2>รายละเอียดสินค้า</FontSize2>
-              <FontSize4>ฟรีค่าจัดส่ง</FontSize4>
+              <DetailProd>รายละเอียดสินค้า</DetailProd>
+              <TextShipping>ฟรีค่าจัดส่ง</TextShipping>
             </ContainerHorizontal>
           </ContainerText>
           <ContainerPlusAndMinus>
@@ -172,33 +159,6 @@ const Product = () => {
             <IconDeleteProd />
           </DeleteBox>
         </ContainerItemContent>
-        {/* <ContainerButton>
-          <ButtonCustom onClick={() => setCount(parseInt(count) - 1)}>
-            -
-          </ButtonCustom>
-
-          <TextFieldCustom
-            id="outlined-bare"
-            type="number"
-            margin="normal"
-            variant="outlined"
-            value={count}
-            onChange={e =>
-              e.target.value !== null ? setCount(e.target.value) : setCount(0)
-            }
-          />
-          <ButtonCustom onClick={() => setCount(parseInt(count) + 1)}>
-            +
-          </ButtonCustom>
-        </ContainerButton>
-        <SetMargin>
-          <Box2>
-            <FontSize5></FontSize5>
-            <FontSize5>-----------------</FontSize5>
-          </Box2>
-        </SetMargin>
-        <Margin3 />
-       */}
       </Box>
     </QuantityProvider>
   )

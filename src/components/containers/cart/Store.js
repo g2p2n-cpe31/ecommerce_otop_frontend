@@ -56,8 +56,8 @@ const Store = () => {
         <Product />
         <Product />
         <Product />
+        <Margin />
       </Box>
-      <Margin />
     </>
   )
 }

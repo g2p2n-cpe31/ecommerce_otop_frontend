@@ -21,7 +21,7 @@ const Cart = props => {
     <Containers>
       <SelectAll />
       <Store />
-      {/* <Total {...props} /> */}
+      <Total {...props} />
     </Containers>
   )
 }

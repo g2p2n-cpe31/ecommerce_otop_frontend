@@ -13,7 +13,7 @@ const Box = styled.div`
   border-radius: 2px;
   margin-top: 5rem;
   margin-bottom: 1rem;
-  padding-left: 0 1.079rem;
+  padding-left: 1.079rem;
   box-sizing: border-box;
 `
 
