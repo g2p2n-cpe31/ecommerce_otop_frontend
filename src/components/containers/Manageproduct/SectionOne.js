@@ -212,6 +212,11 @@ const SectionOne = ({
     }
 
 
+    const [cata, setCate] = useState('')
+    const [region, setRegion] = useState('')
+    
+    
+
     return(
            <DetailAddProduct>
                 <ContainerTextFiled>
@@ -222,8 +227,35 @@ const SectionOne = ({
 
                 <ContainerSelect>
                     <Containerfilter>
-                    <SelectFlat border_radius=".3rem" border=".15rem solid #BDBDBD" margin_form="0 2rem 0 0"/>
-                    <SelectFlat border_radius=".3rem" border=".15rem solid #BDBDBD"/>
+                    <SelectFlat
+                        value={cata}
+                        onChange={(e) => setCate(e.target.value)}
+                        border_radius=".3rem"
+                        border=".15rem solid #BDBDBD"
+                        margin_form="0 2rem 0 0"
+                        placeholder="หมวดหมู่"
+                        options={[
+                            { label: 'ผลไม้', value: 'ผลไม้' },
+                            { label: 'ของใช้', value: 'ของใช้' },
+                            { label: 'เสื้อผ้า', value: 'เสื้อผ้า' },
+                            { label: 'อื่นๆ', value: 'อื่นๆ' },
+                          ]}
+                        />
+                    <SelectFlat
+                        value={region}
+                        onChange={(e) => setRegion(e.target.value)}
+                        border_radius=".3rem"
+                        placeholder="ภูมิภาค"
+                        border=".15rem solid #BDBDBD"
+                        options={[
+                            { label: 'ภาคเหนือ', value: 'ภาคเหนือ' },
+                            { label: 'ภาคอีสาน', value: 'ภาคอีสาน' },
+                            { label: 'ภาคตะวันออก', value: 'ภาคตะวันออก' },
+                            { label: 'ภาคกลาง', value: 'ภาคกลาง' },
+                            { label: 'ภาคตะวันตก', value: 'ภาคตะวันตก' },
+                            { label: 'ภาคใต้', value: 'ภาคใต้' },
+                          ]}
+                        />
                     </Containerfilter>
                     <StyledDetail
                         rows="4"
