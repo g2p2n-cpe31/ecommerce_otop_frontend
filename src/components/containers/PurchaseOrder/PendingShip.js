@@ -21,7 +21,7 @@ const AddressBox = styled.div`
     align-items: center;
     justify-content: flex-start;
     padding: 0 0;
-    width: ${props => props.showAddress ? '63.5rem' : '0'};
+    width: ${props => props.showAddress ? '60.25rem' : '0'};
     height: 3.3rem;
     position: absolute;
     top: 0;
@@ -76,7 +76,7 @@ const DetailBox = styled.div`
     justify-content: flex-start;
     padding: 0;
     /* margin-top: 0rem; */
-    width: ${props => props.showDetail ? '44.85rem' : '0'};
+    width: ${props => props.showDetail ? '38rem' : '0'};
     height: 7.8rem;
     position: absolute;
     top: 0;
@@ -167,7 +167,7 @@ const ListTrack = styled.div`
  `
 
 const OrderNumber = styled.div`
-    width: 15%;
+    width: 18%;
 `
 
 const OtherHead = styled.div`
@@ -186,11 +186,11 @@ const PayDate = styled.div`
 `
 
 const ProductName = styled.div`
-    width: 25%;
+    width: 22%;
 `
 
 const ProdNameContainer = styled.div`
-    width: 25%;
+    width: 22%;
     color: ${props => props.showAddress ? 'transparent' : '#4F4F4F'};
     text-shadow: ${props => props.showAddress ? '0 0 0.4rem rgba(0,0,0,0.2)' : 'null'};
     font-family: Kanit;
