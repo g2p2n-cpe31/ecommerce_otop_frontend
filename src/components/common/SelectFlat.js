@@ -53,6 +53,12 @@ const SelectFlat = ({
   placeholder = '',
   margin_form = '0',
   width = '100%',
+  options = [
+    {
+      label: 'no options',
+      value: 10,
+    },
+  ],
 }) => {
   const [option, setOption] = useState('')
 
@@ -82,9 +88,11 @@ const SelectFlat = ({
         <MenuItem value="" disabled>
           {placeholder}
         </MenuItem>
-        <MenuItem value={10}>1</MenuItem>
-        <MenuItem value={20}>2</MenuItem>
-        <MenuItem value={30}>3</MenuItem>
+        {options.map((item, key) => (
+          <MenuItem key={key} value={item.value}>
+            {item.label}
+          </MenuItem>
+        ))}
       </SelectCustom>
     </FormCustom>
   )
