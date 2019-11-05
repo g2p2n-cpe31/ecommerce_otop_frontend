@@ -9,14 +9,4 @@ const config = {
   measurementId: 'G-YGFS9ZYQRG',
 }
 
-let firebaseInstance
-export const getFirebase = firebase => {
-  if (firebaseInstance) {
-    return firebaseInstance
-  }
-
-  firebase.initializeApp(config)
-  firebaseInstance = firebase
-
-  return firebase
-}
+export default config
