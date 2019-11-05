@@ -18,8 +18,8 @@ const Layout = ({
   isFixedColor = true,
   ...props
 }) => {
-  const [isManageProd, setIsManageProd] = useState(true)
-  const [notification, setNotification] = useState(0)
+  const [isManageProd] = useState(true)
+  const [notification] = useState(0)
 
   const ContainerHaveSpace = styled.div`
     margin: 0 auto;

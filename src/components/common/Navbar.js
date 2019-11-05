@@ -17,7 +17,7 @@ import SignupModal from '../containers/Signup/Modal'
 import ForgotContorller from '../containers/ForgotPassword/ControllerForgot'
 import Cart from '../containers/cart/AllCart'
 import Payment from '../containers/Payment/Payment'
-import { CartOpenContext, CartOpenProvider } from '../context/CartOpen'
+import { CartOpenContext } from '../context/CartOpen'
 const HiddenGlobal = createGlobalStyle`
 ${props =>
   props.showCart
@@ -229,7 +229,7 @@ const Navbar = props => {
   `)
 
   const [valueSearch, setValueSearch] = useState('')
-  const [showCart, setShowCart] = useState(false)
+  // const [showCart, setShowCart] = useState(false)
   const [isDown, setIsDown] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
   const [showSignup, setShowSignup] = useState(false)

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Button from '@material-ui/core/Button'
 import Circle from '../../../images/Pay/circle.svg'
@@ -107,13 +107,13 @@ const IconPlus = styled.img`
     position: absolute;
 `
 
-const ItemDropdown = styled.div`
-    display: flex;
-    position: absolute;
-    width: 100%;
-    background: red;
-    padding: 4rem 4.9rem 4.6rem 4.6rem;
-`
+// const ItemDropdown = styled.div`
+//     display: flex;
+//     position: absolute;
+//     width: 100%;
+//     background: red;
+//     padding: 4rem 4.9rem 4.6rem 4.6rem;
+// `
 
 
 const CreditDropdown = () => {

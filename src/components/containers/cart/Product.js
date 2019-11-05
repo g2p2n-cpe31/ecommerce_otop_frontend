@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import ProdPath from '../../../images/Cart/prod.png'
 import IconDeleteProd from '../../common/IconDeleteProd'
