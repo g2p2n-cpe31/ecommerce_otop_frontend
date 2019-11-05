@@ -59,19 +59,20 @@ const SelectFlat = ({
       value: 10,
     },
   ],
+  ...props
 }) => {
-  const [option, setOption] = useState('')
+  // const [option, setOption] = useState('')
 
-  const handleChange = event => {
-    setOption(event.target.value)
-  }
+  // const handleChange = event => {
+  //   setOption(event.target.value)
+  // }
 
   return (
     <FormCustom variant="outlined" margin_form={margin_form} width={width}>
       <SelectCustom
         IconComponent={() => <IconDropDown src={dropdown_filter} />}
-        value={option}
-        onChange={handleChange}
+        // value={option}
+        // onChange={handleChange}
         displayEmpty={displayEmpty}
         MenuProps={{
           anchorOrigin: {
@@ -84,6 +85,7 @@ const SelectFlat = ({
           },
           getContentAnchorEl: null,
         }}
+        {...props}
       >
         <MenuItem value="" disabled>
           {placeholder}
