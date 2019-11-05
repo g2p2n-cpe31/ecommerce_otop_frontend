@@ -5,6 +5,7 @@ import axios from 'axios'
 
 const Container = styled.div`
   width: 100%;
+  min-height: 100vh;
   max-width: 82rem;
   display: flex;
   border-top: 2px solid #e0e0e0;
@@ -32,6 +33,9 @@ const ContainerProduct = () => {
       {products.map(item => (
         <ItemProduct name={item.name} price={item.phoneNumber} />
       ))}
+      <ItemProduct />
+      <ItemProduct />
+      <ItemProduct />
     </Container>
   )
 }
