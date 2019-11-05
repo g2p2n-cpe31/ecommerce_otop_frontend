@@ -135,7 +135,7 @@ const Right = () => {
                 </ContainerTotal>
                 <ContainerButton>
                     <ButtonCancle>ยกเลิก</ButtonCancle>
-                    <ButtonsSummit>สั่งซื้อสินค้าแล้ว</ButtonsSummit>
+                    <ButtonsSummit>สั่งซื้อสินค้า</ButtonsSummit>
                 </ContainerButton>
             </ContainerOrder>
         </ContainerRight>
