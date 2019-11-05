@@ -1,11 +1,11 @@
 import React from 'react'
-import styled from 'styled-components'
+// import styled from 'styled-components'
 import Main from '../components/containers/ManageMember/Main'
 import Layout from '../components/common/Layout'
 
-const Container = styled.div`
-  margin: 0 0;
-`
+// const Container = styled.div`
+//   margin: 0 0;
+// `
 
 const ManageMember = ({ location , history }) => {
     return (

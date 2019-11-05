@@ -15,7 +15,7 @@ import IconButton from '@material-ui/core/IconButton'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import { withStyles } from '@material-ui/core/styles'
-import { Link, useStaticQuery, graphql } from 'gatsby'
+import { Link } from 'gatsby'
 import DropDownIcon from '../../images/NavbarDropDown/tile.svg'
 // import Img from 'gatsby-image'
 import Logo from '../../images/NavbarDropDown/logo_navbardropdown.png'
@@ -81,9 +81,10 @@ const CustomButton = styled(Button)`
 
 const CustomMenuItem = styled(MenuItem)`
   font-family: Kanit;
-  font-weight: 300;
+  font-weight: 345;
   font-size: 1rem;
   line-height: 1.1rem;
+  color: #4F4F4F;
 `
 
 const CustomNavbar = styled(AppBar)`
@@ -152,6 +153,26 @@ const LeftContainer = styled(Container)`
 const LogoLink = styled(Link)`
   cursor: pointer;
   margin: auto 0;
+`
+const DropdownManageProduct = styled(Link)`
+  cursor: pointer;
+  margin: auto 0;
+  text-decoration: none;
+`
+const DropdownPurchaseListLink = styled(Link)`
+  cursor: pointer;
+  margin: auto 0;
+  text-decoration: none;
+`
+const DropdownPurchaseOrderLogLink = styled(Link)`
+  cursor: pointer;
+  margin: auto 0;
+  text-decoration: none;
+`
+const DropdownManageMember = styled(Link)`
+  cursor: pointer;
+  margin: auto 0;
+  text-decoration: none;
 `
 
 const NotiContainer = styled(Container)`
@@ -246,17 +267,17 @@ HideOnScroll.propTypes = {
 }
 
 export default function HideAppBar(props) {
-  const data = useStaticQuery(graphql`
-    query {
-      logo: file(relativePath: { eq: "logo.png" }) {
-        childImageSharp {
-          fixed(width: 142, height: 53) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-    }
-  `)
+  // const data = useStaticQuery(graphql`
+  //   query {
+  //     logo: file(relativePath: { eq: "logo.png" }) {
+  //       childImageSharp {
+  //         fixed(width: 142, height: 53) {
+  //           ...GatsbyImageSharpFixed
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
 
   const [username] = useState('poonnn')
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -281,7 +302,7 @@ export default function HideAppBar(props) {
                   <LeftContainer>
                     <LogoLink to="/home">
                       {/* <Img fixed={data.logo.childImageSharp.fixed} alt="" /> */}
-                      <img src={Logo} width="55" height="55" />
+                      <img src={Logo} alt="logo" width="55" height="55" />
                     </LogoLink>
                     <HeaderText>
                       <SellerLink to="/sell">SELLER</SellerLink>
@@ -309,19 +330,26 @@ export default function HideAppBar(props) {
                           open={Boolean(anchorEl)}
                           onClose={handleClose}
                         >
-                          <CustomMenuItem onClick={handleClose}>
-                            {' '}
-                            จัดการสินค้า{' '}
-                          </CustomMenuItem>
-                          <CustomMenuItem onClick={handleClose}>
-                            ตรวจสอบรายการสั่งซื้อ
-                          </CustomMenuItem>
-                          <CustomMenuItem onClick={handleClose}>
-                            ประวัติการขาย
-                          </CustomMenuItem>
-                          <CustomMenuItem onClick={handleClose}>
-                            จัดการสมาชิกร้านค้า
-                          </CustomMenuItem>
+                          <DropdownManageProduct to={'manageproduct'}>
+                            <CustomMenuItem onClick={handleClose}>
+                              จัดการสินค้า
+                            </CustomMenuItem>
+                          </DropdownManageProduct>
+                          <DropdownPurchaseListLink to='/purchaselist'>
+                            <CustomMenuItem onClick={handleClose}>
+                              ตรวจสอบรายการสั่งซื้อ
+                            </CustomMenuItem>
+                          </DropdownPurchaseListLink>
+                          <DropdownPurchaseOrderLogLink to='/purchaseorderlog'>
+                            <CustomMenuItem onClick={handleClose}>
+                              ประวัติการขาย
+                            </CustomMenuItem>
+                          </DropdownPurchaseOrderLogLink>
+                          <DropdownManageMember to={'managemember'}>
+                            <CustomMenuItem onClick={handleClose}>
+                              จัดการสมาชิกร้านค้า
+                            </CustomMenuItem>
+                          </DropdownManageMember>
                           <CustomMenuItem onClick={handleClose}>
                             แก้ไขข้อมูลร้านค้า
                           </CustomMenuItem>

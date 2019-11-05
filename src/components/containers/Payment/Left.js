@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Button from '@material-ui/core/Button'
-import Checkbox from '@material-ui/core/Checkbox'
+// import Checkbox from '@material-ui/core/Checkbox'
 import CreditDropdown from './CreditDropdown'
 import Circle from '../../../images/Pay/circle.svg'
 import Plus from '../../../images/Pay/plus.svg'
@@ -229,15 +229,15 @@ const Left = () => {
                         <>
                             <ChoiceText>ตัวเลือกการจัดส่ง</ChoiceText>
                             <ContainerChoice>
-                                <ContainerButton onClick={() => {setSelect({['ems']: true})}} isSelect={select.ems}>
+                                <ContainerButton onClick={() => {setSelect({'ems': true})}} isSelect={select.ems}>
                                     {/* <StyledCheckBox/> */}
                                     <ContainerText isSelect={select.ems}>ems</ContainerText>
                                 </ContainerButton>
-                                <ContainerButton onClick={() => {setSelect({['kerry']: true})}} isSelect={select.kerry}>
+                                <ContainerButton onClick={() => {setSelect({'kerry': true})}} isSelect={select.kerry}>
                                     {/* <StyledCheckBox/> */}
                                     <ContainerText isSelect={select.kerry}>kerry</ContainerText>
                                 </ContainerButton>
-                                <ContainerButton onClick={() => {setSelect({['standardexpress']: true})}} isSelect={select.standardexpress}>
+                                <ContainerButton onClick={() => {setSelect({'standardexpress': true})}} isSelect={select.standardexpress}>
                                     {/* <StyledCheckBox/> */}
                                     <ContainerText isSelect={select.standardexpress}>standard express</ContainerText>
                                 </ContainerButton>

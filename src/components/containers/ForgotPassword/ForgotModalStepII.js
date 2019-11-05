@@ -10,6 +10,7 @@ import CloseIcon from '@material-ui/icons/Close'
 import IconButton from '@material-ui/core/IconButton'
 import CheckSharpIcon from '@material-ui/icons/CheckSharp'
 import ic_cancel_white from '../../../images/Navbar/ic_cancel_white.svg'
+// import axios from 'axios'
 
 const CheckIcon = styled(CheckSharpIcon)`
   width: 42px;
@@ -132,7 +133,6 @@ const ModalContainer = styled(Modal)`
   }
 `
 
-
 const SearchTextBox = styled(TextField)`
   && {
     width: 337px;
@@ -199,7 +199,7 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '10px',
     // padding: '44px 36px',
     outline: 0,
-    cursor: 'auto'
+    cursor: 'auto',
   },
   textField1: {
     lineHeight: '43px',
@@ -221,8 +221,20 @@ export default function SimpleModal(props) {
   const [modalStyle] = useState(getModalStyle)
   const [pwdTemp, setpwdTemp] = useState('')
   const [confirmpwdTemp, setConfirmpwdTemp] = useState('')
+
+  // const changePassword = async () => {
+  //   try {
+  //     const res = await axios.post('/put/:_id', {
+
+  //     })
+  //     console.log(res)
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
+
   const submit = () => {
-    if(pwdTemp === confirmpwdTemp && pwdTemp !== '' && confirmpwdTemp !== ''){
+    if (pwdTemp === confirmpwdTemp && pwdTemp !== '' && confirmpwdTemp !== '') {
       props.nextStep()
       props.setPwd(pwdTemp)
     }
@@ -234,10 +246,10 @@ export default function SimpleModal(props) {
         aria-describedby="simple-modal-description"
         // open={true}
         open={() => props.step !== 'close'}
-        onClose={()=>{ 
-            props.handleClose()   
-        }} 
-        >
+        onClose={() => {
+          props.handleClose()
+        }}
+      >
         <Box style={modalStyle} className={classes.paper}>
           <CloseIconButton
             className={classes.button}

@@ -217,7 +217,7 @@ const Main = () => {
                         onClick={() => handleOnClick('member')} 
                         isActive={actives.member}
                     >
-                        สมาขิกร้านค้า
+                        สมาชิกร้านค้า
                     </MenuContainer>
 
                     <MenuContainer 

@@ -20,11 +20,11 @@ const OrderNumber = styled.div`
 `
 
 const ProductName = styled.div`
-  width: 25%;
+  width: 20%;
 `
 
 const ProductNumber = styled.div`
-  width: 5%;
+  width: 10%;
 `
 
 const StockList = styled.div`

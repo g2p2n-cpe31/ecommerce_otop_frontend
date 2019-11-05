@@ -110,7 +110,6 @@ const SectionTwo  = props => {
     }
 
     const handleToggle  = async () => {
-      
       await props.setIsAvaliable()
       props.searchToggle()
     }

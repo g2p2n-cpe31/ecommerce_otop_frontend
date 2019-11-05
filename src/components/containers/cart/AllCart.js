@@ -11,7 +11,7 @@ const Containers = styled.div`
   justify-content: flex-end;
   align-items: center;
   cursor: auto;
-  margin-bottom: 20rem;
+  margin-bottom: 4rem;
   /* position: absolute;
   z-index: 10000; */
 `
@@ -21,9 +21,6 @@ const Cart = props => {
     <Containers>
       <SelectAll />
       <Store />
-      {/* <Store />
-      <Store />
-      <Store /> */}
       <Total {...props} />
     </Containers>
   )

@@ -8,6 +8,7 @@ import Alert from './Alert'
 import Star from '../../../images/ProductDetail/star.svg'
 import StarOpacity from '../../../images/ProductDetail/star_opacity.png'
 import { QuantityContext } from '../../context/QuantityProduct'
+import { CartOpenContext } from '../../context/CartOpen'
 
 const Content = styled.div`
   display: flex;
@@ -194,13 +195,17 @@ const ButtonBuy = styled(Button)`
 const SectionOne = () => {
   const [isShow, setIsShow] = useState(false)
   const { state } = useContext(QuantityContext)
+  const { dispatch } = useContext(CartOpenContext)
 
-  useEffect(()=>{
-     if(isShow){
-       setTimeout(() => setIsShow(false),3450)
-     }
-
+  useEffect(() => {
+    if (isShow) {
+      setTimeout(() => setIsShow(false), 3450)
+    }
   }, [isShow])
+
+  const submitPayment = () => {
+    dispatch({ type: 'open' })
+  }
 
   return (
     <Content>
@@ -252,7 +257,9 @@ const SectionOne = () => {
             <DetailText>เพิ่มลงตะกร้าสินค้า</DetailText>
             <DetailCart src={Cart} atl="main-image"></DetailCart>
           </ButtonAdd>
-          <ButtonBuy variant="outlined">ซื้อสินค้า</ButtonBuy>
+          <ButtonBuy variant="outlined" onClick={() => submitPayment()}>
+            ซื้อสินค้า
+          </ButtonBuy>
         </ConntainerAddBuy>
       </RightItem>
     </Content>

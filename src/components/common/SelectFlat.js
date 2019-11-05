@@ -55,20 +55,19 @@ const SelectFlat = ({
   margin_form = '0',
   width = '100%',
   border_radius=".2rem",
-  border = "0 !important"
+  border = "0 !important",
+  options = [
+    {
+      label: 'no options',
+      value: 10,
+    },
+  ],
+  ...props
 }) => {
-  const [option, setOption] = useState('')
-
-  const handleChange = event => {
-    setOption(event.target.value)
-  }
-
   return (
     <FormCustom variant="outlined" margin_form={margin_form} width={width}>
       <SelectCustom
         IconComponent={() => <IconDropDown src={dropdown_filter} />}
-        value={option}
-        onChange={handleChange}
         displayEmpty={displayEmpty}
         MenuProps={{
           anchorOrigin: {
@@ -83,13 +82,16 @@ const SelectFlat = ({
         }}
         border={border}
         border_radius={border_radius}
+        {...props}
       >
         <MenuItem value="" disabled>
           {placeholder}
         </MenuItem>
-        <MenuItem value={10}>1</MenuItem>
-        <MenuItem value={20}>2</MenuItem>
-        <MenuItem value={30}>3</MenuItem>
+        {options.map((item, key) => (
+          <MenuItem key={key} value={item.value}>
+            {item.label}
+          </MenuItem>
+        ))}
       </SelectCustom>
     </FormCustom>
   )

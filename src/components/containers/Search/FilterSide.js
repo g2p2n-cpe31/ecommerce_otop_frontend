@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import SelectFlat from '../../common/SelectFlat'
 import ButtonFlat from '../../common/ButtonFlat'
@@ -84,11 +84,27 @@ const WrapForm = styled.div`
 `
 
 const FilterSide = () => {
+  const [option, setOption] = useState('')
+
+  const handleChange = event => {
+    setOption(event.target.value)
+  }
+
   return (
     <ContainerFilter>
       <WrapContainer>
         <TextTopic>ค้นหาแบบละเอียด</TextTopic>
-        <SelectFlat placeholder="หมวดหมู่" />
+        <SelectFlat
+          value={option}
+          onChange={handleChange}
+          placeholder="หมวดหมู่"
+          options={[
+            { label: 'ผลไม้', value: 'ผลไม้' },
+            { label: 'ของใช้', value: 'ของใช้' },
+            { label: 'เสื้อผ้า', value: 'เสื้อผ้า' },
+            { label: 'อื่นๆ', value: 'อื่นๆ' },
+          ]}
+        />
         <SelectFlat placeholder="ภูมิภาค" margin_form="2.6rem 0" />
         <WrapPrice>
           <TextFilter>ราคา</TextFilter>
