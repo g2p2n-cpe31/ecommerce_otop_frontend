@@ -10,7 +10,7 @@ const CloneBody = styled.div`
   flex-direction: column;
   height: 100vh;
   margin: 0;
-  padding; 0;
+  padding: 0;
 `
 
 const Footer = styled.div`

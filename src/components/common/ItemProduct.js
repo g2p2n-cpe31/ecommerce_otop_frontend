@@ -115,8 +115,9 @@ const Card = styled(Link)`
 
 const ItemProduct = ({
   margin = ' 2.9rem 1rem',
-  height = '562px',
+  height = '56.2rem',
   multiImages = true,
+  ...props
 }) => {
   return (
     <Card
@@ -128,8 +129,8 @@ const ItemProduct = ({
     >
       <ImageContainer multiImages={multiImages} />
       <ContainerDetail>
-        <NameProduct>กระหรี่ปัป</NameProduct>
-        <Price>255 บาท</Price>
+        <NameProduct>{props.name || 'ไม่ระบุชื่อสินค้า'}</NameProduct>
+        <Price>{props.price ? `${props.price}บาท` : 'ไม่ระบุราคา'}</Price>
         <SendStatus>จัดส่งฟรี</SendStatus>
         <ContainerFooterItem>
           <ContainerStar>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { navigate, Link, useStaticQuery, graphql } from 'gatsby'
 import styled, { css, createGlobalStyle } from 'styled-components'
 import Img from 'gatsby-image'
@@ -17,7 +17,7 @@ import SignupModal from '../containers/Signup/Modal'
 import ForgotContorller from '../containers/ForgotPassword/ControllerForgot'
 import Cart from '../containers/cart/AllCart'
 import Payment from '../containers/Payment/Payment'
-
+import { CartOpenContext, CartOpenProvider } from '../context/CartOpen'
 const HiddenGlobal = createGlobalStyle`
 ${props =>
   props.showCart
@@ -39,14 +39,14 @@ ${props =>
 const ContainerNavbar = styled.form`
   /* position: ${props => (props.showCart ? 'fixed' : 'fixed')}; */
   position: fixed;
-  /* z-index: 900; */
+  z-index: 900;
   display: flex;
   flex-direction: column;
   align-items: center;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 2; 
+  /* z-index: 2;  */
   height: ${props => (props.showCart ? '100%' : '13rem')};
   overflow: ${props => (props.showCart ? 'scroll' : 'hidden')};
   &:hover {
@@ -235,6 +235,7 @@ const Navbar = props => {
   const [showSignup, setShowSignup] = useState(false)
   const [showForgot, setShowForgot] = useState('close')
   const [showPayment, setShowPayment] = useState(false)
+  const { state, dispatch } = useContext(CartOpenContext)
 
   useEffect(() => {
     if (!props.isFixedColor) {
@@ -257,12 +258,16 @@ const Navbar = props => {
 
   const handleChangeSearch = event => setValueSearch(event.target.value)
   const handleCartFeature = e => {
-    e.preventDefault()
-    if (e.target === e.currentTarget) { // This condition for click able foebackground
-      setShowCart(!showCart)
-      setShowPayment(false)
+    if (e.target === e.currentTarget) {
+      // This condition for click able foebackground
+      closeNavbar()
     }
+  }
+
+  const closeNavbar = () => {
     // setShowCart(!showCart)
+    dispatch({ type: 'toggle'})
+    setShowPayment(false)
   }
 
   const handleSearch = e => {
@@ -291,7 +296,7 @@ const Navbar = props => {
 
   return (
     <>
-      <HiddenGlobal showCart={showCart} />
+      <HiddenGlobal showCart={state.showCart} />
       <LoginModal
         open={showLogin}
         handleClose={() => setShowLogin(false)}
@@ -311,8 +316,8 @@ const Navbar = props => {
         // showForgot={handleOpenForgot}
       />
       <ContainerNavbar
-        onClick={e => (showCart ? handleCartFeature(e) : null)}
-        showCart={showCart}
+        onClick={e => (state.showCart ? handleCartFeature(e) : null)}
+        showCart={state.showCart}
         isDown={isDown}
         isFixedColor={props.isFixedColor}
         onSubmit={e => {
@@ -321,7 +326,7 @@ const Navbar = props => {
         }}
       >
         <GlobalStyle />
-        <ContainerLayout showCart={showCart}>
+        <ContainerLayout showCart={state.showCart}>
           <ContainerListMenus>
             <ContainerMenu>
               <IconMenu src={ImgSell} />
@@ -368,8 +373,14 @@ const Navbar = props => {
               <LogoCart src={ImgCart} onClick={e => handleCartFeature(e)} />
             </BoxGrid>
           </ContainerTools>
-          {showCart ? showPayment ? <Payment /> :<Cart setShowPayment={() => setShowPayment(true)}/> : null}
-          {/* {showCart ? (
+          {state.showCart ? (
+            showPayment ? (
+              <Payment />
+            ) : (
+              <Cart setShowPayment={() => setShowPayment(true)} />
+            )
+          ) : null}
+          {/* {state.showCart ? (
             <Suspense fallback={<div>Loading ...</div>}>
               <Cart />
             </Suspense>

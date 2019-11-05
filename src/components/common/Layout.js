@@ -11,6 +11,7 @@ import styled from 'styled-components'
 import GlobalStyle from '../utility/GlobalStyle'
 import Navbar from './Navbar'
 import NavbarDropDown from './NavbarDropDown'
+import { CartOpenProvider } from '../context/CartOpen'
 const Layout = ({
   navbar = 'default',
   haveSpace = true,
@@ -36,7 +37,7 @@ const Layout = ({
     padding-top: ${{ default: '13rem', second: '0' }[navbar]};
   `
   return (
-    <div>
+    <CartOpenProvider>
       <GlobalStyle />
       {
         {
@@ -67,7 +68,7 @@ const Layout = ({
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer> */}
       {/* </div> */}
-    </div>
+    </CartOpenProvider>
   )
 }
 

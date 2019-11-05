@@ -7,6 +7,10 @@ const ContainerStockList = styled.div`
     flex-direction: column;
     overflow: auto;
     height: 88.2rem;
+    padding-top: -1.4rem;
+    margin-top:-2rem;
+    padding-top:2rem;
+    /* margin-left: 2.3rem; */
 `
 
 const ContainerSectionThree = styled.div`
@@ -18,13 +22,13 @@ const ContainerSectionThree = styled.div`
     border-radius: 0.3rem;
     margin-top: 3rem ;
     margin-bottom: 9.8rem;
-    padding: 0 2px 0 2px;
+    padding: 0 0px 0 2px;
 `
 
 const Content = styled.div`
     display: flex;
     flex-direction: row;
-    height: 4.7rem;
+    height: 4.438rem;
     width:100%;
     padding: 1.3rem 2.3rem 0 2.3rem;
     box-sizing: border-box;
@@ -38,7 +42,8 @@ const Content = styled.div`
 
 const Text = styled.div`
     width: 12%;
-    line-height: 3.3rem;
+    height: 3.038rem;
+    /* line-height: 3.3rem; */
 `
 const Other = styled.div`
     width: 40%;
