@@ -12,6 +12,7 @@ import GlobalStyle from '../utility/GlobalStyle'
 import Navbar from './Navbar'
 import NavbarDropDown from './NavbarDropDown'
 import { CartOpenProvider } from '../context/CartOpen'
+import { SearchValueProvider } from '../context/SearchValue'
 const Layout = ({
   navbar = 'default',
   haveSpace = true,
@@ -42,11 +43,13 @@ const Layout = ({
       {
         {
           default: (
+            // <SearchValueProvider>
             <Navbar
               isFixedColor={isFixedColor}
               location={props.location}
               history={props.history}
             />
+            // </SearchValueProvider>
           ),
           second: (
             <NavbarDropDown
