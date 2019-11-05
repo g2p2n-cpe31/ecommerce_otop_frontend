@@ -7,7 +7,7 @@ import ImgSearch from '../../../images/Navbar/search.svg'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch'
-import Filter from '../../common/SelectFlat'
+import SelectFlat from '../../common/SelectFlat'
 
 const SwitchForm = styled(FormControlLabel)`
   width: 5.5rem;
@@ -101,6 +101,7 @@ const TextSoldOut = styled.p`
 `
 
 
+
 const SectionTwo  = props => {
     const handleChangeSearch = event => setValueSearch(event.target.value)
     const [valueSearch, setValueSearch] = useState('')
@@ -113,6 +114,10 @@ const SectionTwo  = props => {
       await props.setIsAvaliable()
       props.searchToggle()
     }
+
+
+    const [cata, setCate] = useState('')
+
 
     return (
         <StyledSectionTwo>
@@ -141,10 +146,18 @@ const SectionTwo  = props => {
             />
             <StyledText>เรียงตาม</StyledText>
 
-            <Filter
+            <SelectFlat
+              value={cata}
               width="24.9rem"
-              displayEmpty={false}
-              margin_form='0 0 0 3.1rem'
+              onChange={(e) => setCate(e.target.value)}
+              placeholder="ประเภท"
+              options={[
+                { label: 'ชื่อสินค้า', value: '่ชื่อสินค้า' },
+                { label: 'ราคา(น้อยไปมาก)', value: 'ราคา(น้อยไปมาก)' },
+                { label: 'ราคา(มากไปน้อย)', value: 'ราคา(มากไปน้อย)' },
+                { label: 'จำนวน(น้อยไปมาก)', value: 'จำนวน(น้อยไปมาก)' },
+                { label: 'จำนวน(มากไปน้อย)', value: 'จำนวน(มากไปน้อย)' },
+              ]}
             />
 
             <SwitchForm

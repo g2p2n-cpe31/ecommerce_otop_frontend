@@ -214,8 +214,6 @@ const SectionOne = ({
 
     const [cata, setCate] = useState('')
     const [region, setRegion] = useState('')
-    
-    
 
     return(
            <DetailAddProduct>

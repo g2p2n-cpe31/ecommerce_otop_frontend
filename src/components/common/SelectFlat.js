@@ -21,7 +21,7 @@ const SelectCustom = styled(Select)`
     font-family: Kanit;
     font-size: 15px;
     font-weight: 300;
-    
+
 
     fieldset {
       border-width: ${props => props.border};
