@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import ItemProduct from './ItemProduct'
-import axios from 'axios'
+// import axios from 'axios'
 
 const Container = styled.div`
   width: 100%;
@@ -14,19 +14,19 @@ const Container = styled.div`
 `
 
 const ContainerProduct = () => {
-  const [products, setProducts] = useState([])
+  const [products] = useState([])
 
-  const getProduct = async () => {
-    try {
-      const res = await axios.get(
-        'https://otop-d5bqdesqsq-an.a.run.app/v01/api/store'
-      )
-      setProducts(res.data)
-      console.log(res)
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  // const getProduct = async () => {
+  //   try {
+  //     const res = await axios.get(
+  //       'https://otop-d5bqdesqsq-an.a.run.app/v01/api/store'
+  //     )
+  //     setProducts(res.data)
+  //     console.log(res)
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
 
   return (
     <Container>

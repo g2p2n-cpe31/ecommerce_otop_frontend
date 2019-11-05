@@ -1,9 +1,9 @@
-import React , { useState , useEffect} from 'react'
+import React , { useState , useEffect } from 'react'
 import GlobalStyle from '../../utility/GlobalStyle'
 import styled from 'styled-components'
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import Line from '../../../images/Payment/line.svg'
+// import Line from '../../../images/Payment/line.svg'
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
@@ -494,11 +494,11 @@ const CreditCard = () => {
         // return number.toString().replace(/\B(?=(\d{4})+(?!\d))/g, " ");
     }
 
-    useEffect(() => {
+    useEffect(() => { 
         checkpathBankType(values.numberCredit.substring(0, 4))
         checkpathBankName(values.numberCredit.substring(0, 4))
         checkCredittype(values.numberCredit[0])
-        // if(values.numberCredit.length >= 4)
+         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [values.numberCredit])
 
     useEffect(() => {
@@ -567,7 +567,7 @@ const CreditCard = () => {
                                     <ExpiryDateNumber>{exeFormat(values.exeCredit)}</ExpiryDateNumber>
                                 </ExpiryContainer>
                                 <IconBank>
-                                    <img src={pathCreditType} />
+                                    <img src={pathCreditType} alt="iconBank"/>
                                 </IconBank>
                             </CreditCardBox>
                             <TextFieldBox>

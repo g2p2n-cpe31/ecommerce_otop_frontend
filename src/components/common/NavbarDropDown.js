@@ -15,7 +15,7 @@ import IconButton from '@material-ui/core/IconButton'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import { withStyles } from '@material-ui/core/styles'
-import { Link, useStaticQuery, graphql } from 'gatsby'
+import { Link } from 'gatsby'
 import DropDownIcon from '../../images/NavbarDropDown/tile.svg'
 // import Img from 'gatsby-image'
 import Logo from '../../images/NavbarDropDown/logo_navbardropdown.png'
@@ -267,17 +267,17 @@ HideOnScroll.propTypes = {
 }
 
 export default function HideAppBar(props) {
-  const data = useStaticQuery(graphql`
-    query {
-      logo: file(relativePath: { eq: "logo.png" }) {
-        childImageSharp {
-          fixed(width: 142, height: 53) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-    }
-  `)
+  // const data = useStaticQuery(graphql`
+  //   query {
+  //     logo: file(relativePath: { eq: "logo.png" }) {
+  //       childImageSharp {
+  //         fixed(width: 142, height: 53) {
+  //           ...GatsbyImageSharpFixed
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
 
   const [username] = useState('poonnn')
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -302,7 +302,7 @@ export default function HideAppBar(props) {
                   <LeftContainer>
                     <LogoLink to="/home">
                       {/* <Img fixed={data.logo.childImageSharp.fixed} alt="" /> */}
-                      <img src={Logo} width="55" height="55" />
+                      <img src={Logo} alt="logo" width="55" height="55" />
                     </LogoLink>
                     <HeaderText>
                       <SellerLink to="/sell">SELLER</SellerLink>
