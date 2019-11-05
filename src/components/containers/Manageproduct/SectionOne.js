@@ -173,7 +173,7 @@ const SectionOne = ({
     }
 
     const handleAdd = async () => {
-        addProduct()
+       addProduct()
        setNameproduct('')
        setPrice('')
        setAmount('')

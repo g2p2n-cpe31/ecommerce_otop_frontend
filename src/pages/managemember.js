@@ -16,5 +16,5 @@ const ManageMember = ({ location , history }) => {
         </>
     )
 }
-  
+
 export default ManageMember

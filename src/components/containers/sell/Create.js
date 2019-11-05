@@ -273,6 +273,7 @@ const Create = () =>{
       };
 
       const handleClose = () => {
+        setIsShow(false)
         setOpen(false);
         setTimeout(() => setIsShow(false), 600);
         setNameStore('')
@@ -344,7 +345,7 @@ const Create = () =>{
                 <StyledFade in={open}>
                     <div className={classes.paper}>
                             {
-                                isShow ? (
+                              isShow ? (
                                     <BoxMyStore>
                                         <Cross src={CloseIcon} onClick={() => handleClose()} />
                                         <NameMyStore>ร้านค้าของฉัน</NameMyStore>

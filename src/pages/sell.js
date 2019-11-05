@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState , useEffect} from 'react'
 import styled from 'styled-components'
 import Layout from '../components/common/Layout'
-import Button from '@material-ui/core/Button'
 import Join from '../components/containers/Sell/Join'
 import Create from '../components/containers/sell/Create'
+import Mystore from '../components/containers/sell/Mystore'
 import { makeStyles } from '@material-ui/core/styles'
+import axios from 'axios'
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -13,28 +14,12 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const ContainerMyStore = styled(Button)`
-  && {
-    width: 100%;
-    height: 16.8rem;
-    background: #ffffff;
-    font-weight: normal;
-    margin: 0;
-    /* margin-top: 17.5rem; */
-    /* margin: 20.5rem 0 0 0; */
-  }
-`
-const StoreName = styled.p`
-  font-family: Kanit;
-  font-size: 3.6rem;
-  margin: 0;
-`
+
 
 const ContainerCreate = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  /* margin-bottom: 30.4rem; */
 `
 
 const BigContainer = styled.div`
@@ -44,21 +29,37 @@ const BigContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* margin: 0; */
-  /* margin-top: 23.5rem;
-  margin-bottom: 30.4rem; */
 `
 
 const Sell = ({ location, history }) => {
   const classes = useStyles()
+  const [haveStore, sethaveStore] = useState(false)
+
+  useEffect(()=> {
+    checkHaveStore('')
+   }, [])
+
+
+  const checkHaveStore = async () =>
+  {
+
+      try{
+        const res = await axios.get('https://otop-d5bqdesqsq-an.a.run.app/v01/api/account/5dbe8890d4e555459c4ad10d')
+       if(res.data.store.length > 0 )
+        sethaveStore(true)
+       else sethaveStore(false)
+       console.log(res.data)
+      }catch (error){
+          console.log(error)
+      }
+  }
+
   return (
     <Layout location={location} history={history} navbar="second">
       <BigContainer>
-        <ContainerMyStore disabled className={classes.button}>
-          <StoreName>ร้านค้าของฉัน</StoreName>
-        </ContainerMyStore>
+        <Mystore disabled={haveStore} className={classes.button}/>
         <ContainerCreate>
-          <Create />
+          <Create/>
           <Join />
         </ContainerCreate>
       </BigContainer>

@@ -8,6 +8,7 @@ import Fade from '@material-ui/core/Fade'
 import TextField from '@material-ui/core/TextField'
 import CloseIcon from '../../../images/ProductDetail/cross.svg'
 import ic_cancel_white from '../../../images/Navbar/ic_cancel_white.svg'
+import axios from 'axios';
 
 
 
@@ -152,6 +153,8 @@ const  Join = () =>{
     const classes = useStyles();
     const [open, setOpen] = React.useState(false)
     const [isShow, setIsShow] = useState(false)
+    const [isjoin,setIsjoin] = useState('')
+    const [id,setId] = useState('')
 
     const handleOpen = () => {
       setOpen(true);
@@ -161,6 +164,27 @@ const  Join = () =>{
         setOpen(false)
         setTimeout(() => setIsShow(false), 600)
     };
+
+
+    const handleJoin = () => {
+        setIsShow(true)
+        JoinStore()
+    };
+
+
+    const JoinStore = async() =>
+    {
+        try{
+            const res = await axios.post(`https://otop-d5bqdesqsq-an.a.run.app/v01/api/store/addtoset/${isjoin}`,
+            {
+                "partnerWaitId" : id,
+            })
+            console.log(res)
+        }catch(error){
+            console.error();
+        }
+    }
+
 
     return(
         <>
@@ -189,8 +213,10 @@ const  Join = () =>{
                                     <ContainerInput>
                                            <CodeInvite
                                             placeholder="CODE INVITE"
+                                            value={id}
+                                            onChange ={ e => setIsjoin(e.target.value)}
                                             />
-                                            <ButtonJoin onClick={() => setIsShow(true)}>
+                                            <ButtonJoin onClick={handleJoin}>
                                                 <NameButtonJoin>เข้าร่วม</NameButtonJoin>
                                             </ButtonJoin>
                                     </ContainerInput>
