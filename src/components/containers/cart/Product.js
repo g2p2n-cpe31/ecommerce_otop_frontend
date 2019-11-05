@@ -63,8 +63,8 @@ const ContainerText = styled.div`
   align-items: center;
   padding: 0;
   margin-left: 4.6rem;
-  max-width: 50.4rem;
-  width: 40%;
+  max-width: 54.4rem;
+  width: 50%;
   height: 100%;
 `
 
