@@ -1,11 +1,12 @@
 const config = {
-  apiKey: process.env.GATSBY_FIREBASE_API_KEY,
-  authDomain: process.env.GATSBY_FIREBASE_AUTH_DOMAIN,
-  databaseURL: process.env.GATSBY_FIREBASE_DATABASE_URL,
-  projectId: process.env.GATSBY_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.GATSBY_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.GATSBY_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.GATSBY_FIREBASE_APP_ID,
+  apiKey: 'AIzaSyC25PZBkyUKwZUX2lZdMLlPELqO4dy0bCM',
+  authDomain: 'otop-g2p2n.firebaseapp.com',
+  databaseURL: 'https://otop-g2p2n.firebaseio.com',
+  projectId: 'otop-g2p2n',
+  storageBucket: 'otop-g2p2n.appspot.com',
+  messagingSenderId: '520022753494',
+  appId: '1:520022753494:web:27b02ac1cb716239eb8977',
+  measurementId: 'G-YGFS9ZYQRG',
 }
 
 let firebaseInstance

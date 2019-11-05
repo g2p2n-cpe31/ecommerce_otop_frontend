@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
 import TextField from '@material-ui/core/TextField'
@@ -10,6 +10,8 @@ import IconButton from '@material-ui/core/IconButton'
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import ic_cancel_white from '../../../images/Navbar/ic_cancel_white.svg'
+import { getFirebase }  from '../../utility/Firebase'
+import axios from 'axios'
 
 const BigBox = styled(Box)`
   display: flex;
@@ -175,7 +177,6 @@ const SignInButton = styled(Button)`
     & :hover {
       background-color: #412a57;
     }
-
   }
 `
 
@@ -206,7 +207,6 @@ const WrapContentBtn = styled.div`
 
 const TextRegister = styled.p`
   margin: 0 auto;
-
 `
 
 const Underline = () => (
@@ -291,18 +291,61 @@ const ModalLogin = props => {
   const [modalStyle] = useState(getModalStyle)
   const [username, setUsername] = useState('')
   const [pwd, setPwd] = useState('')
-
+  const [currentUser, setCurrentUser] = useState(null)
+  const [message, setMessage] = useState('')
+  const [firebase, setFirebase] = useState({})
   const check = () => {
-    return (username !== '' && pwd !== '') 
-      ? true : false
+    return username !== '' && pwd !== '' ? true : false
   }
 
-  const submit = () => {
+  const submit = e => {
+    e.preventDefault()
     if (check()) {
       props.handleClose()
+      Login()
     }
   }
+  const getId = async () => {
+    try {
+      const res = await axios.get(`https://otop-d5bqdesqsq-an.a.run.app/v01/api/account/email/${username}`)
+      console.log(res.data._id)
+      localStorage.setItem('id', res.data._id)
+    } catch (error) {
+      console.log(error)
+      
+    }
+  }
+  const Login = () => {
+    firebase.auth()
+      .signInWithEmailAndPassword(username, pwd)
+      .then(response => {
+        setCurrentUser(response.user)
+        getId()
+        console.log(response.user)
+      })
+      .catch(error => {
+        setMessage(error.message)
+      })
+  }
+
+  useEffect(() => {
+    
+    const lazyApp = import('firebase/app')
+    const lazyDatabase = import('firebase/auth')
+
+    Promise.all([lazyApp, lazyDatabase]).then(([firebase]) => {
+      setFirebase(getFirebase(firebase))
+      firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        setCurrentUser(user)
+        console.log(user)
+      }
+    })
+    })
   
+    
+  }, [])
+
   return (
     <form>
       <ModalContainer open={props.open} onClose={() => props.handleClose()}>
