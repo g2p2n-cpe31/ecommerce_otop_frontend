@@ -324,6 +324,7 @@ const ModalLogin = props => {
       .then(response => {
         setCurrentUser(response.user)
         getId()
+        props.setLogin(true)
         console.log(response.user)
       })
       .catch(error => {
@@ -339,6 +340,7 @@ const ModalLogin = props => {
       setFirebase(getFirebase(firebase))
       firebase.auth().onAuthStateChanged(user => {
         if (user) {
+          props.setLogin(true)
           setCurrentUser(user)
           console.log(user)
         }

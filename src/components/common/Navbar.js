@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { navigate, Link, useStaticQuery, graphql } from 'gatsby'
+import ProfilesSrc from '../../images/Login/profile.svg'
 import styled, { css, createGlobalStyle } from 'styled-components'
 import Img from 'gatsby-image'
 import InputAdornment from '@material-ui/core/InputAdornment'
@@ -18,6 +19,7 @@ import ForgotContorller from '../containers/ForgotPassword/ControllerForgot'
 import Cart from '../containers/cart/AllCart'
 import Payment from '../containers/Payment/Payment'
 import { CartOpenContext } from '../context/CartOpen'
+
 const HiddenGlobal = createGlobalStyle`
 ${props =>
   props.showCart
@@ -129,6 +131,16 @@ const TextMenu = styled.p`
   cursor: pointer;
 `
 
+const LLink = styled(Link)`
+  text-decoration: none;
+  font-family: Kanit;
+  font-size: 1.3rem;
+  line-height: 3.28;
+  color: #f2f2f2;
+  margin: 0;
+  cursor: pointer;
+`
+
 const LinkToInternal = styled(Link)`
   font-family: Kanit;
   font-size: 1.3rem;
@@ -215,6 +227,11 @@ const LinkLogoOrg = styled(Link)`
   margin: auto auto auto 0;
 `
 
+const ProfileIcon = styled.img`
+  width: 1.9rem;
+  height: 1.9rem;
+`
+
 const Navbar = props => {
   const data = useStaticQuery(graphql`
     query {
@@ -236,7 +253,7 @@ const Navbar = props => {
   const [showForgot, setShowForgot] = useState('close')
   const [showPayment, setShowPayment] = useState(false)
   const { state, dispatch } = useContext(CartOpenContext)
-
+  const [isLogin, setLogin] = useState(false)
   useEffect(() => {
     if (!props.isFixedColor) {
       // console.log(window.scollY.)
@@ -266,7 +283,7 @@ const Navbar = props => {
 
   const closeNavbar = () => {
     // setShowCart(!showCart)
-    dispatch({ type: 'toggle'})
+    dispatch({ type: 'toggle' })
     setShowPayment(false)
   }
 
@@ -302,6 +319,7 @@ const Navbar = props => {
         handleClose={() => setShowLogin(false)}
         showSignup={handleOpenSignup}
         showForgot={handleOpenForgot}
+        setLogin={setLogin}
       />
 
       <SignupModal
@@ -337,9 +355,15 @@ const Navbar = props => {
               <TextMenu>การแจ้งเตือน</TextMenu>
             </ContainerMenu>
             <ContainerUserMenu>
-              <TextMenu onClick={handleOpenSignup}>สมัครสมาชิก</TextMenu>
-              <Line />
-              <TextMenu onClick={handleOpenLogin}>เข้าสู่ระบบ</TextMenu>
+              {isLogin ? (
+                <LLink to="/information">welcome to o-top</LLink>
+              ) : (
+                <>
+                  <TextMenu onClick={handleOpenSignup}>สมัครสมาชิก</TextMenu>
+                  <Line />
+                  <TextMenu onClick={handleOpenLogin}>เข้าสู่ระบบ</TextMenu>
+                </>
+              )}
             </ContainerUserMenu>
           </ContainerListMenus>
           <ContainerTools>

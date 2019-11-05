@@ -12,6 +12,8 @@ import GlobalStyle from '../utility/GlobalStyle'
 import Navbar from './Navbar'
 import NavbarDropDown from './NavbarDropDown'
 import { CartOpenProvider } from '../context/CartOpen'
+import { FirebaseContext, FirebaseProvider } from '../context/FirebaseApp'
+
 const Layout = ({
   navbar = 'default',
   haveSpace = true,
@@ -37,38 +39,40 @@ const Layout = ({
     padding-top: ${{ default: '13rem', second: '0' }[navbar]};
   `
   return (
-    <CartOpenProvider>
-      <GlobalStyle />
-      {
+    <FirebaseProvider>
+      <CartOpenProvider>
+        <GlobalStyle />
         {
-          default: (
-            <Navbar
-              isFixedColor={isFixedColor}
-              location={props.location}
-              history={props.history}
-            />
-          ),
-          second: (
-            <NavbarDropDown
-              isManageProd={isManageProd}
-              notification={notification}
-            />
-          ),
-        }[navbar]
-      }
-      {haveSpace ? (
-        <ContainerHaveSpace>{props.children}</ContainerHaveSpace>
-      ) : (
-        <ContainerFitScreen>{props.children}</ContainerFitScreen>
-      )}
+          {
+            default: (
+              <Navbar
+                isFixedColor={isFixedColor}
+                location={props.location}
+                history={props.history}
+              />
+            ),
+            second: (
+              <NavbarDropDown
+                isManageProd={isManageProd}
+                notification={notification}
+              />
+            ),
+          }[navbar]
+        }
+        {haveSpace ? (
+          <ContainerHaveSpace>{props.children}</ContainerHaveSpace>
+        ) : (
+          <ContainerFitScreen>{props.children}</ContainerFitScreen>
+        )}
 
-      {/* <footer>
+        {/* <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer> */}
-      {/* </div> */}
-    </CartOpenProvider>
+        {/* </div> */}
+      </CartOpenProvider>
+    </FirebaseProvider>
   )
 }
 
