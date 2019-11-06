@@ -8,7 +8,11 @@ const IndexPage = ({ location, history }) => {
   useEffect(() => {
     navigate('/home')
   }, [])
-  return <Layout location={location} history={history}></Layout>
+  return (
+    <Layout location={location} history={history}>
+      .
+    </Layout>
+  )
 }
 
 export default IndexPage

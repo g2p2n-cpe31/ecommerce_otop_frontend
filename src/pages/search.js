@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import FilterSide from '../components/containers/Search/FilterSide'
 import Layout from '../components/common/Layout'
@@ -28,12 +28,19 @@ const WordSearching = styled.p`
 
 const SearchPage = ({ location, history }) => {
   const { state } = useContext(SearchValueContext)
+  const [searchValue, setValueSearch] = useState('')
+  useEffect(() => {
+    const getCurrentURL = new URLSearchParams(location.search)
+    setValueSearch(getCurrentURL.get('keyword') || '')
+    console.log(getCurrentURL.get('keyword'))
+  }, [location.search])
+
   return (
     <Layout haveSpace={false} location={location} history={history}>
       <FilterSide />
       <WrapProduct>
         <WordSearching>
-          ค้นหา <span>" {state.value} "</span>
+          ค้นหา <span>" {searchValue} "</span>
         </WordSearching>
         <ContainerProduction />
         <Pagination />
@@ -42,12 +49,4 @@ const SearchPage = ({ location, history }) => {
   )
 }
 
-const Search = ({ location, history }) => {
-  return (
-    <SearchValueProvider>
-      <SearchPage location={location} history={history} />
-    </SearchValueProvider>
-  )
-}
-
-export default Search
+export default SearchPage

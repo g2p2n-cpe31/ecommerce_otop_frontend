@@ -11,7 +11,7 @@ let reducer = (state, action) => {
   }
 }
 
-const initialState = { value: 0 }
+const initialState = { value: '' }
 const SearchValueContext = createContext(initialState)
 
 const SearchValueProvider = props => {

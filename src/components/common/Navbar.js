@@ -292,10 +292,13 @@ const Navbar = props => {
     setShowPayment(false)
   }
 
-  const handleSearch = e => {
+  const handleSearch = async e => {
     e.preventDefault()
-    navigate(`/search?keyword=${valueSearch}`)
-    search.dispatch({ type: 'typing', value: valueSearch })
+    await Promise.all([
+      search.dispatch({ type: 'typing', value: valueSearch }),
+      navigate(`/search?keyword=${valueSearch}`),
+    ])
+
     e.stopPropagation()
   }
 

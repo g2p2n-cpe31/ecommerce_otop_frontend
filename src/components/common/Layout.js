@@ -39,38 +39,40 @@ const Layout = ({
   `
   return (
     <CartOpenProvider>
-      <GlobalStyle />
-      {
+      <SearchValueProvider>
+        <GlobalStyle />
         {
-          default: (
-            // <SearchValueProvider>
-            <Navbar
-              isFixedColor={isFixedColor}
-              location={props.location}
-              history={props.history}
-            />
-            // </SearchValueProvider>
-          ),
-          second: (
-            <NavbarDropDown
-              isManageProd={isManageProd}
-              notification={notification}
-            />
-          ),
-        }[navbar]
-      }
-      {haveSpace ? (
-        <ContainerHaveSpace>{props.children}</ContainerHaveSpace>
-      ) : (
-        <ContainerFitScreen>{props.children}</ContainerFitScreen>
-      )}
+          {
+            default: (
+              // <SearchValueProvider>
+              <Navbar
+                isFixedColor={isFixedColor}
+                location={props.location}
+                history={props.history}
+              />
+              // </SearchValueProvider>
+            ),
+            second: (
+              <NavbarDropDown
+                isManageProd={isManageProd}
+                notification={notification}
+              />
+            ),
+          }[navbar]
+        }
+        {haveSpace ? (
+          <ContainerHaveSpace>{props.children}</ContainerHaveSpace>
+        ) : (
+          <ContainerFitScreen>{props.children}</ContainerFitScreen>
+        )}
 
-      {/* <footer>
+        {/* <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer> */}
-      {/* </div> */}
+        {/* </div> */}
+      </SearchValueProvider>
     </CartOpenProvider>
   )
 }
