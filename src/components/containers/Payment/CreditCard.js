@@ -135,6 +135,7 @@ const Container = styled.div`
     width: 100%;
     height: 100%;
     flex-direction: column;
+    box-sizing: border-box;
     /* background: lightsalmon; */
 `
 const Textbox = styled.div`
@@ -159,7 +160,7 @@ const OptionBox = styled.div`
 `
 const CreditBox = styled.div`
     display: flex;
-    min-width: 113.7rem;
+    /* min-width: 113.7rem; */
     width: 100%;
     min-height: 37.5rem;
     height: 100%;
@@ -214,7 +215,7 @@ const LineHR = styled.hr`
 `
 const BankAccountBox = styled.div`
     display: flex;
-    min-width: 113.7rem;
+    /* min-width: 113.7rem; */
     width: 100%;
     min-height: 37.5rem;
     height: 100%;

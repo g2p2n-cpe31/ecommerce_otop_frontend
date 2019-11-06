@@ -4,7 +4,8 @@ import Layout from '../components/common/Layout'
 import Profile from '../components/containers/Information/Profile'
 import Address from '../components/containers/Address/AddrBook'
 import ChangePassword from '../components/containers/Information/ChangePassword'
-
+import CreditEdit from '../components/containers/Payment/CreditCard'
+import axios from 'axios'
 const CloneBody = styled.div`
   display: flex;
   flex-direction: column;
@@ -63,6 +64,7 @@ const TextLink = styled.p`
 `
 
 const Information = ({ location, history }) => {
+  // const [credits, setCredits] = useState([])
   const [pageShow, setPageShow] = useState('information')
   const [actives, setActives] = useState({
     information: true,
@@ -76,6 +78,11 @@ const Information = ({ location, history }) => {
     setPageShow(key)
     setActives({ [key]: true })
   }
+
+  // const getCredits = async ( ) => {
+  //   const res = await axios('https://otop-d5bqdesqsq-an.a.run.app//v01/api/account/'+ localStorage.getItem('id'))
+  //   setCredits(res.data.)
+  // }
 
   return (
     <CloneBody>
@@ -120,7 +127,7 @@ const Information = ({ location, history }) => {
               information: <Profile />,
               address: <Address />,
               pwd: <ChangePassword />,
-              payment: null,
+              payment: <CreditEdit />,
               history: null,
             }[pageShow]
           }
