@@ -1,22 +1,14 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React, { useEffect } from 'react'
+import { Link, navigate } from 'gatsby'
 import Layout from '../components/common/Layout'
 import Image from '../components/common/image'
 import SEO from '../components/utility/seo'
 
-const IndexPage = ({ location }) => (
-  <Layout location={location}>
-    {/* <Container></Container> */}
-
-    <SEO title="Home" />
-    <h1>Hi Poon</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+const IndexPage = ({ location, history }) => {
+  useEffect(() => {
+    navigate('/home')
+  }, [])
+  return <Layout location={location} history={history}></Layout>
+}
 
 export default IndexPage
