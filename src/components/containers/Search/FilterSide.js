@@ -83,11 +83,22 @@ const WrapForm = styled.div`
   margin-top: 3.3rem;
 `
 
-const FilterSide = () => {
+const FilterSide = props => {
   const [option, setOption] = useState('')
+  const [region, setRegion] = useState('')
+  const [sort, setSort] = useState('')
+  const [min, setMin] = useState('')
+  const [max, setMax] = useState('')
 
-  const handleChange = event => {
-    setOption(event.target.value)
+  const handleFilterSubmit = () => {
+    props.setFilters({
+      sortby: sort,
+      cata: option,
+      region: region,
+      price_min: min,
+      price_max: max,
+    })
+    props.getProduct()
   }
 
   return (
@@ -96,7 +107,7 @@ const FilterSide = () => {
         <TextTopic>ค้นหาแบบละเอียด</TextTopic>
         <SelectFlat
           value={option}
-          onChange={handleChange}
+          onChange={e => setOption(e.target.value)}
           placeholder="หมวดหมู่"
           options={[
             { label: 'ผลไม้', value: 'ผลไม้' },
@@ -105,7 +116,22 @@ const FilterSide = () => {
             { label: 'อื่นๆ', value: 'อื่นๆ' },
           ]}
         />
-        <SelectFlat placeholder="ภูมิภาค" margin_form="2.6rem 0" />
+        <SelectFlat
+          value={region}
+          onChange={e => setRegion(e.target.value)}
+          border_radius=".3rem"
+          placeholder="ภูมิภาค"
+          // border=".15rem solid #BDBDBD"
+          margin_form="2.6rem 0"
+          options={[
+            { label: 'ภาคเหนือ', value: 'ภาคเหนือ' },
+            { label: 'ภาคอีสาน', value: 'ภาคอีสาน' },
+            { label: 'ภาคตะวันออก', value: 'ภาคตะวันออก' },
+            { label: 'ภาคกลาง', value: 'ภาคกลาง' },
+            { label: 'ภาคตะวันตก', value: 'ภาคตะวันตก' },
+            { label: 'ภาคใต้', value: 'ภาคใต้' },
+          ]}
+        />
         <WrapPrice>
           <TextFilter>ราคา</TextFilter>
           <WrapSort>
@@ -114,21 +140,36 @@ const FilterSide = () => {
               margin="normal"
               variant="outlined"
               placeholder="น้อยสุด"
+              value={min}
+              onChange={e => setMin(e.target.value)}
             />
             <TextFieldMinMax
               defaultValue=""
               margin="normal"
               variant="outlined"
               placeholder="มากสุด"
+              value={max}
+              value={e => setMax(e.target.value)}
             />
           </WrapSort>
         </WrapPrice>
         <WrapSort>
           <TextFilter>เรียงตาม</TextFilter>
           <SelectFlat
+            value={sort}
+            onChange={e => setSort(e.target.value)}
             placeholder="เรียงตาม"
             displayEmpty={false}
             width="188px"
+            options={[
+              { label: 'ชื่อ', value: 'searchbyname' },
+              { label: 'ราคา(น้อยไปมาก)', value: 'sortbyprice1' },
+              { label: 'ราคา(มากไปน้อย)', value: 'sortbyprice_1' },
+              { label: 'ความนิยม(น้อยไปมาก)', value: 'sortbyrating1' },
+              { label: 'ความนิยม(มากไปน้อย)', value: 'sortbyrating_1' },
+              { label: 'ขายแล้ว(น้อยไปมาก)', value: 'sortbysell1' },
+              { label: 'ขายแล้ว(มากไปน้อย)', value: 'sortbysell_1' },
+            ]}
           />
         </WrapSort>
         <WrapForm>
@@ -146,6 +187,7 @@ const FilterSide = () => {
             font_weight="normal"
             color_btn="#F2F2F2"
             font_size="17px"
+            onClick={handleFilterSubmit}
           >
             ตกลง
           </ButtonFlat>

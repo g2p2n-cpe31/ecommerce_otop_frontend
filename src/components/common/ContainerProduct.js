@@ -7,14 +7,16 @@ const Container = styled.div`
   width: 100%;
   min-height: 100vh;
   max-width: 82rem;
-  display: flex;
   border-top: 2px solid #e0e0e0;
+  /* display: flex;
   justify-content: space-around;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
+  display: grid;
+  grid-template-columns: auto auto auto;
 `
 
-const ContainerProduct = () => {
-  const [products] = useState([])
+const ContainerProduct = props => {
+  // const [products] = useState([])
 
   // const getProduct = async () => {
   //   try {
@@ -30,12 +32,18 @@ const ContainerProduct = () => {
 
   return (
     <Container>
-      {products.map(item => (
-        <ItemProduct name={item.name} price={item.phoneNumber} />
+      {props.product.map((item, key) => (
+        <ItemProduct
+          key={key}
+          name={item.name}
+          price={item.price}
+          rating={item.rating}
+          total={item.total}
+        />
       ))}
+      {/* <ItemProduct />
       <ItemProduct />
-      <ItemProduct />
-      <ItemProduct />
+      <ItemProduct /> */}
     </Container>
   )
 }

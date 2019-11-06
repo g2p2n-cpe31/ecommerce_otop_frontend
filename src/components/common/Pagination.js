@@ -68,10 +68,10 @@ const IconPaging = styled.img`
 `
 
 const theme = createMuiTheme()
-const PaginationComponent = () => {
+const PaginationComponent = props => {
   const [offset, setOffset] = useState(0)
   const handleClick = offset => setOffset(offset)
-  
+
   return (
     <ContainerPagination>
       <MuiThemeProvider theme={theme}>
@@ -96,6 +96,7 @@ const PaginationComponent = () => {
         border_radius="1px"
         width="43px"
         height="22px"
+        onClick = {() => props.getProductOne()}
       >
         ไป
       </ButtonFlat>
