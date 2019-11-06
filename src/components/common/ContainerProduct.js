@@ -13,8 +13,8 @@ const Container = styled.div`
   flex-wrap: wrap;
 `
 
-const ContainerProduct = () => {
-  const [products] = useState([])
+const ContainerProduct = props => {
+  // const [products] = useState([])
 
   // const getProduct = async () => {
   //   try {
@@ -30,12 +30,12 @@ const ContainerProduct = () => {
 
   return (
     <Container>
-      {products.map(item => (
-        <ItemProduct name={item.name} price={item.phoneNumber} />
+      {props.product.map(item => (
+        <ItemProduct name={item.name} price={item.price} rating={item.rating} total={item.total} />
       ))}
+      {/* <ItemProduct />
       <ItemProduct />
-      <ItemProduct />
-      <ItemProduct />
+      <ItemProduct /> */}
     </Container>
   )
 }

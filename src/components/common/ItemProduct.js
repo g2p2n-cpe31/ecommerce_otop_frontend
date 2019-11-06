@@ -135,9 +135,9 @@ const ItemProduct = ({
         <ContainerFooterItem>
           <ContainerStar>
             <IconStar src={ImgStarVote} />
-            <VoteNumber>4.2</VoteNumber>
+            <VoteNumber>{props.rating}</VoteNumber>
           </ContainerStar>
-          <TextSold>ขายแล้ว 125 ชิ้น</TextSold>
+          <TextSold>ขายแล้ว {props.total} ชิ้น</TextSold>
         </ContainerFooterItem>
       </ContainerDetail>
     </Card>
